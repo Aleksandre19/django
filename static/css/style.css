@@ -1,0 +1,8 @@
+html,
+body{
+    height: 100%;
+}
+
+.home-not-logged-section{
+    border: 1px solid red;
+}

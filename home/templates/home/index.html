@@ -1,5 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>It Works!</h1>
+    <section class="container-fluid h-100 home-not-logged-section">
+        <div class="row h-100">
+            <div class="col container-fluid">
+
+                <!-- A page text row -->
+                <div class="row">
+                    <!-- A Page title column -->
+                    <div class="col-12">
+                        <h1>
+                            Tips from doctor Diana about <span>healthcare</span>
+                        </h1>
+                    </div>
+                    <!-- A page description column -->
+                    <div class="col-12">
+                        <h3>
+                             More than one hundred videos about weight loss, Tibetian medicine, diseases, physiology and more...
+                        </h3>
+                    </div>
+                    <!-- Get access column -->
+                    <div class="col-12">
+                        <form>
+                            <div class="row">
+                                <div class="col-7">
+                                    <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-5">
+                                    <button type="submit" class="btn btn-primary">Get Access</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- A page video's row -->
+                <div class="row">
+                    <div class="col">
+                        <a href="">
+                            <img src="media/videos/thumbinals/home-page-video-thumb.jpg" alt="Thumbinal for video"
+                        </a>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </section>    
 {% endblock %}
