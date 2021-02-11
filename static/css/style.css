@@ -322,3 +322,43 @@ body{
 }
 
 
+/******* Styled for Iphone 5 and similar size devices ********/
+
+@media (max-width: 320px){
+
+    .get-access-btn{
+        font-size: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .get-access-form{
+        margin-top: 20px !important;
+    }
+
+    .sm-home-first-section-video {
+        margin-top: 29px;
+    }
+
+    .sm-home-first-section-desc{
+        text-align: center;
+    }
+
+    .welcome-text{
+        margin-top: 93px;
+    }
+
+    .subscription-description{
+        text-align: center;
+    }
+
+    .timer{
+        font-size: 39px;
+    }
+
+    .first-card-nav-link {
+        padding-left: 6%;
+    }
+}
+
+
