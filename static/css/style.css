@@ -1,8 +1,324 @@
+/**  Importing a google fonts **/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap');
+
 html,
 body{
     height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    font-size: 16px; 
+    background-color: #f3f3f3;
 }
 
-.home-not-logged-section{
-    border: 1px solid red;
+/**  Settign a background image to first section for mobile devices **/
+.home-first-section-not-logged-in{
+    background-image: url('/media/img/sm/sm-home-first-section-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+/** General styles for icons **/
+.titles-icon{
+    font-size: 24px;
+    color: #81c91e;
+}
+
+/** General styles for titles **/
+.titles{
+    font-size: 20px;
+    line-height: 32px;
+    color: #6e6e6e;
+}
+
+.top-header{
+    height: 90px;
+    background-image: url('/media/img/sm/sm-top-menu-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.search-wrapper{
+    width: 100%;
+}
+
+.search-col{
+    padding: 0;
+}
+
+.user-acount-icon{
+    color: #7a618f;
+    padding-left: 9%;
+    font-size: 32px;
+    padding: 5px 0px 0px 10px;
+}
+
+/** Haburgare Menu **/
+
+.navbar-light .navbar-toggler{
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar-toggler {
+    border-radius: 0;
+    padding: 0;
+    border: none;
+}
+
+/** Overwriting a customb bootstrap's hamburager menu color **/
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(161, 126, 163, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/** Search Input Tag **/
+.video-search{
+    background-color: rgba(161, 128, 163, 0.3);
+    border: solid 1px #a180a3;
+}
+
+/**  Fixing Burger menui's hight because the search box and
+     account icon goes down when menu expands down **/
+.burger-menu-col{
+    height: 65px;
+}
+
+/** Styling top main menu links for mobile devies  **/
+.top-main-menu a{
+    font-family: 'Poiret One';
+    color: #fff !important;
+    text-transform: uppercase;
+}
+
+/** Styling a welcoming text **/
+.welcome-text{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 120px;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+.welcome-text span{
+    color: #fb9af4;
+}
+
+/** First section description for mobile devices **/
+.sm-home-first-section-desc{
+    font-size: 12px;
+    line-height: 18px;
+    /* margin-top: 20px; */
+}
+
+.get-access-btn{
+    background-color: rgba(0, 0, 0, .1);
+    border: 2px solid #71b355;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sm-home-first-section-video{
+    margin-top: 71px;
+}
+
+.timer{
+    font-size: 45px;
+    color: #fc01fe;
+}
+
+.timer-title{
+    font-size: 18px;
+}
+
+.sm-subscription-row{
+    background-image: url('/media/img/sm/sm-subscription-block-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.subsc-title,
+.subscription-description{
+    color: white;
+}
+
+.subscriptions-banner{
+    padding: 0;
+    background-color: #fff;
+}
+
+.subsctipsins-cards,
+.sm-home-third-section-row,
+.sm-home-third-section-col{
+    padding: 0;
+}
+
+.cards-row,
+.calendar-row{
+    margin: 0;
+    padding: 0;
+}
+
+.nav-tabs .nav-link.active{
+    color: #f204f6;
+    font-weight: bold;
+}
+
+.nav-link{
+    color: #82ca1e;
+    font-weight: bold;
+}
+
+.first-card-nav-link{
+    padding-left: 12%;
+}
+
+.cards-months-length,
+.cards-saving span,
+.cards-price{
+    font-family: Rubik;
+}
+
+.cards-months-length,
+.cards-saving{
+    margin-bottom: 0;
+}
+
+.cards-content p.cards-months-length,
+.cards-saving span{
+    color: #82ca1e;
+}
+
+.card-scale-img-wrapper,
+.cards-saving,
+.cards-price,
+.cards-currency,
+.cards-desc,
+.cards-choose-btn-wrapper{
+    text-align: center;
+}
+
+.cards-price{
+    font-size: 70px;
+    color: #6f6f6f;
+}
+
+.cards-currency{
+    margin-top: -20px;
+    font-weight: bold;
+    color: #6f6f6f;
+}
+
+.cards-choose-btn{
+    background-image: url('/media/img/general/cards-choose-btn-bg.jpg');
+    background-repeat: repeat-x;
+    background-position: left;
+}
+
+.sm-home-third-section-row{
+    margin: 0;
+}
+
+.faq-title{
+    font-size: 18px;
+}
+
+/* Manipulating with style to expand the background
+   of the faq's block */
+.wrapper-for-blocks-bg,
+.faq-block-top-bg,
+.faq-block-bottom-bg{
+    margin-left: -30px;
+    transform: translateX(15px);
+}
+
+.wrapper-for-blocks-bg{
+    background-color: #dcdcdc;
+    
+}
+
+.home-faq-wrapper{
+    width: 86%;
+    margin: auto;
+}
+
+/* Styling a div to create a vertical bg effect for section blocks */
+.top-and-bottom-block-bg{
+    height: 30px;
+}
+
+.faq-block-top-bg{
+    background-image: url('/media/img/sm/faq-block-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.faq-block-bottom-bg{
+    background-image: url('/media/img/sm/faq-block-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.faq-questions{
+    width: 100%;
+    text-align: left;
+    background-image: url('/media/img/sm/faq-questions-bg.jpg');
+    background-repeat: repeat-x;
+    background-position: left;
+}
+
+.faq-questions-p{
+    margin-bottom: 0;
+}
+
+.showen-month{
+    color: #fc01fe;
+}
+
+.fa-angle-left,
+.fa-angle-right{
+    color: #65cd00;
+}
+
+/* Manipulating with style to expand the background
+   of the calendar's block */
+
+.table-wrapper-for-blocks-bg,
+.calendar-blocks-top-bg,
+.calendar-blocks-bottom-bg{
+    transform: translateX(29px);
+    margin-left: -61px;
+}
+
+.table-wrapper-for-blocks-bg{
+    background-color: white;
+}
+
+.calendar-wrapper{
+    padding: 0px 26px 0px 31px;
+}
+
+.calendar-blocks-top-bg{
+    background-image: url('/media/img/sm/calendar-blocks-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.calendar-blocks-bottom-bg{
+    background-image: url('/media/img/sm/calendar-blocks-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Making margins between content and a footer manu */
+.margin-between-footer-menu-and-content{
+    width: 100%;
+    height: 60px;
+}
+
+.calendar-devider{
+    margin: 0;
+}
+
+
