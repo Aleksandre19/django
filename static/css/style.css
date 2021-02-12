@@ -14,7 +14,8 @@ body{
 }
 
 /**  Settign a background image to first section for mobile devices **/
-.home-first-section-not-logged-in{
+.home-first-section-not-logged-in,
+.sm-home-first-section-logged-in{
     background-image: url('/media/img/sm/sm-home-first-section-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
