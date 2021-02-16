@@ -4,90 +4,146 @@
     {% if request.user.is_authenticated %}
         <!-- Page Container -->
         <div class="container-fluid  h-100">
+
             <!-- First Section -->
             <section class="row h-100 sm-home-first-section-logged-in">
                 <div class="col h-100">
                     <div class="row">
-                        <div class="col-12 home-first-section-video-container">
-                            <h3><i class="fas fa-hourglass-start"></i> New Video</h3>
-                            <div class="embed-responsive embed-responsive-16by9">
+                        <!-- Video's Block -->
+                        <div class="col-12 home-first-section-video-container position-relative">
+                            <!-- Video's Block Title -->
+                            <h3 class="text-white titles"><i class="fas fa-video titles-icon pr-2"></i> New Video</h3>
+                            <!-- Video -->
+                            <div class="mt-3 embed-responsive embed-responsive-16by9">
                                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                             </div>
-                            <div class="container-for-action-buttons">
+                            <!-- END a Video -->
+
+                            <!-- Action Button's Div -->
+                            <div class="container-for-action-buttons position-absolute">
                                 <div class="row">
-                                    <div class="col-12"><i class="fas fa-plus-square"></i></div>
-                                    <div class="col-12"><i class="far fa-thumbs-up"></i></div>
-                                    <div class="col-12"><i class="far fa-eye"></i></div>
+                                    <!-- Add To My Lists's Button -->
+                                    <div class="col-12 text-right mb-3">
+                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                    </div>
+                                    <!-- Like's Button -->
+                                    <div class="col-12 text-right mb-3">
+                                        <a href="#" class="text-secondary">
+                                            <i class="far fa-thumbs-up"></i>
+                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                    </div>
+                                    <!-- Views Button -->
+                                    <div class="col-12 text-right">
+                                        <a href="#" class="text-secondary">
+                                            <i class="far fa-eye"></i>
+                                        </a><small class="text-secondary action-buttons-value">(247)</small>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- END a Action's Buttons Div -->
                         </div>
-                        <div class="col-12 home-first-section-event-container">
+                        <!-- END a Video's Block -->
+
+                        <!-- Event's Block -->
+                        <div class="col-12 home-first-section-event-container mt-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <h3><i class="fas fa-calendar-day"></i>Summery of the year 2020</h3>
-                                    <p>During this event I will summarize generally a healthcare situation in 2020.</p>
+                                    <!-- Event's Title -->
+                                    <h3 class="titles text-white"><i class="fas fa-calendar-day titles-icon pr-3"></i>Summery of the year 2020</h3>
+                                    <!-- Event's Description -->
+                                    <p class="event-desc text-white mt-3">During this event I will summarize generally a healthcare situation in 2020.</p>
                                 </div>
+                                <!-- Timer's Block -->
                                 <div class="col-12">
                                     <table class="table table-borderless">
-                                        <thead>
+                                        <!-- Time -->
+                                        <thead class="timer event-table-head">
                                             <tr>
-                                                <td>23 : </td>
-                                                <td>24 : </td>
-                                                <td>14 : </td>
-                                                <td>06 : </td>
+                                                <td>23 :</td>
+                                                <td>24 :</td>
+                                                <td>14 :</td>
+                                                <td class="text-left">06</td>
                                             </tr>
-                                        </thead>  
-                                        <tbody>
+                                        </thead> 
+                                        <!-- END a Time --> 
+                                        <!-- Time's Units -->
+                                        <tbody class="text-white font-italic text-left small event-table-body">
                                             <tr>
-                                                <td>Days</td>
-                                                <td>Houres</td>
-                                                <td>Minutes</td>
-                                                <td>Seconds</td>
+                                                <td class="pr-3">Days</td>
+                                                <td class="pr-4">Houres</td>
+                                                <td class="pr-4">Minutes</td>
+                                                <td class="text-left">Seconds</td>
                                             </tr>
                                         </tbody>  
+                                        <!-- END a Time's Unites -->
                                     </table>
                                 </div>
+                                <!-- END a Timer's Block -->
                             </div>    
                         </div>
+                        <!-- END a Event's Block -->
                     </div>
                     
                 </div>
             </section>
             <!-- END First Section -->
+
             <!-- Second section -->
             <section class="row home-mylist-section">
+
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg mylist-top-bg mt-4"> &nbsp </div>
                 <!-- Video's Block -->
-                <div class="col-12 seconds-sections-first-block">
+                <div class="col-12 sections-block">
                     <div class="sections-content-wrapper">
                         <!-- My List Title -->
-                        <h3><i class="fas fa-th-list"></i> My List</h3>
+                        <h3 class="titles mt-4"><i class="fas fa-th-list titles-icon pr-2"></i> My List</h3>
 
-                        <div class="row">
-                            <!-- Left Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-left"></i></div>
+                        <div class="row mt-4 margin-0">
                             <!-- Video -->
-                            <div class="col-8">
+                            <div class="col-12 padding-0">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <!-- Video -->
-                            <!-- Right Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-right"></i></div>
-                        </div>
 
+                            <!-- Switchers -->
+                            <div class="col-12 videos-switchers">
+                                <div class="row">
+                                    <!-- Left Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                    <div class="col-8">&nbsp</div>
+                                    <!-- Right Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                            <!-- END a Switchers -->
+
+                             <!-- Videos's Description -->
+                            <div class="padding-0 col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <p>    
+                            </div>
+                            <!-- Video's Description -->
+                        </div>
                     </div>
                 </div>
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg mylist-bottom-bg"> &nbsp </div>
                 <!-- END Video's Block -->
                 
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg calendar-blocks-top-bg mt-1"> &nbsp </div>
                 <!-- Calendar Block -->
-                <div class="col-12 seconds-sections-second-block">
+                <div class="col-12 sections-block bg-white">
                     <div class="sections-content-wrapper">
-                        <div class="table-responsive calendar-wrapper text-left">
+                        <div class="logged-in-users-table table-responsive calendar-wrapper text-left">
                             <!-- Calendar Title -->  
                             <div class="row">
                                 <div class="col-12">  
-                                    <h3 class="titles text-capitilize"> <i class="titles-icon far fa-clock mr-2"></i> Upcoming Events </h3>
+                                    <h3 class="titles text-capitilize mt-2"> <i class="titles-icon far fa-clock mr-2"></i> Upcoming Events </h3>
                                 </div>
 
                                 <!-- Calendar Switcher -->
@@ -170,50 +226,102 @@
                     </div>
                 </div>
                 <!-- END Calendar Block -->
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg calendar-blocks-bottom-bg"> &nbsp </div>
+
             </section>
-            <!-- END Second Section -->
+            <!-- END a Second Section -->
 
             <!-- Third Section -->  
             <section class="row home-third-section">
                 <!-- Continiu Watching's Block -->
-                <div class="col-12">
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg continue-top-bg mt-1"> &nbsp </div>
+                <!-- Video's Block -->
+                <div class="col-12 continue-sections-block">
                     <div class="sections-content-wrapper">
-                        <h3><i class="far fa-eye"></i> Continue Watching</h3>
-                        <div class="row">
-                            <!-- Left Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-left"></i></div>
+                        <!-- Continue Watching Block's Title -->
+                        <h3 class="titles"><i class="far fa-eye titles-icon pr-2"></i> Continue Watching</h3>
+
+                        <div class="row mt-4 margin-0">
                             <!-- Video -->
-                            <div class="col-8">
+                            <div class="col-12 padding-0">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <!-- Video -->
-                            <!-- Right Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-right"></i></div>
+
+                            <!-- Switchers -->
+                            <div class="col-12 videos-switchers">
+                                <div class="row">
+                                    <!-- Left Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                    <div class="col-8">&nbsp</div>
+                                    <!-- Right Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                            <!-- END a Switchers -->
+
+                             <!-- Videos's Description -->
+                            <div class="padding-0 col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <p>    
+                            </div>
+                            <!-- Video's Description -->
                         </div>
                     </div>
                 </div>
+                <!-- END Video's Block -->
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg continue-bottom-bg"> &nbsp </div>
                 <!-- END Continue Watching's Block -->
+
                 <!-- Videos By Atanomy's Block -->
-                <div class="col-12">
-                    <div class="ections-content-wrapper">
-                        <h3><img src="media/icons/anatomy-icon.png" alt="Anatomy's Icon"> The Most Viewed Videos By Anatomy</h3>
-                        <div class="row">
-                            <!-- Left Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-left"></i></div>
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg anatomy-top-bg mt-1"> &nbsp </div>
+                <!-- Video's Block -->
+                <div class="col-12 anatomy-sections-block bg-white">
+                    <div class="sections-content-wrapper">
+                        <!-- Videos By Anatomy Block's Title -->
+                        <h3 class="titles"><img src="media/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Anatomy's Icon">Videos By <span class="highlight-blocks-subject">Anatomy</span></h3>
+
+                        <div class="row mt-4 margin-0">
                             <!-- Video -->
-                            <div class="col-8">
+                            <div class="col-12 padding-0">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <!-- Video -->
-                            <!-- Right Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-right"></i></div>
+
+                            <!-- Switchers -->
+                            <div class="col-12 videos-switchers">
+                                <div class="row">
+                                    <!-- Left Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                    <div class="col-8">&nbsp</div>
+                                    <!-- Right Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                            <!-- END a Switchers -->
+
+                            <!-- Videos's Description -->
+                            <div class="padding-0 col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <p>    
+                            </div>
+                            <!-- Video's Description -->
                         </div>
                     </div>
                 </div>
+                <!-- END Video's Block -->
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg anatomy-bottom-bg"> &nbsp </div>
                 <!-- END Videos By Atanomy's Block -->
             </section>       
             <!-- END Third Section -->
@@ -221,65 +329,94 @@
             <!-- Fourth Section -->
             <section class="row home-fourth-section">
                 <!-- Last Feedback's Block -->
-                <div class="col-12">
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg feedbacks-top-bg mt-1"> &nbsp </div>
+                <!-- Video's Block -->
+                <div class="col-12 feedbacks-block">
                     <div class="sections-content-wrapper">
-                        <!-- Feedback Title -->
-                        <h3><i class="far fa-comments"></i> Last Feedback</h3>
+                        <!-- Videos By Anatomy Block's Title -->
+                       <!-- Feedback Title -->
+                        <h3 class="titles mb-3 mt-3 text-white"><i class="far fa-comments text-white titles-icon pr-2"></i> Last Feedback</h3>
                         <div class="feedbacks-content-wrapper">
-                            <div class="row">
-                                    <!-- User's Avatar -->
-                                   <div class="col-4">
-                                        <img src="media/img/general/avatar/feedback-avatar.jpg" class="rounded-circle" width="75" alt="Feedback's Avatar">
-                                   </div>
-                                   <!-- END a User's Avatar-->
-                                   <div class="col-8">
-                                        <div class="row">
-                                            <!-- Feedback's text -->
-                                            <div class="col-12">
-                                                <p>
-                                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
-                                                </p>
-                                            </div>
-                                            <!-- END a feedback's text -->
-                                            <div class="col-12">
-                                                <div class="row">
-                                                    <!-- User's name -->
-                                                    <div class="col-6">
-                                                        <small>Aleksandre Voronini</small>
-                                                    </div>
-                                                    <!-- Feedback's Date -->
-                                                    <div class="col-6">
-                                                        <small>2020-09-23</small>
-                                                    </div> 
-                                                </div>
-                                            </div>
+                            <div class="row feedbacks-row">
+                                <!-- User's Avatar -->
+                                <div class="col-3 feedback-avatar-col">
+                                    <img src="media/img/general/avatar/feedback-avatar.jpg" class="rounded-circle mt-3 feedbacks-avatar" width="75" alt="Feedback's Avatar">
+                                </div>
+                                <!-- END a User's Avatar-->
+                                <div class="col-9 feedback-text-col">
+                                    <!-- Feedback's text -->
+                                        <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2">
+                                            <p>
+                                                “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
+                                            </p>
+                                        </blockquote>
+                                    <!-- END a feedback's text -->
+                                </div>
+                                <div class="col-12 text-white mt-2">
+                                    <div class="row">
+                                        <!-- User's name -->
+                                        <div class="col-6">
+                                            <p class="small font-weight-lighter font-italic">Aleksandre Voronini</p>
                                         </div>
-                                   </div> 
+                                        <!-- Feedback's Date -->
+                                        <div class="col-6">
+                                            <p class="small font-weight-lighter font-italic text-right">2021-02-10</p>
+                                        </div> 
+                                    </div>
+                                 </div> 
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
+                <!-- END Video's Block -->
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg feedbacks-bottom-bg"> &nbsp </div>
                 <!-- END Last Feedback's Block -->
                 
                 <!-- Videos By Deseases's Block -->
-                <div class="col-12">
-                    <div class="ections-content-wrapper">
-                        <h3><img src="media/icons/deases-icon.png" alt="Anatomy's Icon"> The Most Viewed Videos By Diseases</h3>
-                        <div class="row">
-                            <!-- Left Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-left"></i></div>
+                 <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg diseases-top-bg mt-1"> &nbsp </div>
+                <!-- Video's Block -->
+                <div class="col-12 bg-white">
+                    <div class="sections-content-wrapper">
+                        <!-- Videos By Diseases Block's Title -->
+                        <h3 class="titles mt-3"><img src="media/icons/diseases-icon.png" width="45px" class="pr-1" alt="Diseases's Icon"> Videos By <span class="highlight-blocks-subject">Diseases</span></h3>
+
+                        <div class="row mt-4 margin-0">
                             <!-- Video -->
-                            <div class="col-8">
+                            <div class="col-12 padding-0">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <!-- Video -->
-                            <!-- Right Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-right"></i></div>
+
+                            <!-- Switchers -->
+                            <div class="col-12 videos-switchers">
+                                <div class="row">
+                                    <!-- Left Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                    <div class="col-8">&nbsp</div>
+                                    <!-- Right Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                            <!-- END a Switchers -->
+
+                             <!-- Videos's Description -->
+                            <div class="padding-0 col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <p>    
+                            </div>
+                            <!-- Video's Description -->
                         </div>
                     </div>
                 </div>
+                <!-- END Video's Block -->
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg diseases-bottom-bg"> &nbsp </div>
                 <!-- END Videos By Deases's Block -->
             </section>
             <!-- END Fourth Section -->
@@ -287,49 +424,96 @@
             <!-- Fifth Section -->  
             <section class="row home-fifth-section">
                 <!-- Videos By Subject's Block -->
-                <div class="col-12">
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg subjects-top-bg mt-1"> &nbsp </div>
+                <!-- Video's Block -->
+                <div class="col-12 subjects-blocks-bg">
                     <div class="sections-content-wrapper">
-                        <!-- Block's Title -->
-                        <h3><img src="media/icons/deases-icon.png" alt="Anatomy's Icon"></i> The Most Viewed Videos By Subjects</h3>
-                        <div class="row">
-                            <!-- Left Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-left"></i></div>
+                        <!-- Videos By Subject Block's Title -->
+                        <h3 class="titles mt-3"><img src="media/icons/subjects-icon.png" width="45px" class="pr-2" alt="Diseases's Icon"> Videos By <span class="highlight-blocks-subject">Subjects</span></h3>
+
+                        <div class="row mt-4 margin-0">
                             <!-- Video -->
-                            <div class="col-8">
+                            <div class="col-12 padding-0">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <!-- Video -->
-                            <!-- Right Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-right"></i></div>
+
+                            <!-- Switchers -->
+                            <div class="col-12 videos-switchers">
+                                <div class="row">
+                                    <!-- Left Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                    <div class="col-8">&nbsp</div>
+                                    <!-- Right Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                            <!-- Switchers -->
+
+                             <!-- Videos's Description -->
+                            <div class="padding-0 col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <p>    
+                            </div>
+                            <!-- Video's Description -->
                         </div>
                     </div>
                 </div>
+                <!-- END Video's Block -->
+                <!-- Block's Bottom Background -->
+                <div class="top-and-bottom-block-bg blocks-bottom-bg subjects-bottom-bg"> &nbsp </div>
                 <!-- END Videos By Subject's Block -->
+
                 <!-- Playlist's Block -->
-                <div class="col-12">
-                    <div class="ections-content-wrapper">
-                        <h3><i class="fas fa-stream"></i> Playlists</h3>
-                        <div class="row">
-                            <!-- Left Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-left"></i></div>
+                <!-- Block's Top Background -->
+                <div class="top-and-bottom-block-bg blocks-top-bg playlists-top-bg mt-1"> &nbsp </div>
+                <!-- Video's Block -->
+                <div class="col-12 bg-white">
+                    <div class="sections-content-wrapper">
+                        <!-- Videos By Playlist Block's Title -->
+                        <h3 class="titles mt-1"><i class="fas fa-stream pr-2 titles-icon"></i>Playlists</h3>
+
+                        <div class="row mt-4 margin-0">
                             <!-- Video -->
-                            <div class="col-8">
+                            <div class="col-12 padding-0">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <!-- Video -->
-                            <!-- Right Arrow -->
-                            <div class="col-1"><i class="fas fa-angle-right"></i></div>
+
+                            <!-- Switchers -->
+                            <div class="col-12 videos-switchers">
+                                <div class="row">
+                                    <!-- Left Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                    <div class="col-8">&nbsp</div>
+                                    <!-- Right Arrow -->
+                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                            <!-- END a Switchers -->
+
+                             <!-- Videos's Description -->
+                            <div class="padding-0 col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <p>    
+                            </div>
+                            <!-- Video's Description -->
                         </div>
                     </div>
                 </div>
+                <!-- END Video's Block -->
                 <!-- END Playlist's Block -->
+
             </section>       
             <!-- END fifth Section -->
-            
+            <div class="div-for-bottom-margin"> &nbsp </div>
         </div>
         <!-- END Page Container -->
     {% else %}

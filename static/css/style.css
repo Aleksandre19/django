@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 html,
 body{
@@ -23,13 +24,14 @@ body{
 
 /** General styles for icons **/
 .titles-icon{
-    font-size: 24px;
+    font-size: 30px;
     color: #81c91e;
 }
 
 /** General styles for titles **/
 .titles{
-    font-size: 20px;
+    font-family: Quicksand;
+    font-size: 24px;
     line-height: 32px;
     color: #6e6e6e;
 }
@@ -45,8 +47,12 @@ body{
     width: 100%;
 }
 
-.search-col{
+.padding-0{
     padding: 0;
+}
+
+.margin-0{
+    margin: 0;
 }
 
 .user-acount-icon{
@@ -106,7 +112,8 @@ body{
 }
 
 /** First section description for mobile devices **/
-.sm-home-first-section-desc{
+.sm-home-first-section-desc,
+.event-desc{
     font-size: 12px;
     line-height: 18px;
     /* margin-top: 20px; */
@@ -234,9 +241,19 @@ body{
     transform: translateX(15px);
 }
 
-.wrapper-for-blocks-bg{
+.wrapper-for-blocks-bg,
+.sections-block,
+.subjects-blocks-bg{
     background-color: #dcdcdc;
     
+}
+
+.continue-sections-block{
+    background-color: #ddbde2;
+}
+
+.feedbacks-block{
+    background-color: #66cd00;
 }
 
 .home-faq-wrapper{
@@ -249,14 +266,77 @@ body{
     height: 30px;
 }
 
-.faq-block-top-bg{
+.faq-block-top-bg,
+.mylist-top-bg{
     background-image: url('/media/img/sm/faq-block-top-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.faq-block-bottom-bg{
+.continue-top-bg{
+    background-image: url('/media/img/sm/continue-blocks-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.anatomy-top-bg,
+.playlists-top-bg{
+    background-image: url('/media/img/sm/anatomy-blocks-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feedbacks-top-bg{
+    background-image: url('/media/img/sm/feedbacks-blocks-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.diseases-top-bg{
+    background-image: url('/media/img/sm/diseases-blocks-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.subjects-top-bg{
+    background-image: url('/media/img/sm/subjects-block-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.faq-block-bottom-bg,
+.mylist-bottom-bg{
     background-image: url('/media/img/sm/faq-block-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.continue-bottom-bg{
+    background-image: url('/media/img/sm/continue-blocks-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.anatomy-bottom-bg{
+    background-image: url('/media/img/sm/anatomy-blocks-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feedbacks-bottom-bg{
+    background-image: url('/media/img/sm/feedbacks-blocks-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.diseases-bottom-bg{
+    background-image: url('/media/img/sm/diseases-blocks-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.subjects-bottom-bg{
+    background-image: url('/media/img/sm/subjects-block-bottom-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -323,6 +403,77 @@ body{
 }
 
 
+/******** Styling a home page for logged in users ***********/
+.home-first-section-video-container{
+    margin-top: 100px;
+}
+
+.container-for-action-buttons{
+    bottom: 7%;
+    right: 6%;
+}
+
+.action-buttons-value{
+    font-size: 10px;
+    display: block;
+    margin-top: -2px;
+}
+
+.event-table-head td,
+.event-table-body td{
+    padding: 0;
+    text-align: center;
+}
+
+.blocks-top-bg,
+.blocks-bottom-bg{
+    width: 108%;
+}
+
+.videos-switchers{
+    font-size: 36px;
+}
+
+.feedbacks-text{
+    font-size: 14px;
+}
+
+.feedback-avatar-col,
+.feedback-text-col{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.feedback-avatar-col{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.feedback-text-col{
+    border-radius: 0px 10px 10px 0px;
+}
+
+.feedbacks-row{
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.feedbacks-avatar{
+    border: 3px solid #c0ff80;
+}
+
+.div-for-bottom-margin{
+    height: 56px;
+}
+
+.logged-in-users-table{
+    padding: 0;
+}
+
+.highlight-blocks-subject{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+
 /******* Styled for Iphone 5 and similar size devices ********/
 
 @media (max-width: 320px){
@@ -359,6 +510,10 @@ body{
 
     .first-card-nav-link {
         padding-left: 6%;
+    }
+
+    .home-first-section-event-container{
+        margin-top: 18px !important;
     }
 }
 
