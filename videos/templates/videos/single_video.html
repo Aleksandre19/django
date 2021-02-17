@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pages_style %}
+<link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
+{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+    <!-- Single Video Section -->
+    <section class="single-video-section container-fluid">
+        <div class="row">
+            <!-- Div for margin top to outcome from overlaping of the top menu-->
+            <div class="col-12 single-menu-section-top-margin"> &nbsp; </div>
+
+            <div class="col-12 pl-0">
+                <!-- breadcrumb -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'videos' %}">Videos</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Single Video's Tit...</li>
+                    </ol>
+                </nav>
+                <!-- END a breadcrumb -->
+            </div>
+
+            <!-- Video -->
+            <div class="col-12 position-relative">
+
+                <div class="mt-3 embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+                <!-- END a Video -->
+
+                <!-- Action Button's Div -->
+                <div class="container-for-action-buttons position-absolute">
+                    <div class="row">
+                        <!-- Add To My Lists's Button -->
+                        <div class="col-12 text-right mb-3">
+                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                        </div>
+                        <!-- Like's Button -->
+                        <div class="col-12 text-right mb-3">
+                            <a href="#" class="text-secondary">
+                                <i class="far fa-thumbs-up"></i>
+                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                        </div>
+                        <!-- Views Button -->
+                        <div class="col-12 text-right">
+                            <a href="#" class="text-secondary">
+                                <i class="far fa-eye"></i>
+                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- END a Action's Buttons Div -->
+            </div>
+            <!-- END a Video -->
+
+            <!-- Videos's Description -->
+            <div class="col-12 mt-3">
+                <div class="pl-2 small font-italic"> Published - 2021-02-14 </div>
+                <div class="pl-2 small font-italic"> Platform - Youtube </div>
+                <p class="pl-2 mt-3">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                <p>    
+            </div>
+            <!-- Video's Description -->
+
+
+            <!-- Videos By Atanomy's Block -->
+            <!-- Block's Top Background -->
+            <div class="top-and-bottom-block-bg blocks-top-bg anatomy-top-bg mt-5"> &nbsp </div>
+            <!-- Video's Block -->
+            <div class="col-12 anatomy-sections-block bg-white">
+                <div class="sections-content-wrapper">
+                    <!-- Videos By Anatomy Block's Title -->
+                    <h3 class="titles"><i class="fas fa-stream pr-2 titles-icon"></i>Videos From Same Category</h3>
+
+                    <div class="row mt-4 margin-0">
+                        <!-- Video -->
+                        <div class="col-12 padding-0 position-relative">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                            </div>
+
+                            <!-- Action Button's Div -->
+                            <div class="container-for-action-buttons position-absolute">
+                                <div class="row">
+                                    <!-- Add To My Lists's Button -->
+                                    <div class="col-12 text-right mb-3">
+                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                    </div>
+                                    <!-- Like's Button -->
+                                    <div class="col-12 text-right mb-3">
+                                        <a href="#" class="text-secondary">
+                                            <i class="far fa-thumbs-up"></i>
+                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                    </div>
+                                    <!-- Views Button -->
+                                    <div class="col-12 text-right">
+                                        <a href="#" class="text-secondary">
+                                            <i class="far fa-eye"></i>
+                                        </a><small class="text-secondary action-buttons-value">(247)</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END a Action's Buttons Div -->
+                        </div>
+                        <!-- Video -->
+
+                        <!-- Switchers -->
+                        <div class="col-12 videos-switchers">
+                            <div class="row">
+                                <!-- Left Arrow -->
+                                <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                <div class="col-8">&nbsp;</div>
+                                <!-- Right Arrow -->
+                                <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                        <!-- END a Switchers -->
+
+                        <!-- Videos's Description -->
+                        <div class="padding-0 col-12">
+                            <p class="pl-2">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>    
+                        </div>
+                        <!-- Video's Description -->
+                    </div>
+                </div>
+            </div>
+            <!-- END Video's Block -->
+            <!-- Block's Bottom Background -->
+            <div class="top-and-bottom-block-bg blocks-bottom-bg anatomy-bottom-bg"> &nbsp; </div>
+            <!-- END Videos By Atanomy's Block -->
+
+        </div>
+    </section>
+    <!-- END a Single Video Section -->
+{% else %}
+
+{% endif %}
+
+{% endblock %}

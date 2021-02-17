@@ -72,10 +72,33 @@
                             <div class="row mt-4 margin-0">
 
                                 <!-- Video -->
-                                <div class="col-12 padding-0">
+                                <div class="col-12 padding-0 position-relative">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                     </div>
+
+                                    <!-- Action Button's Div -->
+                                    <div class="container-for-action-buttons position-absolute">
+                                        <div class="row">
+                                            <!-- Add To My Lists's Button -->
+                                            <div class="col-12 text-right mb-3">
+                                                <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                            </div>
+                                            <!-- Like's Button -->
+                                            <div class="col-12 text-right mb-3">
+                                                <a href="#" class="text-secondary">
+                                                    <i class="far fa-thumbs-up"></i>
+                                                </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                            </div>
+                                            <!-- Views Button -->
+                                            <div class="col-12 text-right">
+                                                <a href="#" class="text-secondary">
+                                                    <i class="far fa-eye"></i>
+                                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END a Action's Buttons Div -->
                                 </div>
                                 <!-- Video -->
 
@@ -135,10 +158,33 @@
                             <div class="row mt-4 margin-0">
 
                                 <!-- Video -->
-                                <div class="col-12 padding-0">
+                                <div class="col-12 padding-0 position-relative">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                     </div>
+
+                                    <!-- Action Button's Div -->
+                                    <div class="container-for-action-buttons position-absolute">
+                                        <div class="row">
+                                            <!-- Add To My Lists's Button -->
+                                            <div class="col-12 text-right mb-3">
+                                                <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                            </div>
+                                            <!-- Like's Button -->
+                                            <div class="col-12 text-right mb-3">
+                                                <a href="#" class="text-secondary">
+                                                    <i class="far fa-thumbs-up"></i>
+                                                </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                            </div>
+                                            <!-- Views Button -->
+                                            <div class="col-12 text-right">
+                                                <a href="#" class="text-secondary">
+                                                    <i class="far fa-eye"></i>
+                                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END a Action's Buttons Div -->
                                 </div>
                                 <!-- Video -->
 
@@ -198,10 +244,33 @@
                             <div class="row mt-4 margin-0">
 
                                 <!-- Video -->
-                                <div class="col-12 padding-0">
+                                <div class="col-12 padding-0 position-relative">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                     </div>
+
+                                    <!-- Action Button's Div -->
+                                    <div class="container-for-action-buttons position-absolute">
+                                        <div class="row">
+                                            <!-- Add To My Lists's Button -->
+                                            <div class="col-12 text-right mb-3">
+                                                <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                            </div>
+                                            <!-- Like's Button -->
+                                            <div class="col-12 text-right mb-3">
+                                                <a href="#" class="text-secondary">
+                                                    <i class="far fa-thumbs-up"></i>
+                                                </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                            </div>
+                                            <!-- Views Button -->
+                                            <div class="col-12 text-right">
+                                                <a href="#" class="text-secondary">
+                                                    <i class="far fa-eye"></i>
+                                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END a Action's Buttons Div -->
                                 </div>
                                 <!-- Video -->
 
@@ -479,13 +548,15 @@
 
         // Freezing a opened side menu wile scrolling a page
         $(window).scroll(function(){
-       
-            if($(window).scrollTop() > 0){
-                $("#a-side-menu").removeClass("a-side-menu"); 
-                $("#a-side-menu").addClass("freez-a-side-menu");  
-            }else{
-                $("#a-side-menu").addClass("a-side-menu"); 
-                $("#a-side-menu").removeClass("freez-a-side-menu"); 
+            
+            if($("#a-side-menu").css("left") == "0px"){
+                if($(window).scrollTop() > 0){
+                    $("#a-side-menu").removeClass("a-side-menu"); 
+                    $("#a-side-menu").addClass("freez-a-side-menu");  
+                }else{
+                    $("#a-side-menu").addClass("a-side-menu"); 
+                    $("#a-side-menu").removeClass("freez-a-side-menu"); 
+                }
             }
 
         });
