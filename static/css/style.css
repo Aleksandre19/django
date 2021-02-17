@@ -29,8 +29,11 @@ body{
 }
 
 /** General styles for titles **/
-.titles{
+.titles,
+.side-menu-section-name{
     font-family: Quicksand;
+    font-variant: small-caps;
+    text-transform: capitalize;
     font-size: 24px;
     line-height: 32px;
     color: #6e6e6e;

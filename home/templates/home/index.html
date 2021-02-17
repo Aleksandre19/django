@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- IF a user is logged in this section (till '{% else% }') will apear -->
     {% if request.user.is_authenticated %}
         <!-- Page Container -->
         <div class="container-fluid  h-100">
@@ -122,7 +123,7 @@
 
                              <!-- Videos's Description -->
                             <div class="padding-0 col-12">
-                                <p>
+                                <p class="pl-2">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 <p>    
                             </div>
@@ -266,7 +267,7 @@
 
                              <!-- Videos's Description -->
                             <div class="padding-0 col-12">
-                                <p>
+                                <p class="pl-2">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 <p>    
                             </div>
@@ -311,7 +312,7 @@
 
                             <!-- Videos's Description -->
                             <div class="padding-0 col-12">
-                                <p>
+                                <p class="pl-2">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 <p>    
                             </div>
@@ -347,7 +348,7 @@
                                 <div class="col-9 feedback-text-col">
                                     <!-- Feedback's text -->
                                         <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2">
-                                            <p>
+                                            <p class="pl-2">
                                                 “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
                                             </p>
                                         </blockquote>
@@ -406,7 +407,7 @@
 
                              <!-- Videos's Description -->
                             <div class="padding-0 col-12">
-                                <p>
+                                <p class="pl-2">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 <p>    
                             </div>
@@ -455,7 +456,7 @@
 
                              <!-- Videos's Description -->
                             <div class="padding-0 col-12">
-                                <p>
+                                <p class="pl-2">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 <p>    
                             </div>
@@ -500,7 +501,7 @@
 
                              <!-- Videos's Description -->
                             <div class="padding-0 col-12">
-                                <p>
+                                <p class="pl-2">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 <p>    
                             </div>
@@ -516,8 +517,13 @@
             <div class="div-for-bottom-margin"> &nbsp </div>
         </div>
         <!-- END Page Container -->
+
+
     {% else %}
-        <!-- First Section -->
+
+
+    <!-- If a user is not logged in this section will apear -->    
+    <!-- First Section -->
     <section class="container-fluid h-100 home-first-section-not-logged-in">
         <!-- Section Container -->
         <div class="row h-100 container-fluid no-gutters">
@@ -568,7 +574,6 @@
                     </div>
                 </div>
                 <!-- END a Page Video Row -->
-
             </div>    
         </div>
         <!-- END Section Container -->
@@ -582,7 +587,6 @@
         <div class="row">
             <div class="col subscriptions-banner mt-4 mr-3 ml-3 rounded-lg shadow-sm">
                 <div class="container-fluid banner-wrapper">
-
                     <!-- Subscription Text Row -->
                     <div class="row sm-subscription-row rounded-top">
                         <div class="col banners-text">    

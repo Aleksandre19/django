@@ -1,0 +1,495 @@
+{% extends "base.html" %}
+{% load static %}
+{% block pages_style %}
+<link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
+{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <!-- Div wrapper witth position relative for right side menu -->
+        <div class="position-relative">
+            <!-- Video's Page Wrapper -->
+            <div class="container-fluid videos-page-wrapper">
+                <!-- Category's Section -->
+                <section class="row">
+
+                    <div class="col-12">
+                        <div class="row">
+
+                            <div class="col-auto pl-0">
+                                <!-- breadcrumb -->
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Videos</li>
+                                    </ol>
+                                </nav>
+                                <!-- END a breadcrumb -->
+                            </div>
+
+                            
+
+                            <div class="col">&nbsp;</div>
+
+                            <div class="col-4">
+                                <select class="custom-select cat-select" id="open-a-side-menu">
+                                    <option value="">Cat...</option>
+                                </select>
+                                <button type="button" class="ml-2 mb-1 mr-2 mt-2 close" id="a-side-menu-close">
+                                    <span class="x-sign">&times;</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>    
+
+
+                    <!-- CATEGORY ONE -->
+                    <!-- Block's Top Background -->
+                    <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
+
+
+                    <!-- Video's Block -->
+                    <div class="col-12 bg-white">
+                        <div class="sections-content-wrapper">
+                            <!-- Video's Title Block -->
+                            <div class="row">
+                                <!-- Title -->
+                                <div class="col-auto">
+                                    <h3 class="titles videos-title mr-2">Category One</h3>
+                                </div>
+
+                                <!-- Title's Right Line -->
+                                <div class="col align-self-center mt-2 category-names-right-line">
+                                    &nbsp;
+                                </div>
+
+                                <!-- Div for right margin -->
+                                <div class="col-1">&nbsp;</div>
+
+                            </div>
+                            <!-- END a Video's Title Block -->
+
+                            <div class="row mt-4 margin-0">
+
+                                <!-- Video -->
+                                <div class="col-12 padding-0">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <!-- Video -->
+
+                                <!-- Switchers -->
+                                <div class="col-12 videos-switchers">
+                                    <div class="row">
+                                        <!-- Left Arrow -->
+                                        <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                        <div class="col-8">&nbsp</div>
+                                        <!-- Right Arrow -->
+                                        <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                                <!-- END a Switchers -->
+
+                                    <!-- Videos's Description -->
+                                <div class="padding-0 col-12">
+                                    <p class="pl-2">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    <p>    
+                                </div>
+                                <!-- Video's Description -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Video's Block -->
+
+                    <!-- Block's Bottom Background -->
+                    <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+
+                    <!-- CATEGORY TWO -->
+                    <!-- Block's Top Background -->
+                    <div class="top-and-bottom-block-bg blocks-top-bg playlists-top-bg"> &nbsp; </div>
+
+
+                    <!-- Video's Block -->
+                    <div class="col-12 bg-white">
+                        <div class="sections-content-wrapper">
+                            <!-- Video's Title Block -->
+                            <div class="row">
+                                <!-- Title -->
+                                <div class="col-auto">
+                                    <h3 class="titles videos-title mr-2">Category Two</h3>
+                                </div>
+
+                                <!-- Title's Right Line -->
+                                <div class="col align-self-center mt-2 category-names-right-line">
+                                    &nbsp;
+                                </div>
+
+                                <!-- Div for right margin -->
+                                <div class="col-1">&nbsp;</div>
+
+                            </div>
+                            <!-- END a Video's Title Block -->
+
+                            <div class="row mt-4 margin-0">
+
+                                <!-- Video -->
+                                <div class="col-12 padding-0">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <!-- Video -->
+
+                                <!-- Switchers -->
+                                <div class="col-12 videos-switchers">
+                                    <div class="row">
+                                        <!-- Left Arrow -->
+                                        <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                        <div class="col-8">&nbsp</div>
+                                        <!-- Right Arrow -->
+                                        <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                                <!-- END a Switchers -->
+
+                                    <!-- Videos's Description -->
+                                <div class="padding-0 col-12">
+                                    <p class="pl-2">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    <p>    
+                                </div>
+                                <!-- Video's Description -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Video's Block -->
+
+                    <!-- Block's Bottom Background -->
+                    <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+
+                    <!-- CATEGORY THREE -->
+                    <!-- Block's Top Background -->
+                    <div class="top-and-bottom-block-bg blocks-top-bg playlists-top-bg"> &nbsp; </div>
+
+
+                    <!-- Video's Block -->
+                    <div class="col-12 bg-white">
+                        <div class="sections-content-wrapper">
+                            <!-- Video's Title Block -->
+                            <div class="row">
+                                <!-- Title -->
+                                <div class="col-auto">
+                                    <h3 class="titles videos-title mr-2">Category Three</h3>
+                                </div>
+
+                                <!-- Title's Right Line -->
+                                <div class="col align-self-center mt-2 category-names-right-line">
+                                    &nbsp;
+                                </div>
+
+                                <!-- Div for right margin -->
+                                <div class="col-1">&nbsp;</div>
+
+                            </div>
+                            <!-- END a Video's Title Block -->
+
+                            <div class="row mt-4 margin-0">
+
+                                <!-- Video -->
+                                <div class="col-12 padding-0">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <!-- Video -->
+
+                                <!-- Switchers -->
+                                <div class="col-12 videos-switchers">
+                                    <div class="row">
+                                        <!-- Left Arrow -->
+                                        <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
+                                        <div class="col-8">&nbsp;</div>
+                                        <!-- Right Arrow -->
+                                        <div class="col-2"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                                <!-- END a Switchers -->
+
+                                    <!-- Videos's Description -->
+                                <div class="padding-0 col-12">
+                                    <p class="pl-2">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    <p>    
+                                </div>
+                                <!-- Video's Description -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Video's Block -->
+
+                    <!-- Block's Bottom Background -->
+                    <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+
+                </section>
+                <!-- END a Category's Section -->
+            </div>
+            <!-- END a Video's Page Wrapper -->
+
+            <!-- Right Side Menu -->
+            <div class="a-side-menu" id="a-side-menu">
+
+                <ul class="nav flex-column ml-3 side-menu-ul">
+                    <!-- Ctegories -->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
+                            <img src="/media/icons/videos-cat-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon"> Categories
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Category One <span class="badge ml-2 badge-info">17</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Category Two <span class="badge ml-2 badge-info">24</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Category Three <span class="badge ml-2 badge-info">38</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Category Four <span class="badge ml-2 badge-info">12</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Category Five <span class="badge ml-2 badge-info">57</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Category Six <span class="badge ml-2 badge-info">21</span></a>
+                    </li>
+                    <!-- END a Categories -->
+
+                    <!-- Anatomy -->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
+                            <img src="/media/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Anatomy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
+                    </li>
+                    <!-- END a By Anatomy -->
+
+
+                    <!-- By Diseases -->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
+                            <img src="/media/icons/diseases-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Diseases
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
+                    </li>
+                    <!-- END a By Diseases -->
+
+
+                    <!-- By Subjects -->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
+                            <img src="/media/icons/Subjects-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Subjects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
+                    </li>
+                    <!-- END a By Subjects -->
+
+
+                    <!-- By Projects -->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
+                            <img src="/media/icons/projects-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
+                    </li>
+                    <!-- END a By Projects -->
+
+
+                     <!-- By Raitings -->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
+                            <img src="/media/icons/raitings-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Raitings
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span class="badge ml-2 badge-info">17</span>   
+                            </div> 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 80%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span class="badge ml-2 badge-info">21</span>   
+                            </div> 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 65%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span class="badge ml-2 badge-info">12</span>   
+                            </div> 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span class="badge ml-2 badge-info">54</span>   
+                            </div> 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 35%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span class="badge ml-2 badge-info">23</span>   
+                            </div> 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 25%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span class="badge ml-2 badge-info">17</span>   
+                            </div> 
+                        </a>
+                    </li>
+                    <!-- END a Raitings -->
+
+
+                </ul>
+            </div>
+            <!-- END a Right Side Menu -->
+        </div>
+    {% else %}
+
+    {% endif %}
+{% endblock %}
+
+{% block bottom_extra_js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    /* Finding a screen height and asigning it to the video's right side menu */
+    let screenHight = window.screen.height;
+    let topMenuHeight = document.getElementById("top-header").offsetHeight;
+    document.getElementById("a-side-menu").style.height = Number(screenHight - topMenuHeight - 40) + "px";
+    
+    /* Opening and closing a video's side menu by Jquery */
+    $(document).ready(function(){
+        /* Opening */ 
+        $("#open-a-side-menu").click(function(){
+           $("#a-side-menu").animate({
+               left: "0px"
+           },function(){
+               $("#open-a-side-menu").hide(function(){
+                   $("#a-side-menu-close").css({"display" : "block"});
+               });
+           });   
+           return false;  
+        });
+
+
+        /* Closing  */ 
+        $("#a-side-menu-close").click(function(){
+           $("#a-side-menu").animate({
+               left: "-250px"
+           },function(){
+               $("#a-side-menu-close").hide(function(){
+                   $("#open-a-side-menu").css({"display" : "block"});
+               });
+           });   
+           return false;  
+        });
+
+        // Freezing a opened side menu wile scrolling a page
+        $(window).scroll(function(){
+       
+            if($(window).scrollTop() > 0){
+                $("#a-side-menu").removeClass("a-side-menu"); 
+                $("#a-side-menu").addClass("freez-a-side-menu");  
+            }else{
+                $("#a-side-menu").addClass("a-side-menu"); 
+                $("#a-side-menu").removeClass("freez-a-side-menu"); 
+            }
+
+        });
+    });
+</script>
+
+{% endblock %}
