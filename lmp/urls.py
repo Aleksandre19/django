@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from usersprofile import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,9 @@ urlpatterns = [
     path('', include('home.urls')),
     path('videos/', include('videos.urls')),
     path('single/', include('videos.urls')),
+    path('usersprofile', views.users_profile, name='users_profile'),
+    path('profileevents', views.profile_events, name='profile_events'),
+    path('likedvideos', views.liked_videos, name='liked_videos'),
+    path('watchedvideos', views.watched_videos, name='watched_videos'),
+    path('playlists', views.playlists, name='playlists'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

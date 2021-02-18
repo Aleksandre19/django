@@ -350,7 +350,8 @@ body{
     background-size: cover;
 }
 
-.faq-questions{
+.faq-questions,
+.events-title{
     width: 100%;
     text-align: left;
     background-image: url('/media/img/sm/faq-questions-bg.jpg');
@@ -358,7 +359,8 @@ body{
     background-position: left;
 }
 
-.faq-questions-p{
+.faq-questions-p,
+.events-p{
     margin-bottom: 0;
 }
 

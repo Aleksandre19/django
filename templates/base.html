@@ -73,7 +73,7 @@
                     </div>  
                 </div>
                 <div class="col-3">
-                    <a href="#"> <i class="far fa-user-circle mt-3 ml-4 user-acount-icon"></i></a>
+                    <a href="{% url 'users_profile' %}"> <i class="far fa-user-circle mt-3 ml-4 user-acount-icon"></i></a>
                 </div>
 
             </div>    
@@ -82,7 +82,7 @@
         {% block content %}
         {% endblock %}
         <!-- Using this div to make margin between footer manu and rest of content -->
-        <div class="margin-between-footer-menu-and-content">&nbsp</div>
+        <div class="margin-between-footer-menu-and-content">&nbsp;</div>
         <footer id="footer">    
             {% comment %} <nav class="navbar "> {% endcomment %}
                 <ul class="navbar-nav navbar-expand fixed-bottom nav-justified bg-light">
@@ -93,13 +93,13 @@
                         <a href="{% url 'videos' %}" class="nav-link"> <i class="fas fa-video"></i> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"> <i class="fas fa-th-list"></i> </a>
+                        <a href="{% url 'playlists' %}" class="nav-link"> <i class="fas fa-th-list"></i> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"> <i class="far fa-calendar-alt"></i> </a>
+                        <a href="" class="nav-link"> <i class="far fa-calendar-alt"></i> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"> <i class="fas fa-user-circle"></i> </a>
+                        <a href="{% url 'users_profile' %}" class="nav-link"> <i class="fas fa-user-circle"></i> </a>
                     </li>
                 </ul>
             {% comment %} </nav> {% endcomment %}
