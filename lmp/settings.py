@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'videos',
     'usersprofile',
     'contact',
+    'faq',
 ]
 
 MIDDLEWARE = [

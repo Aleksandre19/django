@@ -16,6 +16,7 @@ def profile_events(request):
     else:
         return redirect(reverse('account_login'))
 
+
 def liked_videos(request):
     if request.user.is_authenticated:
         return render(request, 'liked_videos.html')
