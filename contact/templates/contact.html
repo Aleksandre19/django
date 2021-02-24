@@ -1,13 +1,10 @@
 {% extends "base.html" %}
-{% load static %}
-{% block pages_style %}
-<link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
-{% endblock %}
+
 {% block content %}
  
     <!-- Contact's Page Wrapper -->
     <div class="container-fluid videos-page-wrapper">
-        <!-- CContactategory's Section -->
+        <!-- Contactategory's Section -->
         <section class="row">
 
             <div class="col-12">
@@ -100,56 +97,3 @@
        
 {% endblock %}
 
-{% block bottom_extra_js %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    /* Finding a screen height and asigning it to the Event's right side menu */
-    let screenHight = window.screen.height;
-    let topMenuHeight = document.getElementById("top-header").offsetHeight;
-    document.getElementById("a-side-menu").style.height = Number(screenHight - topMenuHeight - 40) + "px";
-    
-    /* Opening and closing a Event's side menu by Jquery */
-    $(document).ready(function(){
-        /* Opening */ 
-        $("#open-a-side-menu").click(function(){
-           $("#a-side-menu").animate({
-               left: "0px"
-           },function(){
-               $("#open-a-side-menu").hide(function(){
-                   $("#a-side-menu-close").css({"display" : "block"});
-               });
-           });   
-           return false;  
-        });
-
-
-        /* Closing  */ 
-        $("#a-side-menu-close").click(function(){
-           $("#a-side-menu").animate({
-               left: "-250px"
-           },function(){
-               $("#a-side-menu-close").hide(function(){
-                   $("#open-a-side-menu").css({"display" : "block"});
-               });
-           });   
-           return false;  
-        });
-
-        // Freezing a opened side menu wile scrolling a page
-        $(window).scroll(function(){
-            
-            if($("#a-side-menu").css("left") == "0px"){
-                if($(window).scrollTop() > 0){
-                    $("#a-side-menu").removeClass("a-side-menu"); 
-                    $("#a-side-menu").addClass("freez-a-side-menu");  
-                }else{
-                    $("#a-side-menu").addClass("a-side-menu"); 
-                    $("#a-side-menu").removeClass("freez-a-side-menu"); 
-                }
-            }
-
-        });
-    });
-</script>
-
-{% endblock %}
