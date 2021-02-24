@@ -507,6 +507,161 @@ nav.colapsing{
 }
 
 
+/************* VIDEOS ************/
+
+/* Marging from top to outcome from top menu's overlapping */
+.videos-page-wrapper{
+    margin-top: 90px;
+}
+
+/* Making a line background for category's title and for side menu's title */
+.category-names-right-line,
+.side-menu-section-name{
+    background-image: url('/media/img/general/category-names-right-line.jpg');
+    background-position-x: center;
+    background-repeat: repeat-x;
+}
+
+.videos-title{
+    margin-top: 0 !important;
+}
+
+.videos-bottom-bg{
+    background-image: url('/media/img/sm/videos-blocks-top-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.breadcrumb{
+    background-color: white;
+    margin-top: 15px;
+    border-radius: 0px 5px 5px 0px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+
+.breadcrumb-activ-link li a{
+    color: #fc01fe !important;
+}
+
+.cat-select{
+    margin-top: 15px; 
+}
+
+
+/* A side menu styles BEFORE scrolling a page */
+.a-side-menu{
+    background-image: url('/media/img/general/side-menu-left-borders-bg.jpg');
+    background-position-y: top left;
+    background-repeat: repeat-y;
+    width: 250px;
+    position: absolute;
+    top: 0px;
+    left: -250px;
+    background-color: white;
+    overflow: scroll;
+}
+
+
+/* A side menu styles WHILE scrolling a page */
+.freez-a-side-menu{
+    background-image: url('/media/img/general/side-menu-left-borders-bg.jpg');
+    background-position-y: top left;
+    background-repeat: repeat-y;
+    width: 250px;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    background-color: white;
+    overflow: scroll;   
+}
+
+/* Styling a side menu's section name */
+.side-menu-section-name{
+    display: inline-block;
+    background-position: bottom;
+    color: #81c91e !important;
+}
+
+.side-menu-ul li a{
+    color: #6e6e6e;
+}
+
+#a-side-menu-close{
+    display: none;
+}
+
+.x-sign{
+    font-size: 54px;
+}
+
+
+/***** Single Video Page Style *****/
+.single-menu-section-top-margin{
+    width: 100%;
+    height: 94px;
+}
+
+
+/****** Profile *********/
+
+.acc-subs-col  a{
+    font-size: 14px;
+    color: #66cd00;
+}
+
+
+/********** Loggin *********/
+/* Asigning a bootstrap's styles to allauth loggin forms */
+#id_remember{
+    display: inline;
+    width: 15px;
+    height: 15px;
+}
+
+.primaryAction,
+.form-tag-wrapper form button,
+.form-tag-wrapper form input[type=submit]{
+    display:block;
+    width: 100%;
+    color: #fff;
+    background-color: #28a745;
+    margin:20px 0px 20px 0px;    
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-color: #28a745;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-tag-wrapper form input{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+
 /******* Styled for Iphone 5 and similar size devices ********/
 
 @media (max-width: 320px){

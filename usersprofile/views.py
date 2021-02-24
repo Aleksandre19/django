@@ -1,31 +1,52 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+
 
 # Create your views here.
 
 
 def users_profile(request):
-    return render(request, 'users_profile.html')
-
+    if request.user.is_authenticated:
+        return render(request, 'users_profile.html')
+    else:
+        return redirect(reverse('account_login'))
 
 def profile_events(request):
-    return render(request, 'events_profile.html')
-
+    if request.user.is_authenticated:
+        return render(request, 'events_profile.html')
+    else:
+        return redirect(reverse('account_login'))
 
 def liked_videos(request):
-    return render(request, 'liked_videos.html')
+    if request.user.is_authenticated:
+        return render(request, 'liked_videos.html')
+    else:
+        return redirect(reverse('account_login'))
 
 
 def watched_videos(request):
-    return render(request, 'watched_videos.html')
+    if request.user.is_authenticated:
+        return render(request, 'watched_videos.html')
+    else:
+        return redirect(reverse('account_login'))
 
 
 def playlists(request):
-    return render(request, 'playlists.html')
+    if request.user.is_authenticated:
+        return render(request, 'playlists.html')
+    else:
+        return redirect(reverse('account_login'))
 
 
 def profile_account(request):
-    return render(request, 'profile_account.html')
+    if request.user.is_authenticated:
+        return render(request, 'profile_account.html')
+    else:
+        return redirect(reverse('account_login'))
+
 
 def profile_subscription(request):
-    return render(request, 'profile_subscription.html')
+    if request.user.is_authenticated:
+        return render(request, 'profile_subscription.html')
+    else:
+        return redirect(reverse('account_login'))
 

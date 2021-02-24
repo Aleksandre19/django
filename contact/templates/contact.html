@@ -4,147 +4,100 @@
 <link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
 {% endblock %}
 {% block content %}
-    {% if request.user.is_authenticated %}
-        <!-- Div wrapper witth position relative for right side menu -->
-        <div class="position-relative">
-            <!-- Contact's Page Wrapper -->
-            <div class="container-fluid videos-page-wrapper">
-                <!-- CContactategory's Section -->
-                <section class="row">
+ 
+    <!-- Contact's Page Wrapper -->
+    <div class="container-fluid videos-page-wrapper">
+        <!-- CContactategory's Section -->
+        <section class="row">
 
-                    <div class="col-12">
-                        <div class="row mb-3">
+            <div class="col-12">
+                <div class="row mb-3">
 
-                            <div class="col-12 pl-0">
-                                <!-- breadcrumb -->
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                                    </ol>
-                                </nav>
-                                <!-- END a breadcrumb -->
-                            </div>
-                        </div>
-                    </div>    
-
-
-                    <!-- Contact  -->
-                    <!-- Contact's Top Background -->
-                    <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
-
-
-                    <!-- Contact's Block -->
-                    <div class="col-12 bg-white">
-                        <div class="sections-content-wrapper">
-                            <!-- Contact's Title Block -->
-                            <div class="row">
-                                <!-- Title -->
-                                <div class="col-auto">
-                                    <h3 class="titles videos-title mr-2">Contact Me</h3>
-                                </div>
-
-                                <!-- Title's Right Line -->
-                                <div class="col align-self-center mt-2 category-names-right-line">
-                                    &nbsp;
-                                </div>
-
-                                <!-- Div for right margin -->
-                                <div class="col-1">&nbsp;</div>
-
-                            </div>
-                            <!-- END a Contact's Title Block -->
-
-                            <div class="row mt-3 margin-0">
-                                <!-- Contact Col  -->
-                                <div class="col-12 padding-0 position-relative">
-
-                                    <form method="" action="" class="profile-account-wrapper">
-                                       <div class="row">
-                                            <div class="col">
-                                                <label for="userName">Name</label>
-                                                <input type="text" class="form-control" id="userName" name="userName" value="" required>
-                                            </div>
-                                        </div>  
-                                        <div class="row mt-2">
-                                            <div class="col">
-                                                <label for="userEmail">Email</label>
-                                                <input type="email" class="form-control" id="nameEmail" name="userEmail" value="" required>
-                                            </div>
-                                        </div>      
-                                        <div class="row mt-2">
-                                            <div class="col">
-                                                <label for="validationTextarea">Message</label>
-                                                <textarea class="form-control" id="validationTextarea" required></textarea>
-                                            </div>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-success btn-block mb-3 mt-4">Send A Message</button>
-                                    </form>
-
-                                </div>
-                                <!-- END a Contact Col -->
-                            </div>
-                        </div>
+                    <div class="col-12 pl-0">
+                        <!-- breadcrumb -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ol>
+                        </nav>
+                        <!-- END a breadcrumb -->
                     </div>
-                    <!-- END Contact's Block -->
-
-                    <!-- Block's Bottom Background -->
-                    <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+                </div>
+            </div>    
 
 
+            <!-- Contact  -->
+            <!-- Contact's Top Background -->
+            <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
 
-                </section>
-                <!-- END a Contact's Section -->
+
+            <!-- Contact's Block -->
+            <div class="col-12 bg-white">
+                <div class="sections-content-wrapper">
+                    <!-- Contact's Title Block -->
+                    <div class="row">
+                        <!-- Title -->
+                        <div class="col-auto">
+                            <h3 class="titles videos-title mr-2">Contact Me</h3>
+                        </div>
+
+                        <!-- Title's Right Line -->
+                        <div class="col align-self-center mt-2 category-names-right-line">
+                            &nbsp;
+                        </div>
+
+                        <!-- Div for right margin -->
+                        <div class="col-1">&nbsp;</div>
+
+                    </div>
+                    <!-- END a Contact's Title Block -->
+
+                    <div class="row mt-3 margin-0">
+                        <!-- Contact Col  -->
+                        <div class="col-12 padding-0 position-relative">
+
+                            <form method="" action="" class="profile-account-wrapper">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="userName">Name</label>
+                                        <input type="text" class="form-control" id="userName" name="userName" value="" required>
+                                    </div>
+                                </div>  
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <label for="userEmail">Email</label>
+                                        <input type="email" class="form-control" id="nameEmail" name="userEmail" value="" required>
+                                    </div>
+                                </div>      
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <label for="validationTextarea">Message</label>
+                                        <textarea class="form-control" id="validationTextarea" required></textarea>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success btn-block mb-3 mt-4">Send A Message</button>
+                            </form>
+
+                        </div>
+                        <!-- END a Contact Col -->
+                    </div>
+                </div>
             </div>
-            <!-- END a Contact's Page Wrapper -->
+            <!-- END Contact's Block -->
 
-            <!-- Right Side Menu -->
-            <div class="a-side-menu" id="a-side-menu">
+            <!-- Block's Bottom Background -->
+            <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
 
-                <ul class="nav flex-column ml-3 side-menu-ul">
-                    <!-- List Options -->
-                    <li class="nav-item mt-2">
-                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                            <img src="/media/icons/videos-cat-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon"> List Options
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users_profile' %}">My List <span class="badge ml-2 badge-info">17</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'watched_videos' %}">Watched Videos <span class="badge ml-2 badge-info">24</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'liked_videos' %}">Liked Videos <span class="badge ml-2 badge-info">38</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'playlists' %}">Playlists <span class="badge ml-2 badge-info">12</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile_events' %}">Events <span class="badge ml-2 badge-info">57</span></a>
-                    </li>
-                    <!-- END a List Options -->
 
-                     <li class="nav-item mt-2">
-                        <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                            <i class="fas fa-users-cog titles-icon mr-2"></i> Settings
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile_account' %}">Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile_subscription' %}">Subscription</a>
-                    </li>
 
-                </ul>
-            </div>
-            <!-- END a Right Side Menu -->
-        </div>
-    {% else %}
+        </section>
+        <!-- END a Contact's Section -->
+    </div>
+    <!-- END a Contact's Page Wrapper -->
 
-    {% endif %}
+       
 {% endblock %}
 
 {% block bottom_extra_js %}

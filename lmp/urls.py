@@ -25,12 +25,12 @@ urlpatterns = [
     path('', include('home.urls')),
     path('videos/', include('videos.urls')),
     path('single/', include('videos.urls')),
-    path('usersprofile', views.users_profile, name='users_profile'),
-    path('profileevents', views.profile_events, name='profile_events'),
-    path('likedvideos', views.liked_videos, name='liked_videos'),
-    path('watchedvideos', views.watched_videos, name='watched_videos'),
-    path('playlists', views.playlists, name='playlists'),
-    path('profileaccount', views.profile_account, name='profile_account'),
-    path('profilesubscription', views.profile_subscription, name='profile_subscription'),
-    path('contact', include('contact.urls'))
+    path('usersprofile/', views.users_profile, name='users_profile'),
+    path('profileevents/', views.profile_events, name='profile_events'),
+    path('likedvideos/', views.liked_videos, name='liked_videos'),
+    path('watchedvideos/', views.watched_videos, name='watched_videos'),
+    path('playlists/', views.playlists, name='playlists'),
+    path('profileaccount/', views.profile_account, name='profile_account'),
+    path('profilesubscription/', views.profile_subscription, name='profile_subscription'),
+    path('contact/', include('contact.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

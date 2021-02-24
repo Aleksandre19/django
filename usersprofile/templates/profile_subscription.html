@@ -1,8 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
-{% block pages_style %}
-<link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
-{% endblock %}
 {% block content %}
     {% if request.user.is_authenticated %}
         <!-- Div wrapper witth position relative for right side menu -->
