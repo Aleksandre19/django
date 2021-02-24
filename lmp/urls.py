@@ -30,4 +30,6 @@ urlpatterns = [
     path('likedvideos', views.liked_videos, name='liked_videos'),
     path('watchedvideos', views.watched_videos, name='watched_videos'),
     path('playlists', views.playlists, name='playlists'),
+    path('profileaccount', views.profile_account, name='profile_account'),
+    path('profilesubscription', views.profile_subscription, name='profile_subscription'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

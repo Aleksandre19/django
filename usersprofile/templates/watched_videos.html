@@ -31,8 +31,8 @@
 
                             <!-- Account and Subscription Block -->
                             <div class="col-7 acc-subs-col pt-2">
-                                <a href=""> Account / </a>
-                                <a href=""> Subscription </a>
+                                <a href="{% url 'profile_account' %}"> Account / </a>
+                                <a href="{% url 'profile_subscription' %}"> Subscription </a>
                             </div>
                             <!-- END a Account and Subscription Block -->
 
@@ -311,10 +311,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link" href="{% url 'profile_account' %}">Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Subscription</a>
+                        <a class="nav-link" href="{% url 'profile_subscription' %}">Subscription</a>
                     </li>
 
                 </ul>

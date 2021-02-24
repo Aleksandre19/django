@@ -7,4 +7,6 @@ urlpatterns = [
     path('', views.liked_videos, name='liked_videos'),
     path('', views.watched_videos, name='watched_videos'),
     path('', views.playlists, name='playlists'),
+    path('', views.profile_account, name='profile_account'),
+    path('', views.profile_subscription, name='profile_subscription'),
 ]

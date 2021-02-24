@@ -22,3 +22,10 @@ def watched_videos(request):
 def playlists(request):
     return render(request, 'playlists.html')
 
+
+def profile_account(request):
+    return render(request, 'profile_account.html')
+
+def profile_subscription(request):
+    return render(request, 'profile_subscription.html')
+
