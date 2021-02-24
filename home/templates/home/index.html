@@ -60,12 +60,13 @@
                                         <!-- Time -->
                                         <thead class="timer event-table-head">
                                             <tr>
-                                                <td>23 :</td>
-                                                <td>24 :</td>
-                                                <td>14 :</td>
-                                                <td class="text-left">06</td>
+                                                <td id="days">23 :</td>
+                                                <td id="houres">24 :</td>
+                                                <td id="minutes">14 :</td>
+                                                <td class="text-left" id="seconds">06</td>
                                             </tr>
                                         </thead> 
+                                        <script>diasferoTimer(new Date("Jan 5, 2022 15:37:25").getTime());</script>
                                         <!-- END a Time --> 
                                         <!-- Time's Units -->
                                         <tbody class="text-white font-italic text-left small event-table-body">
