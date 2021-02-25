@@ -27,9 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'g2$1x#_+r2+zv^-2#yqb4(($(l8))5%-!y-z6&!e$zavickzio')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = ['lmp-aleksandre.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['lmp-aleksandre.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
