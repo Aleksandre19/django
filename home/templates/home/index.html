@@ -747,9 +747,30 @@
                     <div class="row sm-home-page-event event mt-3 text-center">
                         <div class="col">
                             <h3 class="text-uppercase titles timer-title"> <i class="fas fa-calendar-day titles-icon mr-2"></i> Summery of the year  2020 </h3>
-                            <div class="timer mb-3">
-                                12 : 24 : 30 : 02
-                            </div>
+                            <table class="table table-borderless">
+                                <!-- Time -->
+                                <thead class="timer event-table-head">
+                                    <tr>
+                                        <td id="days">23 :</td>
+                                        <td id="houres">24 :</td>
+                                        <td id="minutes">14 :</td>
+                                        <td class="text-left" id="seconds">06</td>
+                                    </tr>
+                                </thead> 
+                                <script>diasferoTimer(new Date("Jan 5, 2022 15:37:25").getTime());</script>
+                                <!-- END a Time --> 
+                                <!-- Time's Units -->
+                                <tbody class="text-white font-italic text-left small event-table-body">
+                                    <tr>
+                                        <td class="pr-3">Days</td>
+                                        <td class="pr-4">Houres</td>
+                                        <td class="pr-4">Minutes</td>
+                                        <td class="text-left">Seconds</td>
+                                    </tr>
+                                </tbody>  
+                                <!-- END a Time's Unites -->
+                            </table>
+                        
                         </div>
                     </div>
                     <!-- END a Event Row -->
