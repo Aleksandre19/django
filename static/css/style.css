@@ -193,6 +193,7 @@ nav.colapsing{
     padding: 0;
 }
 
+
 .cards-row,
 .calendar-row{
     margin: 0;
@@ -381,6 +382,8 @@ nav.colapsing{
     background-position: left;
 }
 
+
+/*********** Calendar ***********/
 .faq-questions-p,
 .events-p{
     margin-bottom: 0;
@@ -434,6 +437,90 @@ nav.colapsing{
 .calendar-devider{
     margin: 0;
 }
+
+
+.calendar{
+    margin-top: 16px;
+}
+
+
+.weekdays{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #e2e2e2;
+}
+
+
+.weekdays div{
+    font-size: 1,4rem;
+    letter-spacing: 0.02rem;
+    color: #626262;
+    border-right: 1px solid white;
+    width: calc(100% / 7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 5px;
+}
+
+
+.days{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+
+/* Set a border-right to the last element of the week days */
+.weekdays div:last-child{
+    border-right: 1px solid #e2e2e2;
+}
+
+
+.days{
+    margin-bottom: 15px;
+}
+
+.days div{
+    border: 1px solid #e2e2e2;
+    width: calc(100% /7);
+    text-align: center;
+    padding: 4px;
+}
+
+
+/* Remove a border right to every div tags */
+.days div{
+    border-right: none;
+}
+
+
+/* Set a border-right to every 7th div tag and */
+/* last div tag of the calenar */
+.days div:nth-child(7n + 0),
+.days div:last-child{
+    border-right: 1px solid #e2e2e2;
+}
+
+
+/* Set a border-top to none for every elements */
+/* from bottom row */
+.days div{
+    border-top: none;
+}
+
+/* Styling a event day's div element */
+.event-day{
+    border: 2px solid #67ce00 !important;
+    outline: 2px solid #67ce00;
+    color: #67ce00;
+    font-style: italic;
+}
+
+/*********** END a Calendar *****/
 
 
 /******** Styling a home page for logged in users ***********/

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <!-- IF a user is logged in this section (till '{% else% }') will apear -->
     {% if request.user.is_authenticated %}
@@ -973,70 +973,50 @@
                         <!-- END a Calendar Title -->  
 
                         <hr class="calendar-devider" />
-
-                        <table class="table table-sm table-bordered align-middle mt-4 text-center">
-
-                            <!-- Calendar Head -->
-                            <thead class="table-active">
-                                <tr>
-                                    <td>S</td>
-                                    <td>M</td>
-                                    <td>T</td>
-                                    <td>W</td>
-                                    <td>T</td>
-                                    <td>F</td>
-                                    <td>S</td>
-                                </tr>
-                            </thead>
-                            <!-- END a Calendar Head -->
-
-                            <!-- Calendar Body -->
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>9</td>
-                                    <td>10</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                    <td>13</td>
-                                    <td>14</td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>16</td>
-                                    <td>17</td>
-                                    <td>18</td>
-                                    <td>19</td>
-                                    <td>20</td>
-                                    <td>21</td>
-                                </tr>
-                                <tr>
-                                    <td>22</td>
-                                    <td>23</td>
-                                    <td>24</td>
-                                    <td>25</td>
-                                    <td>26</td>
-                                    <td>27</td>
-                                    <td>28</td>
-                                </tr>
-                                <tr>
-                                    <td>29</td>
-                                    <td>30</td>
-                                    <td>31</td>
-                                </tr>
-                            </tbody>
-                            <!-- END a Calendar Body -->
-
-                        </table>
+                        <div class="calendar">
+                            <div class="weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="days">
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                                <div>4</div>
+                                <div>5</div>
+                                <div>6</div>
+                                <div>7</div>
+                                <div>8</div>
+                                <div>9</div>
+                                <div>10</div>
+                                <div class="event-day">11</div>
+                                <div>12</div>
+                                <div>13</div>
+                                <div>14</div>
+                                <div>15</div>
+                                <div>16</div>
+                                <div>17</div>
+                                <div>18</div>
+                                <div>19</div>
+                                <div>20</div>
+                                <div>21</div>
+                                <div>22</div>
+                                <div>23</div>
+                                <div>24</div>
+                                <div>25</div>
+                                <div>26</div>
+                                <div>27</div>
+                                <div>28</div>
+                                <div>29</div>
+                                <div>30</div>
+                                <div>31</div>
+                            </div>
+                        </div>
                     </div> 
                 </div>
                 <!-- END a Calendar Table --> 
@@ -1049,6 +1029,7 @@
     <!-- END a Third Section --> 
     {% endif %}
 {% endblock %}
-{% block extra_js %}
+{% block bottom_extra_js %}
+<script src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}
 
