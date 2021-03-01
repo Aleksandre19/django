@@ -631,7 +631,7 @@
                                 <div class="row">
                                     <!-- Left Arrow -->
                                     <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp</div>
+                                    <div class="col-8">&nbsp;</div>
                                     <!-- Right Arrow -->
                                     <div class="col-2"><i class="fas fa-angle-right"></i></div>
                                 </div>
@@ -653,7 +653,7 @@
 
             </section>       
             <!-- END fifth Section -->
-            <div class="div-for-bottom-margin"> &nbsp </div>
+            <div class="div-for-bottom-margin"> &nbsp; </div>
         </div>
         <!-- END Page Container -->
 
@@ -751,21 +751,22 @@
                                 <!-- Time -->
                                 <thead class="timer event-table-head">
                                     <tr>
-                                        <td id="days">23 :</td>
-                                        <td id="houres">24 :</td>
-                                        <td id="minutes">14 :</td>
-                                        <td class="text-left" id="seconds">06</td>
+                                        <td id="days"></td>
+                                        <td id="houres"></td>
+                                        <td id="minutes"></td>
+                                        <td class="text-left" id="seconds"></td>
                                     </tr>
-                                </thead> 
-                                <script>diasferoTimer(new Date("Jan 5, 2022 15:37:25").getTime());</script>
+                                </thead>
+                                <!-- Initialling a timer function --> 
+                                <script>diasferoTimer(new Date("Apr 5, 2021 15:37:25").getTime());</script>
                                 <!-- END a Time --> 
                                 <!-- Time's Units -->
                                 <tbody class="text-white font-italic text-left small event-table-body">
                                     <tr>
-                                        <td class="pr-3">Days</td>
-                                        <td class="pr-4">Houres</td>
-                                        <td class="pr-4">Minutes</td>
-                                        <td class="text-left">Seconds</td>
+                                        <td class="pr-3 not-logged-timer">Days</td>
+                                        <td class="pr-4 not-logged-timer">Houres</td>
+                                        <td class="pr-4 not-logged-timer">Minutes</td>
+                                        <td class="text-left not-logged-timer">Seconds</td>
                                     </tr>
                                 </tbody>  
                                 <!-- END a Time's Unites -->
@@ -963,9 +964,9 @@
 
                             <!-- Calendar Switcher -->
                             <div class="col-12 mt-2 mb-2">
-                                <a href="#"><i class="fas fa-angle-left"></i></a>
+                                <i class="fas fa-angle-left switch-to-prev-month mr-4"></i>
                                 <span class="showen-month">February</span>
-                                <a href="#"><i class="fas fa-angle-right"></i></a>
+                                <i class="fas fa-angle-right switch-to-next-month ml-4"></i>
                             </div>
                             <!-- END a Calendar Switcher -->
 
@@ -984,37 +985,7 @@
                                 <div>Sat</div>
                             </div>
                             <div class="days">
-                                <div>1</div>
-                                <div>2</div>
-                                <div>3</div>
-                                <div>4</div>
-                                <div>5</div>
-                                <div>6</div>
-                                <div>7</div>
-                                <div>8</div>
-                                <div>9</div>
-                                <div>10</div>
-                                <div class="event-day">11</div>
-                                <div>12</div>
-                                <div>13</div>
-                                <div>14</div>
-                                <div>15</div>
-                                <div>16</div>
-                                <div>17</div>
-                                <div>18</div>
-                                <div>19</div>
-                                <div>20</div>
-                                <div>21</div>
-                                <div>22</div>
-                                <div>23</div>
-                                <div>24</div>
-                                <div>25</div>
-                                <div>26</div>
-                                <div>27</div>
-                                <div>28</div>
-                                <div>29</div>
-                                <div>30</div>
-                                <div>31</div>
+                                <!-- Here come days from javascript -->
                             </div>
                         </div>
                     </div> 
@@ -1031,5 +1002,9 @@
 {% endblock %}
 {% block bottom_extra_js %}
 <script src="{% static 'js/calendar.js' %}"></script>
+<script>
+// Initialing a calendar's function
+calendarInit(eventday, eventLink);
+</script>
 {% endblock %}
 

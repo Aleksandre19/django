@@ -171,6 +171,10 @@ nav.colapsing{
     font-size: 18px;
 }
 
+.not-logged-timer{
+    color: black;
+}
+
 .sm-subscription-row{
     background-image: url('/media/img/sm/sm-subscription-block-bg.png');
     background-repeat: no-repeat;
@@ -394,7 +398,8 @@ nav.colapsing{
 }
 
 .fa-angle-left,
-.fa-angle-right{
+.fa-angle-right,
+.event-day-a-tag{
     color: #65cd00;
 }
 
@@ -519,6 +524,12 @@ nav.colapsing{
     color: #67ce00;
     font-style: italic;
 }
+
+.prev-month,
+.next-month{
+    color: #c4c4c4;
+}
+
 
 /*********** END a Calendar *****/
 
