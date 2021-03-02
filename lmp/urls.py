@@ -18,13 +18,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from usersprofile import views
+from videos import views as videos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
-    path('videos/', include('videos.urls')),
-    path('single/', include('videos.urls')),
+    path('videos/', videos.videos, name="videos"),
+    path('singlevideo/', videos.single_video, name="single_video"),
     path('usersprofile/', views.users_profile, name='users_profile'),
     path('profileevents/', views.profile_events, name='profile_events'),
     path('likedvideos/', views.liked_videos, name='liked_videos'),

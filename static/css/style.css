@@ -39,6 +39,10 @@ body{
     color: #6e6e6e;
 }
 
+.menu-row{
+    height: 90px;
+}
+
 .top-header{
     height: 90px;
     background-image: url('/media/img/sm/sm-top-menu-bg.jpg');
@@ -53,15 +57,41 @@ nav.colapsing{
 }
 
 
-#top-nav{
+/* 
+    Givie a full width to expand all the screen 
+    when menu opens on mobile devices
+ */
+.top-nav{
+    padding-bottom: 0;
+    padding-top: 6px;
+    padding-right: 0;;
     width: 100vw;
+}
+
+
+/* 
+    Aligning a burger menu to the right 
+    for the not logged users and
+*/
+.top-nav-not-logged{
+    margin-left: -84vw;
+}
+
+.top-nav-not-logged ul li{
+    padding-left: 72vw;
+}
+
+.top-nav-not-logged button{
+    margin-left: 84vw;
 }
 
 .toggleMenuBackground{
     width: 100vw !important;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(37, 0, 40, 0.8);
+    margin-top: 6px;
     margin-left: -16px;
     margin-right: -13px;
+    
 }
 
 .search-wrapper{
@@ -78,10 +108,9 @@ nav.colapsing{
 
 .user-acount-icon{
     color: #7a618f;
-    padding-left: 9%;
     font-size: 32px;
-    padding: 5px 0px 0px 10px;
 }
+
 
 /** Haburgare Menu **/
 
@@ -106,10 +135,19 @@ nav.colapsing{
     border: solid 1px #a180a3;
 }
 
+.search-input-col,
+.user-icon-col{
+    text-align: center;
+}
+
 /**  Fixing Burger menui's hight because the search box and
      account icon goes down when menu expands down **/
+.menu-row{
+    height: 92px;
+}
+
 .burger-menu-col{
-    height: 65px;
+    height: 42px;
 }
 
 /** Styling top main menu links for mobile devies  **/

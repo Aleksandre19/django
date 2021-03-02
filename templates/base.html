@@ -32,50 +32,98 @@
     <title> Diasfero {% block extratitle %}{% endblock %}</title>
   </head>
   <body>
-    <div class="content-fluid no-gutters h-100">
+    <main class="content-fluid no-gutters h-100">
         <!-- Site Header -->
         <header class="fixed-top top-header" id="top-header">
-            <div class="row align-items-center no-gutters">
-                <div class="col-2 burger-menu-col">
+            <div class="row menu-row align-items-center no-gutters">
+                <!-- If a user is authenticated so show a user icon to the right side
+                    for better user experience -->
+                {% if request.user.is_authenticated %}    
+                    <div class="col-2 burger-menu-col ">
+                        
+                        <!-- Top Main Menu -->
+                        {% comment %} top-nav {% endcomment %}
+                        <nav class="navbar navbar-expand-lg navbar-light top-nav">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">
+                                    
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
+                                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 top-main-menu">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Subscribe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- END a Top Main Menu -->
                     
-                    <!-- Top Main Menu -->
-                    <nav class="navbar navbar-expand-lg navbar-light top-nav mt-3" id="top-nav">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon">
-                                
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
-                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 top-main-menu">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subscribe</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <!-- END a Top Main Menu -->
-                
-                </div>
-                <div class="padding-0 col-7">
-                    <div class="search-wrapper ml-3 mt-3">
-                        <form>
-                            <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp"> 
-                        </form>  
-                    </div>  
-                </div>
-                <div class="col-3">
-                    <a href="{% url 'users_profile' %}"> <i class="far fa-user-circle mt-3 ml-4 user-acount-icon"></i></a>
-                </div>
-
+                    </div>
+                    <div class="col-8 search-input-col">
+                        <div class="search-wrapper">
+                            <form>
+                                <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp"> 
+                            </form>  
+                        </div>  
+                    </div>
+                    <div class="col-2 user-icon-col">
+                        <a href="{% url 'users_profile' %}"> <i class="far fa-user-circle user-acount-icon"></i></a>
+                    </div>
+                {% else %}
+                    <div class="col-2 user-icon-col">
+                        <a href="{% url 'users_profile' %}"> <i class="far fa-user-circle user-acount-icon"></i></a>
+                    </div>
+                    
+                    <div class="col-8 search-input-col">
+                        <div class="search-wrapper">
+                            <form>
+                                <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp"> 
+                            </form>  
+                        </div>  
+                    </div>
+                    <div class="col-2 burger-menu-col ">
+                        
+                        <!-- Top Main Menu -->
+                        {% comment %} top-nav {% endcomment %}
+                        <nav class="navbar navbar-expand-lg navbar-light top-nav top-nav-not-logged">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">
+                                    
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
+                                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 top-main-menu">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Subscribe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- END a Top Main Menu -->
+                    
+                    </div>
+                    
+                    
+                {% endif %}
             </div>    
         </header>
 
@@ -105,13 +153,13 @@
             {% comment %} </nav> {% endcomment %}
         </footer>
        
-    </div> 
+    </main> 
     {% block bottom_extra_js %}
     {% endblock %}
     <script>
         /* Toggling a top menu width and background during a collapsing of it. */
        $(document).ready(function(){
-            $("#top-nav").click(function(){
+            $(".top-nav").click(function(){
                 $(".top-nav-toggle").toggleClass("toggleMenuBackground");
             });
         });
