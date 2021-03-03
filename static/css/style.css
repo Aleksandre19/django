@@ -85,13 +85,23 @@ nav.colapsing{
     margin-left: 84vw;
 }
 
+.top-nav-toggle{
+    background-color: rgba(37, 0, 40, 0.8);
+    margin-left: -16px;
+}
+
 .toggleMenuBackground{
     width: 100vw !important;
-    background-color: rgba(37, 0, 40, 0.8);
     margin-top: 6px;
-    margin-left: -16px;
     margin-right: -13px;
-    
+}
+
+.dropdown-menu{
+    background-color: rgba(37, 0, 40, 0.8);
+}
+
+.dropdown-item{
+    color: white;
 }
 
 .search-wrapper{
@@ -138,6 +148,10 @@ nav.colapsing{
 .search-input-col,
 .user-icon-col{
     text-align: center;
+}
+
+.dropleft .dropdown-toggle::before{
+    display: none;
 }
 
 /**  Fixing Burger menui's hight because the search box and
@@ -749,7 +763,7 @@ nav.colapsing{
 
 
 /********** Loggin *********/
-/* Asigning a bootstrap's styles to allauth loggin forms */
+/* Asigning a bootstrap's styles to allauth's templates */
 #id_remember{
     display: inline;
     width: 15px;
@@ -794,6 +808,15 @@ nav.colapsing{
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.account-content-wrappe{
+    max-width: 450px;
+    margin: auto;
+}
+
+.email-managment-radio{
+    all: revert !important;
 }
 
 

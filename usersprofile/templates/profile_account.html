@@ -75,25 +75,11 @@
 
                             <div class="row mt-3 margin-0">
                                 <!-- Account Col  -->
-                                <div class="col-12 padding-0 position-relative">
-
-                                    <form method="" action="" class="profile-account-wrapper">
-                                        <div class="input-group flex-nowrap">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Name</span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Aleks" aria-label="Username" aria-describedby="addon-wrapping">
-                                        </div>
-                                        <div class="w-100">&nbsp; </div>
-                                        <div class="input-group flex-nowrap mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="addon-wrapping">Email</span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping">
-                                        </div>
-
-                                        <button type="button" class="btn btn-success btn-block mb-3">Update</button>
-                                    </form>
+                                <div class="col-12 padding-0 position-relative mb-4">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="{% url 'account_email' %}" >Manage Email</a></li>
+                                        <li class="list-group-item"><a href="{% url 'account_reset_password' %}" >Reset Password</a></li>
+                                    </ul>
 
                                 </div>
                                 <!-- END a Account Col -->

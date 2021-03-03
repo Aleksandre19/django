@@ -37,43 +37,45 @@
 
             <!-- Sign Up's Block -->
             <div class="col-12 bg-white">
-                <div class="sections-content-wrapper">
-                    <!-- Sign Up's Title Block -->
-                    <div class="row">
-                        <!-- Title -->
-                        <div class="col-auto">
-                            <h3 class="titles videos-title mr-2">{% trans "Sign Up" %}</h3>
-                        </div>
-
-                        <!-- Title's Right Line -->
-                        <div class="col align-self-center mt-2 category-names-right-line">
-                            &nbsp;
-                        </div>
-
-                        <!-- Div for right margin -->
-                        <div class="col-1">&nbsp;</div>
-
-                    </div>
-                    <!-- END a Sign Up's Title Block -->
-
-                    <div class="row mt-3 margin-0">
-                        <!-- Sign Up Col  -->
-                        <div class="col-12 padding-0 position-relative">
-
-                            <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-                            <div class="form-tag-wrapper">
-                              <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                {% if redirect_field_value %}
-                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                {% endif %}
-                                <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-                              </form>
+                <div class="account-content-wrappe">
+                    <div class="sections-content-wrapper">
+                        <!-- Sign Up's Title Block -->
+                        <div class="row">
+                            <!-- Title -->
+                            <div class="col-auto">
+                                <h3 class="titles videos-title mr-2">{% trans "Sign Up" %}</h3>
                             </div>
 
+                            <!-- Title's Right Line -->
+                            <div class="col align-self-center mt-2 category-names-right-line">
+                                &nbsp;
+                            </div>
+
+                            <!-- Div for right margin -->
+                            <div class="col-1">&nbsp;</div>
+
                         </div>
-                        <!-- END a Sign Up Col -->
+                        <!-- END a Sign Up's Title Block -->
+
+                        <div class="row mt-3 margin-0">
+                            <!-- Sign Up Col  -->
+                            <div class="col-12 padding-0 position-relative">
+
+                                <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+                                <div class="form-tag-wrapper">
+                                <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                    {% endif %}
+                                    <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+                                </form>
+                                </div>
+
+                            </div>
+                            <!-- END a Sign Up Col -->
+                        </div>
                     </div>
                 </div>
             </div>

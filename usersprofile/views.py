@@ -51,3 +51,7 @@ def profile_subscription(request):
     else:
         return redirect(reverse('account_login'))
 
+
+def user_logout(request):
+    return redirect(reverse('account_logout'))
+

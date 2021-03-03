@@ -1,11 +1,93 @@
-{% extends "account/base.html" %}
+{% extends "../base.html" %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Account Inactive" %}{% endblock %}
 
+
 {% block content %}
+
+<!-- Account Inactive 's Page Wrapper -->
+    <div class="container-fluid videos-page-wrapper">
+        <!-- Account Inactive's Section -->
+        <section class="row">
+
+            <div class="col-12">
+                <div class="row mb-3">
+
+                    <div class="col-12 pl-0">
+                        <!-- breadcrumb -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Account Inactive</li>
+                            </ol>
+                        </nav>
+                        <!-- END a breadcrumb -->
+                    </div>
+                </div>
+            </div>    
+
+            <!-- END a Account Inactive -->
+
+            <!-- Account Inactive's Top Background -->
+            <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
+
+
+            <!-- Account Inactive's Block -->
+            <div class="col-12 bg-white">
+                <div class="account-content-wrappe">
+                    <div class="sections-content-wrapper">
+                        <!-- Account Inactive's Title Block -->
+                        <div class="row">
+                            <!-- Title -->
+                            <div class="col-auto">
+                                <h3 class="titles videos-title mr-2">{% trans "Account Inactive" %}</h3>
+                            </div>
+
+                            <!-- Title's Right Line -->
+                            <div class="col align-self-center mt-2 category-names-right-line">
+                                &nbsp;
+                            </div>
+
+                            <!-- Div for right margin -->
+                            <div class="col-1">&nbsp;</div>
+
+                        </div>
+                        <!-- END a Account Inactive's Title Block -->
+
+                        <div class="row mt-3 margin-0">
+                            <!-- Account Inactive Col  -->
+                            <div class="col-12 padding-0 position-relative">
+
+                                <p>{% trans "Account Inactive" %}</p>
+                                <div class="form-tag-wrapper">
+                                    <p>{% trans "This account is inactive." %}</p>
+                                </div>
+
+                            </div>
+                            <!-- END a Account Inactive Col -->
+                        </div>
+                    </div>
+                 </div> 
+            </div>
+            <!-- END Account Inactive's Block -->
+
+            <!-- Block's Bottom Background -->
+            <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+
+
+
+        </section>
+        <!-- END a Account Inactive's Section -->
+    </div>
+    <!-- END a Account Inactive's Page Wrapper -->
+
+{% endblock %}
+
+
+{% comment %} {% block content %}
 <h1>{% trans "Account Inactive" %}</h1>
 
 <p>{% trans "This account is inactive." %}</p>
-{% endblock %}
+{% endblock %} {% endcomment %}

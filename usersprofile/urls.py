@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.playlists, name='playlists'),
     path('', views.profile_account, name='profile_account'),
     path('', views.profile_subscription, name='profile_subscription'),
+    path('', views.user_logout, nema='user_logout'),
 ]
