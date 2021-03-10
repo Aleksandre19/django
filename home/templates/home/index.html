@@ -3,965 +3,385 @@
 {% block content %}
     <!-- IF a user is logged in this section (till '{% else% }') will apear -->
     {% if request.user.is_authenticated %}
-        <!-- Page Container -->
-        <div class="container-fluid  h-100">
 
-            <!-- First Section -->
-            <section class="row h-100 sm-home-first-section-logged-in">
-                <div class="col h-100">
-                    <div class="row">
-                        <!-- Video's Block -->
-                        <div class="col-12 home-first-section-video-container position-relative">
-                            <!-- Video's Block Title -->
-                            <h3 class="text-white titles"><i class="fas fa-video titles-icon pr-2"></i> New Video</h3>
-                            <!-- Video -->
-                            <div class="mt-3 embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                            </div>
-                            <!-- END a Video -->
-
-                            <!-- Action Button's Div -->
-                            <div class="container-for-action-buttons position-absolute">
-                                <div class="row">
-                                    <!-- Add To My Lists's Button -->
-                                    <div class="col-12 text-right mb-3">
-                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                    </div>
-                                    <!-- Like's Button -->
-                                    <div class="col-12 text-right mb-3">
-                                        <a href="#" class="text-secondary">
-                                            <i class="far fa-thumbs-up"></i>
-                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                    </div>
-                                    <!-- Views Button -->
-                                    <div class="col-12 text-right">
-                                        <a href="#" class="text-secondary">
-                                            <i class="far fa-eye"></i>
-                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END a Action's Buttons Div -->
-                        </div>
-                        <!-- END a Video's Block -->
-
-                        <!-- Event's Block -->
-                        <div class="col-12 home-first-section-event-container mt-5">
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Event's Title -->
-                                    <h3 class="titles text-white"><i class="fas fa-calendar-day titles-icon pr-3"></i>Summery of the year 2020</h3>
-                                    <!-- Event's Description -->
-                                    <p class="event-desc text-white mt-3">During this event I will summarize generally a healthcare situation in 2020.</p>
-                                </div>
-                                <!-- Timer's Block -->
-                                <div class="col-12">
-                                    <table class="table table-borderless">
-                                        <!-- Time -->
-                                        <thead class="timer event-table-head">
-                                            <tr>
-                                                <td id="days">23 :</td>
-                                                <td id="houres">24 :</td>
-                                                <td id="minutes">14 :</td>
-                                                <td class="text-left" id="seconds">06</td>
-                                            </tr>
-                                        </thead> 
-                                        <script>diasferoTimer(new Date("Apr 5, 2021 15:37:25").getTime());</script>
-                                        <!-- END a Time --> 
-                                        <!-- Time's Units -->
-                                        <tbody class="text-white font-italic text-left small event-table-body">
-                                            <tr>
-                                                <td class="pr-3">Days</td>
-                                                <td class="pr-4">Houres</td>
-                                                <td class="pr-4">Minutes</td>
-                                                <td class="text-left">Seconds</td>
-                                            </tr>
-                                        </tbody>  
-                                        <!-- END a Time's Unites -->
-                                    </table>
-                                </div>
-                                <!-- END a Timer's Block -->
-                            </div>    
-                        </div>
-                        <!-- END a Event's Block -->
-                    </div>
-                    
-                </div>
-            </section>
-            <!-- END First Section -->
-
-            <!-- Second section -->
-            <section class="row home-mylist-section">
-
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg mylist-top-bg mt-4"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 sections-block">
-                    <div class="sections-content-wrapper">
-                        <!-- My List Title -->
-                        <h3 class="titles mt-4"><i class="fas fa-th-list titles-icon pr-2"></i> My List</h3>
-
-                        <div class="row mt-4 margin-0">
-                            <!-- Video -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                </div>
-
-                                <!-- Action Button's Div -->
-                                <div class="container-for-action-buttons position-absolute">
-                                    <div class="row">
-                                        <!-- Add To My Lists's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                        <!-- Like's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                        </div>
-                                        <!-- Views Button -->
-                                        <div class="col-12 text-right">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="text-secondary action-buttons-value">(247)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a Action's Buttons Div -->
-                            </div>
-                            <!-- Video -->
-
-                            <!-- Switchers -->
-                            <div class="col-12 videos-switchers">
-                                <div class="row">
-                                    <!-- Left Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp</div>
-                                    <!-- Right Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                            <!-- END a Switchers -->
-
-                             <!-- Videos's Description -->
-                            <div class="padding-0 col-12">
-                                <p class="pl-2">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                <p>    
-                            </div>
-                            <!-- Video's Description -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg mylist-bottom-bg"> &nbsp; </div>
-                <!-- END Video's Block -->
-                
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg calendar-blocks-top-bg mt-1"> &nbsp; </div>
-                <!-- Calendar Block -->
-                <div class="col-12 sections-block bg-white">
-                    <div class="sections-content-wrapper">
-                        <div class="logged-in-users-table table-responsive calendar-wrapper text-left">
-                            <!-- Calendar Title -->  
-                            <div class="row">
-                                <div class="col-12">  
-                                    <h3 class="titles text-capitilize mt-2"> <i class="titles-icon far fa-clock mr-2"></i> Upcoming Events </h3>
-                                </div>
-
-                                <!-- Calendar Switcher -->
-                                <div class="col-12 mt-2 mb-2">
-                                    <a href="#"><i class="fas fa-angle-left"></i></a>
-                                    <span class="showen-month">February</span>
-                                    <a href="#"><i class="fas fa-angle-right"></i></a>
-                                </div>
-                                <!-- END a Calendar Switcher -->
-
-                            </div>
-                            <!-- END a Calendar Title -->  
-
-                            <hr class="calendar-devider" />
-
-                            <table class="table table-sm table-bordered align-middle mt-4 text-center">
-
-                                <!-- Calendar Head -->
-                                <thead class="table-active">
-                                    <tr>
-                                        <td>S</td>
-                                        <td>M</td>
-                                        <td>T</td>
-                                        <td>W</td>
-                                        <td>T</td>
-                                        <td>F</td>
-                                        <td>S</td>
-                                    </tr>
-                                </thead>
-                                <!-- END a Calendar Head -->
-
-                                <!-- Calendar Body -->
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>9</td>
-                                        <td>10</td>
-                                        <td>11</td>
-                                        <td>12</td>
-                                        <td>13</td>
-                                        <td>14</td>
-                                    </tr>
-                                    <tr>
-                                        <td>15</td>
-                                        <td>16</td>
-                                        <td>17</td>
-                                        <td>18</td>
-                                        <td>19</td>
-                                        <td>20</td>
-                                        <td>21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>22</td>
-                                        <td>23</td>
-                                        <td>24</td>
-                                        <td>25</td>
-                                        <td>26</td>
-                                        <td>27</td>
-                                        <td>28</td>
-                                    </tr>
-                                    <tr>
-                                        <td>29</td>
-                                        <td>30</td>
-                                        <td>31</td>
-                                    </tr>
-                                </tbody>
-                                <!-- END a Calendar Body -->
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Calendar Block -->
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg calendar-blocks-bottom-bg"> &nbsp; </div>
-
-            </section>
-            <!-- END a Second Section -->
-
-            <!-- Third Section -->  
-            <section class="row home-third-section">
-                <!-- Continiu Watching's Block -->
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg continue-top-bg mt-1"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 continue-sections-block">
-                    <div class="sections-content-wrapper">
-                        <!-- Continue Watching Block's Title -->
-                        <h3 class="titles"><i class="far fa-eye titles-icon pr-2"></i> Continue Watching</h3>
-
-                        <div class="row mt-4 margin-0">
-                            <!-- Video -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                </div>
-
-                                <!-- Action Button's Div -->
-                                <div class="container-for-action-buttons position-absolute">
-                                    <div class="row">
-                                        <!-- Add To My Lists's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                        <!-- Like's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                        </div>
-                                        <!-- Views Button -->
-                                        <div class="col-12 text-right">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="text-secondary action-buttons-value">(247)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a Action's Buttons Div -->
-                            </div>
-                            <!-- Video -->
-
-                            <!-- Switchers -->
-                            <div class="col-12 videos-switchers">
-                                <div class="row">
-                                    <!-- Left Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp</div>
-                                    <!-- Right Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                            <!-- END a Switchers -->
-
-                             <!-- Videos's Description -->
-                            <div class="padding-0 col-12">
-                                <p class="pl-2">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                <p>    
-                            </div>
-                            <!-- Video's Description -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END Video's Block -->
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg continue-bottom-bg"> &nbsp; </div>
-                <!-- END Continue Watching's Block -->
-
-                <!-- Videos By Atanomy's Block -->
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg anatomy-top-bg mt-1"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 anatomy-sections-block bg-white">
-                    <div class="sections-content-wrapper">
-                        <!-- Videos By Anatomy Block's Title -->
-                        <h3 class="titles"><img src="media/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Anatomy's Icon">Videos By <span class="highlight-blocks-subject">Anatomy</span></h3>
-
-                        <div class="row mt-4 margin-0">
-                            <!-- Video -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                </div>
-
-                                <!-- Action Button's Div -->
-                                <div class="container-for-action-buttons position-absolute">
-                                    <div class="row">
-                                        <!-- Add To My Lists's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                        <!-- Like's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                        </div>
-                                        <!-- Views Button -->
-                                        <div class="col-12 text-right">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="text-secondary action-buttons-value">(247)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a Action's Buttons Div -->
-                            </div>
-                            <!-- Video -->
-
-                            <!-- Switchers -->
-                            <div class="col-12 videos-switchers">
-                                <div class="row">
-                                    <!-- Left Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp</div>
-                                    <!-- Right Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                            <!-- END a Switchers -->
-
-                            <!-- Videos's Description -->
-                            <div class="padding-0 col-12">
-                                <p class="pl-2">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                <p>    
-                            </div>
-                            <!-- Video's Description -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END Video's Block -->
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg anatomy-bottom-bg"> &nbsp; </div>
-                <!-- END Videos By Atanomy's Block -->
-            </section>       
-            <!-- END Third Section -->
-
-            <!-- Fourth Section -->
-            <section class="row home-fourth-section">
-                <!-- Last Feedback's Block -->
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg feedbacks-top-bg mt-1"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 feedbacks-block">
-                    <div class="sections-content-wrapper">
-                        <!-- Videos By Anatomy Block's Title -->
-                       <!-- Feedback Title -->
-                        <h3 class="titles mb-3 mt-3 text-white"><i class="far fa-comments text-white titles-icon pr-2"></i> Last Feedback</h3>
-                        <div class="feedbacks-content-wrapper">
-                            <div class="row feedbacks-row">
-                                <!-- User's Avatar -->
-                                <div class="col-3 feedback-avatar-col">
-                                    <img src="media/img/general/avatar/feedback-avatar.jpg" class="rounded-circle mt-3 feedbacks-avatar" width="75" alt="Feedback's Avatar">
-                                </div>
-                                <!-- END a User's Avatar-->
-                                <div class="col-9 feedback-text-col">
-                                    <!-- Feedback's text -->
-                                        <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2">
-                                            <p class="pl-2">
-                                                “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
-                                            </p>
-                                        </blockquote>
-                                    <!-- END a feedback's text -->
-                                </div>
-                                <div class="col-12 text-white mt-2">
-                                    <div class="row">
-                                        <!-- User's name -->
-                                        <div class="col-6">
-                                            <p class="small font-weight-lighter font-italic">Aleksandre Voronini</p>
-                                        </div>
-                                        <!-- Feedback's Date -->
-                                        <div class="col-6">
-                                            <p class="small font-weight-lighter font-italic text-right">2021-02-10</p>
-                                        </div> 
-                                    </div>
-                                 </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Video's Block -->
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg feedbacks-bottom-bg"> &nbsp; </div>
-                <!-- END Last Feedback's Block -->
-                
-                <!-- Videos By Deseases's Block -->
-                 <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg diseases-top-bg mt-1"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 bg-white">
-                    <div class="sections-content-wrapper">
-                        <!-- Videos By Diseases Block's Title -->
-                        <h3 class="titles mt-3"><img src="media/icons/diseases-icon.png" width="45px" class="pr-1" alt="Diseases's Icon"> Videos By <span class="highlight-blocks-subject">Diseases</span></h3>
-
-                        <div class="row mt-4 margin-0">
-                            <!-- Video -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                </div>
-
-                                <!-- Action Button's Div -->
-                                <div class="container-for-action-buttons position-absolute">
-                                    <div class="row">
-                                        <!-- Add To My Lists's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                        <!-- Like's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                        </div>
-                                        <!-- Views Button -->
-                                        <div class="col-12 text-right">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="text-secondary action-buttons-value">(247)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a Action's Buttons Div -->
-                            </div>
-                            <!-- Video -->
-
-                            <!-- Switchers -->
-                            <div class="col-12 videos-switchers">
-                                <div class="row">
-                                    <!-- Left Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp;</div>
-                                    <!-- Right Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                            <!-- END a Switchers -->
-
-                             <!-- Videos's Description -->
-                            <div class="padding-0 col-12">
-                                <p class="pl-2">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                <p>    
-                            </div>
-                            <!-- Video's Description -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END Video's Block -->
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg diseases-bottom-bg"> &nbsp; </div>
-                <!-- END Videos By Deases's Block -->
-            </section>
-            <!-- END Fourth Section -->
-
-            <!-- Fifth Section -->  
-            <section class="row home-fifth-section">
-                <!-- Videos By Subject's Block -->
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg subjects-top-bg mt-1"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 subjects-blocks-bg">
-                    <div class="sections-content-wrapper">
-                        <!-- Videos By Subject Block's Title -->
-                        <h3 class="titles mt-3"><img src="media/icons/subjects-icon.png" width="45px" class="pr-2" alt="Diseases's Icon"> Videos By <span class="highlight-blocks-subject">Subjects</span></h3>
-
-                        <div class="row mt-4 margin-0">
-                            <!-- Video -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                </div>
-
-                                <!-- Action Button's Div -->
-                                <div class="container-for-action-buttons position-absolute">
-                                    <div class="row">
-                                        <!-- Add To My Lists's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                        <!-- Like's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                        </div>
-                                        <!-- Views Button -->
-                                        <div class="col-12 text-right">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="text-secondary action-buttons-value">(247)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a Action's Buttons Div -->
-                            </div>
-                            <!-- Video -->
-
-                            <!-- Switchers -->
-                            <div class="col-12 videos-switchers">
-                                <div class="row">
-                                    <!-- Left Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp</div>
-                                    <!-- Right Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                            <!-- Switchers -->
-
-                             <!-- Videos's Description -->
-                            <div class="padding-0 col-12">
-                                <p class="pl-2">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                <p>    
-                            </div>
-                            <!-- Video's Description -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END Video's Block -->
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg subjects-bottom-bg"> &nbsp; </div>
-                <!-- END Videos By Subject's Block -->
-
-                <!-- Playlist's Block -->
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg playlists-top-bg mt-1"> &nbsp; </div>
-                <!-- Video's Block -->
-                <div class="col-12 bg-white">
-                    <div class="sections-content-wrapper">
-                        <!-- Videos By Playlist Block's Title -->
-                        <h3 class="titles mt-1"><i class="fas fa-stream pr-2 titles-icon"></i>Playlists</h3>
-
-                        <div class="row mt-4 margin-0">
-                            <!-- Video -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                </div>
-
-                                <!-- Action Button's Div -->
-                                <div class="container-for-action-buttons position-absolute">
-                                    <div class="row">
-                                        <!-- Add To My Lists's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                        </div>
-                                        <!-- Like's Button -->
-                                        <div class="col-12 text-right mb-3">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                        </div>
-                                        <!-- Views Button -->
-                                        <div class="col-12 text-right">
-                                            <a href="#" class="text-secondary">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="text-secondary action-buttons-value">(247)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a Action's Buttons Div -->
-                            </div>
-                            <!-- Video -->
-
-                            <!-- Switchers -->
-                            <div class="col-12 videos-switchers">
-                                <div class="row">
-                                    <!-- Left Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-left text-muted"></i></div>
-                                    <div class="col-8">&nbsp;</div>
-                                    <!-- Right Arrow -->
-                                    <div class="col-2"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                            <!-- END a Switchers -->
-
-                             <!-- Videos's Description -->
-                            <div class="padding-0 col-12">
-                                <p class="pl-2">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                <p>    
-                            </div>
-                            <!-- Video's Description -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END Video's Block -->
-                <!-- END Playlist's Block -->
-
-            </section>       
-            <!-- END fifth Section -->
-            <div class="div-for-bottom-margin"> &nbsp; </div>
-        </div>
-        <!-- END Page Container -->
-
-
-    {% else %}
-
-
-    <!-- If a user is not logged in this section will apear -->    
-    <!-- First Section -->
-    <section class="container-fluid h-100 home-first-section-not-logged-in">
-        <!-- Section Container -->
-        <div class="row h-100 container-fluid no-gutters">
-            <div class="col h-100">
-                <!-- A page text row -->
-                <div class="row">
-
-                    <!-- A Page title column -->
-                    <div class="col-12">
-                        <h1 class='welcome-text text-white'>
-                            Tips from doctor Diana about <span>healthcare</span>
-                        </h1>
-                    </div>
-                    <!-- END a Page Title Column -->
-
-                    <!-- A page description column -->
-                    <div class="col-12">
-                        <h2 class="sm-home-first-section-desc text-white mt-3">
-                             More than one hundred videos about weight loss, Tibetian medicine, diseases, physiology and more...
-                        </h2>
-                    </div>
-                    <!-- END a Page Description Column -->
-
-                    <!-- Get access column -->
-                    <div class="col-12">
-                        <form class="get-access-form mt-4">
-                            <div class="row no-gutters">
-                                <div class="col-7">
-                                    <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp">
-                                </div>
-                                <div class="col-5 pl-1">
-                                    <button type="submit" class="btn get-access-btn btn-primary">Get Access</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- END a Get Access Column -->
-
-                </div>
-                <!-- END a Page Text Row -->
-
-                <!-- A Page Video Row -->
-                <div class="row sm-home-first-section-video">
-
-                    <!-- Video -->
-                    <div class="col-12 padding-0">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <!-- Video -->
-
-                </div>
-                <!-- END a Page Video Row -->
-            </div>    
-        </div>
-        <!-- END Section Container -->
-    </section> 
-    <!-- END Of The First Section -->
-
-    <!-- Second Section -->
-    <section class="container-fluid home-second-section-not-logged-in">
-
-        <!-- Banner Row -->
-        <div class="row">
-            <div class="col subscriptions-banner mt-4 mr-3 ml-3 rounded-lg shadow-sm">
-                <div class="container-fluid banner-wrapper">
-                    <!-- Subscription Text Row -->
-                    <div class="row sm-subscription-row rounded-top">
-                        <div class="col banners-text">    
-                            <h3 class="titles text-uppercase subsc-title mt-3"> <i class="fas fa-user-edit titles-icon mr-2"></i> subscription</h3>
-                            <p class="mt-2 pb-2 subscription-description">
-                                Videos about healthcare, Weight Loss, Tibetian Medicine
-                                Food Problems, Physiology, Anatomy, Medititation and more.
-                                Also you will get access to the all events.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- END a Subscription Text Row -->
-
-                    <!-- Event Row -->
-                    <div class="row sm-home-page-event event mt-3 text-center">
-                        <div class="col">
-                            <h3 class="text-uppercase titles timer-title"> <i class="fas fa-calendar-day titles-icon mr-2"></i> Summery of the year  2020 </h3>
-                            <table class="table table-borderless">
-                                <!-- Time -->
-                                <thead class="timer event-table-head">
-                                    <tr>
-                                        <td id="days"></td>
-                                        <td id="houres"></td>
-                                        <td id="minutes"></td>
-                                        <td class="text-left" id="seconds"></td>
-                                    </tr>
-                                </thead>
-                                <!-- Initialling a timer function --> 
-                                <script>diasferoTimer(new Date("Apr 5, 2021 15:37:25").getTime());</script>
-                                <!-- END a Time --> 
-                                <!-- Time's Units -->
-                                <tbody class="text-white font-italic text-left small event-table-body">
-                                    <tr>
-                                        <td class="pr-3 not-logged-timer">Days</td>
-                                        <td class="pr-4 not-logged-timer">Houres</td>
-                                        <td class="pr-4 not-logged-timer">Minutes</td>
-                                        <td class="text-left not-logged-timer">Seconds</td>
-                                    </tr>
-                                </tbody>  
-                                <!-- END a Time's Unites -->
-                            </table>
-                        
-                        </div>
-                    </div>
-                    <!-- END a Event Row -->
-                </div>
-            </div>
-        </div>
-        <!-- END a Banner Row -->
-
-        <!-- Card's Row -->
-        <div class="row cards-row container-fluid mt-5">
-            <div class="col subsctipsins-cards">
-
-                <!-- Card's Tabs -->
-                <nav class="cards-nav">
-                    <div class="nav nav-tabs cards-menu" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link first-card-nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
-                        <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">6 Months</a>
-                        <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">1 Year</a>
-                    </div>
-                </nav>
-                <!-- END Card's Tabs -->
-
-                <!-- Card Content -->
-                <div class="tab-content bg-white rounded-lg shadow-sm" id="nav-tabContent">
-
-                    <!-- Card 1 -->
-                    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="cards-content">
-                            <p class="cards-months-length text-uppercase text-center pt-4">1 Month</p>
-                            <div class="card-scale-img-wrapper">
-                                <img src="media/img/sm/mb-home-card-scale.png" alt="Scale" >
-                            </div>
-                            <p class="cards-saving mt-2"> Save <span>0</span> Euros </p>
-                            <div class="cards-price"><strong> 19 </strong></div>
-                            <div class="cards-currency"><span>EUR</span></div>
-                            <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
-                            <div class="cards-choose-btn-wrapper">
-                                <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END a Card 1 -->
-
-                    <!-- Card 2 -->    
-                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="cards-content">
-                            <p class="cards-months-length text-uppercase text-center pt-4">6 Months</p>
-                            <div class="card-scale-img-wrapper">
-                                <img src="media/img/sm/mb-home-card-scale.png" alt="Scale" >
-                            </div>    
-                            <p class="cards-saving mt-2"> Save <span>24</span> Euros </p>
-                            <div class="cards-price"> <strong> 90 </strong> </div>
-                            <div class="cards-currency"> EUR </div>
-                            <p class="cards-desc mt-3 ml-3 mr-3" >You will get full access to all videos + events</p>
-                            <div class="cards-choose-btn-wrapper">
-                                <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END a Card 2 -->
-
-                    <!-- Card 3 -->
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <div class="cards-content">
-                            <p class="cards-months-length text-uppercase text-center pt-4">1 Year</p>
-                            <div class="card-scale-img-wrapper">
-                                <img src="media/img/sm/mb-home-card-scale.png" alt="Scale" >
-                            </div>
-                            <p class="cards-saving mt-2"> Save <span>68</span> Euros </p>
-                            <div class="cards-price"><strong> 160 </strong> </br></div>
-                            <div class="cards-currency"><span>EUR</span></div>
-                            <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
-                            <div class="cards-choose-btn-wrapper">
-                                <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
-                            </div>    
-                        </div>
-                    </div>
-                    <!-- END a Card 3 -->
-
-                </div>
-                <!-- END a Card's Content -->
-
-            </div>
-        </div>
-        <!-- END a Card's Row -->
-
-    </section>
-    <!-- END a Second Section -->
-
-    <!-- Third Section -->
-    <section class="container-fluid home-third-section-not-logged-in">
-
-        <!-- FAQ Row -->
-        <div class="row sm-home-third-section-row container-fluid">
-            <div class="col sm-home-third-section-col mt-4 home-faq">
-
-                <!-- Div tag for top vertical background -->
-                <div class="top-and-bottom-block-bg faq-block-top-bg"></div>
-                <div class="wrapper-for-blocks-bg">
-                    <!-- All FAQs Wrapper -->    
-                    <div class="home-faq-wrapper pt-3 pb-1">
-                        <!-- FAQ Title -->
-                        <h3 class="titles text-capitilize faq-title"> <i class="fas fa-th-list titles-icon mr-2"></i> Frequently Asked Questions</h3>
-                        <hr/>
-                        <!-- END a FAQ Title -->
-                        <!-- FAQ 1 -->
-                        <div class="faq-1">
-                            <p class="faq-questions-p mb-3">
-                                <a class="btn faq-questions" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
-                                    Anim pariatur cliche...
-                                </a>
-                            </p>
-                            <div class="collapse" id="faq-1">
-                                <div class="card card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END a FAQ 1 -->
-
-                        <!-- FAQ 2 -->
-                        <div class="faq-2">
-                            <p class="faq-questions-p mb-3">
-                                <a class="btn faq-questions" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-2">
-                                    Anim pariatur cliche...
-                                </a>
-                            </p>
-                            <div class="collapse" id="faq-2">
-                                <div class="card card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END a FAQ 2 -->
-
-                        <!-- FAQ 3 -->
-                        <div class="faq-3">
-                            <p class="faq-questions-p mb-3">
-                                <a class="btn faq-questions" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-3">
-                                    Anim pariatur cliche...
-                                </a>
-                            </p>
-                            <div class="collapse" id="faq-3">
-                                <div class="card card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END a FAQ 3-->
-
-                        <!-- FAQ 4 -->
-                        <div class="faq-4">
-                            <p class="faq-questions-p mb-3">
-                                <a class="btn faq-questions" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-4">
-                                    Anim pariatur cliche...
-                                </a>
-                            </p>
-                            <div class="collapse" id="faq-4">
-                                <div class="card card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END a FAQ 4 -->
-
-                    </div>
-                </div>
-                <!-- END a All FAQs Wrapper -->
-                <!-- Div tag for top vertical background -->
-                <div class="top-and-bottom-block-bg faq-block-bottom-bg"></div>
-
-            </div>
-        </div>
-        <!-- END a FAQ Row -->
-
-        <!-- Calendar Row -->    
-        <div class="row container-fluid calendar-row">
-            <div class="col mt-2"> 
-
-                <div class="top-and-bottom-block-bg calendar-blocks-top-bg"></div>
-                <!-- Calendar Table -->
-                <div class="table-wrapper-for-blocks-bg pt-2">  
-                    
-                    <div class="table-responsive calendar-wrapper text-left">
-                        <!-- Calendar Title -->  
+        <!-- First Section -->
+        <section class="row sm-home-first-section-logged-in h-100 no-gutters">
+            <!-- Video's Block -->
+            <div class="col-12 home-first-section-video-container position-relative">
+                <!-- Video's Block Title -->
+                <h3 class="container-fluid text-white titles"><i class="fas fa-video titles-icon pr-2"></i> New Video</h3>
+                <!-- Video -->
+                <div class="mt-3 embed-responsive embed-responsive-16by9 position-relatiive">
+
+                    <!-- Video Frame -->
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                    <!-- END a Video Frame -->
+
+                    <!-- Action Button's Div -->
+                    <div class="container-for-action-buttons position-absolute">
                         <div class="row">
-                            <div class="col-12">  
-                                <h3 class="titles text-capitilize"> <i class="titles-icon far fa-clock mr-2"></i> Upcoming Events </h3>
+                            <!-- Add To My Lists's Button -->
+                            <div class="col-12 text-right mb-3">
+                                <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                            </div>
+                            <!-- Like's Button -->
+                            <div class="col-12 text-right mb-3">
+                                <a href="#" class="text-secondary">
+                                    <i class="far fa-thumbs-up"></i>
+                                </a><small class="text-secondary action-buttons-value">(+17)</small>
+                            </div>
+                            <!-- Views Button -->
+                            <div class="col-12 text-right">
+                                <a href="#" class="text-secondary">
+                                    <i class="far fa-eye"></i>
+                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END a Action's Buttons Div -->
+
+                </div>
+                <!-- END a Video -->
+            </div>
+            <!-- END a Video's Block -->
+
+            <!-- Event's Block -->
+            <div class="col-12 home-first-section-event-container mt-3">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <!-- Event's Title -->
+                        <h3 class="container-fluid titles text-white"><i class="fas fa-calendar-day titles-icon pr-3"></i>Summery of the year 2020</h3>
+                        <!-- Event's Description -->
+                        <p class="container-fluid event-desc text-white mt-3">During this event I will summarize generally a healthcare situation in 2020.</p>
+                    </div>
+                    <!-- Timer's Block -->
+                    <div class="col-12">
+                        <table class="table table-borderless">
+                            <!-- Time -->
+                            <thead class="timer event-table-head">
+                                <tr>
+                                    <td id="days">23 :</td>
+                                    <td id="houres">24 :</td>
+                                    <td id="minutes">14 :</td>
+                                    <td class="text-left" id="seconds">06</td>
+                                </tr>
+                            </thead> 
+                            <script>diasferoTimer(new Date("Apr 5, 2021 15:37:25").getTime());</script>
+                            <!-- END a Time --> 
+                            <!-- Time's Units -->
+                            <tbody class="text-white font-italic text-left small event-table-body">
+                                <tr>
+                                    <td class="pr-3">Days</td>
+                                    <td class="pr-4">Houres</td>
+                                    <td class="pr-4">Minutes</td>
+                                    <td class="text-left">Seconds</td>
+                                </tr>
+                            </tbody>  
+                            <!-- END a Time's Unites -->
+                        </table>
+                    </div>
+                    <!-- END a Timer's Block -->
+                </div>    
+            </div>
+            <!-- END a Event's Block -->
+        </section>
+        <!-- END a First Section -->
+
+        <!-- My List Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg gray-section-top-bg mt-3"></div>
+        <section class="row no-gutters gray-section">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4"><i class="fas fa-th-list titles-icon pr-2"></i> My List</h3>
+                <hr class="video-title-devider">
+                <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="mylist-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
                             </div>
 
+                            <!-- Video's Description -->
+                            <div class="position-relative">
+                                <p class="container-fluid mt-3 position-relative">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
+                                <p>
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
+                            </div>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        <!-- Div tag for top  background -->
+        <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
+        <!-- END a My List Section -->
+
+        <!-- Calendar Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg calendar-blocks-top-bg mt-3"></div>
+        <section class="row no-gutters bg-white">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4"><i class="titles-icon far fa-clock pr-2"></i> Upcoming Events </h3>
+                <hr class="video-title-devider">
+                {% comment %} <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="cont-watching-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" width="100px" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+                <div class="container-fluid table-responsive text-left">
+                        <!-- Calendar Title -->  
+                        <div class="row container-fluid no-gutters">
                             <!-- Calendar Switcher -->
                             <div class="col-12 mt-2 mb-2">
                                 <i class="fas fa-angle-left switch-to-prev-month mr-4"></i>
@@ -972,8 +392,6 @@
 
                         </div>
                         <!-- END a Calendar Title -->  
-
-                        <hr class="calendar-devider" />
                         <div class="calendar">
                             <div class="weekdays">
                                 <div>Sun</div>
@@ -988,20 +406,1133 @@
                                 <!-- Here come days from javascript -->
                             </div>
                         </div>
-                    </div> 
+                    </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
                 </div>
-                <!-- END a Calendar Table --> 
-                <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div>   
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
 
-        </div>
-        <!-- END a Calendar Row -->
+        </section>
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div>
+        <!-- END a Calendar Section -->
 
-    </section> 
-    <!-- END a Third Section --> 
+        <!-- Contunue Watching Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg pink-section-top-bg mt-3"></div>
+        <section class="row no-gutters pink-section">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4"><i class="far fa-eye titles-icon pr-2"></i> Continue Watching</h3>
+                <hr class="video-title-devider">
+                <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="cont-watching-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" width="100px" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg pink-section-bottom-bg"></div>
+        <!-- END a Contunue Watching Section -->
+
+        <!-- Videos By Anatomy Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg white-section-top-bg mt-3"></div>
+        <section class="row no-gutters bg-white">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4">
+                    <img src="media/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Anatomy's Icon">
+                    Videos By <span class="highlight-blocks-subject">Anatomy</span>
+                </h3>
+                <hr class="video-title-devider">
+                <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="by-anatomy-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" width="100px" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg white-section-bottom-bg"></div>
+        <!-- END a Videos By Anatomy Section -->
+
+        <!-- Feedback's Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg green-section-top-bg mt-3"></div>
+        <section class="row no-gutters green-section">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles text-white mt-4">
+                    <i class="far fa-comments text-white titles-icon pr-2"></i> Last Feedback
+                </h3>
+                <hr class="video-title-devider">
+                <div class="feedbacks-content-wrapper">
+                        <div class="row container-fluid no-gutters feedbacks-row">
+                            <!-- User's Avatar -->
+                            <div class="col-3 feedback-avatar-col">
+                                <img src="media/img/general/avatar/feedback-avatar.jpg" class="rounded-circle mt-3 feedbacks-avatar" width="75" alt="Feedback's Avatar">
+                            </div>
+                            <!-- END a User's Avatar-->
+                            <div class="col-9 feedback-text-col">
+                                <!-- Feedback's text -->
+                                    <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2">
+                                        <p class="pl-2">
+                                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
+                                        </p>
+                                    </blockquote>
+                                <!-- END a feedback's text -->
+                            </div>
+                            <div class="col-12 text-white mt-2">
+                                <div class="row">
+                                    <!-- User's name -->
+                                    <div class="col-6">
+                                        <p class="small font-weight-lighter font-italic">Aleksandre Voronini</p>
+                                    </div>
+                                    <!-- Feedback's Date -->
+                                    <div class="col-6">
+                                        <p class="small font-weight-lighter font-italic text-right">2021-02-10</p>
+                                    </div> 
+                                </div>
+                                </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg green-section-bottom-bg"></div>
+        <!-- END a Feedback's Section -->
+
+        <!-- Vidoe's by Diseases Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg calendar-blocks-top-bg mt-3"></div>
+        <section class="row no-gutters bg-white">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4">
+                    <img src="media/icons/diseases-icon.png" width="45px" class="pr-1" alt="Diseases's Icon"> Videos By 
+                    <span class="highlight-blocks-subject">Diseases</span>
+                </h3>
+                <hr class="video-title-devider">
+                <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="by-diseases-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" width="100px" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div>
+        <!-- END a Videos by Diseases Section -->
+
+        <!-- Vidoe's by Subject Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg gray-section-top-bg-2 mt-3"></div>
+        <section class="row no-gutters gray-section">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4">
+                    <img src="media/icons/subjects-icon.png" width="45px" class="pr-2" alt="Diseases's Icon"> 
+                    Videos By <span class="highlight-blocks-subject">Subjects</span>
+                </h3>
+                <hr class="video-title-devider">
+                <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="by-subject-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <div class="position-relative">
+                                <p class="container-fluid mt-3 position-relative">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
+                                <p>
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
+                            </div>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        <!-- Div tag for top  background -->
+        <div class="top-and-bottom-block-bg gray-section-bottom-bg-2"></div>
+        <!-- END a Videos by Subject Section -->
+
+        <!-- Playlist Section -->
+        <!-- Div tag for top background -->
+        <div class="top-and-bottom-block-bg white-section-top-bg mt-3"></div>
+        <section class="row no-gutters bg-white">
+
+            <div class="col-12">
+                <h3 class="container-fluid titles mt-4">
+                    <i class="fas fa-stream pr-2 titles-icon pr-2"></i>Playlists
+                </h3>
+                <hr class="video-title-devider">
+                <div class="video-slider-owerflow-hidden">
+                    <div class="sliders-container" id="playlist-sliders-container">
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" width="100px" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- EMD a Video 1-->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 1 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 2-->
+                        </div>
+
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} <!-- Switchers -->
+            <div class="col-12 videos-switchers">
+                <div class="row no-gutters justify-content-center">
+                    <!-- Left Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-left text-muted"></i></div>
+                    <div class="col-8">&nbsp;</div>
+                    <!-- Right Arrow -->
+                    <div class="col-1"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <!-- END a Switchers --> {% endcomment %}
+
+        </section>
+        
+        <div class="div-for-bottom-margin"> &nbsp; </div>
+
+    {% else %}
+        <!-- First Section For Not Logged User -->
+        <section class="row home-first-section-not-logged-in no-gutters">
+            <div class="col-12">
+                <!-- A Page title column -->
+                <h1 class='welcome-text text-white'>
+                    Tips from doctor Diana about <span>healthcare</span>
+                </h1>
+                <!-- END a Page Title Column -->
+            </div>
+            <div class="col-12 mt-2">
+                <!-- A page description column -->
+                <h2 class="sm-home-first-section-desc text-center text-white">
+                    More than one hundred videos about weight loss, Tibetian medicine, diseases, physiology and more...
+                </h2>
+                <!-- END a Page Description Column -->
+            </div>
+            <div class="col-12 xs-mt mt-5">
+                <!-- Get access column -->
+                <form class="get-access-form">
+                    <div class="row justify-content-center no-gutters">
+                        <div class="col-7 col-md-8">
+                            <input type="text" class="form-control get-access-input"name="search" aria-describedby="emailHelp">
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <button type="submit" class="btn get-access-btn btn-primary ml-2">Get Access</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END a Get Access Column -->
+
+            <!-- Video -->
+            <div class="col-12 welcome-video mt-5">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <!-- Video -->
+
+            <!-- Div for bottom margin -->
+            <div class="col-12">&nbsp;</div>
+
+        </section>
+    
+        <!-- Second Section -->
+        <section class="container-fluid home-second-section-not-logged-in">
+
+            <!-- Banner Row -->
+            <div class="row">
+                <div class="col subscriptions-banner mt-4 mr-3 ml-3 rounded-lg shadow-sm">
+                    <div class="container-fluid banner-wrapper">
+                        <!-- Subscription Text Row -->
+                        <div class="row sm-subscription-row rounded-top">
+                            <div class="col banners-text">    
+                                <h3 class="titles text-uppercase subsc-title mt-3"> <i class="fas fa-user-edit titles-icon mr-2"></i> subscription</h3>
+                                <p class="mt-2 pb-2 subscription-description">
+                                    Videos about healthcare, Weight Loss, Tibetian Medicine
+                                    Food Problems, Physiology, Anatomy, Medititation and more.
+                                    Also you will get access to the all events.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- END a Subscription Text Row -->
+
+                        <!-- Event Row -->
+                        <div class="row sm-home-page-event event mt-3 text-center">
+                            <div class="col">
+                                <h3 class="text-uppercase titles timer-title"> <i class="fas fa-calendar-day titles-icon mr-2"></i> Summery of the year  2020 </h3>
+                                <table class="table table-borderless">
+                                    <!-- Time -->
+                                    <thead class="timer event-table-head">
+                                        <tr>
+                                            <td id="days"></td>
+                                            <td id="houres"></td>
+                                            <td id="minutes"></td>
+                                            <td class="text-left" id="seconds"></td>
+                                        </tr>
+                                    </thead>
+                                    <!-- Initialling a timer function --> 
+                                    <script>diasferoTimer(new Date("Apr 5, 2021 15:37:25").getTime());</script>
+                                    <!-- END a Time --> 
+                                    <!-- Time's Units -->
+                                    <tbody class="text-white font-italic text-left small event-table-body">
+                                        <tr>
+                                            <td class="pr-3 not-logged-timer">Days</td>
+                                            <td class="pr-4 not-logged-timer">Houres</td>
+                                            <td class="pr-4 not-logged-timer">Minutes</td>
+                                            <td class="text-left not-logged-timer">Seconds</td>
+                                        </tr>
+                                    </tbody>  
+                                    <!-- END a Time's Unites -->
+                                </table>
+                            
+                            </div>
+                        </div>
+                        <!-- END a Event Row -->
+                    </div>
+                </div>
+            </div>
+            <!-- END a Banner Row -->
+
+            <!-- Card's Row -->
+            <div class="row cards-row container-fluid mt-5">
+                <div class="col subsctipsins-cards">
+
+                    <!-- Card's Tabs -->
+                    <nav class="cards-nav">
+                        <div class="nav nav-tabs cards-menu" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link first-card-nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
+                            <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">6 Months</a>
+                            <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">1 Year</a>
+                        </div>
+                    </nav>
+                    <!-- END Card's Tabs -->
+
+                    <!-- Card Content -->
+                    <div class="tab-content bg-white rounded-lg shadow-sm" id="nav-tabContent">
+
+                        <!-- Card 1 -->
+                        <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="cards-content">
+                                <p class="cards-months-length text-uppercase text-center pt-4">1 Month</p>
+                                <div class="card-scale-img-wrapper">
+                                    <img src="media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                                </div>
+                                <p class="cards-saving mt-2"> Save <span>0</span> Euros </p>
+                                <div class="cards-price"><strong> 19 </strong></div>
+                                <div class="cards-currency"><span>EUR</span></div>
+                                <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
+                                <div class="cards-choose-btn-wrapper">
+                                    <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END a Card 1 -->
+
+                        <!-- Card 2 -->    
+                        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="cards-content">
+                                <p class="cards-months-length text-uppercase text-center pt-4">6 Months</p>
+                                <div class="card-scale-img-wrapper">
+                                    <img src="media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                                </div>    
+                                <p class="cards-saving mt-2"> Save <span>24</span> Euros </p>
+                                <div class="cards-price"> <strong> 90 </strong> </div>
+                                <div class="cards-currency"> EUR </div>
+                                <p class="cards-desc mt-3 ml-3 mr-3" >You will get full access to all videos + events</p>
+                                <div class="cards-choose-btn-wrapper">
+                                    <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END a Card 2 -->
+
+                        <!-- Card 3 -->
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="cards-content">
+                                <p class="cards-months-length text-uppercase text-center pt-4">1 Year</p>
+                                <div class="card-scale-img-wrapper">
+                                    <img src="media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                                </div>
+                                <p class="cards-saving mt-2"> Save <span>68</span> Euros </p>
+                                <div class="cards-price"><strong> 160 </strong> </br></div>
+                                <div class="cards-currency"><span>EUR</span></div>
+                                <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
+                                <div class="cards-choose-btn-wrapper">
+                                    <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                                </div>    
+                            </div>
+                        </div>
+                        <!-- END a Card 3 -->
+
+                    </div>
+                    <!-- END a Card's Content -->
+
+                </div>
+            </div>
+            <!-- END a Card's Row -->
+
+        </section>
+        <!-- END a Second Section -->
+
+        <!-- Third Section -->
+        <!-- Div tag for top vertical background -->
+        <div class="top-and-bottom-block-bg gray-section-top-bg mt-3"></div>
+        <section class="row no-gutters gray-section">
+            <div class="container-fluid">
+                <!-- FAQ Title -->
+                <h3 class="titles text-capitilize faq-title mt-3"> <i class="fas fa-th-list titles-icon mr-2"></i> Frequently Asked Questions</h3>
+                <hr/>
+                <!-- END a FAQ Title -->
+
+                <!-- FAQ 1 -->
+                <div class="faq-1">
+                    <p class="faq-questions-p mb-3">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
+                            Anim pariatur cliche...
+                        </a>
+                    </p>
+                    <div class="collapse" id="faq-1">
+                        <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 1 -->
+
+                <!-- FAQ 2 -->
+                <div class="faq-2">
+                    <p class="faq-questions-p mb-3">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-2">
+                            Anim pariatur cliche...
+                        </a>
+                    </p>
+                    <div class="collapse" id="faq-2">
+                        <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 2 -->
+
+                <!-- FAQ 3 -->
+                <div class="faq-3">
+                    <p class="faq-questions-p mb-3">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-3">
+                            Anim pariatur cliche...
+                        </a>
+                    </p>
+                    <div class="collapse" id="faq-3">
+                        <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 3-->
+
+                <!-- FAQ 4 -->
+                <div class="faq-4">
+                    <p class="faq-questions-p mb-3">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-4">
+                            Anim pariatur cliche...
+                        </a>
+                    </p>
+                    <div class="collapse" id="faq-4">
+                        <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 4 -->
+            </div>
+        </section>
+        <!-- Div tag for top vertical background -->
+        <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
+        <!-- END a Third Section -->
+        
     {% endif %}
 {% endblock %}
 {% block bottom_extra_js %}
 <script src="{% static 'js/calendar.js' %}"></script>
+<script src="{% static 'js/slider.js' %}"></script>
 <script>
 // Initialing a calendar's function
 calendarInit(eventday, eventLink);

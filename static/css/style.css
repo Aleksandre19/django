@@ -14,6 +14,33 @@ body{
     background-color: #f3f3f3;
 }
 
+main.all-wrapper{
+    height:100%;
+}
+
+/************** FIRST SECTION **************/
+.home-first-section-not-logged-in{
+    height: calc(100vh - 40px);
+}
+
+/** Styling a welcoming text **/
+.welcome-text{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 100px;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+/** First section description for mobile devices **/
+.sm-home-first-section-desc,
+.event-desc{
+    font-size: 14px;
+    line-height: 21px;
+    /* margin-top: 20px; */
+}
+
+
 /**  Settign a background image to first section for mobile devices **/
 .home-first-section-not-logged-in,
 .sm-home-first-section-logged-in{
@@ -21,6 +48,38 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.welcome-text span{
+    color: #fb9af4;
+}
+
+.get-access-btn{
+    background-color: rgba(0, 0, 0, .1);
+    border: 2px solid #71b355;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.get-access-input{
+    background-color: rgba(161, 128, 163, 0.3);
+    border: solid 1px #a180a3;
+}
+
+/************* END A FIRST SECTION ****************/
+
+/************* Third Section *********************/
+.gray-section{
+    background-color: #dcdcdc;
+}
+
+/************* End a Third Section ***************/
+
+/***************************************************
+****************************************************
+***************************************************/
+
+
 
 /** General styles for icons **/
 .titles-icon{
@@ -175,44 +234,19 @@ nav.colapsing{
     padding-left: 20px;
 }
 
-/** Styling a welcoming text **/
-.welcome-text{
-    font-size: 20px;
-    text-align: center;
-    margin-top: 100px;
-    text-transform: uppercase;
-    line-height: 35px;
-}
 
-.welcome-text span{
-    color: #fb9af4;
-}
 
-/** First section description for mobile devices **/
-.sm-home-first-section-desc,
-.event-desc{
-    font-size: 14px;
-    line-height: 21px;
-    /* margin-top: 20px; */
-}
 
-.get-access-btn{
-    background-color: rgba(0, 0, 0, .1);
-    border: 2px solid #71b355;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
 
-.sm-home-first-section-video{
+/* .sm-home-first-section-video{
     margin-top: 60px;
-}
+} */
 
-.not-logged-users-home-page-vides-desc{
+/* .not-logged-users-home-page-vides-desc{
     color: white;
     font-size: 14px;
     line-height: 21px;
-}
+} */
 
 .timer{
     font-size: 45px;
@@ -322,12 +356,11 @@ nav.colapsing{
 
 /* Manipulating with style to expand the background
    of the faq's block */
-.wrapper-for-blocks-bg,
-.faq-block-top-bg,
+/* .wrapper-for-blocks-bg,
 .faq-block-bottom-bg{
     margin-left: -30px;
     transform: translateX(15px);
-}
+} */
 
 .wrapper-for-blocks-bg,
 .sections-block,
@@ -336,46 +369,46 @@ nav.colapsing{
     
 }
 
-.continue-sections-block{
+.pink-section{
     background-color: #ddbde2;
 }
 
-.feedbacks-block{
+.green-section{
     background-color: #66cd00;
 }
 
-.home-faq-wrapper{
+/* .home-faq-wrapper{
     width: 86%;
     margin: auto;
-}
+} */
 
 /* Styling a div to create a vertical bg effect for section blocks */
 .top-and-bottom-block-bg{
     height: 30px;
 }
 
-.faq-block-top-bg,
+.gray-section-top-bg,
 .mylist-top-bg{
-    background-image: url('/media/img/sm/faq-block-top-bg.png');
+    background-image: url('/media/img/sm/gray-section-top-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.continue-top-bg{
-    background-image: url('/media/img/sm/continue-blocks-top-bg.png');
+.pink-section-top-bg{
+    background-image: url('/media/img/sm/pink-section-top-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.anatomy-top-bg,
+.white-section-top-bg,
 .playlists-top-bg{
-    background-image: url('/media/img/sm/anatomy-blocks-top-bg.png');
+    background-image: url('/media/img/sm/white-section-top-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.feedbacks-top-bg{
-    background-image: url('/media/img/sm/feedbacks-blocks-top-bg.png');
+.green-section-top-bg{
+    background-image: url('/media/img/sm/green-section-top-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -386,33 +419,33 @@ nav.colapsing{
     background-size: cover;
 }
 
-.subjects-top-bg{
-    background-image: url('/media/img/sm/subjects-block-top-bg.png');
+.gray-section-top-bg-2{
+    background-image: url('/media/img/sm/gray-section-top-bg-2.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.faq-block-bottom-bg,
+.gray-section-bottom-bg,
 .mylist-bottom-bg{
-    background-image: url('/media/img/sm/faq-block-bottom-bg.png');
+    background-image: url('/media/img/sm/gray-section-bottom-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.continue-bottom-bg{
-    background-image: url('/media/img/sm/continue-blocks-bottom-bg.png');
+.pink-section-bottom-bg{
+    background-image: url('/media/img/sm/pink-section-bottom-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.anatomy-bottom-bg{
-    background-image: url('/media/img/sm/anatomy-blocks-bottom-bg.png');
+.white-section-bottom-bg{
+    background-image: url('/media/img/sm/white-section-bottom-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.feedbacks-bottom-bg{
-    background-image: url('/media/img/sm/feedbacks-blocks-bottom-bg.png');
+.green-section-bottom-bg{
+    background-image: url('/media/img/sm/green-section-bottom-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -423,8 +456,8 @@ nav.colapsing{
     background-size: cover;
 }
 
-.subjects-bottom-bg{
-    background-image: url('/media/img/sm/subjects-block-bottom-bg.png');
+.gray-section-bottom-bg-2{
+    background-image: url('/media/img/sm/gray-section-bottom-bg-2.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -458,20 +491,20 @@ nav.colapsing{
 /* Manipulating with style to expand the background
    of the calendar's block */
 
-.table-wrapper-for-blocks-bg,
+/* .table-wrapper-for-blocks-bg,
 .calendar-blocks-top-bg,
 .calendar-blocks-bottom-bg{
     transform: translateX(29px);
     margin-left: -61px;
-}
+} */
 
 .table-wrapper-for-blocks-bg{
     background-color: white;
 }
 
-.calendar-wrapper{
+/* .calendar-wrapper{
     padding: 0px 26px 0px 31px;
-}
+} */
 
 .calendar-blocks-top-bg{
     background-image: url('/media/img/sm/calendar-blocks-top-bg.png');
@@ -592,7 +625,7 @@ nav.colapsing{
 }
 
 .container-for-action-buttons{
-    bottom: 7%;
+    bottom: 11%;
     right: 6%;
 }
 
@@ -610,7 +643,7 @@ nav.colapsing{
 
 .blocks-top-bg,
 .blocks-bottom-bg{
-    width: 108%;
+    width: 100%;
 }
 
 .videos-switchers{
@@ -643,9 +676,9 @@ nav.colapsing{
     border: 3px solid #c0ff80;
 }
 
-.div-for-bottom-margin{
+/* .div-for-bottom-margin{
     height: 56px;
-}
+} */
 
 .logged-in-users-table{
     padding: 0;
@@ -674,6 +707,17 @@ nav.colapsing{
 
 .videos-title{
     margin-top: 0 !important;
+}
+
+.video-title{
+    letter-spacing: 1px;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #1d1c1d;
+}
+
+.video-title-devider{
+    width: 92%;
 }
 
 .videos-bottom-bg{
@@ -819,6 +863,57 @@ nav.colapsing{
     all: revert !important;
 }
 
+/************* Video Slider ************/
+.video-slider-owerflow-hidden{
+    overflow: hidden;
+}
+
+.sliders-container{
+    display: inline-flex;
+    overflow: hidden;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+    -webkit-transition: transform 0.3s ease-out;
+    -moz-transition: transform 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out;
+    cursor: grab;
+}
+
+.slide{
+    width: 100vw;
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+}
+
+.grabbing{
+    cursor: grabbing;
+}
+
+.grabbing .slide{
+    transform: scale(0.9);
+}
+
+.swipe-icon{
+    top: -27px;
+    left: 50%;
+    margin-left: -65px;
+    width: 130px;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    opacity: 0.0;
+}
+
+.show-swiping{
+    opacity: 0.3;
+    transition: opacity 0.6s ease-in-out;
+}
+
+
+/*********** END a Video Slider ********/
 
 
 /******* Styled for Iphone 5 and similar size devices ********/
@@ -826,7 +921,7 @@ nav.colapsing{
 @media (max-width: 320px){
 
     .get-access-btn{
-        font-size: 12px;
+        font-size: 11px;
         padding-top: 8px;
         padding-bottom: 8px;
     }
@@ -845,6 +940,15 @@ nav.colapsing{
 
     .welcome-text{
         margin-top: 93px;
+    }
+
+
+    .xs-mt{
+        margin-top: 0px !important;
+    }
+
+    .welcome-video{
+        margin-top: 25px !important;
     }
 
     .subscription-description{
