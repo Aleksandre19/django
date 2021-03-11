@@ -31,7 +31,7 @@
 
     <title> Diasfero {% block extratitle %}{% endblock %}</title>
   </head>
-  <body>
+  <body onload="loading()">
     <main class="content-fluid no-gutters all-wrapper">
         <!-- Site Header -->
         <header class="fixed-top top-header" id="top-header">
@@ -124,6 +124,9 @@
         </footer>
        
     </main> 
+    <div class="loading">
+        <img src="media/img/general/loading.gif" id="loading_img" alt="loading">
+    </div>
     {% block bottom_extra_js %}
     {% endblock %}
     <script>
@@ -133,6 +136,7 @@
                 $(".top-nav-toggle").toggleClass("toggleMenuBackground");
             });
         });
-    </script>   
+    </script>
+      
   </body>
 </html>

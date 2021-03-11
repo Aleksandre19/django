@@ -41,3 +41,9 @@ function diasferoTimer(countDownDate){
     }
     }, 1000);
 }
+
+
+// Loading function
+function loading(){
+    document.querySelector(".loading").classList.add("hide-loading");
+}
