@@ -12,8 +12,17 @@ let allSlider = Array.from(document.querySelectorAll('.video-slider-owerflow-hid
 // Get a single slide's rect
 const slide = document.querySelector('.slide').getBoundingClientRect();
 
+
+/**
+ *  If a device is not a tablet so removing margin from sliding calculation
+ */
+let margin = 0;
+if ( window.innerWidth >= 768 ) {
+    margin = 30;
+}
+
 let pressed = false; // Check if a slide was pressed
-const slideWidth = slide.width + 30; // Storing a single slide's width with margins
+const slideWidth = slide.width + margin; // Storing a single slide's width with margins
 let preventClickSlide = 0; // Storing swipe range value to check id a slider has been moved or clicked
 let obj = null; // Storing a current object
 let innerSlider; // Storing a inner slider
@@ -492,6 +501,13 @@ function backToRight() {
     let toRight = setInterval( () => {
 
         settings[`${obj.id}`].movedBy += 10;
+
+        // When it is a close to finish rounding it ro the prevTranslate's value;
+        if ( settings[`${obj.id}`].movedBy > 15 || settings[`${obj.id}`].movedBy < 15 ) {
+
+            settings[`${obj.id}`].movedBy = settings[`${obj.id}`].prevTranslate;
+
+        }
 
         innerSlider.style.left = ` ${ settings[`${obj.id}`].movedBy }px `;
 

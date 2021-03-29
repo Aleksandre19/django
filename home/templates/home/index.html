@@ -3,7 +3,7 @@
 {% block content %}
     <!-- IF a user is logged in this section (till '{% else% }') will apear -->
     {% if request.user.is_authenticated %}
-    
+
         <!-- First Section -->
         <section class="row sm-home-first-section-logged-in h-100 no-gutters">
             <!-- Video's Block -->
@@ -50,7 +50,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 md-event-desc">
                         <!-- Event's Title -->
-                        <h3 class="container-fluid titles text-white"><i class="fas fa-calendar-day titles-icon pr-3"></i>Summery of the year 2020</h3>
+                        <h3 class="container-fluid md-title titles text-white"><i class="fas fa-calendar-day titles-icon pr-3"></i>Summery of the year 2020</h3>
                         <!-- Event's Description -->
                         <p class="container-fluid event-desc text-white mt-3">During this event I will summarize generally a healthcare situation in 2020.</p>
                     </div>
@@ -63,7 +63,7 @@
                                     <td id="days">23 :</td>
                                     <td id="houres">24 :</td>
                                     <td id="minutes">14 :</td>
-                                    <td class="text-left" id="seconds">06</td>
+                                    <td id="seconds">06</td>
                                 </tr>
                             </thead> 
                             <script>diasferoTimer(new Date("Apr 5, 2021 15:37:25").getTime());</script>
@@ -74,7 +74,7 @@
                                     <td class="pr-3">Days</td>
                                     <td class="pr-4">Houres</td>
                                     <td class="pr-4">Minutes</td>
-                                    <td class="text-left">Seconds</td>
+                                    <td>Seconds</td>
                                 </tr>
                             </tbody>  
                             <!-- END a Time's Unites -->
@@ -882,12 +882,12 @@
                         <div class="row container-fluid no-gutters feedbacks-row">
                             <!-- User's Avatar -->
                             <div class="col-3 feedback-avatar-col">
-                                <img src="media/img/general/avatar/feedback-avatar.jpg" class="rounded-circle mt-3 feedbacks-avatar" width="75" alt="Feedback's Avatar">
+                                <img src="media/img/general/avatar/feedback-avatar.jpg" class="rounded-circle mt-3 feedbacks-avatar" alt="Feedback's Avatar">
                             </div>
                             <!-- END a User's Avatar-->
                             <div class="col-9 feedback-text-col">
                                 <!-- Feedback's text -->
-                                    <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2">
+                                    <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2 align-middle">
                                         <p class="pl-2">
                                             “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
                                         </p>
@@ -1400,8 +1400,8 @@
         
         <div class="div-for-bottom-margin"> &nbsp; </div>
 
+        <!-- Scripts related to this sections -->
         <script src="{% static 'js/slider.js' %}"></script>
-
         <script src="{% static 'js/calendar.js' %}"></script>
         <script>
             // Initialing a calendar's function
@@ -1516,8 +1516,8 @@
 
                     <!-- Card's Tabs -->
                     <nav class="cards-nav">
-                        <div class="nav nav-tabs cards-menu" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link first-card-nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
+                        <div class="nav nav-tabs cards-menu justify-content-center" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
                             <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">6 Months</a>
                             <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">1 Year</a>
                         </div>
@@ -1667,7 +1667,5 @@
         <!-- END a Third Section -->
 
     {% endif %}
-{% endblock %}
-{% block bottom_extra_js %}
 {% endblock %}
 
