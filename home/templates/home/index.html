@@ -3,7 +3,7 @@
 {% block content %}
     <!-- IF a user is logged in this section (till '{% else% }') will apear -->
     {% if request.user.is_authenticated %}
-
+    
         <!-- First Section -->
         <section class="row sm-home-first-section-logged-in h-100 no-gutters">
             <!-- Video's Block -->
@@ -48,7 +48,7 @@
             <!-- Event's Block -->
             <div class="col-12 home-first-section-event-container mt-3">
                 <div class="row no-gutters">
-                    <div class="col-12">
+                    <div class="col-12 md-event-desc">
                         <!-- Event's Title -->
                         <h3 class="container-fluid titles text-white"><i class="fas fa-calendar-day titles-icon pr-3"></i>Summery of the year 2020</h3>
                         <!-- Event's Description -->
@@ -95,8 +95,8 @@
             <div class="col-12">
                 <h3 class="container-fluid titles mt-4"><i class="fas fa-th-list titles-icon pr-2"></i> My List</h3>
                 <hr class="video-title-devider">
-                <div class="video-slider-owerflow-hidden">
-                    <div class="sliders-container" id="mylist-sliders-container">
+                <div class="video-slider-owerflow-hidden" id="my-list">
+                    <div class="sliders-container">
                         <div class="slide">
                             <!-- Video's Title -->
                             <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
@@ -133,7 +133,7 @@
                             <!-- Video's Description -->
                             <div class="position-relative">
                                 <p class="container-fluid mt-3 position-relative">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
+                                1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
                                 <p>
                                 <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
                             </div>
@@ -147,7 +147,7 @@
                             <!-- Video 1 -->
                             <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
                                 <!-- Video's Frame -->
-                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 <!-- END a Video's Frame -->
 
                                 <!-- Action Button's Div -->
@@ -175,8 +175,9 @@
                             </div>
 
                             <!-- Video's Description -->
-                            <p class="container-fluid mt-3">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p class="container-fluid mt-3 position-relative">
+                               2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
                             <p>
                             <!-- END a Video's Description -->
                             <!-- END a Video 2-->
@@ -188,7 +189,7 @@
                             <!-- Video 3 -->
                             <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
                                 <!-- Video's Frame -->
-                                {% comment %} <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> {% endcomment %}
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                                 <!-- END a Video's Frame -->
 
                                 <!-- Action Button's Div -->
@@ -216,8 +217,135 @@
                             </div>
 
                             <!-- Video's Description -->
-                            <p class="container-fluid mt-3">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p class="container-fluid mt-3 position-relative">
+                               3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                               4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                               5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
+                            <p>
+                            <!-- END a Video's Description -->
+                            <!-- END a Video 3 -->
+                        </div>
+
+                        <div class="slide">
+                            <!-- Video's Title -->
+                            <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
+                            <!-- Video 3 -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                <!-- Video's Frame -->
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                <!-- END a Video's Frame -->
+
+                                <!-- Action Button's Div -->
+                                <div class="container-for-action-buttons position-absolute">
+                                    <div class="row no-gutters">
+                                        <!-- Add To My Lists's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        </div>
+                                        <!-- Like's Button -->
+                                        <div class="col-12 text-right mb-3">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                        </div>
+                                        <!-- Views Button -->
+                                        <div class="col-12 text-right">
+                                            <a href="#" class="text-secondary">
+                                                <i class="far fa-eye"></i>
+                                            </a><small class="text-secondary action-buttons-value">(247)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END a Action's Buttons Div -->  
+                            </div>
+
+                            <!-- Video's Description -->
+                            <p class="container-fluid mt-3 position-relative">
+                               6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute"/>
                             <p>
                             <!-- END a Video's Description -->
                             <!-- END a Video 3 -->
@@ -434,8 +562,8 @@
             <div class="col-12">
                 <h3 class="container-fluid titles mt-4"><i class="far fa-eye titles-icon pr-2"></i> Continue Watching</h3>
                 <hr class="video-title-devider">
-                <div class="video-slider-owerflow-hidden">
-                    <div class="sliders-container" id="cont-watching-sliders-container">
+                <div class="video-slider-owerflow-hidden" id="cont-watching">
+                    <div class="sliders-container">
                         <div class="slide">
                             <!-- Video's Title -->
                             <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
@@ -591,8 +719,8 @@
                     Videos By <span class="highlight-blocks-subject">Anatomy</span>
                 </h3>
                 <hr class="video-title-devider">
-                <div class="video-slider-owerflow-hidden">
-                    <div class="sliders-container" id="by-anatomy-sliders-container">
+                <div class="video-slider-owerflow-hidden" id="anatomy-videos">
+                    <div class="sliders-container">
                         <div class="slide">
                             <!-- Video's Title -->
                             <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
@@ -734,6 +862,8 @@
             <!-- END a Switchers --> {% endcomment %}
 
         </section>
+
+    
         <!-- Div tag for top background -->
         <div class="top-and-bottom-block-bg white-section-bottom-bg"></div>
         <!-- END a Videos By Anatomy Section -->
@@ -809,8 +939,8 @@
                     <span class="highlight-blocks-subject">Diseases</span>
                 </h3>
                 <hr class="video-title-devider">
-                <div class="video-slider-owerflow-hidden">
-                    <div class="sliders-container" id="by-diseases-sliders-container">
+                <div class="video-slider-owerflow-hidden" id="diseases-videos">
+                    <div class="sliders-container">
                         <div class="slide">
                             <!-- Video's Title -->
                             <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
@@ -966,8 +1096,8 @@
                     Videos By <span class="highlight-blocks-subject">Subjects</span>
                 </h3>
                 <hr class="video-title-devider">
-                <div class="video-slider-owerflow-hidden">
-                    <div class="sliders-container" id="by-subject-sliders-container">
+                <div class="video-slider-owerflow-hidden" id="subject-videos">
+                    <div class="sliders-container">
                         <div class="slide">
                             <!-- Video's Title -->
                             <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
@@ -1124,8 +1254,8 @@
                     <i class="fas fa-stream pr-2 titles-icon pr-2"></i>Playlists
                 </h3>
                 <hr class="video-title-devider">
-                <div class="video-slider-owerflow-hidden">
-                    <div class="sliders-container" id="playlist-sliders-container">
+                <div class="video-slider-owerflow-hidden" id="playlist">
+                    <div class="sliders-container">
                         <div class="slide">
                             <!-- Video's Title -->
                             <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
@@ -1269,6 +1399,14 @@
         </section>
         
         <div class="div-for-bottom-margin"> &nbsp; </div>
+
+        <script src="{% static 'js/slider.js' %}"></script>
+
+        <script src="{% static 'js/calendar.js' %}"></script>
+        <script>
+            // Initialing a calendar's function
+            calendarInit(eventday, eventLink);
+        </script>
 
     {% else %}
         <!-- First Section For Not Logged User -->
@@ -1531,11 +1669,5 @@
     {% endif %}
 {% endblock %}
 {% block bottom_extra_js %}
-<script src="{% static 'js/calendar.js' %}"></script>
-<script src="{% static 'js/slider.js' %}"></script>
-<script>
-// Initialing a calendar's function
-calendarInit(eventday, eventLink);
-</script>
 {% endblock %}
 

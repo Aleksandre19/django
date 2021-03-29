@@ -892,9 +892,14 @@ nav.colapsing{
 /************* Video Slider ************/
 .video-slider-owerflow-hidden{
     overflow: hidden;
+    position: relative;
+    height: 373px;
 }
 
 .sliders-container{
+    position: absolute;
+    top: 0px;
+    left: 0px;
     display: inline-flex;
     overflow: hidden;
     transform: translateX(0);
@@ -991,6 +996,48 @@ nav.colapsing{
 
     .home-first-section-event-container{
         margin-top: 18px !important;
+    }
+}
+
+/*  Styled for Tablet devices */
+@media (min-width: 768px){
+    .navbar-toggler{
+        margin-left: 33px;
+    }
+
+    .container-for-action-buttons{
+        top: 35%;
+    }
+
+    .md-event-desc p, h3{
+        padding-left: 51px !important;
+    }
+
+    .md-event-desc p{
+        font-size: 16px;
+        margin-top: 32px !important;
+    }
+
+    .timer{
+        font-size: 72px;
+    }
+
+    .video-slider-owerflow-hidden{
+        width: 94%;
+        margin: auto;
+    }
+
+    .titles{
+        padding-left: 30px;
+    }
+
+    .top-and-bottom-block-bg{
+        height: 40px;
+    }
+
+    .slide{
+        width: calc((100vw / 2) - 50px);
+        margin: 0 15px;
     }
 }
 
