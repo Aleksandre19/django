@@ -332,6 +332,9 @@
     
     /* Opening and closing a video's side menu by Jquery */
     $(document).ready(function(){
+
+        $("option").hide(); // Hiding  a option in the select tag
+        
         /* Opening */ 
         $("#open-a-side-menu").click(function(){
            $("#a-side-menu").animate({

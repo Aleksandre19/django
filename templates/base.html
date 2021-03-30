@@ -32,7 +32,7 @@
     <title> Diasfero {% block extratitle %}{% endblock %}</title>
   </head>
   <body onload="loading()">
-    <main class="content-fluid no-gutters all-wrapper">
+    <main class="content-fluid no-gutters all-wrapper position-relative">
         <!-- Site Header -->
         <header class="fixed-top top-header" id="top-header">
             <div class="row menu-row align-items-center no-gutters">
@@ -103,7 +103,7 @@
         <div class="margin-between-footer-menu-and-content">&nbsp;</div>
         <footer id="footer">    
             {% comment %} <nav class="navbar "> {% endcomment %}
-                <ul class="navbar-nav navbar-expand fixed-bottom nav-justified bg-light">
+                <ul class="navbar-nav navbar-expand fixed-bottom nav-justified bg-light bottom-nav">
                     <li class="nav-item">
                         <a href="{% url 'home' %}" class="nav-link"> <i class="fas fa-home"></i> </a>
                     </li>
