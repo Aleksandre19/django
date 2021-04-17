@@ -9,17 +9,58 @@
 // All sliders wrapper
 let allSlider = Array.from(document.querySelectorAll('.video-slider-owerflow-hidden'));
 
-// Get a single slide's rect
-const slide = document.querySelector('.slide').getBoundingClientRect();
+
+// Setting a left position to the inner sliders
+let containers = Array.from(document.querySelectorAll('.sliders-container'));
+
+containers.forEach( ( container ) => {
+
+    container.style.left = '0px';
+
+});
 
 
 /**
- *  If a device is not a tablet so removing margin from sliding calculation
+ *  Setting a click event listener to slider arrow switcher
  */
+let arrows = Array.from( document.querySelectorAll( '.desk-video-switchwer' ) );
+
+arrows.forEach( ( arrow ) => {
+
+    arrow.addEventListener( 'click', switcher);
+    arrow.addEventListener("mousedown", deskAddGrabbing);
+    arrow.addEventListener("mouseup", deskRemoveGrabbing);
+
+});
+
+
+/**
+ *  Depending on the devices removing margins and
+ *  calculating each slide's width 
+ */
+let wiw = window.innerWidth;
 let margin = 0;
-if ( window.innerWidth >= 768 ) {
+
+if ( wiw >= 768 && wiw < 992 ) {
+    
     margin = 30;
+
+} else if ( wiw >= 992 ) {
+
+    margin = 30;
+
+    let slides = Array.from( document.querySelectorAll( ' .slide ' ) );
+
+    slides.forEach( ( slide ) => {
+        slide.style.width = ` ${ desktopSlideWidth() }px `;
+    });
+
 }
+
+
+// Get a single slide's rect
+const slide = document.querySelector('.slide').getBoundingClientRect();
+
 
 let pressed = false; // Check if a slide was pressed
 const slideWidth = slide.width + margin; // Storing a single slide's width with margins
@@ -42,6 +83,8 @@ let settings = {
         'swipeLength' : 1, // Incrementer of the slider's swiping length 
         'swipeValue' : slideWidth, // A value to swipe the slider each time
         'movedBy' : 0, // Storing a left position of a slider
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'cont-watching' : {
         'startx' : 0,
@@ -55,6 +98,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'by-diseases' : {
         'startx' : 0,
@@ -68,6 +113,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'by-subjects' : {
         'startx' : 0,
@@ -81,6 +128,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'playlist' : {
         'startx' : 0,
@@ -94,6 +143,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'categories' : {
         'startx' : 0,
@@ -107,6 +158,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'by-anatomy' : {
         'startx' : 0,
@@ -120,6 +173,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'by-projects' : {
         'startx' : 0,
@@ -133,6 +188,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'by-raitings' : {
         'startx' : 0,
@@ -146,6 +203,8 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     },
     'same-videos' : {
         'startx' : 0,
@@ -159,7 +218,22 @@ let settings = {
         'swipeLength' : 1,
         'swipeValue' : slideWidth,
         'movedBy' : 0,
+        'leftSide' : false, 
+        'rightSide' : false,
     }
+
+}
+
+
+/**
+ * This function calculates each slider's width for desktop devices
+ * @returns a each slider's width
+ */
+function desktopSlideWidth() {
+
+    let wrapper = document.querySelector( '.video-slider-owerflow-hidden' ).getBoundingClientRect();
+    let deskWidth = wrapper.width / 3 - 30;
+    return deskWidth;
 
 }
 
@@ -175,13 +249,117 @@ allSlider.forEach( ( slider ) => {
     slider.addEventListener( 'touchend', touchEnd);
 
     // Mouse Events
-    slider.addEventListener("mousedown", touchStart);
-    slider.addEventListener("mouseup", touchEnd);
-    slider.addEventListener("mouseleave", touchEnd);
-    slider.addEventListener("mousemove", touchMove);
+    // slider.addEventListener("mousedown", touchStart);
+    // slider.addEventListener("mouseup", touchEnd);
+    // slider.addEventListener("mouseleave", touchEnd);
+    // slider.addEventListener("mousemove", touchMove);
 
 
 });
+
+
+
+/**
+ *  By pressing on the switcher arrows adding a grabbing class
+ */
+function deskAddGrabbing() {
+
+    if ( this.id == 'left' ) {
+        document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
+        .sliders-container`).classList.add( 'grabbing' )
+    } 
+
+    if ( this.id == 'right' ) {
+        document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
+        .sliders-container`).classList.add( 'grabbing' )
+    }
+
+}
+
+
+
+/**
+ *  By pressing on the switcher arrows removing a grabbing class
+ */
+function deskRemoveGrabbing() {
+
+    if ( this.id == 'left' ) {
+        document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
+        .sliders-container`).classList.remove( 'grabbing' )
+    } 
+
+    if ( this.id == 'right' ) {
+        document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
+        .sliders-container`).classList.remove( 'grabbing' )
+    }
+
+}
+
+
+/**
+ * This function moves slider on the Desktop Devices
+ * by clicking on the left or right arrows
+ * @param {event} e 
+ */
+function switcher ( e ) {
+
+    e.preventDefault();
+
+    let selector;
+
+    // Depending on the arrow's direction selecting a slider's container
+    if ( this.dataset.direction == 'left' ) {
+        selector = `#${this.parentElement.nextElementSibling.children[0].id} .sliders-container`;
+    } 
+
+    if ( this.dataset.direction == 'right' ) {
+        selector = `#${this.parentElement.previousElementSibling.children[0].id} .sliders-container`;
+    }
+
+    console.log(selector)
+    
+    // Get a Section Wrapper div for current arrow
+    innerSlider = document.querySelector(`${ selector }`);
+    
+    // Get a current outer div element
+    obj = innerSlider.parentElement;
+
+    // Set a previouse translate to the movedBy variable
+    settings[`${ obj.id }`].movedBy = settings[`${ obj.id }`].prevTranslate;
+
+    // Checking edges
+    checkSlidersEdges();
+
+    console.log(checkSlidersEdges())
+    
+    // Sliding a slider to the left side
+    if ( this.dataset.direction == 'left' ) {
+
+        settings[`${ obj.id }`].leftSide = false;
+
+        if ( !settings[`${ obj.id }`].rightSide ) {
+
+            swipeLeft();        
+
+        }
+
+    }
+
+
+    // Sliding a slider to the right side
+    if ( this.dataset.direction == 'right' ) {
+
+        settings[`${obj.id}`].rightSide = false;
+
+        if ( !settings[`${obj.id}`].leftSide ) {
+
+            swipeRight();
+
+        }
+
+    }  
+
+}
 
 
 // Function to call when a user touch a finger/mouse
@@ -212,18 +390,18 @@ function touchMove( e ) {
 
     if( pressed ) { // If user has pressed
 
-        settings[`${obj.id}`].cordinates = getPositionX(e); // Get slider's cordinates
+        settings[`${obj.id}`].cordinates = getPositionX( e ); // Get slider's cordinates
 
         // Calculate slider's left position value
         settings[`${obj.id}`].left = settings[`${obj.id}`].cordinates - settings[`${obj.id}`].startx;
 
-        // Storing left in move variable to use independent
+        // Storing left in move variable to use independently
         settings[`${obj.id}`].movedBy = settings[`${obj.id}`].left;
 
         // Calculating current swipe range;
         settings[`${obj.id}`].swipeRange = Math.abs( settings[`${obj.id}`].movedBy - settings[`${obj.id}`].prevTranslate );
         
-        // Storing swipe range to other variable to use it in a prevent lick function
+        // Storing swipe range to other variable to use it in a prevent click function
         preventClickSlide = settings[`${obj.id}`].swipeRange;
 
         // Assigning a value to the slider's left position
@@ -246,9 +424,13 @@ function touchMove( e ) {
 /**
  *  Function to call when a user mooves out a finger/mouse
  */
-function touchEnd() {
+function touchEnd( e ) {
+
+    // console.log(e.type.includes( 'mouse' ))
 
     pressed = false; // User has removed a finger/mouse
+
+    click = false;
 
     innerSlider.classList.remove('grabbing'); // removing a grabbing class
 
@@ -298,31 +480,29 @@ function getPositionX( e ) {
  *  variables: leftSide and rightSide
  */
 
-let leftSide = false;
-let rightSide = false;
-
 function checkSlidersEdges () {
 
     let outer = obj.getBoundingClientRect();
     let inner = innerSlider.getBoundingClientRect();
 
     // Check to prevent a swipe of the first slide to the right
-    if ( parseInt( innerSlider.style.left ) > 0 ) {
+    if ( parseInt( innerSlider.style.left ) >= 0 ) {
 
         settings[`${obj.id}`].boundary = true;
-        
-        leftSide = true;
+
+        settings[`${obj.id}`].leftSide = true;
 
         return true;
 
     }
+
 
     // If a inslide slider's right position is less than outer slider's right position
     if ( inner.right < outer.right ) {
 
         settings[`${obj.id}`].boundary = true;
 
-        rightSide = true;
+        settings[`${obj.id}`].rightSide = true;
 
         return true;
 
@@ -384,25 +564,29 @@ function checkBoundary() {
 
     if ( settings[`${obj.id}`].boundary ) {
 
-        if( leftSide ) { // If a slider crosses a left side
+        if( settings[`${obj.id}`].leftSide ) { // If a slider crosses a left side
 
             if ( startSliding() ) {
 
-                setDefaultLeft(); // returning to the defoult left position
+                setDefaultLeft(); // returning to the default left position
 
-                leftSide = false;
+                // leftSide = false;
+
+                settings[`${obj.id}`].leftSide = false;
     
                 return;
 
             }
 
-        } else if ( rightSide )  {  // If a slider crosses a right side
+        } else if ( settings[`${obj.id}`].rightSide )  {  // If a slider crosses a right side
 
             if ( startSliding() ) {
 
-                setDefaultRight(); // returning to the defoult right position
+                setDefaultRight(); // returning to the default right position
 
-                rightSide = false;
+                // rightSide = false;
+
+                settings[`${obj.id}`].rightSide = false;
 
             }
 
@@ -634,7 +818,7 @@ function getElementRectLeft() {
  *  This function swipes to the left side
  */
 function swipeLeft() {
-    
+
     let sliderSwipe = setInterval( () => { // Starting a interval
 
         settings[`${obj.id}`].movedBy -= 10; // Decrementing 
