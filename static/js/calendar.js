@@ -3,10 +3,10 @@
 
 const date = new Date();
 
-let eventday = [[2,13],[2,24],[3,17],[2,11]];
+let eventday = [[4,13],[3,24],[3,17],[2,11]];
 let eventLink = '/';
 
-const calendarInit = (eventday, eventLink) =>{
+let calendarInit = (eventday, eventLink) =>{
     
     let eday = eventday;
 

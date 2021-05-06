@@ -12,6 +12,7 @@ body{
     font-family: Montserrat;
     font-size: 16px; 
     background-color: #f3f3f3;
+    color: #616161;
 }
 
 main.all-wrapper{
@@ -63,9 +64,13 @@ main.all-wrapper{
 .event-desc{
     font-size: 14px;
     line-height: 21px;
+    color: white;
     /* margin-top: 20px; */
 }
 
+.home-first-section-event-container {
+    margin-top: 30px;
+}
 
 /**  Settign a background image to first section for mobile devices **/
 .home-first-section-not-logged-in,
@@ -75,7 +80,8 @@ main.all-wrapper{
     background-size: cover;
 }
 
-.welcome-text span{
+.welcome-text span,
+.not-logged-in-welcoming span {
     color: #fb9af4;
 }
 
@@ -93,6 +99,11 @@ main.all-wrapper{
 }
 
 /************* END A FIRST SECTION ****************/
+
+
+.section-wrapper {
+    width: 100%;
+}
 
 /************* Third Section *********************/
 .gray-section{
@@ -662,6 +673,7 @@ nav.colapsing{
     margin-top: -2px;
 }
 
+
 .event-table-head td,
 .event-table-body td{
     padding: 0;
@@ -748,6 +760,11 @@ nav.colapsing{
     width: 92%;
 }
 
+/* Video By Anamoy's devider */
+hr.feedback-devider {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
 .videos-bottom-bg{
     background-image: url('/media/img/sm/videos-blocks-top-bg.png');
     background-repeat: no-repeat;
@@ -773,16 +790,24 @@ nav.colapsing{
 
 
 /* A side menu styles BEFORE scrolling a page */
-.a-side-menu{
+
+/* General styles for a side menu */
+.desk-side-menu,
+.a-side-menu {
     background-image: url('/media/img/general/side-menu-left-borders-bg.jpg');
-    background-position-y: top left;
+    background-position: top right;
     background-repeat: repeat-y;
+    background-color: white;
+    overflow: scroll;
+
+}
+
+/* Side menu style for tablets and lower devices */
+.a-side-menu {  
     width: 250px;
     position: absolute;
     top: 0px;
     left: -250px;
-    background-color: white;
-    overflow: scroll;
 }
 
 
@@ -1012,6 +1037,10 @@ nav.colapsing{
         margin-left: 33px;
     }
 
+    .home-first-section-event-container {
+        margin-top: 58px;
+    }
+
     .home-first-section-video-container h3 {
         margin-top: 16px;
     }
@@ -1098,5 +1127,389 @@ nav.colapsing{
         text-align: center;
     }
 }
+
+
+/*** Styles for Desctop Devices ***/
+
+@media (min-width: 992px) {
+
+    /* Logo */
+    #logo-lg {
+        width: 277px;
+        height: 92px;
+        background-image: url('/media/img/lg/logo-lg.png');
+        background-repeat: no-repeat;
+    }
+
+    .home-first-section-video-container {
+        margin-top: 400px;
+        margin: auto;
+    }
+
+    .home-first-section-event-container {
+        margin-top: 0;
+    }
+
+    .sm-home-first-section-logged-in {
+        height: auto !important;
+        background-image: none;
+    }
+
+    .home-first-section-video-container {
+        margin-top: 0;
+    }
+
+    .titles {
+        color: #6e6e6e !important;
+        padding-left: 0 !important;
+        margin: 40px 0px 40px 0px !important;
+    }
+
+    .upcoming-title {
+        margin-bottom: 20px !important;
+        font-size: 28px;
+    }
+
+    .section-wrapper {
+        width: 75%;
+        margin: auto;
+    }
+
+    .event-desc,
+    .event-table-body {
+        color: #6f6f6f !important;
+    }
+
+    .md-event-desc p {
+        padding-left: 0px !important;
+        margin-top: 0 !important;
+    }
+
+    .upcoming-wrapper{
+        border: 2px solid #f7f7f7;
+        border-radius: 10px;
+        background-color: white;
+        margin: 20px 0px 0px 0px;
+    }
+
+    .uppcoming-row {
+        padding: 0px 20px;
+    }
+
+    .top-and-bottom-block-bg {
+        height: 70px;
+    }
+
+    .video-title-devider {
+        width: 100%;
+    }
+
+    .video-slider-owerflow-hidden {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .lg-col {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .slide{
+        width: calc((100vw / 3) - 50px);
+    }
+
+    /** Video Slider **/
+    .video-slider-owerflow-hidden {
+        width: 100%;
+    }
+
+    /** Video Arrows For Desktop Devices **/
+    .desk-video-switchwer {
+        font-size: 60px;
+        color: #81c91e;
+        -webkit-transition: color 0.3s ease-in-out;
+        -moz-transition: color 0.3s ease-in-out;
+        -o-transition: color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .desk-video-switchwer:hover {
+        color: #fc01fe;
+        
+    }
+
+    /* Grey section's top background */
+    .gray-section-top-bg {
+        background-image: url('/media/img/lg/lg-grey-section-top-bg.png');
+    }
+
+    /* Grey section's bottom background */
+    .gray-section-bottom-bg {
+        background-image: url('/media/img/lg/lg-grey-section-bottom-bg.png');
+    }
+
+    /* Pink section's top background color */
+    .pink-section-top-bg{
+        background-image: url('/media/img/lg/lg-pink-section-top-bg.png');
+    }
+
+    /* Pink section's bottom background */
+    .pink-section-bottom-bg {
+        background-image: url('/media/img/lg/lg-pink-section-bottom-bg.png');
+    }
+
+    /* White section's top background */
+    .calendar-blocks-top-bg {
+        background-image: url('/media/img/lg/lg-white-section-top-bg.png'); 
+    }
+
+    /* White section's bottom background */
+    .calendar-blocks-bottom-bg {
+        background-image: url('/media/img/lg/lg-white-section-bottom-bg.png'); 
+    }
+
+    /*
+         Second white section's top background,
+         Allauth forms top background
+     */
+    .white-section-top-bg,
+    .playlists-top-bg {
+        background-image: url('/media/img/lg/lg-white-section-top-bg-2.png');
+    }
+
+    /*  
+        Second white section's bottom background,
+        Allauth forms bottom background
+     */
+    .white-section-bottom-bg {
+        background-image: url('/media/img/lg/lg-white-section-bottom-bg-2.png');
+    }
+
+    /* Green section top background */
+    .green-section-top-bg {
+        background-image: url('/media/img/lg/lg-green-section-top-bg.png');
+    }
+
+    /* Green section bottom background */
+    .green-section-bottom-bg {
+        background-image: url('/media/img/lg/lg-green-section-bottom-bg.png');
+    }
+
+    /* Second gray section's top backgorund */
+    .gray-section-top-bg-2 {
+        background-image: url('/media/img/lg/lg-grey-section-top-bg-2.png');
+    }
+
+    /* Second gray section's bottom backgorund */
+    .gray-section-bottom-bg-2 {
+        background-image: url('/media/img/lg/lg-grey-section-bottom-bg-2.png');
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #320035;
+    }
+
+    /* Footer logo */
+    .footer-log {
+        width: 150px !important;
+        height: 50px !important;
+        background-image: url('/media/img/lg/footer-logo.png') !important;    
+    }
+
+
+    /* Combined styles for text colors */
+    .footer-menu .nav-link,
+    .footer-categories .nav-link,
+    .footer-social .nav-link {
+        color: white; 
+    }
+
+    /* Footer manu */
+    .footer-menu .nav-link {
+        text-align: right;
+    }
+
+    /* Footer manu links hover */
+    .footer-menu .nav-link:hover,
+    .footer-categories .nav-link:hover,
+    .footer-social .nav-link:hover {
+        color: #dcdcdc;
+    }
+
+    /* Footer vertical devider */
+    .footer-devider {
+        border-right: 1px solid white;
+    }
+
+    /* Footer categories  */
+    .footer-categories .nav-link {
+        text-align: left;
+    }
+
+    /* Footer social links */
+    .footer-social .nav-link{
+        font-size: 28px;
+    }
+
+    /* Logged in desktop header section */
+    .logged-in-desk-header-section {
+        width: 100%;
+        height: 85%;
+        background-image: url('/media/img/lg/logged-in-desk-header-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: cover;
+    }
+
+    /* Welcoming text for not logged in users */
+    .not-logged-in-welcoming {
+        text-transform: uppercase;
+        font-size: 36px;
+        line-height: 54px;
+    }
+
+    /* Button for not logged users */
+    .wel-btn {
+        width: 158px;
+    }
+
+
+    /* Div for margin from the top */
+    .top-menu-margin {
+        height: 240px;
+    }
+
+
+    /* 
+        Firts section content wrapper for the
+        not logged users
+    */
+
+    .not-logged-section-wrapper {
+        width: 85%;
+        margin: auto;
+    }
+
+    /* Diana's Image */
+    .diana-img {
+        margin-top: -11px;
+    }
+
+
+    /* Videos for home page for not logged in users */
+    .home-page-videos {
+        margin-top: -80px;
+    }
+
+    /* Section wrapper of home page for not logged in users */
+    .section-wrapper-no-logged {
+        width: 85%;
+        margin: auto;
+    }
+
+
+    /* Cards of home page for not logged in users */
+    .home-desk-card {
+        width: 90%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
+        -webkit-box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
+        -moz-box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
+        -o-box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
+    }
+
+    .active-card {
+        transform: scale(1.1);
+    }
+
+    /* Banner background for desktop devices */
+    .sm-subscription-row{
+        background-image: url('/media/img/lg/banner-lg-bg.png');
+        background-position: bottom;
+    }
+
+
+    /* Event title margin */
+    .timer-title {
+        margin: 0 !important;
+    }
+
+    /* Three videos row's right margin */
+    .three-videos-row {
+        margin-right: -50px;
+    }
+
+    /* Subscription description */
+    .subscription-description,
+    .desk-event-description {
+        font-size: 18px;
+        line-height: 32px;
+        letter-spacing: 1.5px;
+    }
+
+
+    /* Desktop banner section */
+    .desk-banner {
+        margin-top: 100px;
+    }
+
+    /* A top margin of the cards */
+    .lg-cards {
+        margin: 77px 0px 100px 0px;
+    }
+
+    /* Divider between cards and banner home page */
+    .card-divider {
+        text-align: center;
+    }
+
+    /* Titles for playlists */
+    .playlist-titles {
+        margin: 0 !important;
+    }
+
+
+
+}
+
+/*** Header Styles ***/
+
+.desk-header{
+    width: 100%;
+    height: 240px;
+    background-image: url('/media/img/lg/lg-header-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.header-content-wrapper{
+    width: 85%;
+    height: 240px;
+    margin: auto;
+    border: 1px solid transparent;
+}
+
+/* Menu styles */
+.desk-menu{
+    letter-spacing: 5px;
+}
+
+.desk-menu li {
+    padding: 0px 5px;
+    margin: 0px 10px;
+}
+
+.desk-menu li.active{
+    border-bottom: 1px solid #fb9af4;
+}
+
+.desk-menu a:hover {
+    color: #fb9af4;
+}
+
+
+
 
 
