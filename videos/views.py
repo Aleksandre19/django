@@ -1,13 +1,20 @@
 from django.shortcuts import render, redirect, reverse
+from .models import Videos, Category
 # Create your views here.
 
 
 def videos(request):
     if request.user.is_authenticated:
-        # if request.method == 'GET':
-        #     next = request.GET.get('next', '')
-        #     return render(request, '%s/index.html'%(next))
-        return render(request, 'videos/index.html')
+        
+        videos = Videos.objects.all()
+        categories = Category.objects.all()
+
+        context = {
+            'videos' : videos,
+            'categories' : categories,
+        }
+
+        return render(request, 'videos/index.html', context)
     else:
         return redirect(reverse('account_login'))    
 
