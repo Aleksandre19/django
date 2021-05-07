@@ -114,7 +114,7 @@ WSGI_APPLICATION = 'lmp.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASES_URL'))
+#     'default': dj_database_url.parse('postgres://akvuefjhbuclii:43283d961eb5547b1375a0aaa84843c197d69212a23816b75aa996888d0d0cb9@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/dd29g8ij19agts')
 # }
 
 if 'DATABASE_URL' in os.environ:

@@ -18,9 +18,9 @@ class Videos(models.Model):
     title = models.CharField(max_length=254)
     content = models.URLField(max_length=1024)
     description = models.TextField()
-    watched = models.IntegerField()
+    watched = models.IntegerField(null=True, blank=True)
     published = models.DateField(auto_now=False, auto_now_add=True)
-    platfor = models.CharField(max_length=254, null=True, blank=True)
+    platform = models.CharField(max_length=254, null=True, blank=True)
     my_list_section = models.BooleanField(default=False)
     new_video = models.BooleanField(default=False)
     by_anatomy = models.BooleanField(default=False)
@@ -31,6 +31,6 @@ class Videos(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
