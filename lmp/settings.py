@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'g2$1x#_+r2+zv^-2#yqb4(($(l8))5%-!y-z6
 # DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['cilmp-aleksandre.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['fsmp.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -114,7 +114,7 @@ WSGI_APPLICATION = 'lmp.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # DATABASES = {
-#     'default': dj_database_url.parse('postgres://akvuefjhbuclii:43283d961eb5547b1375a0aaa84843c197d69212a23816b75aa996888d0d0cb9@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/dd29g8ij19agts')
+#     'default': dj_database_url.parse('postgres://dncytdrvlkvohg:029181cfa16214495033cde5d304d342ce8f9111caf356169afac3f7447e288b@ec2-34-252-251-16.eu-west-1.compute.amazonaws.com:5432/d7l4koaj3qkqi4')
 # }
 
 if 'DATABASE_URL' in os.environ:
