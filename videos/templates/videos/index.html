@@ -25,34 +25,8 @@
         <div class='col-3 desk-side-menu'>
 
             <ul class="nav flex-column ml-3 side-menu-ul">
-                <!-- Ctegories -->
-                <li class="nav-item mt-2">
-                    <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                        <img src="/media/icons/videos-cat-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon"> Categories
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Category One <span class="badge ml-2 badge-info">17</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Category Two <span class="badge ml-2 badge-info">24</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Category Three <span class="badge ml-2 badge-info">38</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Category Four <span class="badge ml-2 badge-info">12</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Category Five <span class="badge ml-2 badge-info">57</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Category Six <span class="badge ml-2 badge-info">21</span></a>
-                </li>
-                <!-- END a Categories -->
-
-                <!-- Anatomy -->
-                {% comment %} {% for category in categories %}
+                <!-- Categories's list -->
+                {% for category in categories %}
                     
                     <li class="nav-item mt-2">
                         <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
@@ -60,135 +34,19 @@
                         </a>
                     </li>
 
-                    {% for video in videos %}
+                    {% for subject in subjects %}
 
-                        {% if video.category_id != None %}
-
-                            {% set cat_name = category.name | string() endset%}
-                             
-
-                            {{ cat_name }}
-           
-                            {% if 'kaia' ==  'kaia' %}
-                                <div class="row">
-                                    <div class='col-6 b-2'> {{ video.category_id }} </div>
-                                    <div class='col-6 b-2'> {{ category.name }}</div>
-                                </div>
-                            {% endif %}
-
+                            {% if subject.category ==  category %}
                             
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{ subject.friendly_name }} <span class="badge ml-2 badge-info">17</span></a>
+                                </li>
 
-                        {% endif %}
+                            {% endif %}
 
                     {% endfor %}
                 
-                {% endfor %} {% endcomment %}
-                <li class="nav-item mt-2">
-                    <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                        <img src="/media/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Anatomy
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
-                </li>
-                
-                <!-- END a By Anatomy -->
-
-
-                <!-- By Diseases -->
-                <li class="nav-item mt-2">
-                    <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                        <img src="/media/icons/diseases-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Diseases
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
-                </li>
-                <!-- END a By Diseases -->
-
-
-                <!-- By Subjects -->
-                <li class="nav-item mt-2">
-                    <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                        <img src="/media/icons/Subjects-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Subjects
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
-                </li>
-                <!-- END a By Subjects -->
-
-
-                <!-- By Projects -->
-                <li class="nav-item mt-2">
-                    <a class="nav-link ml-3 pl-0 pb-3 side-menu-section-name" href="#">
-                        <img src="/media/icons/projects-icon.png" width="45px" class="pr-2" alt="Video's Category's Icon">By Projects
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title One <span class="badge ml-2 badge-info">17</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Two <span class="badge ml-2 badge-info">24</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Three <span class="badge ml-2 badge-info">38</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Four <span class="badge ml-2 badge-info">12</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Five <span class="badge ml-2 badge-info">57</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Video Title Six <span class="badge ml-2 badge-info">21</span></a>
-                </li>
-                <!-- END a By Projects -->
+                {% endfor %}
 
 
                     <!-- By Raitings -->
