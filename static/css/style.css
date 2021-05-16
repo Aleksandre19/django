@@ -444,6 +444,13 @@ nav.colapsing{
     background-size: cover;
 }
 
+/* Second type of style for white sections */
+.white-section-top-bg-2 {
+    background-image: url('/media/img/sm/white-section-top-bg-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .green-section-top-bg{
     background-image: url('/media/img/sm/green-section-top-bg.png');
     background-repeat: no-repeat;
@@ -477,6 +484,13 @@ nav.colapsing{
 
 .white-section-bottom-bg{
     background-image: url('/media/img/sm/white-section-bottom-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Second type of bottom beckground for white sections */
+.white-section-bottom-bg-2 {
+    background-image: url('/media/img/sm/white-section-bottom-bg-2.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -659,7 +673,7 @@ nav.colapsing{
 /******** Styling a home page for logged in users ***********/
 .home-first-section-video-container,
 .dia-breadcrumb{
-    margin-top: 100px;
+    margin-top: 90px;
 }
 
 .container-for-action-buttons{
@@ -799,15 +813,13 @@ hr.feedback-devider {
     background-repeat: repeat-y;
     background-color: white;
     overflow: scroll;
-
-}
-
-/* Side menu style for tablets and lower devices */
-.a-side-menu {  
-    width: 250px;
+    width: 300px;
     position: absolute;
     top: 0px;
-    left: -250px;
+    left: -300px;
+    z-index: 99999999999;
+    max-width: none;
+
 }
 
 
@@ -816,12 +828,14 @@ hr.feedback-devider {
     background-image: url('/media/img/general/side-menu-left-borders-bg.jpg');
     background-position-y: top left;
     background-repeat: repeat-y;
-    width: 250px;
+    width: 300px;
     position: fixed;
     top: 90px;
     left: 0;
     background-color: white;
-    overflow: scroll;   
+    overflow: scroll;
+    z-index: 99999999999;
+    max-width: none;   
 }
 
 /* Styling a side menu's section name */
@@ -1033,6 +1047,23 @@ hr.feedback-devider {
 
 /*  Styles for Tablet devices */
 @media (min-width: 768px){
+
+    /* A side menu */
+    .a-side-menu {
+        width: 350px !important;
+        left: -350px;
+        padding-top: 16px;
+    }
+
+    /* Increasing a width for freezed manue when scrolling */
+    .freez-a-side-menu {
+        width: 350px;
+    }
+
+    .p-for-md {
+        padding-left: 48px !important;
+    }
+    
     .navbar-toggler{
         margin-left: 33px;
     }
@@ -1132,6 +1163,28 @@ hr.feedback-devider {
 /*** Styles for Desctop Devices ***/
 
 @media (min-width: 992px) {
+    
+    
+
+    /* Section devider */
+    .section-devider {
+        width: 100px;
+        height: 0;
+        margin: auto;
+        /* overflow: hidden; */
+        border-top: 1px solid #15a3b8;
+    }
+
+    /* A side menu of large devices */
+    .a-side-menu {
+        position: static;
+        overflow: initial;
+    }
+
+    /* Breadcrumb Top Margiin */
+    .dia-breadcrumb {
+        margin-top: 0;
+    }
 
     /* Logo */
     #logo-lg {
@@ -1139,6 +1192,29 @@ hr.feedback-devider {
         height: 92px;
         background-image: url('/media/img/lg/logo-lg.png');
         background-repeat: no-repeat;
+    }
+
+
+    /* Breadcrump top margin on desktop devies */
+    .dia-breadcrumb{
+        margin-top: 35px !important;
+    }
+
+
+    /* Adding a left margin - View All Buttons */
+    .btn-view-all {
+        margin-left: 16px;
+        margin-bottom: 70px;
+    }
+    
+    /* Adding a left margin - Category Title */
+    .category-title-icon {
+        margin-left: 32px;
+    }
+
+    /* Content's left padding for categories and subjects */
+    .cat-sub-content-paddings {
+        margin-left: 23px;
     }
 
     .home-first-section-video-container {
@@ -1162,7 +1238,17 @@ hr.feedback-devider {
     .titles {
         color: #6e6e6e !important;
         padding-left: 0 !important;
-        margin: 40px 0px 40px 0px !important;
+        margin: 16px 0px 40px 0px !important;
+    }
+
+    /* Increasing a top margin for titles */
+    .desk-titles {
+        margin-top: 41px !important;
+    }
+
+    /* Increasing a top margin for categoy's right line */
+    .category-names-right-line {
+        margin-top: 32px !important;
     }
 
     .upcoming-title {
@@ -1464,10 +1550,10 @@ hr.feedback-devider {
         text-align: center;
     }
 
-    /* Titles for playlists */
+    /* Titles for playlists
     .playlist-titles {
         margin: 0 !important;
-    }
+    } */
 
 
 

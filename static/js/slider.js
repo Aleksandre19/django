@@ -101,7 +101,7 @@ let settings = {
         'leftSide' : false, 
         'rightSide' : false,
     },
-    'by-diseases' : {
+    'disieases' : {
         'startx' : 0,
         'cordinates' : 0,
         'left' : 0,
@@ -116,7 +116,7 @@ let settings = {
         'leftSide' : false, 
         'rightSide' : false,
     },
-    'by-subjects' : {
+    'subject' : {
         'startx' : 0,
         'cordinates' : 0,
         'left' : 0,
@@ -161,7 +161,7 @@ let settings = {
         'leftSide' : false, 
         'rightSide' : false,
     },
-    'by-anatomy' : {
+    'anatomy' : {
         'startx' : 0,
         'cordinates' : 0,
         'left' : 0,
@@ -176,7 +176,7 @@ let settings = {
         'leftSide' : false, 
         'rightSide' : false,
     },
-    'by-projects' : {
+    'projects' : {
         'startx' : 0,
         'cordinates' : 0,
         'left' : 0,
@@ -249,10 +249,10 @@ allSlider.forEach( ( slider ) => {
     slider.addEventListener( 'touchend', touchEnd);
 
     // Mouse Events
-    // slider.addEventListener("mousedown", touchStart);
-    // slider.addEventListener("mouseup", touchEnd);
-    // slider.addEventListener("mouseleave", touchEnd);
-    // slider.addEventListener("mousemove", touchMove);
+    slider.addEventListener("mousedown", touchStart);
+    slider.addEventListener("mouseup", touchEnd);
+    slider.addEventListener("mouseleave", touchEnd);
+    slider.addEventListener("mousemove", touchMove);
 
 
 });

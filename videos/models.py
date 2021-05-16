@@ -18,6 +18,7 @@ class Category(models.Model):
 class Subjects(models.Model):
     name = models.CharField(max_length=254, null=True, blank=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    src = models.CharField(max_length=254, null=True, blank=True)
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     
 
