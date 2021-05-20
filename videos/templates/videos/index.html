@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load post_tags %}
 
 {% block content %}
     {% if request.user.is_authenticated %}
@@ -7,6 +8,8 @@
     <div class="row no-gutters dia-breadcrumb section-wrapper">
 
         <div class="col-auto col-lg-12 pl-0">
+            {% comment %} {% total_num %}
+            {% inc_tag %}
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
@@ -14,10 +17,9 @@
                     <li class="breadcrumb-item active" aria-current="page">Videos</li>
                 </ol>
             </nav>
-            <!-- END a breadcrumb -->
+            <!-- END a breadcrumb --> {% endcomment %}
+            
         </div>
-
-        
 
         <div class="col col-lg-0">&nbsp;</div>
 
@@ -63,25 +65,38 @@
         <!-- Side menu -->
         <div class='a-side-menu col-3' id='a-side-menu'>
 
+            <!-- Parsing a url and geting a current subject's name -->
+            {% current_subj_name request.get_full_path as current_subj_name %}
+          
             <ul class="nav flex-column ml-3 side-menu-ul">
             
                 <!-- Categories's list -->
                 {% for category in categories %}
 
                     <li class="nav-item mt-2">
-                        <a href="{% url 'videos' %}?category={{ category.name }}" class="nav-link ml-3 pl-0 pb-3 side-menu-section-name">
+                        <a href="{% url 'videos' %}?category={{ category.name }}" class="nav-link ml-3 pl-0 pb-3  side-menu-section-name">
                             <img src="{{ category.src }}" width="45px" class="pr-2" alt="Video's Category's Icon">By {{ category.name }}
                         </a>
                     </li>
 
+                    <!-- Subjects names -->
                     {% for subject in subjects %}
 
                             {% if subject.category ==  category %}
                                
                                 <li class="nav-item">
-                                    <a href="{% url 'videos' %}?subject={{ subject.name }}" class="nav-link">{{ subject.friendly_name }} 
+                                
+                                    <a href="{% url 'videos' %}?subject={{ subject.name }}" 
+                                        {% if subject.name == current_subj_name %} 
+                                            class="selected_subject nav-link"
+                                        {% else %}
+                                            class="nav-link" 
+                                        {% endif %}
+                                    >
+                                        {{ subject.friendly_name }}
                                         <span class="badge ml-2 badge-info"> {{ subject.posts_count }}</span>
                                     </a>
+
                                 </li>
 
                             {% endif %}
@@ -154,58 +169,43 @@
         </div>
         
         <!-- Videos By Category -->
-        {% if videos_by_categories %}
+        {% if videos_by_subjects %}
             <!-- Video Page content -->
-            <div class='col-9 bg-white'>
+            <div class='col-12 col-lg-9 bg-white'>
                 
-                {% for videos_by_categorie in videos_by_categories %}
-                    
-                    {% comment %} <!-- Category Title Section -->
-                    <div class='row mb-3'>
-                        <!-- Title -->
-                        <div class="col-auto">
-                            <h3 class="playlist-titles titles videos-title"> {{ videos_by_categorie.friendly_name }}  </h3>
-                        </div>
-
-                        <!-- Title's Right Line -->
-                        <div class="col align-self-center mt-2 ml-4 category-names-right-line">
-                            &nbsp;
-                        </div>
-
-                        <div class="col-1"> &nbsp; </div>
-                    </div> {% endcomment %}
+                {% for videos_by_subject in videos_by_subjects %}
 
                     <!-- Category Title Section -->
                     <div class='row no-gutters bg-white'>
                         <!-- Title -->
-                        <div class="col-auto">
+                        <div class="col-auto mt-3">
                             <h3 class="desk-titles titles videos-title p-for-md pt-3 pl-3"> 
-                                {% if videos_by_categorie.src %}
-                                    <img src="{{ videos_by_categorie.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
+                                {% if videos_by_subject.src %}
+                                    <img src="{{ videos_by_subject.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
                                 {% endif %}
-                                {{ videos_by_categorie.friendly_name }}
+                                {{ videos_by_subject.friendly_name }}
                             </h3>
                         </div>
 
                         <!-- Title's Right Line -->
-                        <div class="col align-self-center mt-2 ml-4 category-names-right-line">
+                        <div class="col align-self-center ml-4 category-names-right-line">
                             &nbsp;
                         </div>
 
                         <div class="col-1"> &nbsp; </div>
                     </div>
-
+                    
                     <!-- Content Section -->
-                    <div class='row cat-sub-content-paddings'>
+                    <div class='last-view-content-row row bg-white'>
 
                         {% for video in videos %}
 
-                            {% if video.category == videos_by_categorie %}
+                            {% if video.subjects == videos_by_subject %}
 
-                                <div class='col-4'> 
+                                <div class='col-12 col-md-4'> 
 
                                     <!-- Title  -->
-                                    <h3 class="pl-1 mt-2"> 
+                                    <h3 class="pl-3 mt-2"> 
                             
                                         <a href="" class="video-title"> {{ video.title }} </a>
                                     </h3>
@@ -240,7 +240,7 @@
                                     </div>
 
                                     <!-- Video's Description -->
-                                    <p class="pl-2 mt-3">
+                                    <p class="pl-3 mt-3">
                                         {{ video.description }}
                                     <p> 
                             
@@ -258,58 +258,43 @@
         {% endif %}
 
         <!-- Videos By Sujects -->
-        {% if videos_by_subjects %}
+        {% if videos_by_categories %}
             <!-- Video Page content -->
-            <div class='col-9 bg-white'>
+            <div class='col-12 col-lg-9 bg-white'>
                 
-                {% for videos_by_subject in videos_by_subjects %}
+                {% for videos_by_categorie in videos_by_categories %}
 
                     <!-- Category Title Section -->
                     <div class='row no-gutters bg-white'>
                         <!-- Title -->
-                        <div class="col-auto">
+                        <div class="col-auto mt-3">
                             <h3 class="desk-titles titles videos-title p-for-md pt-3 pl-3"> 
-                                {% if videos_by_subject.src %}
-                                    <img src="{{ videos_by_subject.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
+                                {% if videos_by_categorie.src %}
+                                    <img src="{{ videos_by_categorie.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
                                 {% endif %}
-                                {{ videos_by_subject.friendly_name }}
+                                {{ videos_by_categorie.friendly_name }}
                             </h3>
                         </div>
 
                         <!-- Title's Right Line -->
-                        <div class="col align-self-center mt-2 ml-4 category-names-right-line">
+                        <div class="col align-self-center ml-4 category-names-right-line">
                             &nbsp;
                         </div>
 
                         <div class="col-1"> &nbsp; </div>
                     </div>
-                    {% comment %} <div class='row no-gutters bg-white'>
-                        <!-- Title -->
-                        <div class="col-auto">
-                            <h3 class="desk-titles titles videos-title p-for-md pt-3 pl-3"> 
-                                {{ videos_by_subject.friendly_name }}
-                            </h3>
-                        </div>
-
-                        <!-- Title's Right Line -->
-                        <div class="col align-self-center mt-2 ml-4 category-names-right-line">
-                            &nbsp;
-                        </div>
-
-                        <div class="col-1"> &nbsp; </div>
-                    </div> {% endcomment %}
-
+                    
                     <!-- Content Section -->
-                    <div class='row cat-sub-content-paddings'>
+                    <div class='last-view-content-row row bg-white'>
 
                         {% for video in videos %}
 
-                            {% if video.subjects == videos_by_subject %}
+                            {% if video.category == videos_by_categorie %}
 
-                                <div class='col-4'> 
+                                <div class='col-12 col-md-4'> 
 
                                     <!-- Title  -->
-                                    <h3 class="pl-1 mt-2"> 
+                                    <h3 class="pl-3 mt-2"> 
                             
                                         <a href="" class="video-title"> {{ video.title }} </a>
                                     </h3>
@@ -344,7 +329,7 @@
                                     </div>
 
                                     <!-- Video's Description -->
-                                    <p class="pl-2 mt-3">
+                                    <p class="pl-3 mt-3">
                                         {{ video.description }}
                                     <p> 
                             
@@ -361,12 +346,11 @@
             </div>
         {% endif %}
 
-        
         <!-- Displaying all videos -->
         {% if not videos_by_categories and not videos_by_subjects %}
 
             
-
+            
             <!-- Video Page content -->
             <!-- p-5 -->
             <div class='col-12 col-lg-9'>
@@ -633,7 +617,7 @@
         Div wrapper witth position relative for right side menu.
     -->
 
-    <div class='d-lg-none'>
+    {% comment %} <div class='d-lg-none'>
         <!-- Breadcrumb -->
         <div class="row no-gutters dia-breadcrumb">
 
@@ -980,7 +964,7 @@
         </section>
         <!-- END a Section's Content -->
         <!-- By Anatomy Section's Bottom BG-->
-        <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div>
+        <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div> {% endcomment %}
 
 
         {% comment %}

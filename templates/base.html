@@ -210,9 +210,11 @@
                 </div> 
             </div>    
         </header>
-
+        {% comment %} {% total_num %} {% endcomment %}
+        {% comment %} {% inc_tag %} {% endcomment %}
         {% block content %}
         {% endblock %}
+
         <!-- Using this div to make margin between footer manu and rest of content -->
         <div class="margin-between-footer-menu-and-content">&nbsp;</div>
         <footer class='d-lg-none' id="footer">    

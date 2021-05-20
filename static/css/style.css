@@ -676,6 +676,13 @@ nav.colapsing{
     margin-top: 90px;
 }
 
+/* .dia-breadcrumb {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+} */
+
+
+
 .container-for-action-buttons{
     bottom: 11%;
     right: 6%;
@@ -759,6 +766,11 @@ nav.colapsing{
     background-repeat: repeat-x;
 }
 
+/* Category's title right line */
+.category-names-right-line {
+    margin-top: 40px;
+}
+
 .videos-title{
     margin-top: 0 !important;
 }
@@ -799,7 +811,8 @@ hr.feedback-devider {
 }
 
 .cat-select{
-    margin-top: 15px; 
+    margin-top: 30px; 
+    margin-bottom: 15px;
 }
 
 
@@ -936,6 +949,23 @@ hr.feedback-devider {
 }
 
 /************* Video Slider ************/
+
+/* 
+    Centering a Categories videos content
+*/
+.last-view-content-row {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Removing a each video content's left and right margins */
+.last-view-content-row div.col-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
 .video-slider-owerflow-hidden{
     overflow: hidden;
     position: relative;
@@ -1047,6 +1077,33 @@ hr.feedback-devider {
 
 /*  Styles for Tablet devices */
 @media (min-width: 768px){
+
+    /* Category's title right line */
+    .category-names-right-line {
+        margin-top: 40px;
+    }
+
+    /* 
+        Centering a Categories videos content
+    */
+    .last-view-content-row {
+        width: 95%;
+        margin: auto;
+        /* padding-left:32px; */
+        /* padding-right: 32px; */
+    }
+
+    /* Removing a each video content's left and right margins */
+    .last-view-content-row div.col-12 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Removing a margins to the contente's col */
+    .md-remove-margins {
+        margin-left: none !important;
+        margin-right: none !important;
+    }
 
     /* A side menu */
     .a-side-menu {
@@ -1162,9 +1219,19 @@ hr.feedback-devider {
 
 /*** Styles for Desctop Devices ***/
 
-@media (min-width: 992px) {
+@media (min-width: 992px) { 
     
-    
+    /* Styling a selected subject's tiltle in the left side menu */
+    .selected_subject {
+        color: #f89ff9 !important;
+        padding-left: 45px;
+        padding-top: 15px;
+        text-decoration: underline;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
 
     /* Section devider */
     .section-devider {
@@ -1243,12 +1310,12 @@ hr.feedback-devider {
 
     /* Increasing a top margin for titles */
     .desk-titles {
-        margin-top: 41px !important;
+        margin-top: 0px !important;
     }
 
     /* Increasing a top margin for categoy's right line */
     .category-names-right-line {
-        margin-top: 32px !important;
+        margin-top: 0px !important;
     }
 
     .upcoming-title {

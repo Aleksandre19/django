@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Videos, Category, Subjects
 from django.db.models import Count
-# Create your views here.
 
+# Create your views here.
 
 def videos(request):
 
@@ -50,4 +50,13 @@ def single_video(request):
     if request.user.is_authenticated:
         return render(request, 'videos/single_video.html')
     else:
-        return redirect(reverse('account_login'))    
+        return redirect(reverse('account_login'))
+
+
+
+
+
+
+
+
+    
