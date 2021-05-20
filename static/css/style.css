@@ -1654,7 +1654,8 @@ hr.feedback-devider {
     margin: 0px 10px;
 }
 
-.desk-menu li.active{
+.desk-menu li.active,
+.mb-active {
     border-bottom: 1px solid #fb9af4;
 }
 

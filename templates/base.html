@@ -83,7 +83,12 @@
                                 <!-- If a user is authenticated so desplay a alinks for profile managment -->
                                 {% if request.user.is_authenticated %}
                                     <div class="btn-group dropleft">
-                                        <a href="{% url 'users_profile' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="far fa-user-circle user-acount-icon"></i></a>
+                                        <a href="{% url 'users_profile' %}" class="dropdown-toggle" 
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+
+                                            <i class="far fa-user-circle user-acount-icon"></i>
+
+                                        </a>
                                         <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="{% url 'users_profile' %}">My List </a>
                                                 <a class="dropdown-item" href="{% url 'watched_videos' %}">Watched Videos </a>
@@ -99,7 +104,9 @@
                                         </div>
                                     </div>
                                 {% else %}
-                                    <a href="{% url 'users_profile' %}"> <i class="far fa-user-circle user-acount-icon"></i></a>
+                                    <a href="{% url 'users_profile' %}">
+                                        <i class="far fa-user-circle user-acount-icon"></i>
+                                    </a>
                                 {% endif %}
 
                             </div>       
@@ -109,24 +116,43 @@
                     </div>
 
                     <div class='col-12 mt-5'>
-
                         <ul class="navbar-nav navbar-expand top-main-menu desk-menu">
-                            <li class="nav-item active">
+                            <li class="nav-item
+                                {% if request.path == '/' %} 
+                                    active
+                                {% endif %}
+                            ">
                                 <a class="nav-link hvr-float" href="{% url 'home' %}">Home</a>
                             </li>
                             {% if user.is_authenticated %}
-                                 <li class="nav-item">
+                                 <li class="nav-item 
+                                        {% if request.path == '/videos/' %} 
+                                        active
+                                    {% endif %}
+                                 ">
                                     <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
                                 </li>
                             {% else %}
-                                <li class="nav-item">
+                                <li class="nav-item 
+                                    {% if request.path == '/subscribe/' %} 
+                                        active
+                                    {% endif %}
+                                ">
                                     <a class="nav-link hvr-float" href="#">Subscribe</a>
                                 </li>
                             {% endif %}
-                            <li class="nav-item">
+                            <li class="nav-item 
+                                {% if request.path == '/contact/' %} 
+                                    active
+                                {% endif %}
+                            ">
                                 <a class="nav-link hvr-float" href="{% url 'contact' %}">Contact</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item 
+                                {% if request.path == '/faq/' %} 
+                                    active
+                                {% endif %}
+                            ">
                                 <a class="nav-link hvr-float" href="{% url 'faq' %}">FAQ</a>
                             </li>
                         </ul>
@@ -154,22 +180,42 @@
                         </button>
                         <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 top-main-menu">
-                                <li class="nav-item active">
+                                <li class="nav-item 
+                                    {% if request.path == '/' %} 
+                                        mb-active
+                                    {% endif %}
+                                ">
                                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                                 </li>
                                 {% if user.is_authenticated %}
-                                 <li class="nav-item">
-                                    <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
-                                </li>
+                                    <li class="nav-item
+                                        {% if request.path == '/videos/' %} 
+                                            mb-active
+                                        {% endif %}
+                                    ">
+                                        <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
+                                    </li>
                                 {% else %}
-                                    <li class="nav-item">
+                                    <li class="nav-item
+                                        {% if request.path == '/subscribe/' %} 
+                                            mb-active
+                                        {% endif %}
+                                    ">
                                         <a class="nav-link hvr-float" href="#">Subscribe</a>
                                     </li>
                                 {% endif %}
-                                <li class="nav-item">
+                                    <li class="nav-item
+                                        {% if request.path == '/contact/' %} 
+                                            mb-active
+                                        {% endif %}
+                                    ">
                                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
-                                <li class="nav-item">
+                                    <li class="nav-item
+                                        {% if request.path == '/faq/' %} 
+                                            mb-active
+                                        {% endif %}
+                                    ">
                                     <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
                                 </li>
                             </ul>
