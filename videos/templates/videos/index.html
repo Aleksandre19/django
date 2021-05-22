@@ -207,7 +207,7 @@
                                     <!-- Title  -->
                                     <h3 class="pl-3 mt-2"> 
                             
-                                        <a href="" class="video-title"> {{ video.title }} </a>
+                                        <a href="{% url 'single_video' video.id %}" class="video-title"> {{ video.title }} </a>
                                     </h3>
 
                                     <!-- Video  -->
@@ -296,7 +296,7 @@
                                     <!-- Title  -->
                                     <h3 class="pl-3 mt-2"> 
                             
-                                        <a href="" class="video-title"> {{ video.title }} </a>
+                                        <a href="{% url 'single_video' video.id %}" class="video-title"> {{ video.title }} </a>
                                     </h3>
 
                                     <!-- Video  -->
@@ -527,14 +527,14 @@
                         <div class="video-slider-owerflow-hidden" id="{{ category.name   }}">
                             <div class="sliders-container">
                                 {% for video in videos %}
-
+                                
                                     {% if video.category == category %}
                                         
                                         <div class="slide">
                                             
                                             <!-- Title  -->
                                             <h3 class="pl-3 mt-2"> 
-                                                <a href="" class="video-title "> {{ video.title }} </a>
+                                                <a href="{% url 'single_video' video.id %}" class="video-title "> {{ video.title }} </a>
                                             </h3>
 
                                             <!-- Video 1 -->

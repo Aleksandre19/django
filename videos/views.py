@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Videos, Category, Subjects
 from django.db.models import Count
 
@@ -46,9 +46,23 @@ def videos(request):
         return redirect(reverse('account_login'))    
 
 
-def single_video(request):
+# A single video page function
+def single_video(request, video_id):
+
     if request.user.is_authenticated:
-        return render(request, 'videos/single_video.html')
+        
+        videos = Videos.objects.all()
+
+        single_video = get_object_or_404(Videos, pk=video_id)
+
+        same_videos = videos.filter(subjects = single_video.subjects)
+
+        context = {
+            'single_video' : single_video,
+            'same_videos' : same_videos,
+        }
+        
+        return render(request, 'videos/single_video.html', context)
     else:
         return redirect(reverse('account_login'))
 
