@@ -24,7 +24,8 @@
 
         </div>
         <!-- END a Breadcrumb -->
-        {{ single_video.id }}
+        {{ single_video.title }}
+        
         <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
             <!-- Video's Frame -->
             
@@ -36,13 +37,37 @@
                 <div class="row no-gutters">
                     <!-- Add To My Lists's Button -->
                     <div class="col-12 text-right mb-3">
-                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ single_video.id }}&action=mylist" 
+                                class="text-secondary">
+                            {% if single_video in videos_in_mylist %}
+                                <i class="added_in_list fas fa-plus-square"></i>
+                            {% else %}
+                                <i class="fas fa-plus-square"></i>
+                            {% endif %}
+                            
+                        </a>
                     </div>
                     <!-- Like's Button -->
                     <div class="col-12 text-right mb-3">
-                        <a href="#" class="text-secondary">
-                            <i class="far fa-thumbs-up"></i>
-                        </a><small class="text-secondary action-buttons-value">(+17)</small>
+                            <!-- Checking if a user has already liked current video -->
+                        {% if single_video in videos_in_likes %}
+                            <i class="added_in_list fas fa-check"></i>
+                        {% else %}
+                            <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ single_video.id }}&action=like" 
+                                class="text-secondary">
+                                <i class="far fa-thumbs-up"></i>
+                            </a>
+                        {% endif %}
+                        
+                    
+                        <!-- Displaying a total likes -->
+                        <small class="text-secondary action-buttons-value">   
+                            {% if single_video.liked == None %}
+                                ( 0 )
+                            {% else %}
+                            (+ {{ single_video.liked }} )
+                            {% endif %}
+                        </small>
                     </div>
                     <!-- Views Button -->
                     <div class="col-12 text-right">
@@ -52,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <!-- END a Action's Buttons Div -->  
+            <!-- END a Action's Buttons Div -->   
         </div>
 
         <div class="video-desc-wrapper">
@@ -60,6 +85,7 @@
             <div class="pl-2 mt-1 small font-italic"> Platform - Youtube </div>
             <p class="pl-2 mt-3">
                 {{ single_video.description }}
+                
             <p>
         </div>
     </div>
@@ -112,13 +138,37 @@
                                                 <div class="row no-gutters">
                                                     <!-- Add To My Lists's Button -->
                                                     <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ same_video.id }}&action=mylist" 
+                                                                class="text-secondary">
+                                                            {% if same_video in videos_in_mylist %}
+                                                                <i class="added_in_list fas fa-plus-square"></i>
+                                                            {% else %}
+                                                                <i class="fas fa-plus-square"></i>
+                                                            {% endif %}
+                                                            
+                                                        </a>
                                                     </div>
                                                     <!-- Like's Button -->
                                                     <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                                            <!-- Checking if a user has already liked current video -->
+                                                        {% if same_video in videos_in_likes %}
+                                                            <i class="added_in_list fas fa-check"></i>
+                                                        {% else %}
+                                                            <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ same_video.id }}&action=like" 
+                                                                class="text-secondary">
+                                                                <i class="far fa-thumbs-up"></i>
+                                                            </a>
+                                                        {% endif %}
+                                                        
+                                                    
+                                                        <!-- Displaying a total likes -->
+                                                        <small class="text-secondary action-buttons-value">   
+                                                            {% if same_video.liked == None %}
+                                                                ( 0 )
+                                                            {% else %}
+                                                            (+ {{ same_video.liked }} )
+                                                            {% endif %}
+                                                        </small>
                                                     </div>
                                                     <!-- Views Button -->
                                                     <div class="col-12 text-right">
@@ -128,7 +178,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- END a Action's Buttons Div -->  
+                                            <!-- END a Action's Buttons Div --> 
                                         </div>
 
                                         <!-- Video's Description -->
@@ -142,7 +192,7 @@
                                         <!-- EMD a Video 1-->
                                     </div>
                                 {% endfor %}
-                                
+
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -26,6 +27,16 @@ class Subjects(models.Model):
         return self.name
 
 
+class Likes(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    video = models.ForeignKey('Videos', null=True, blank=True, on_delete=models.SET_NULL)
+
+
+class MyList(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    video = models.ForeignKey('Videos', null=True, blank=True, on_delete=models.SET_NULL)
+
+
 class Videos(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     subjects = models.ForeignKey('Subjects', null=True, blank=True, on_delete=models.SET_NULL)
@@ -33,6 +44,7 @@ class Videos(models.Model):
     content = models.URLField(max_length=1024)
     description = models.TextField()
     watched = models.IntegerField(null=True, blank=True)
+    liked = models.IntegerField(null=True, blank=True)
     published = models.DateField(auto_now=False, auto_now_add=True)
     platform = models.CharField(max_length=254, null=True, blank=True)
     my_list_section = models.BooleanField(default=False)

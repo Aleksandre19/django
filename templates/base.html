@@ -126,7 +126,7 @@
                             </li>
                             {% if user.is_authenticated %}
                                  <li class="nav-item 
-                                        {% if request.path == '/videos/' %} 
+                                        {% if request.path == '/posts/videos/' %} 
                                         active
                                     {% endif %}
                                  ">
@@ -189,7 +189,8 @@
                                 </li>
                                 {% if user.is_authenticated %}
                                     <li class="nav-item
-                                        {% if request.path == '/videos/' %} 
+                                        
+                                        {% if request.path == '/posts/videos/' %} 
                                             mb-active
                                         {% endif %}
                                     ">
@@ -256,8 +257,7 @@
                 </div> 
             </div>    
         </header>
-        {% comment %} {% total_num %} {% endcomment %}
-        {% comment %} {% inc_tag %} {% endcomment %}
+        
         {% block content %}
         {% endblock %}
 

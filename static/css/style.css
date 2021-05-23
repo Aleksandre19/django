@@ -688,6 +688,11 @@ nav.colapsing{
     right: 6%;
 }
 
+/* A video likes check */
+.added_in_list {
+    color: #c0ff80 !important;
+}
+ 
 .action-buttons-value{
     font-size: 10px;
     display: block;
