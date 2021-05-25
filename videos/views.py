@@ -17,33 +17,13 @@ def videos(request):
         subjects = Subjects.objects.all().annotate(posts_count=Count('videos'))
         # All Categories
         categories = Category.objects.all()
-        
-        # Defining variables
-        categorased = None
-        videos_by_subjects = None
-        videos_by_categories = None
-   
-
-        if request.GET:
-            # Getting a videos by a category
-            if 'category' in request.GET:
-                categorased = request.GET['category'].split(',')
-                # videos = videos.filter(category__name__in=categorased)
-                videos_by_categories = Category.objects.filter(name__in=categorased)
-
-            # Getting a videos by a Subjects
-            if 'subject' in request.GET:
-                categorased = request.GET['subject'].split(',')
-                # videos = videos.filter(subjects__name__in=categorased)
-                videos_by_subjects = Subjects.objects.filter(name__in=categorased)
-
 
         context = {
             'videos' : videos,
             'categories' : categories,
             'subjects' : subjects,
-            'videos_by_categories' : videos_by_categories,
-            'videos_by_subjects' : videos_by_subjects,
+            'videos_by_categories' : get_videos_by_category(request, 'category', Category),
+            'videos_by_subjects' : get_videos_by_category(request, 'subject', Subjects),
             'videos_in_likes' : current_user_videos(Likes, request.user),
             'videos_in_mylist' : current_user_videos(MyList, request.user),
             
@@ -158,6 +138,29 @@ def current_user_videos(obj, user):
     for user_video in user_videos:
         user_videos_list.append(user_video.video)
     return user_videos_list
+
+
+# Grabbing videos by category and subjects
+def get_videos_by_category(request, categories_list, obj, without_get=False):
+
+    categorased = None
+    videos_by_categories = None
+
+    # Getting a videos by a category
+    if request.GET:
+        if categories_list in request.GET:
+            categorased = request.GET[categories_list].split(',')
+            # videos = videos.filter(category__name__in=categorased)
+            videos_by_categories = obj.objects.filter(name__in=categorased)
+            
+    # If query comes without GET request
+    if without_get:
+        categories_list = categories_list
+        videos_by_categories = Videos.objects.filter(category__name__in=categories_list)
+
+
+    return videos_by_categories
+    
 
 
 

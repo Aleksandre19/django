@@ -4,10 +4,11 @@
     <!-- IF a user is logged in this section (till 'else') will apear -->
     {% if request.user.is_authenticated %}
 
-
+       
         <!-- First Section -->
         <section class="row sm-home-first-section-logged-in h-100 no-gutters">
             <div class='section-wrapper'>
+
                 <!-- Video's Block -->
                 {% for new_v in new_video %}
                     <div class="padding-0 col-12 home-first-section-video-container position-relative">
@@ -22,16 +23,40 @@
 
                             <!-- Action Button's Div -->
                             <div class="container-for-action-buttons position-absolute">
-                                <div class="row">
+                                <div class="row no-gutters">
                                     <!-- Add To My Lists's Button -->
                                     <div class="col-12 text-right mb-3">
-                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ new_v.id }}&action=mylist" 
+                                                class="text-secondary">
+                                            {% if new_v in videos_in_mylist %}
+                                                <i class="added_in_list fas fa-plus-square"></i>
+                                            {% else %}
+                                                <i class="fas fa-plus-square"></i>
+                                            {% endif %}
+                                            
+                                        </a>
                                     </div>
                                     <!-- Like's Button -->
                                     <div class="col-12 text-right mb-3">
-                                        <a href="#" class="text-secondary">
-                                            <i class="far fa-thumbs-up"></i>
-                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
+                                            <!-- Checking if a user has already liked current video -->
+                                        {% if new_v in videos_in_likes %}
+                                            <i class="added_in_list fas fa-check"></i>
+                                        {% else %}
+                                            <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ new_v.id }}&action=like" 
+                                                class="text-secondary">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a>
+                                        {% endif %}
+                                        
+                                    
+                                        <!-- Displaying a total likes -->
+                                        <small class="text-secondary action-buttons-value">   
+                                            {% if new_v.liked == None %}
+                                                ( 0 )
+                                            {% else %}
+                                            (+ {{ new_v.liked }} )
+                                            {% endif %}
+                                        </small>
                                     </div>
                                     <!-- Views Button -->
                                     <div class="col-12 text-right">
@@ -107,7 +132,7 @@
         <section class="row no-gutters gray-section">
 
             <div class='section-wrapper'>
-                <div class="lg-col col-12">
+                <div class="lg-col col-12 padding-0">
                     <h3 class="container-fluid titles mt-4"><i class="fas fa-th-list titles-icon pr-2"></i> My List</h3>
                     <hr class="video-title-devider">
                     <div class='row no-gutters'>
@@ -121,259 +146,82 @@
                         <div class='col-12 col-lg-10'>
                             <div class="video-slider-owerflow-hidden" id="my-list">
                                 <div class="sliders-container">
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
+                                    <!-- Looping a MyList videos by user -->
+                                    {% for mylist_video in mylist_videos %}
+                                        {% for video in videos %}
+                                            {% if mylist_video.video == video %}
+                                                <div class="slide">
+                                            
+                                                    <!-- Title  -->
+                                                    <h3 class="pl-3 mt-2"> 
+                                                        <a href="{% url 'single_video' video.id %}" class="video-title "> {{ video.title }} </a>
+                                                    </h3>
 
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                                    <!-- Video 1 -->
+                                                    <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                                        
+                                                        <!-- Video's Frame -->
+                                                        <iframe class="embed-responsive-item" src="{{ video.content }}" allowfullscreen></iframe>
+                            
+
+                                                        <!-- Action Button's Div -->
+                                                        <div class="container-for-action-buttons position-absolute">
+                                                            <div class="row no-gutters">
+                                                                <!-- Add To My Lists's Button -->
+                                                                <div class="col-12 text-right mb-3">
+                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist" 
+                                                                            class="text-secondary">
+                                                                        {% if video == mylist_video.video %}
+                                                                            <i class="added_in_list fas fa-plus-square"></i>
+                                                                        {% else %}
+                                                                            <i class="fas fa-plus-square"></i>
+                                                                        {% endif %}
+                                                                        
+                                                                    </a>
+                                                                </div>
+                                                                <!-- Like's Button -->
+                                                                <div class="col-12 text-right mb-3">
+                                                                    <!-- Checking if a user has already liked current video -->
+                                                                    {% if video in videos_in_likes %}
+                                                                        <i class="added_in_list fas fa-check"></i>
+                                                                    {% else %}
+                                                                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
+                                                                            class="text-secondary">
+                                                                            <i class="far fa-thumbs-up"></i>
+                                                                        </a>
+                                                                    {% endif %}
+                                                                    
+                                                                
+                                                                    <!-- Displaying a total likes -->
+                                                                    <small class="text-secondary action-buttons-value">   
+                                                                        {% if video.liked == None %}
+                                                                            ( 0 )
+                                                                        {% else %}
+                                                                        (+ {{ video.liked }} )
+                                                                        {% endif %}
+                                                                    </small>
+                                                                </div>
+                                                                <!-- Views Button -->
+                                                                <div class="col-12 text-right">
+                                                                    <a href="#" class="text-secondary">
+                                                                        <i class="far fa-eye"></i>
+                                                                    </a><small class="text-secondary action-buttons-value">(247)</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END a Action's Buttons Div -->  
                                                     </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
+
+                                                    <!-- Video's Description -->
+                                                    <p class="container-fluid mt-3 position-relative">
+                                                        {{ video.description }}
+                                                    <p>
+                                                    <!-- END a Video's Description -->
+            
                                                 </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <div class="position-relative">
-                                            <p class="container-fluid mt-3 position-relative">
-                                            1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
-                                            <p>
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        </div>
-                                        <!-- END a Video's Description -->
-                                        <!-- EMD a Video 1-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 2-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -586,7 +434,7 @@
         <section class="row no-gutters pink-section">
 
              <div class='section-wrapper'>
-                <div class="lg-col col-12">
+                <div class="lg-col col-12 padding-0">
                     <h3 class="container-fluid titles mt-4"><i class="far fa-eye titles-icon pr-2"></i> Continue Watching</h3>
                     <hr class="video-title-devider">
                     <div class='row no-gutters'>
@@ -879,7 +727,7 @@
         <section class="row no-gutters bg-white">
 
             <div class='section-wrapper'>
-                <div class="lg-col col-12">
+                <div class="lg-col col-12 padding-0">
                     <h3 class="container-fluid titles mt-4">
                         <img src="media/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Anatomy's Icon">
                         Videos By <span class="highlight-blocks-subject">Anatomy</span>
@@ -894,261 +742,81 @@
                         </div>
 
                         <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="by-anatomy">
+                            <div class="video-slider-owerflow-hidden" id="anatomy">
                                 <div class="sliders-container">
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
+                                    {% for video_by_category in videos_by_categories %}
+                                        {% if video_by_category.category.name == 'anatomy' %}
+                                            <div class="slide">
+                                            
+                                                <!-- Title  -->
+                                                <h3 class="pl-3 mt-2"> 
+                                                    <a href="{% url 'single_video' video_by_category.id %}" class="video-title "> {{ video_by_category.title }} </a>
+                                                </h3>
 
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                                <!-- Video 1 -->
+                                                <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                                    
+                                                    <!-- Video's Frame -->
+                                                    <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" allowfullscreen></iframe>
+                        
+
+                                                    <!-- Action Button's Div -->
+                                                    <div class="container-for-action-buttons position-absolute">
+                                                        <div class="row no-gutters">
+                                                            <!-- Add To My Lists's Button -->
+                                                            <div class="col-12 text-right mb-3">
+                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist" 
+                                                                        class="text-secondary">
+                                                                    {% if video_by_category in videos_in_mylist %}
+                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                    {% else %}
+                                                                        <i class="fas fa-plus-square"></i>
+                                                                    {% endif %}
+                                                                    
+                                                                </a>
+                                                            </div>
+                                                            <!-- Like's Button -->
+                                                            <div class="col-12 text-right mb-3">
+                                                                <!-- Checking if a user has already liked current video -->
+                                                                {% if video_by_category in videos_in_likes %}
+                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                {% else %}
+                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
+                                                                        class="text-secondary">
+                                                                        <i class="far fa-thumbs-up"></i>
+                                                                    </a>
+                                                                {% endif %}
+                                                                
+                                                            
+                                                                <!-- Displaying a total likes -->
+                                                                <small class="text-secondary action-buttons-value">   
+                                                                    {% if video_by_category.liked == None %}
+                                                                        ( 0 )
+                                                                    {% else %}
+                                                                    (+ {{ video_by_category.liked }} )
+                                                                    {% endif %}
+                                                                </small>
+                                                            </div>
+                                                            <!-- Views Button -->
+                                                            <div class="col-12 text-right">
+                                                                <a href="#" class="text-secondary">
+                                                                    <i class="far fa-eye"></i>
+                                                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
+                                                    <!-- END a Action's Buttons Div -->  
                                                 </div>
+
+                                                <!-- Video's Description -->
+                                                <p class="container-fluid mt-3 position-relative">
+                                                    {{ video_by_category.description }}
+                                                <p>
+                                                <!-- END a Video's Description -->
+        
                                             </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <div class="position-relative">
-                                            <p class="container-fluid mt-3 position-relative">
-                                            1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
-                                            <p>
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        </div>
-                                        <!-- END a Video's Description -->
-                                        <!-- EMD a Video 1-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 2-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
+                                        {% endif %}
+                                    {%  endfor %}
                                 </div>
                             </div>
                         </div>
@@ -1177,7 +845,7 @@
         <section class="row no-gutters green-section">
 
             <div class='section-wrapper'>
-                <div class="col-12">
+                <div class="col-12 ">
                     <h3 class="container-fluid titles text-white mt-4">
                         <i class="far fa-comments text-white titles-icon pr-2"></i> <span class='text-white'>Last Feedback</span>
                     </h3>
@@ -1229,7 +897,7 @@
         <section class="row no-gutters bg-white">
             
             <div class='section-wrapper'>
-                <div class="lg-col col-12">
+                <div class="lg-col col-12 padding-0">
                     <h3 class="container-fluid titles mt-4">
                         <img src="media/icons/diseases-icon.png" width="45px" class="pr-1" alt="Diseases's Icon"> Videos By 
                         <span class="highlight-blocks-subject">Diseases</span>
@@ -1244,261 +912,81 @@
                         </div>
 
                         <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="by-diseases">
+                            <div class="video-slider-owerflow-hidden" id="disieases">
                                 <div class="sliders-container">
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
+                                    {% for video_by_category in videos_by_categories %}
+                                        {% if video_by_category.category.name == 'disieases' %}
+                                            <div class="slide">
+                                            
+                                                <!-- Title  -->
+                                                <h3 class="pl-3 mt-2"> 
+                                                    <a href="{% url 'single_video' video_by_category.id %}" class="video-title "> {{ video_by_category.title }} </a>
+                                                </h3>
 
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                                <!-- Video 1 -->
+                                                <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                                    
+                                                    <!-- Video's Frame -->
+                                                    <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" allowfullscreen></iframe>
+                        
+
+                                                    <!-- Action Button's Div -->
+                                                    <div class="container-for-action-buttons position-absolute">
+                                                        <div class="row no-gutters">
+                                                            <!-- Add To My Lists's Button -->
+                                                            <div class="col-12 text-right mb-3">
+                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist" 
+                                                                        class="text-secondary">
+                                                                    {% if video_by_category in videos_in_mylist %}
+                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                    {% else %}
+                                                                        <i class="fas fa-plus-square"></i>
+                                                                    {% endif %}
+                                                                    
+                                                                </a>
+                                                            </div>
+                                                            <!-- Like's Button -->
+                                                            <div class="col-12 text-right mb-3">
+                                                                <!-- Checking if a user has already liked current video -->
+                                                                {% if video_by_category in videos_in_likes %}
+                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                {% else %}
+                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
+                                                                        class="text-secondary">
+                                                                        <i class="far fa-thumbs-up"></i>
+                                                                    </a>
+                                                                {% endif %}
+                                                                
+                                                            
+                                                                <!-- Displaying a total likes -->
+                                                                <small class="text-secondary action-buttons-value">   
+                                                                    {% if video_by_category.liked == None %}
+                                                                        ( 0 )
+                                                                    {% else %}
+                                                                    (+ {{ video_by_category.liked }} )
+                                                                    {% endif %}
+                                                                </small>
+                                                            </div>
+                                                            <!-- Views Button -->
+                                                            <div class="col-12 text-right">
+                                                                <a href="#" class="text-secondary">
+                                                                    <i class="far fa-eye"></i>
+                                                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
+                                                    <!-- END a Action's Buttons Div -->  
                                                 </div>
+
+                                                <!-- Video's Description -->
+                                                <p class="container-fluid mt-3 position-relative">
+                                                    {{ video_by_category.description }}
+                                                <p>
+                                                <!-- END a Video's Description -->
+        
                                             </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <div class="position-relative">
-                                            <p class="container-fluid mt-3 position-relative">
-                                            1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
-                                            <p>
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        </div>
-                                        <!-- END a Video's Description -->
-                                        <!-- EMD a Video 1-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 2-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
+                                        {% endif %}
+                                    {%  endfor %}
                                 </div>
                             </div>
                         </div>
@@ -1524,7 +1012,7 @@
         <section class="row no-gutters gray-section">
 
             <div class='section-wrapper'>
-                <div class="lg-col col-12">
+                <div class="lg-col col-12 padding-0">
                     <h3 class="container-fluid titles mt-4">
                         <img src="media/icons/subjects-icon.png" width="45px" class="pr-2" alt="Subjects's Icon"> Videos By 
                         <span class="highlight-blocks-subject">Subjects</span>
@@ -1538,262 +1026,82 @@
                             </a>
                         </div>
 
-                        <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="by-subjects">
+                        <div class='col-12 col-lg-10 padding-0'>
+                            <div class="video-slider-owerflow-hidden" id="subject">
                                 <div class="sliders-container">
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
+                                    {% for video_by_category in videos_by_categories %}
+                                        {% if video_by_category.category.name == 'subject' %}
+                                            <div class="slide">
+                                            
+                                                <!-- Title  -->
+                                                <h3 class="pl-3 mt-2"> 
+                                                    <a href="{% url 'single_video' video_by_category.id %}" class="video-title "> {{ video_by_category.title }} </a>
+                                                </h3>
 
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
+                                                <!-- Video 1 -->
+                                                <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+                                                    
+                                                    <!-- Video's Frame -->
+                                                    <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" allowfullscreen></iframe>
+                        
+
+                                                    <!-- Action Button's Div -->
+                                                    <div class="container-for-action-buttons position-absolute">
+                                                        <div class="row no-gutters">
+                                                            <!-- Add To My Lists's Button -->
+                                                            <div class="col-12 text-right mb-3">
+                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist" 
+                                                                        class="text-secondary">
+                                                                    {% if video_by_category in videos_in_mylist %}
+                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                    {% else %}
+                                                                        <i class="fas fa-plus-square"></i>
+                                                                    {% endif %}
+                                                                    
+                                                                </a>
+                                                            </div>
+                                                            <!-- Like's Button -->
+                                                            <div class="col-12 text-right mb-3">
+                                                                <!-- Checking if a user has already liked current video -->
+                                                                {% if video_by_category in videos_in_likes %}
+                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                {% else %}
+                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
+                                                                        class="text-secondary">
+                                                                        <i class="far fa-thumbs-up"></i>
+                                                                    </a>
+                                                                {% endif %}
+                                                                
+                                                            
+                                                                <!-- Displaying a total likes -->
+                                                                <small class="text-secondary action-buttons-value">   
+                                                                    {% if video_by_category.liked == None %}
+                                                                        ( 0 )
+                                                                    {% else %}
+                                                                    (+ {{ video_by_category.liked }} )
+                                                                    {% endif %}
+                                                                </small>
+                                                            </div>
+                                                            <!-- Views Button -->
+                                                            <div class="col-12 text-right">
+                                                                <a href="#" class="text-secondary">
+                                                                    <i class="far fa-eye"></i>
+                                                                </a><small class="text-secondary action-buttons-value">(247)</small>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
+                                                    <!-- END a Action's Buttons Div -->  
                                                 </div>
+
+                                                <!-- Video's Description -->
+                                                <p class="container-fluid mt-3 position-relative">
+                                                    {{ video_by_category.description }}
+                                                <p>
+                                                <!-- END a Video's Description -->
+        
                                             </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <div class="position-relative">
-                                            <p class="container-fluid mt-3 position-relative">
-                                            1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt   
-                                            <p>
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        </div>
-                                        <!-- END a Video's Description -->
-                                        <!-- EMD a Video 1-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 1 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 2-->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
-
-                                    <div class="slide">
-                                        <!-- Video's Title -->
-                                        <h3 class="pl-3 mt-2"><a href="" class="video-title">Title of the Vide </a></h3>
-                                        <!-- Video 3 -->
-                                        <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                            <!-- Video's Frame -->
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                                            <!-- END a Video's Frame -->
-
-                                            <!-- Action Button's Div -->
-                                            <div class="container-for-action-buttons position-absolute">
-                                                <div class="row no-gutters">
-                                                    <!-- Add To My Lists's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary"><i class="fas fa-plus-square"></i></a>
-                                                    </div>
-                                                    <!-- Like's Button -->
-                                                    <div class="col-12 text-right mb-3">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(+17)</small>
-                                                    </div>
-                                                    <!-- Views Button -->
-                                                    <div class="col-12 text-right">
-                                                        <a href="#" class="text-secondary">
-                                                            <i class="far fa-eye"></i>
-                                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END a Action's Buttons Div -->  
-                                        </div>
-
-                                        <!-- Video's Description -->
-                                        <p class="container-fluid mt-3 position-relative">
-                                        6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                            <img src="media/img/sm/swipe.gif" alt="Swiping gif" class="swipe-icon position-absolute d-lg-none"/>
-                                        <p>
-                                        <!-- END a Video's Description -->
-                                        <!-- END a Video 3 -->
-                                    </div>
+                                        {% endif %}
+                                    {%  endfor %}
                                 </div>
                             </div>
                         </div>
@@ -1817,7 +1125,7 @@
         <section class="row no-gutters bg-white">
 
             <div class='section-wrapper'>
-                <div class="lg-col col-12">
+                <div class="lg-col col-12 padding-0">
                     <h3 class="container-fluid titles mt-4">
                         <i class="fas fa-stream pr-2 titles-icon pr-2"></i>Playlists
                     </h3>
@@ -1830,7 +1138,7 @@
                             </a>
                         </div>
 
-                        <div class='col-12 col-lg-10'>
+                        <div class='col-12 col-lg-10 padding-0'>
                             <div class="video-slider-owerflow-hidden" id="playlist">
                                 <div class="sliders-container">
                                     <div class="slide">
@@ -2112,6 +1420,7 @@
         </script>
 
     {% else %}
+
         <!-- First Section For Tablets and lower devices ( NOT LOGGED IN USER ) -->
         <section class="row home-first-section-not-logged-in no-gutters d-lg-none">
             <div class="col-12">
