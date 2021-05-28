@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
     path('usersprofile/', views.users_profile, name='users_profile'),
     path('profileevents/', views.profile_events, name='profile_events'),
-    path('likedvideos/', views.liked_videos, name='liked_videos'),
     path('watchedvideos/', views.watched_videos, name='watched_videos'),
     path('playlists/', views.playlists, name='playlists'),
     path('profileaccount/', views.profile_account, name='profile_account'),
