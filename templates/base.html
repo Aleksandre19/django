@@ -71,8 +71,8 @@
                             <div class='col-8'>
 
                                 <div class="search-wrapper">
-                                    <form>
-                                        <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp"> 
+                                    <form method='GET' action="{% url 'videos' %}" id="searchForm">
+                                        <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp">
                                     </form>  
                                 </div>  
 
@@ -227,8 +227,11 @@
                 </div>
                 <div class="col-8 search-input-col">
                     <div class="search-wrapper">
-                        <form>
-                            <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp"> 
+                        <form method='GET' action="{% url 'videos' %}" id="searchForm">
+                            <input type="text" class="form-control video-search" id="videoSearch" 
+                                   name="search" aria-describedby="emailHelp">
+
+                            <button class="btn btn-success search-btn" type="submit" id='search-submit'>GO!</button> 
                         </form>  
                     </div>  
                 </div>
@@ -351,11 +354,16 @@
     {% block bottom_extra_js %}
     {% endblock %}
     <script>
-        /* Toggling a top menu width and background during a collapsing of it. */
+
+       /* Toggling a top menu width and background during a collapsing of it. */
        $(document).ready(function(){
             $(".top-nav").click(function(){
                 $(".top-nav-toggle").toggleClass("toggleMenuBackground");
             });
+
+            if( $('#videoSearch').val() !== '' ){
+                $('#searchForm').submit();
+            }
         });
 
 

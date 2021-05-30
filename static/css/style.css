@@ -201,6 +201,7 @@ nav.colapsing{
 }
 
 .search-wrapper{
+    position: relative;
     width: 100%;
 }
 
@@ -240,6 +241,15 @@ nav.colapsing{
     background-color: rgba(161, 128, 163, 0.3);
     border: solid 1px #a180a3;
 }
+
+/* Search Button for tablets and lower devices */
+.search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
 
 .search-input-col,
 .user-icon-col{

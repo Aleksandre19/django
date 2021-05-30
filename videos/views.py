@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Videos, Category, Subjects, Likes, MyList
-from django.db.models import Count, Sum
-from django.contrib.auth.models import User
-import math
+from django.db.models import Count, Q
+from django.contrib import messages
+# from django.contrib.auth.models import User
+# import math
 # from django.views.generic.edit import CreateView
 
 # Create your views here.
@@ -18,6 +19,21 @@ def videos(request):
         # All Categories
         categories = Category.objects.all()
 
+        search_results = None
+
+        # Videos search query
+        if request.GET:
+            if 'search' in request.GET:
+                query = request.GET['search']
+
+                # If there is not search criteria displaying message
+                if not query:
+                    messages.error(request, "You didn't enter any search criteri! ")
+                    return redirect(reverse('videos'))
+                
+                queries = Q(title__icontains=query) | Q(description__icontains=query)
+                search_results = videos.filter(queries)
+
         context = {
             'videos' : videos,
             'categories' : categories,
@@ -26,6 +42,7 @@ def videos(request):
             'videos_by_subjects' : get_videos_by_category(request, 'subject', Subjects),
             'videos_in_likes' : current_user_videos(Likes, request.user),
             'videos_in_mylist' : current_user_videos(MyList, request.user),
+            'search_results' : search_results,
             
         }
 
