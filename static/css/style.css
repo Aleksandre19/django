@@ -330,6 +330,11 @@ nav.colapsing{
     padding: 0;
 }
 
+/*  Subscription cards section's top margin  */
+.md-cards {
+    margin-top: 135px;
+}
+
 
 .cards-row,
 .calendar-row{
@@ -361,6 +366,12 @@ nav.colapsing{
 .cards-saving{
     margin-bottom: 0;
 }
+
+/* Subscription Cards Page Title */
+.cards-page-title {
+    padding-bottom: 28px;
+}
+
 
 .cards-content p.cards-months-length,
 .cards-saving span{
@@ -1615,7 +1626,6 @@ hr.feedback-devider {
         line-height: 32px;
         letter-spacing: 1.5px;
     }
-
 
     /* Desktop banner section */
     .desk-banner {

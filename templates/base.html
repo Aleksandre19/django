@@ -134,11 +134,11 @@
                                 </li>
                             {% else %}
                                 <li class="nav-item 
-                                    {% if request.path == '/subscribe/' %} 
+                                    {% if request.path == '/subscription/cards/' %} 
                                         active
                                     {% endif %}
                                 ">
-                                    <a class="nav-link hvr-float" href="#">Subscribe</a>
+                                    <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item 
@@ -198,11 +198,11 @@
                                     </li>
                                 {% else %}
                                     <li class="nav-item
-                                        {% if request.path == '/subscribe/' %} 
+                                        {% if request.path == '/subscription/cards/' %} 
                                             mb-active
                                         {% endif %}
                                     ">
-                                        <a class="nav-link hvr-float" href="#">Subscribe</a>
+                                        <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
                                     </li>
                                 {% endif %}
                                     <li class="nav-item

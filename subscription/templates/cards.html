@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Subscribe cards for DESKTOP -->
+    <section class='d-none d-lg-block lg-cards'>
+
+        <div class='section-wrapper'>
+            <h2 class='cards-page-title titles'>
+                <i class="far fa-paper-plane titles-icon mr-2"></i>
+                Choose a payment plan:
+            </h3>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-4">
+                    
+                    <div class="cards-content home-desk-card">
+                        <p class="cards-months-length text-uppercase text-center pt-4">1 Month</p>
+                        <div class="card-scale-img-wrapper">
+                            <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                        </div>
+                        <p class="cards-saving mt-2"> Save <span>0</span> Euros </p>
+                        <div class="cards-price"><strong> 19 </strong></div>
+                        <div class="cards-currency"><span>EUR</span></div>
+                        <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
+                        <div class="cards-choose-btn-wrapper">
+                            <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4 pl-3 pr-3">      
+                    <div class="cards-content home-desk-card active-card">
+                        <p class="cards-months-length text-uppercase text-center pt-4">6 Months</p>
+                        <div class="card-scale-img-wrapper">
+                            <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                        </div>    
+                        <p class="cards-saving mt-2"> Save <span>24</span> Euros </p>
+                        <div class="cards-price"> <strong> 90 </strong> </div>
+                        <div class="cards-currency"> EUR </div>
+                        <p class="cards-desc mt-3 ml-3 mr-3" >You will get full access to all videos + events</p>
+                        <div class="cards-choose-btn-wrapper">
+                            <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="cards-content home-desk-card">
+                        <p class="cards-months-length text-uppercase text-center pt-4">1 Year</p>
+                        <div class="card-scale-img-wrapper">
+                            <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                        </div>
+                        <p class="cards-saving mt-2"> Save <span>68</span> Euros </p>
+                        <div class="cards-price"><strong> 160 </strong> </br></div>
+                        <div class="cards-currency"><span>EUR</span></div>
+                        <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
+                        <div class="cards-choose-btn-wrapper">
+                            <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+     <!-- Subscription cards Section For Tablets and lower devices ( NOT LOGGED IN USER ) -->
+    <section class="md-cards container-fluid home-second-section-not-logged-in d-lg-none">
+     <!-- Card's Row -->
+            <div class="row cards-row container-fluid mt-5">
+                <div class="col subsctipsins-cards">
+
+                    <h2 class='cards-page-title titles'>
+                        <i class="far fa-paper-plane titles-icon mr-2"></i>
+                        Choose a payment plan:
+                    </h3>
+
+                    <!-- Card's Tabs -->
+                    <nav class="cards-nav">
+                        <div class="nav nav-tabs cards-menu justify-content-center" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
+                            <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">6 Months</a>
+                            <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">1 Year</a>
+                        </div>
+                    </nav>
+                    <!-- END Card's Tabs -->
+
+                    <!-- Card Content -->
+                    <div class="tab-content bg-white rounded-lg shadow-sm" id="nav-tabContent">
+
+                        <!-- Card 1 -->
+                        <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="cards-content">
+                                <p class="cards-months-length text-uppercase text-center pt-4">1 Month</p>
+                                <div class="card-scale-img-wrapper">
+                                    <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                                </div>
+                                <p class="cards-saving mt-2"> Save <span>0</span> Euros </p>
+                                <div class="cards-price"><strong> 19 </strong></div>
+                                <div class="cards-currency"><span>EUR</span></div>
+                                <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
+                                <div class="cards-choose-btn-wrapper">
+                                    <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END a Card 1 -->
+
+                        <!-- Card 2 -->    
+                        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="cards-content">
+                                <p class="cards-months-length text-uppercase text-center pt-4">6 Months</p>
+                                <div class="card-scale-img-wrapper">
+                                    <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                                </div>    
+                                <p class="cards-saving mt-2"> Save <span>24</span> Euros </p>
+                                <div class="cards-price"> <strong> 90 </strong> </div>
+                                <div class="cards-currency"> EUR </div>
+                                <p class="cards-desc mt-3 ml-3 mr-3" >You will get full access to all videos + events</p>
+                                <div class="cards-choose-btn-wrapper">
+                                    <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END a Card 2 -->
+
+                        <!-- Card 3 -->
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="cards-content">
+                                <p class="cards-months-length text-uppercase text-center pt-4">1 Year</p>
+                                <div class="card-scale-img-wrapper">
+                                    <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                                </div>
+                                <p class="cards-saving mt-2"> Save <span>68</span> Euros </p>
+                                <div class="cards-price"><strong> 160 </strong> </br></div>
+                                <div class="cards-currency"><span>EUR</span></div>
+                                <p class="cards-desc mt-3 ml-3 mr-3">You will get full access to all videos + events</p>
+                                <div class="cards-choose-btn-wrapper">
+                                    <button type="button" class="cards-choose-btn btn border border-bottom-0 border-success text-white font-weight-bolder mb-4">Choose</button>
+                                </div>    
+                            </div>
+                        </div>
+                        <!-- END a Card 3 -->
+
+                    </div>
+                    <!-- END a Card's Content -->
+
+                </div>
+            </div>
+            <!-- END a Card's Row -->
+
+        </section>
+
+{% endblock %}

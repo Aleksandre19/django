@@ -28,6 +28,7 @@ urlpatterns = [
     # path('videos/', videos.videos, name="videos"),
     # path('singlevideo/<video_id>/', videos.single_video, name="single_video"),
     path('profile/', include('usersprofile.urls')),
+    path('subscription/', include('subscription.urls')),
     # path('usersprofile/', views.users_profile, name='users_profile'),
     # path('profileevents/', views.profile_events, name='profile_events'),
     # path('likedvideos/', views.liked_videos, name='liked_videos'),
