@@ -134,7 +134,9 @@
                                 </li>
                             {% else %}
                                 <li class="nav-item 
-                                    {% if request.path == '/subscription/cards/' %} 
+                                    {% if request.path == '/subscription/cards/' %}
+                                        active
+                                    {% elif request.path == '/subscription/checkout' %} 
                                         active
                                     {% endif %}
                                 ">
@@ -198,7 +200,9 @@
                                     </li>
                                 {% else %}
                                     <li class="nav-item
-                                        {% if request.path == '/subscription/cards/' %} 
+                                        {% if request.path == '/subscription/cards/' %}
+                                            active
+                                        {% elif request.path == '/subscription/checkout' %} 
                                             mb-active
                                         {% endif %}
                                     ">
@@ -260,8 +264,8 @@
                 </div> 
             </div>    
         </header>
-        
         {% block content %}
+        
         {% endblock %}
 
         <!-- Using this div to make margin between footer manu and rest of content -->

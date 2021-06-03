@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class='row section-wrapper checkout-section mt-5 no-gutters'>
+        <div class='col-12 col-md-7 col-lg-8'>
+            <h3 class='checkout-titles'>
+                <i class="fas fa-exclamation titles-icon mr-3"></i>
+                In order to finish subscription please fill the following form
+            </h3>
+            <p class='mobile-choosed-message d-md-none'>
+                You have choosed 
+                {% if price == '19' %}
+                        <span> 1 Month </span>
+                    {% elif price == '90' %}
+                        <span> 6 Months </span>
+                    {% else %}
+                        <span> 1 Year </span>
+                    {% endif %}
+                plan.
+            </p>
+             <form action="" method="GET" id="checkout-form">
+                {% csrf_token %}
+                {{  sub_form.full_name | as_crispy_field }}
+                {{  sub_form.email | as_crispy_field }}
+                {{  sub_form.phone_number | as_crispy_field }}
+                {{  sub_form.country | as_crispy_field }}
+                {{  sub_form.postcode | as_crispy_field }}
+                {{  sub_form.town_or_city | as_crispy_field }}
+                {{  sub_form.street_address1 | as_crispy_field }}
+                {{  sub_form.street_address2 | as_crispy_field }}
+                <button type="submit" class="btn btn-outline-success" name="sbscribe" value="subscribe">Subscribe</button>
+            </form>
+        </div>
+        <div class='col-0 col-md-5 col-lg-4 d-none d-md-block'>
+            
+            <div class="choosed-plan cards-content home-desk-card">
+                <h3 class='choosed-plan-check pt-4 pb-3'> You Have Choosed: </h3>
+                <p class="cards-months-length text-uppercase text-center">
+                    {% if price == '19' %}
+                        1 Month
+                    {% elif price == '90' %}
+                        6 Months
+                    {% else %}
+                        1 Year
+                    {% endif %}
+                </p>
+                <div class="card-scale-img-wrapper">
+                    <img src="../../media/img/sm/mb-home-card-scale.png" alt="Scale" >
+                </div>
+                <p class="cards-saving mt-2"> 
+                    Save 
+                    <span>
+                        {% if price == '19' %}
+                            0
+                        {% elif price == '90' %}
+                            24
+                        {% else %}
+                            68
+                        {% endif %}
+                    </span> 
+                    Euros 
+                </p>
+                <div class="cards-price"><strong> {{ price }} </strong></div>
+                <div class="cards-currency"><span>EUR</span></div>
+                <p class="cards-desc mt-3 ml-3 mr-3 pb-4">
+                    You will get full access to all videos + events
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

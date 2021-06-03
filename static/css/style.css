@@ -330,11 +330,62 @@ nav.colapsing{
     padding: 0;
 }
 
+/* Checkout section */
+.checkout-section {
+    width: 90%;
+    margin: auto;
+    margin-top: 130px !important;
+}
+
 /*  Subscription cards section's top margin  */
 .md-cards {
     margin-top: 135px;
 }
 
+/* Checkout form labes */
+#checkout-form label {
+    font-size: 12px;
+    font-style: italic;
+    color: #8e8e8e;
+}
+
+/* Checkout titles */
+.checkout-titles {
+    font-size: 24px;
+    margin: 0px 0px 30px 0px;
+    text-align: center;
+    line-height: 37px;
+}
+
+/* Subscription card on the checkout page */
+.choosed-plan {
+    margin-top: 95px;
+}
+
+/* Choosed plan on checkout page */
+.choosed-plan-check {
+    text-align: center;
+    font-size: 24px;
+    color: #f204f6;
+    font-weight: bold;
+}
+
+/* Choosed plan syles on checkout page */
+.mobile-choosed-message {
+    font-style: italic;
+}
+
+/* Period style in checkout message */
+.mobile-choosed-message span {
+    color: #28a744;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+/* Subscription card's background */
+.home-desk-card {
+    background-color: white;
+}
 
 .cards-row,
 .calendar-row{
@@ -1143,6 +1194,12 @@ hr.feedback-devider {
         width: 350px;
     }
 
+    /* Checkout Card */
+    .home-desk-card {
+        margin-left: 25px;
+        margin-top: 0px;
+    }
+
     .p-for-md {
         padding-left: 48px !important;
     }
@@ -1163,7 +1220,7 @@ hr.feedback-devider {
         top: 35%;
     }
 
-    .md-event-desc p, h3{
+    .md-event-desc p, .md-event-desc h3{
         padding-left: 51px !important;
     }
 
@@ -1308,6 +1365,11 @@ hr.feedback-devider {
     /* Content's left padding for categories and subjects */
     .cat-sub-content-paddings {
         margin-left: 23px;
+    }
+
+    /* Checkout message */
+    .checkout-titles {
+        text-align: left;
     }
 
     .home-first-section-video-container {
@@ -1590,7 +1652,6 @@ hr.feedback-devider {
     /* Cards of home page for not logged in users */
     .home-desk-card {
         width: 90%;
-        background-color: white;
         border-radius: 10px;
         box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
         -webkit-box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
