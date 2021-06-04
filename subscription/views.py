@@ -1,26 +1,55 @@
 from django.shortcuts import render, redirect, reverse
 from .forms import SubForm
+from .models import Cards
 
 # Create your views here.
 
 def cards(request):
-    return render(request, 'cards.html')
+
+    # Requiring a all subscription cards
+    cards = Cards.objects.all()
+
+    context = {
+        'cards' : cards,
+    }
+
+    return render(request, 'cards.html', context)
 
 
 def checkout(request):
     
     if request.GET:
         
-        price = request.GET['price']
+        # Declairing variables
+        period = None
+        saving = None
+        price = None
 
-        if not price:
-            price = 0
-
+        # Requiring Subscription payment form
         sub_form = SubForm()
 
+        # Requiring all cards
+        cards = Cards.objects.all()
+
+        # Getting current GET request
+        reqvst = request.GET['price']
+        
+        # Checking which card corespondings to request 
+        for card in cards:
+            if card.price == int(reqvst):
+                period = card.duration
+                saving = card.saving
+                price = card.price
+
+    
         context = {
             'sub_form': sub_form,
-            'price' : price,
+            'cards' : cards,
+            'current_card' : {
+                'period' : period,
+                'saving' : saving,
+                'price' : price,
+            }
         }
 
         return render(request, 'checkout.html', context)

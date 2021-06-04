@@ -1200,6 +1200,13 @@ hr.feedback-devider {
         margin-top: 0px;
     }
 
+    /* Checkout go back button */
+    .go-back-btn {
+        width: 87%;
+        margin: auto;
+        margin-left: 32px;
+    }
+
     .p-for-md {
         padding-left: 48px !important;
     }
@@ -1659,7 +1666,8 @@ hr.feedback-devider {
         -o-box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.05);
     }
 
-    .active-card {
+    /* Active subscription card */
+    #active-card {
         transform: scale(1.1);
     }
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subscription
+from .models import Subscription, Cards
 
 # Register your models here.
 
@@ -22,4 +22,9 @@ class SubscriptionAdmin(admin.ModelAdmin):
     ordering = ('-date',)
 
 
+class CardsAdmin(admin.ModelAdmin):
+    fields = ('duration', 'price', 'saving', 'offering',)
+
+
 admin.site.register(Subscription, SubscriptionAdmin)
+admin.site.register(Cards, CardsAdmin)
