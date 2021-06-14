@@ -349,6 +349,11 @@ nav.colapsing{
     color: #8e8e8e;
 }
 
+/* Checkout form's filedset */
+#checkout-form legend {
+    color: #f206f6;
+}
+
 /* Checkout titles */
 .checkout-titles {
     font-size: 24px;
@@ -385,6 +390,15 @@ nav.colapsing{
 /* Subscription card's background */
 .home-desk-card {
     background-color: white;
+}
+
+
+/* Stripe card div */
+#card-element {
+    padding: 11px;
+    background-color: white;
+    border: 1px solid #ced4d9;
+    border-radius: 4px;
 }
 
 .cards-row,

@@ -49,7 +49,9 @@ def checkout(request):
                 'period' : period,
                 'saving' : saving,
                 'price' : price,
-            }
+            },
+            'stripe_public_key' : 'pk_test_51IyeeiFgpxm4y9aBYzNrN1nmYnWxMAu0XfbciWIloDdMf2PTFIad0nhQOsiEjtmraUthF0yScT46GsnNp8XCgTi800usbn0gUR',
+            'client_secret' : 'Test client secret',
         }
 
         return render(request, 'checkout.html', context)
