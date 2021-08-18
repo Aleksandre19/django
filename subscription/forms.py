@@ -3,15 +3,13 @@ from .models import Subscription
 
 """"
     This code is copied from Boutique Ado project
-    and it is modified
+    and it is modified.
 """
 
 class SubForm(forms.ModelForm):
     class Meta:
         model = Subscription
-        fields = ('full_name', 'email', 'phone_number',
-                    'country', 'postcode', 'town_or_city',
-                    'street_address1','street_address2', 'price')
+        fields = ('full_name', 'email', 'phone_number')
                     
         
 
@@ -27,11 +25,11 @@ class SubForm(forms.ModelForm):
                 'full_name': 'Full Name',
                 'email': 'Email Address',
                 'phone_number': 'Phone Number',
-                'postcode': 'Postal Code',
-                'town_or_city': 'Town or City',
-                'street_address1': 'Street Address 1',
-                'street_address2': 'Street Address 2',
-                'country': 'County, State or Locality',
+                # 'postcode': 'Postal Code',
+                # 'town_or_city': 'Town or City',
+                # 'street_address1': 'Street Address 1',
+                # 'street_address2': 'Street Address 2',
+                # 'country': 'County, State or Locality',
             }
 
             self.fields['full_name'].widget.attrs['autofocus'] = True
