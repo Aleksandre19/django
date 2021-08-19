@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+    <div class="container mt-4">
+        <h2> Your subscription succeeded . </h2>
+        <h4> Now you can access to all videos. </h3>
+        <a href="{% url 'videos' %}" class="btn btn-success btn-lg active mt-4"
+                    role="button" aria-pressed="true">
+            Videos
+        </a>   
+    </div>
+{% endblock content %}
