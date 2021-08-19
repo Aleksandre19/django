@@ -1,4 +1,5 @@
 {% load static %}
+{% load top_menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,6 +32,8 @@
 
     <!-- Jquery CDN Link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+   
+    <!-- Javascript link -->
     <script src="{% static 'js/scripts.js' %}"></script>
     
     <!-- Stripe -->
@@ -79,7 +82,15 @@
                                     </form>  
                                 </div>  
 
-                            </div> 
+                            </div>
+
+                            <!-- 
+                                Calling a simple_tag and passing user's ID as a argument.
+                                This simple_tag helps also to display links below in the top menu section
+                            -->
+                            {% if request.user.is_authenticated %}
+                                {% check_subscription user.id as subscribed %}
+                            {% endif %}
 
                             <div class='col-1'>
 
@@ -93,6 +104,10 @@
 
                                         </a>
                                         <div class="dropdown-menu">
+                                        
+                                            <!-- If a user has subscription so displaying the following links -->
+                                            {% if subscribed %}
+
                                                 <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">My List </a>
                                                 <a class="dropdown-item" href="{% url 'watched_videos' %}">Watched Videos </a>
                                                 <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">Liked Videos </a>
@@ -100,10 +115,16 @@
                                                 <a class="dropdown-item" href="{% url 'profile_events' %}">Events </a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="{% url 'profile_account' %}">Account</a>
-                                                <a class="dropdown-item" href="{% url 'profile_subscription' %}">Subscription</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="{% url 'account_logout' %}" >Log Out</a>
-                                            </ul>
+
+                                            {% else %}
+
+                                                <a class="dropdown-item" href="{% url 'cards' %}">Subscription</a>
+                                            
+                                            {% endif %}
+                                            
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'account_logout' %}" >Log Out</a>
+                            
                                         </div>
                                     </div>
                                 {% else %}
@@ -127,7 +148,15 @@
                             ">
                                 <a class="nav-link hvr-float" href="{% url 'home' %}">Home</a>
                             </li>
-                            {% if user.is_authenticated %}
+
+                            <!-- 
+                                Checking if a user has already subscribed or authenticated and
+                                displaying a links: Subscription or videos accordingly.
+                            -->
+
+                            <!-- If user is authenticated and has subscription -->
+                            {% if user.is_authenticated and subscribed %}
+
                                  <li class="nav-item 
                                         {% if request.path == '/posts/videos/' %} 
                                         active
@@ -135,6 +164,21 @@
                                  ">
                                     <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
                                 </li>
+                            
+                            <!-- If user is authenticated and has NOT subscription -->
+                            {% elif user.is_authenticated and not subscribed %}
+
+                                <li class="nav-item 
+                                    {% if request.path == '/subscription/cards/' %}
+                                        active
+                                    {% elif request.path == '/subscription/checkout' %} 
+                                        active
+                                    {% endif %}
+                                ">
+                                    <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
+                                </li>
+
+                            <!-- If user is NOT authenticated and has NOT subscription -->
                             {% else %}
                                 <li class="nav-item 
                                     {% if request.path == '/subscription/cards/' %}
@@ -146,6 +190,7 @@
                                     <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
                                 </li>
                             {% endif %}
+
                             <li class="nav-item 
                                 {% if request.path == '/contact/' %} 
                                     active
@@ -192,38 +237,59 @@
                                 ">
                                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                                 </li>
-                                {% if user.is_authenticated %}
-                                    <li class="nav-item
-                                        
-                                        {% if request.path == '/posts/videos/' %} 
-                                            mb-active
+                                <!-- 
+                                Checking if a user has already subscribed or authenticated and
+                                displaying a links: Subscription or videos accordingly.
+                                -->
+
+                                <!-- If user is authenticated and has subscription -->
+                                {% if user.is_authenticated and subscribed %}
+
+                                    <li class="nav-item 
+                                            {% if request.path == '/posts/videos/' %} 
+                                            active
                                         {% endif %}
                                     ">
                                         <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
                                     </li>
-                                {% else %}
-                                    <li class="nav-item
+                                
+                                <!-- If user is authenticated and has NOT subscription -->
+                                {% elif user.is_authenticated and not subscribed %}
+
+                                    <li class="nav-item 
                                         {% if request.path == '/subscription/cards/' %}
                                             active
-                                        {% elif request.path == '/subscription/choosed_plan' %} 
-                                            mb-active
+                                        {% elif request.path == '/subscription/checkout' %} 
+                                            active
+                                        {% endif %}
+                                    ">
+                                        <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
+                                    </li>
+
+                                <!-- If user is NOT authenticated and has NOT subscription -->
+                                {% else %}
+                                    <li class="nav-item 
+                                        {% if request.path == '/subscription/cards/' %}
+                                            active
+                                        {% elif request.path == '/subscription/checkout' %} 
+                                            active
                                         {% endif %}
                                     ">
                                         <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
                                     </li>
                                 {% endif %}
-                                    <li class="nav-item
-                                        {% if request.path == '/contact/' %} 
-                                            mb-active
-                                        {% endif %}
-                                    ">
+                                <li class="nav-item
+                                    {% if request.path == '/contact/' %} 
+                                        mb-active
+                                    {% endif %}
+                                ">
                                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
-                                    <li class="nav-item
-                                        {% if request.path == '/faq/' %} 
-                                            mb-active
-                                        {% endif %}
-                                    ">
+                                <li class="nav-item
+                                    {% if request.path == '/faq/' %} 
+                                        mb-active
+                                    {% endif %}
+                                ">
                                     <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
                                 </li>
                             </ul>
@@ -248,6 +314,9 @@
                         <div class="btn-group dropleft">
                             <a href="{% url 'users_profile' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="far fa-user-circle user-acount-icon"></i></a>
                             <div class="dropdown-menu">
+                                <!-- If a user has subscription so displaying the following links -->
+                                {% if subscribed %}
+
                                     <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">My List </a>
                                     <a class="dropdown-item" href="{% url 'watched_videos' %}">Watched Videos </a>
                                     <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">Liked Videos </a>
@@ -255,10 +324,15 @@
                                     <a class="dropdown-item" href="{% url 'profile_events' %}">Events </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{% url 'profile_account' %}">Account</a>
-                                    <a class="dropdown-item" href="{% url 'profile_subscription' %}">Subscription</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{% url 'account_logout' %}" >Log Out</a>
-                                </ul>
+
+                                {% else %}
+
+                                    <a class="dropdown-item" href="{% url 'cards' %}">Subscription</a>
+                                
+                                {% endif %}
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}" >Log Out</a>
+                                
                             </div>
                         </div>
                     {% else %}
@@ -267,6 +341,11 @@
                 </div> 
             </div>    
         </header>
+       
+
+             
+
+        
         {% block content %}
         
         {% endblock %}
@@ -376,35 +455,40 @@
 
         /* 
             If a user is not logged in and a page is the home page then
-            we change little bit a appearance of the top main menu 
+            we change little bit the appearance of the top main menu 
         */
 
-        /* Check to find if a user is authenticated */
+        /* Checking to find if a user is authenticated */
         let auth = '{{ user.is_authenticated }}'.toLowerCase();
 
-        if ( auth == 'false' && window.innerWidth >= 992 && page == 'home' ) {
+        if( page != '' ) {
+            if ( auth == 'false' && window.innerWidth >= 992 && page == 'home' ) {
 
-            /* Grabbing a header menu wrapper */
-            let el = document.querySelector( '.desk-header' );
+                /* Grabbing a header menu wrapper */
+                let el = document.querySelector( '.desk-header' );
 
-            /* Grabbing a header menu */
-            let menu = document.querySelector( '.desk-menu' );
+                /* Grabbing a header menu */
+                let menu = document.querySelector( '.desk-menu' );
 
-            /* Centering a top main menu */
-            menu.classList.add( 'justify-content-center' );
+                /* Centering a top main menu */
+                menu.classList.add( 'justify-content-center' );
 
-            /* Removing a background image */
-            el.style.backgroundImage = 'none';
-            
-            /* Putting a menu on the top of the first section */
-            el.style.position = 'absolute';
-            
+                /* Removing a background image */
+                el.style.backgroundImage = 'none';
+                
+                /* Putting a menu on the top of the first section */
+                el.style.position = 'absolute';
+                
+            }
         }
         
     </script>
+
+    <!-- Loading GIF -->
     <div class="loading">
         <img src="/media/img/general/loading.gif" id="loading_img" alt="loading">
     </div>
+
     {% block postloadjs %}
     {% endblock %}  
   </body>
