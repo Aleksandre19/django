@@ -10,22 +10,17 @@
             <p class='mobile-choosed-message d-md-none'>
                 You have choosed <span> {{ current_card.price }} EUR </span> plan.                           
             </p>
-             <form action="{% url 'checkout' %}" method="GET" id="checkout-form">
+             <form action="{% url 'success' %}" method="POST" id="checkout-form">
                 {% csrf_token %}
+
                 <fieldset class="rounded mb-3">
                     <legend class="fieldset-label small w-auto">Your Details</legend>
                     {{  sub_form.full_name | as_crispy_field }}
                     {{  sub_form.email | as_crispy_field }}
                     {{  sub_form.phone_number | as_crispy_field }}
                 </fieldset>
-                <fieldset>
-                    <legend class="fieldset-label small w-auto">Address</legend>
-                    {{  sub_form.country | as_crispy_field }}
-                    {{  sub_form.postcode | as_crispy_field }}
-                    {{  sub_form.town_or_city | as_crispy_field }}
-                    {{  sub_form.street_address1 | as_crispy_field }}
-                    {{  sub_form.street_address2 | as_crispy_field }}
-                </fieldset>
+
+                <!-- Stripe Card -->
                 <fieldset class="mt-3">
                     <legend class="fieldset-label small w-auto">Payment</legend>
 
@@ -35,9 +30,24 @@
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     
                 </fieldset>
-                <button type="submit" class="btn btn-success mt-5" name="sbscribe" 
-                        value="subscribe">Subscribe</button>
+
+                <!-- Hidden input elements for subscription -->
+                <input type="hidden" name="plan_id" value="{{plan_id}}" >
+                <input type="hidden" name="payment_intent_id" value="{{payment_intent_id}}" >
+                <input type="hidden" name="customer_email_address" value="{{customer_email_address}}" >
+                
+
+                <!-- Subscription Button -->
+                <button type="submit" class="btn btn-success mt-5"
+                        name="subscribe" 
+                        value="subscribe"
+                        id="submit-button">
+                    Subscribe
+                </button>
+
+                <!-- Back to the subscription's plans -->       
                 <a class="btn btn-info d-md-none float-right" href="{% url 'cards' %}" role="button">Go Back</a>
+           
             </form>
         </div>
         <div class='col-0 col-md-5 col-lg-4 d-none d-md-block'>
@@ -73,5 +83,6 @@
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
+    {{ customer_email_address|json_script:"customer_email_address" }}
     <script src="{% static '/js/stripe_elements.js' %}"></script>
 {% endblock %}
