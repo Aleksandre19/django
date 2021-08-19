@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Videos, Category, Subjects, Likes, MyList
+from subscription.views import  check_users_subscription
 from django.db.models import Count, Q
 from django.contrib import messages
 # from django.contrib.auth.models import User
@@ -11,42 +12,53 @@ from django.contrib import messages
 def videos(request):
 
     ''' Checking to see if user is already athenticcated '''
-    if request.user.is_authenticated:  
-        # All Videos
-        videos = Videos.objects.all()
-        # All Subjects
-        subjects = Subjects.objects.all().annotate(posts_count=Count('videos'))
-        # All Categories
-        categories = Category.objects.all()
+    if request.user.is_authenticated:
 
-        search_results = None
+        # Check to see if a user has a subscription
+        
+        # If a user has subscription so showing the videos
+        if check_users_subscription(request.user):
+            # All Videos
+            videos = Videos.objects.all()
+            # All Subjects
+            subjects = Subjects.objects.all().annotate(posts_count=Count('videos'))
+            # All Categories
+            categories = Category.objects.all()
 
-        # Videos search query
-        if request.GET:
-            if 'search' in request.GET:
-                query = request.GET['search']
+            search_results = None
 
-                # If there is not search criteria displaying message
-                if not query:
-                    messages.error(request, "You didn't enter any search criteri! ")
-                    return redirect(reverse('videos'))
+            # Videos search query
+            if request.GET:
+                if 'search' in request.GET:
+                    query = request.GET['search']
+
+                    # If there is not search criteria displaying message
+                    if not query:
+                        messages.error(request, "You didn't enter any search criteri! ")
+                        return redirect(reverse('videos'))
+                    
+                    queries = Q(title__icontains=query) | Q(description__icontains=query)
+                    search_results = videos.filter(queries)
+
+            context = {
+                'videos' : videos,
+                'categories' : categories,
+                'subjects' : subjects,
+                'videos_by_categories' : get_videos_by_category(request, 'category', Category),
+                'videos_by_subjects' : get_videos_by_category(request, 'subject', Subjects),
+                'videos_in_likes' : current_user_videos(Likes, request.user),
+                'videos_in_mylist' : current_user_videos(MyList, request.user),
+                'search_results' : search_results,
                 
-                queries = Q(title__icontains=query) | Q(description__icontains=query)
-                search_results = videos.filter(queries)
+            }
 
-        context = {
-            'videos' : videos,
-            'categories' : categories,
-            'subjects' : subjects,
-            'videos_by_categories' : get_videos_by_category(request, 'category', Category),
-            'videos_by_subjects' : get_videos_by_category(request, 'subject', Subjects),
-            'videos_in_likes' : current_user_videos(Likes, request.user),
-            'videos_in_mylist' : current_user_videos(MyList, request.user),
-            'search_results' : search_results,
-            
-        }
+            return render(request, 'videos/index.html', context)
 
-        return render(request, 'videos/index.html', context)
+        # If a user doesn't have subscription so
+        # redirecting to the subscription's plans page
+        else:
+            return redirect(reverse('cards'))
+
     else:
         return redirect(reverse('account_login'))    
 
@@ -72,7 +84,6 @@ def single_video(request, video_id):
         return render(request, 'videos/single_video.html', context)
     else:
         return redirect(reverse('account_login'))
-
 
 
 # This function makes a likes and
