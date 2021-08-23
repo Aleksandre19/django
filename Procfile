@@ -1,1 +1,1 @@
-web: gunicorn lmp.wsgi:application
+web: gunicorn lmp.wsgi:application --timeout 600
