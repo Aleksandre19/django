@@ -295,7 +295,8 @@ nav.colapsing{
     line-height: 21px;
 } */
 
-.timer{
+.timer,
+.sign-in-up-icon{
     font-size: 45px;
     color: #fc01fe;
 }
@@ -412,7 +413,8 @@ nav.colapsing{
     font-weight: bold;
 }
 
-.nav-link{
+.nav-link,
+.sing-up-in a{
     color: #82ca1e;
     font-weight: bold;
 }
@@ -1414,7 +1416,7 @@ hr.feedback-devider {
     .titles {
         color: #6e6e6e !important;
         padding-left: 0 !important;
-        margin: 16px 0px 40px 0px !important;
+        margin: 16px 0px 40px 0px;
     }
 
     /* Increasing a top margin for titles */
