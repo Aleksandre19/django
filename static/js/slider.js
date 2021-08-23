@@ -254,7 +254,6 @@ allSlider.forEach( ( slider ) => {
     slider.addEventListener("mouseleave", touchEnd);
     slider.addEventListener("mousemove", touchMove);
 
-
 });
 
 
@@ -315,8 +314,6 @@ function switcher ( e ) {
     if ( this.dataset.direction == 'right' ) {
         selector = `#${this.parentElement.previousElementSibling.children[0].id} .sliders-container`;
     }
-
-    console.log(selector)
     
     // Get a Section Wrapper div for current arrow
     innerSlider = document.querySelector(`${ selector }`);
@@ -329,8 +326,6 @@ function switcher ( e ) {
 
     // Checking edges
     checkSlidersEdges();
-
-    console.log(checkSlidersEdges())
     
     // Sliding a slider to the left side
     if ( this.dataset.direction == 'left' ) {
@@ -425,8 +420,6 @@ function touchMove( e ) {
  *  Function to call when a user mooves out a finger/mouse
  */
 function touchEnd( e ) {
-
-    // console.log(e.type.includes( 'mouse' ))
 
     pressed = false; // User has removed a finger/mouse
 

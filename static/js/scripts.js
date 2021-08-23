@@ -4,6 +4,8 @@
     and it is modified
 */
 
+page = '';
+
 function diasferoTimer(countDownDate){
 
     var countDownDate = countDownDate;

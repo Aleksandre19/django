@@ -3,12 +3,12 @@
 
 const date = new Date();
 
-let eventday = [[4,13],[3,24],[3,17],[2,11]];
+let eventday = [[4,13],[3,24],[3,17],[2,11],[7,18],[7,23],[8,18],[8,4],[9,18],[10,4]];
 let eventLink = '/';
 
 let calendarInit = (eventday, eventLink) =>{
     
-    let eday = eventday;
+    // let eday = eventday;
 
     // Geg a container of the calendar's days
     const currentMonthDays = document.querySelector(".days");
