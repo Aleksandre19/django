@@ -1,58 +1,58 @@
 
-// // Storing a stripe client secret ID
-// let client_secret = $('#id_client_secret').text().slice(1, -1);
+// Storing a stripe client secret ID
+let client_secret = $('#id_client_secret').text().slice(1, -1);
 
-// // Storing a stripe public key
-// let stripe_puplic_key = $('#id_stripe_public_key').text().slice(1, -1);
+// Storing a stripe public key
+let stripe_puplic_key = $('#id_stripe_public_key').text().slice(1, -1);
 
-// // Get Customer's email address
-// let customer_email_address = $('#customer_email_address').text().slice(1, -1);
+// Get Customer's email address
+let customer_email_address = $('#customer_email_address').text().slice(1, -1);
 
-// // Initiating a stripe
-// let stripe = Stripe(stripe_puplic_key);
+// Initiating a stripe
+let stripe = Stripe(stripe_puplic_key);
 
-// // Creating a stripe element
-// let elements = stripe.elements();
+// Creating a stripe element
+let elements = stripe.elements();
 
-// // Styling stripe card's input
-// var style = {
-//     base: {
-//         color: '#32325d',
-//         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-//         fontSmoothing: 'antialiased',
-//         fontSize: '16px',
-//         '::placeholder': {
-//             color: '#aab7c4'
-//         }
-//     },
-//     invalid: {
-//         color: '#dc3545',
-//         iconColor: '#dc3545'
-//     }
-// };
+// Styling stripe card's input
+var style = {
+    base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        }
+    },
+    invalid: {
+        color: '#dc3545',
+        iconColor: '#dc3545'
+    }
+};
 
-// // Creating a stripe card
-// let card = elements.create('card', { style : style });
+// Creating a stripe card
+let card = elements.create('card', { style : style });
 
-// // Mounting the stripe card to the checkout form
-// card.mount('#card-element');
+// Mounting the stripe card to the checkout form
+card.mount('#card-element');
 
 
-// // Handle realtime validation errors on the card element
-// card.addEventListener('change', function(event) {
-//     var errorDiv = document.getElementById('card-errors');
-//     if (event.error) {
-//         var html = `
-//             <span class="icon" role="alert">
-//                 <i class="fas fa-times"></i>
-//             </span>
-//             <span>${event.error.message}</span>
-//         `;
-//         $(errorDiv).html(html);
-//     } else {
-//         errorDiv.textContent = '';
-//     }
-// });
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function(event) {
+    var errorDiv = document.getElementById('card-errors');
+    if (event.error) {
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+        `;
+        $(errorDiv).html(html);
+    } else {
+        errorDiv.textContent = '';
+    }
+});
 
 
 // Getting a form element
