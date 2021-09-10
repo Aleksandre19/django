@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+# Category model
 class Category(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -16,6 +16,7 @@ class Category(models.Model):
         return self.friendly_name
 
 
+# Subjects model
 class Subjects(models.Model):
     name = models.CharField(max_length=254, null=True, blank=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -27,16 +28,19 @@ class Subjects(models.Model):
         return self.name
 
 
+# Liked videos model
 class Likes(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     video = models.ForeignKey('Videos', null=True, blank=True, on_delete=models.SET_NULL)
 
 
+# My list model
 class MyList(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     video = models.ForeignKey('Videos', null=True, blank=True, on_delete=models.SET_NULL)
 
 
+# Videos model
 class Videos(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     subjects = models.ForeignKey('Subjects', null=True, blank=True, on_delete=models.SET_NULL)

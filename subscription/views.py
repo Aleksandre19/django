@@ -152,10 +152,7 @@ def sub_success(request):
 
         # Getting current plan's Price
         current_plan_price = sub_card.price
-        # for s_card in sub_card:
-        #     current_plan_price=s_card.price
-        #     current_plan_id=s_card.id
-
+    
         # Initiating a stripe
         stripe.api_key = stripe_secret_key
 

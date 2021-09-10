@@ -109,10 +109,7 @@
                                             {% if subscribed %}
 
                                                 <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">My List </a>
-                                                <a class="dropdown-item" href="{% url 'watched_videos' %}">Watched Videos </a>
                                                 <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">Liked Videos </a>
-                                                <a class="dropdown-item" href="{% url 'playlists' %}">Playlists </a>
-                                                <a class="dropdown-item" href="{% url 'profile_events' %}">Events </a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="{% url 'profile_account' %}">Account</a>
 
@@ -191,13 +188,6 @@
                                 </li>
                             {% endif %}
 
-                            <li class="nav-item 
-                                {% if request.path == '/contact/' %} 
-                                    active
-                                {% endif %}
-                            ">
-                                <a class="nav-link hvr-float" href="{% url 'contact' %}">Contact</a>
-                            </li>
                             <li class="nav-item 
                                 {% if request.path == '/faq/' %} 
                                     active
@@ -278,13 +268,7 @@
                                         <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
                                     </li>
                                 {% endif %}
-                                <li class="nav-item
-                                    {% if request.path == '/contact/' %} 
-                                        mb-active
-                                    {% endif %}
-                                ">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                                </li>
+                        
                                 <li class="nav-item
                                     {% if request.path == '/faq/' %} 
                                         mb-active
@@ -318,10 +302,7 @@
                                 {% if subscribed %}
 
                                     <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">My List </a>
-                                    <a class="dropdown-item" href="{% url 'watched_videos' %}">Watched Videos </a>
                                     <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">Liked Videos </a>
-                                    <a class="dropdown-item" href="{% url 'playlists' %}">Playlists </a>
-                                    <a class="dropdown-item" href="{% url 'profile_events' %}">Events </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{% url 'profile_account' %}">Account</a>
 
@@ -361,12 +342,6 @@
                     <a href="{% url 'videos' %}" class="nav-link"> <i class="fas fa-video"></i> </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'playlists' %}" class="nav-link"> <i class="fas fa-th-list"></i> </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'profile_events' %}" class="nav-link"> <i class="far fa-calendar-alt"></i> </a>
-                </li>
-                <li class="nav-item">
                     <a href="{% url 'users_profile' %}" class="nav-link"> <i class="fas fa-user-circle"></i> </a>
                 </li>
             </ul>
@@ -388,9 +363,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Subscribe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'faq' %}">FAQ</a>

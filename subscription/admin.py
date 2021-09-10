@@ -6,7 +6,7 @@ from .models import Subscription, Cards
 class SubscriptionAdmin(admin.ModelAdmin):
     
 
-    # readonly_fields = ('sub_number',)
+    readonly_fields = ('sub_number',)
 
 
     fields = ('sub_number', 'user', 'card', 'price',

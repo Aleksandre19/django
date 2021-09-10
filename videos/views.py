@@ -3,9 +3,6 @@ from .models import Videos, Category, Subjects, Likes, MyList
 from subscription.views import  check_users_subscription
 from django.db.models import Count, Q
 from django.contrib import messages
-# from django.contrib.auth.models import User
-# import math
-# from django.views.generic.edit import CreateView
 
 # Create your views here.
 
