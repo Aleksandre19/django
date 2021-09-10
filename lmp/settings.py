@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'g2$1x#_+r2+zv^-2#yqb4(($(l8))5%-!y-z6
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['fsmp.herokuapp.com', '127.0.0.1']
 
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'home',
     'videos',
     'usersprofile',
-    'contact',
     'faq',
     'storages',
     'subscription',
@@ -117,13 +116,6 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'lmp.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': dj_database_url.parse('postgres://zjnfryithyiqwm:32e2caa233e395c77e7e2944951eb1c27e7f8325b2f6acffc903315c8405af84@ec2-52-17-1-206.eu-west-1.compute.amazonaws.com:5432/d3ju4fpa05v71v')
-# }
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
