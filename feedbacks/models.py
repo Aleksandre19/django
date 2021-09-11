@@ -10,4 +10,4 @@ class Feedbacks(models.Model):
     avatar = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.user
+        return self.user.username

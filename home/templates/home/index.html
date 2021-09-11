@@ -427,7 +427,7 @@
                                     <!-- Feedback's text -->
                                         <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2 align-middle">
                                             <p class="pl-2">
-                                                “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “
+                                                {{ feedback.text }}
                                             </p>
                                         </blockquote>
                                     <!-- END a feedback's text -->
@@ -436,11 +436,11 @@
                                     <div class="row">
                                         <!-- User's name -->
                                         <div class="col-6">
-                                            <p class="small font-weight-lighter font-italic">Aleksandre Voronini</p>
+                                            <p class="small font-weight-lighter font-italic">{{ feedback.user.username }}</p>
                                         </div>
                                         <!-- Feedback's Date -->
                                         <div class="col-6">
-                                            <p class="small font-weight-lighter font-italic text-right">2021-02-10</p>
+                                            <p class="small font-weight-lighter font-italic text-right">{{ feedback.date }}</p>
                                         </div> 
                                     </div>
                                     </div> 

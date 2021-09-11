@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from videos.models import Videos, MyList, Likes, Category
 from videos.views import current_user_videos, get_videos_by_category
 from subscription.views import check_users_subscription
 from subscription.models import Cards
+from feedbacks.models import Feedbacks
 
 # Create your views here.
 
@@ -39,6 +40,9 @@ def index(request):
             videos_in_likes = current_user_videos(Likes, request.user)
             videos_in_mylist = current_user_videos(MyList, request.user)
 
+            # Getting latest feedback
+            feedback = Feedbacks.objects.order_by('date').last()
+
             # Making a categories list
             categories_list = []
             for category in categories:
@@ -57,6 +61,7 @@ def index(request):
                 'videos_in_likes' : videos_in_likes,
                 'videos_in_mylist' : videos_in_mylist,
                 'subscribed' : subscribed,
+                'feedback' : feedback if request.user.is_authenticated else None,
             }
         # If a user has not subscription so
         # redirecting to the subscription plans page 
