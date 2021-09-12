@@ -803,6 +803,11 @@ nav.colapsing{
     font-size: 36px;
 }
 
+.feedback-text,
+.feedback-form {
+    width: 80%;
+}
+
 .feedbacks-text{
     font-size: 14px;
 }

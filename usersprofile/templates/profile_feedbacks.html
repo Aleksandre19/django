@@ -63,13 +63,20 @@
                                 
                     <!-- Content Section -->
                     <div class='last-view-content-row row bg-white'>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-success mt-4 ml-4" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
 
-                        <form action="" method="post" class="mt-4 ml-4">
+                        <form action="{% url 'add' %}" method="post" class="feedback-form mt-4 ml-4">
                             {% csrf_token %}
 
                             <fieldset>
                                 <legend>Leave your feedback</legend>
-                                <textarea name="feedback_text" rows="5" cols="50" class="mt-2">
+                                <textarea name="feedback_text" rows="5" class="feedback-text mt-2">
                                 </textarea>
                             </fieldset>
 
