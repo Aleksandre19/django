@@ -682,7 +682,7 @@ nav.colapsing{
 
 
 .weekdays div{
-    font-size: 1,4rem;
+    font-size: 22px;
     letter-spacing: 0.02rem;
     color: #626262;
     border-right: 1px solid white;
@@ -936,7 +936,7 @@ hr.feedback-devider {
 /* A side menu styles WHILE scrolling a page */
 .freez-a-side-menu{
     background-image: url('/media/img/general/side-menu-left-borders-bg.jpg');
-    background-position-y: top left;
+    background-position: top left;
     background-repeat: repeat-y;
     width: 300px;
     position: fixed;
@@ -1042,7 +1042,7 @@ hr.feedback-devider {
 }
 
 .email-managment-radio{
-    all: revert !important;
+    fill: revert !important;
 }
 
 /************* Video Slider ************/
@@ -1194,12 +1194,6 @@ hr.feedback-devider {
     .last-view-content-row div.col-12 {
         padding-left: 15px;
         padding-right: 15px;
-    }
-
-    /* Removing a margins to the contente's col */
-    .md-remove-margins {
-        margin-left: none !important;
-        margin-right: none !important;
     }
 
     /* A side menu */
@@ -1626,7 +1620,6 @@ hr.feedback-devider {
         height: 85%;
         background-image: url('/media/img/lg/logged-in-desk-header-bg.jpg');
         background-repeat: no-repeat;
-        background-position: cover;
     }
 
     /* Welcoming text for not logged in users */
@@ -1723,7 +1716,7 @@ hr.feedback-devider {
 
     /* A top margin of the cards */
     .lg-cards {
-        margin: 77px 0px 100px 0px;
+        margin: 42px 0px 100px 0px;
     }
 
     /* Divider between cards and banner home page */
