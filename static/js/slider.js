@@ -265,12 +265,12 @@ function deskAddGrabbing() {
 
     if ( this.id == 'left' ) {
         document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
-        .sliders-container`).classList.add( 'grabbing' )
+        .sliders-container`).classList.add( 'grabbing' );
     } 
 
     if ( this.id == 'right' ) {
         document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
-        .sliders-container`).classList.add( 'grabbing' )
+        .sliders-container`).classList.add( 'grabbing' );
     }
 
 }
@@ -284,12 +284,12 @@ function deskRemoveGrabbing() {
 
     if ( this.id == 'left' ) {
         document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
-        .sliders-container`).classList.remove( 'grabbing' )
+        .sliders-container`).classList.remove( 'grabbing' );
     } 
 
     if ( this.id == 'right' ) {
         document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
-        .sliders-container`).classList.remove( 'grabbing' )
+        .sliders-container`).classList.remove( 'grabbing' );
     }
 
 }
