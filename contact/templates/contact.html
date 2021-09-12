@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 {% block contact_js %}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script type="text/javascript">
+    <script>
+        // Initialing email  JS
         (function() {
             emailjs.init("user_EnX9UsPYsH1PcFffE8Bx6");
         })();
 
+        // Email sending function
        function sendEmail(contactForm) {
+           // Grabing values from contact form
             var templateParams = {
                 from_name: contactForm.userName.value,
                 message: contactForm.contactMessage.value,
                 from_email: contactForm.userEmail.value,
             };
             
+            // Sending email
             emailjs.send('service_cbdglkc', 'template_5ghvlz6', templateParams)
                 .then(function(response) {
                     alert('Your email has been sent!',response.status, response.text );

@@ -40,7 +40,7 @@
     <script src="https://js.stripe.com/v3/"></script>
 
     <!-- Fade Out loading button -->
-    <script type="text/javascript">
+    <script>
         $(window).on('load', function() {
             $(".loading").fadeOut("slow");
         });
@@ -73,15 +73,15 @@
 
                             <div class='col-3'>
 
-                                <div id='logo-lg'></div>
+                                <div class='logo-lg'></div>
 
                             </div>
 
                             <div class='col-8'>
 
                                 <div class="search-wrapper">
-                                    <form method='GET' action="{% url 'videos' %}" id="searchForm">
-                                        <input type="text" class="form-control video-search" id="videoSearch" name="search" aria-describedby="emailHelp">
+                                    <form method='GET' action="{% url 'videos' %}">
+                                        <input type="text" class="form-control video-search" name="search">
                                     </form>  
                                 </div>  
 
@@ -305,8 +305,8 @@
                 <div class="col-8 search-input-col">
                     <div class="search-wrapper">
                         <form method='GET' action="{% url 'videos' %}" id="searchForm">
-                            <input type="text" class="form-control video-search" id="videoSearch" 
-                                   name="search" aria-describedby="emailHelp">
+                            <input type="text" class="form-control video-search" 
+                                   name="search">
 
                             <button class="btn btn-success search-btn" type="submit" id='search-submit'>GO!</button> 
                         </form>  
@@ -373,7 +373,7 @@
             <div class='section-wrapper row'>
 
                 <div class='col-2'>
-                    <div id='logo-lg' class='footer-log'></div>
+                    <div class='logo-lg' class='footer-log'></div>
                 </div>
 
                 <div class='col-4 footer-devider'>
@@ -438,10 +438,6 @@
             $(".top-nav").click(function(){
                 $(".top-nav-toggle").toggleClass("toggleMenuBackground");
             });
-
-            if( $('#videoSearch').val() !== '' ){
-                $('#searchForm').submit();
-            }
         });
 
 

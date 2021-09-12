@@ -1364,7 +1364,7 @@ hr.feedback-devider {
     }
 
     /* Logo */
-    #logo-lg {
+    .logo-lg {
         width: 277px;
         height: 92px;
         background-image: url('/media/img/lg/logo-lg.png');
