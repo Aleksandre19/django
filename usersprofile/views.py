@@ -50,6 +50,14 @@ def users_profile(request):
         return redirect(reverse('account_login'))
 
 
+# Leave a feedbacks view
+def leave_feedbacks(request):
+    if request.user.is_authenticated:
+        return render(request, 'profile_feedbacks.html')
+    else:
+        return redirect(reverse('account_login'))
+
+
 def profile_account(request):
     if request.user.is_authenticated:
         return render(request, 'profile_account.html')
