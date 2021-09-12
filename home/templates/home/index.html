@@ -727,7 +727,7 @@
 
                             <div class='col-12'> 
 
-                                <form class="get-access-form mt-5">
+                                <form action="{% url 'cards' %}" class="get-access-form mt-5">
                                     <div class="row  no-gutters">
                                         <div class="col-7 col-md-8">
                                             <input type="text" class="form-control get-access-input" name="search">
@@ -869,7 +869,12 @@
         <section class='d-none d-lg-block lg-cards'>
 
             <div class='section-wrapper'>
-                
+                <!--Section title -->
+                <h3 class='cards-page-title titles'>
+                    <i class="far fa-paper-plane titles-icon mr-2"></i>
+                    Choose a payment plan:
+                </h3>
+
                 <div class="row no-gutters justify-content-center">
                     
                     {% for card in cards %}
