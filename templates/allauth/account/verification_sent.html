@@ -1,0 +1,93 @@
+{% extends "../base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+
+{% block content %}
+<div class='section-wrapper'>
+    <!-- Verify's Page Wrapper -->
+    <div class="container-fluid videos-page-wrapper">
+        <!-- Verify's Section -->
+        <section class="row">
+
+            <div class="col-12">
+                <div class="row mb-3">
+
+                    <div class="col-12 pl-0">
+                        <!-- breadcrumb -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Verify Email</li>
+                            </ol>
+                        </nav>
+                        <!-- END a breadcrumb -->
+                    </div>
+                </div>
+            </div>    
+
+            <!-- END a Verify -->
+
+            <!-- Verify's Top Background -->
+            <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
+
+
+            <!-- Verify's Block -->
+            <div class="col-12 bg-white">
+                <div class="account-content-wrappe">
+                    <div class="sections-content-wrapper">
+                        <!-- Verify's Title Block -->
+                        <div class="row">
+                            <!-- Title -->
+                            <div class="col-auto">
+                                <h3 class="titles videos-title mr-2">Email Verification</h3>
+                            </div>
+
+                            <!-- Title's Right Line -->
+                            <div class="col align-self-center mt-2 category-names-right-line">
+                                &nbsp;
+                            </div>
+
+                            <!-- Div for right margin -->
+                            <div class="col-1">&nbsp;</div>
+
+                        </div>
+                        <!-- END a Verify's Title Block -->
+
+                        <div class="row mt-3 margin-0">
+                            <!-- Verify Col  -->
+                            <div class="col-12 padding-0 position-relative">
+
+                                <p>{% trans "Verify Your E-mail Address" %}</p>
+                                <div class="form-tag-wrapper">
+                                    <p>
+                                        {% blocktrans %}
+                                            We have sent an e-mail to you for verification.
+                                            Follow the link provided to finalize the signup process.
+                                            Please contact us if you do not receive it within a few minutes.
+                                        {% endblocktrans %}
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!-- END a Verify Col -->
+                        </div>
+                    </div>
+                 </div> 
+            </div>
+            <!-- END Verify's Block -->
+
+            <!-- Block's Bottom Background -->
+            <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+
+
+
+        </section>
+        <!-- END a Verify's Section -->
+    </div>
+    <!-- END a Verify's Page Wrapper -->
+</div>
+{% endblock %}
+
