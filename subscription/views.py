@@ -7,7 +7,6 @@ from django.conf import settings
 import datetime
 
 
-
 # Stripe public key
 stripe_public_key = settings.STRIPE_PUBLIC_KEY
 # Stripe secret key
@@ -16,19 +15,19 @@ stripe_secret_key = settings.STRIPE_SECRET_KEY
 
 # Subscription plans view
 def cards(request):
-    
+
     # Requiring a all subscription cards
     cards = Cards.objects.all()
 
     context = {
-        'cards' : cards,
+        'cards': cards,
     }
 
     # If a user is not autheticated so
     # displaying subscription plan
     if not request.user.is_authenticated:
         return render(request, 'cards.html', context)
-    
+
     if request.user.is_authenticated:
         # If a user has a subscription so
         # redirectiing to the video's page
@@ -43,20 +42,20 @@ def cards(request):
 # Cheking if a user has subscriptions and
 def check_users_subscription(user):
     subscribed = None
-    subscriptions = Subscription.objects.filter(user=user)  
+    subscriptions = Subscription.objects.filter(user=user)
     for subscription in subscriptions:
-        subscribed = subscription.subscribed  
+        subscribed = subscription.subscribed
     return subscribed
 
 
 # Checkout page view
 def checkout(request):
-    
+
     if request.user.is_authenticated:
-        
+
         # Checking a POST request
         if request.POST:
-            
+
             # Declairing variables
             period = None
             saving = None
@@ -73,12 +72,12 @@ def checkout(request):
 
             # Stripe price ID
             plan_id = request.POST['stripe_plan_id']
-            
+
             # Requaring current user's email address
             user = User.objects.get(id=request.user.id)
             customer_email_address = user.email
 
-            # Checking which card corresponds to the request 
+            # Checking which card corresponds to the request
             for card in cards:
                 if card.price == int(current_price):
                     period = card.duration
@@ -95,22 +94,22 @@ def checkout(request):
             intent = stripe.PaymentIntent.create(
                 amount=stripe_total,
                 currency='EUR',
-                payment_method_types = ['card'],
+                payment_method_types=['card'],
             )
 
             # Page context
             context = {
                 'sub_form': sub_form,
-                'cards' : cards,
-                'stripe_public_key' : stripe_public_key,
-                'client_secret' : intent.client_secret,
-                'customer_email_address' : customer_email_address,
-                'payment_intent_id' : intent.id,
-                'plan_id' : plan_id, 
-                'current_card' : {
-                    'period' : period,
-                    'saving' : saving,
-                    'price' : price,
+                'cards': cards,
+                'stripe_public_key': stripe_public_key,
+                'client_secret': intent.client_secret,
+                'customer_email_address': customer_email_address,
+                'payment_intent_id': intent.id,
+                'plan_id': plan_id,
+                'current_card': {
+                    'period': period,
+                    'saving': saving,
+                    'price': price,
                 },
             }
 
@@ -124,7 +123,7 @@ def checkout(request):
             return redirect(reverse('cards'))
 
     # If a user is not authenticated so
-    # redirecting to the login page 
+    # redirecting to the login page
     else:
         return redirect(reverse('account_login'))
 
@@ -152,7 +151,7 @@ def sub_success(request):
 
         # Getting current plan's Price
         current_plan_price = sub_card.price
-    
+
         # Initiating a stripe
         stripe.api_key = stripe_secret_key
 
@@ -161,7 +160,7 @@ def sub_success(request):
             email=customer_email_address,
             payment_method=payment_method_id,
             invoice_settings={
-                'default_payment_method' : payment_method_id
+                'default_payment_method': payment_method_id
             }
         )
 
@@ -203,12 +202,12 @@ def sub_success(request):
             )
 
             subscription.save()
-        
+
         # Rendering a success page
         return render(request, 'sub_success.html')
 
     else:
-        
+
         # Rendering a plans page
         return redirect(reverse('cards'))
 
@@ -216,6 +215,4 @@ def sub_success(request):
 # Subscription Cancel Function
 def sub_cancel(request):
     return render(request, 'sub_cancel.html')
-
-
 

@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Videos, Category, Subjects, Likes, MyList
-from subscription.views import  check_users_subscription
+from subscription.views import check_users_subscription
 from django.db.models import Count, Q
 from django.contrib import messages
 
 # Create your views here.
+
 
 def videos(request):
 
@@ -12,7 +13,6 @@ def videos(request):
     if request.user.is_authenticated:
 
         # Check to see if a user has a subscription
-        
         # If a user has subscription so showing the videos
         if check_users_subscription(request.user):
             # All Videos
@@ -33,20 +33,19 @@ def videos(request):
                     if not query:
                         messages.error(request, "You didn't enter any search criteri! ")
                         return redirect(reverse('videos'))
-                    
+
                     queries = Q(title__icontains=query) | Q(description__icontains=query)
                     search_results = videos.filter(queries)
 
             context = {
-                'videos' : videos,
-                'categories' : categories,
-                'subjects' : subjects,
-                'videos_by_categories' : get_videos_by_category(request, 'category', Category),
-                'videos_by_subjects' : get_videos_by_category(request, 'subject', Subjects),
-                'videos_in_likes' : current_user_videos(Likes, request.user),
-                'videos_in_mylist' : current_user_videos(MyList, request.user),
-                'search_results' : search_results,
-                
+                'videos': videos,
+                'categories': categories,
+                'subjects': subjects,
+                'videos_by_categories': get_videos_by_category(request, 'category', Category),
+                'videos_by_subjects': get_videos_by_category(request, 'subject', Subjects),
+                'videos_in_likes': current_user_videos(Likes, request.user),
+                'videos_in_mylist': current_user_videos(MyList, request.user),
+                'search_results': search_results,
             }
 
             return render(request, 'videos/index.html', context)
@@ -57,27 +56,27 @@ def videos(request):
             return redirect(reverse('cards'))
 
     else:
-        return redirect(reverse('account_login'))    
+        return redirect(reverse('account_login'))
 
 
 # A single video page function
 def single_video(request, video_id):
 
     if request.user.is_authenticated:
-        
+
         videos = Videos.objects.all()
 
         single_video = get_object_or_404(Videos, pk=video_id)
 
-        same_videos = videos.filter(subjects = single_video.subjects)
+        same_videos = videos.filter(subjects=single_video.subjects)
 
         context = {
-            'single_video' : single_video,
-            'same_videos' : same_videos,
-            'videos_in_likes' : current_user_videos(Likes, request.user),
-            'videos_in_mylist' : current_user_videos(MyList, request.user),
+            'single_video': single_video,
+            'same_videos': same_videos,
+            'videos_in_likes': current_user_videos(Likes, request.user),
+            'videos_in_mylist': current_user_videos(MyList, request.user),
         }
-        
+
         return render(request, 'videos/single_video.html', context)
     else:
         return redirect(reverse('account_login'))
@@ -88,7 +87,6 @@ def single_video(request, video_id):
 def action_buttons(request):
     # Checking a user's authentication status
     if request.user.is_authenticated:
-        
         # If ther is a GET
         if request.GET:
             if request.GET['action']:
@@ -97,35 +95,28 @@ def action_buttons(request):
                 # Getting a current video ID
                 video_id = request.GET['video_id']
                 # Getting the current user
-                user = request.user 
+                user = request.user
                 # Gettiing the current vidoe from videos
                 current_video = get_object_or_404(Videos, pk=video_id)
-                
-
                 # If a action is a like
                 if action == 'like':
                     # Getting all videos from likes
                     likes = Likes.objects.all()
-                
                     # Chekcing current video in likes
                     current_post = likes.filter(user=user.id, video=current_video.id)
-                    
                     # If there is not current video so adding in the Likes table
-                    if not current_post:  
+                    if not current_post:
                         create_video = Likes(user=user, video=current_video)
                         create_video.save()
 
                         # Updating the like filed's value in Videos module
                         liked_video = get_object_or_404(Videos, id=video_id)
                         if liked_video.liked is not None:
-                            liked_video.liked  = liked_video.liked + 1
+                            liked_video.liked = liked_video.liked + 1
                         else:
                             liked_video.liked = 1
 
                         liked_video.save()
-                   
-                    
-
 
                 # Adding a  video to the user's list
                 if action == 'mylist':
@@ -135,12 +126,10 @@ def action_buttons(request):
 
                     # Chekcing current video in likes
                     current_post = mylists.filter(user=user.id, video=current_video.id)
-                    
                     # If there is not current video so adding in the Likes table
-                    if not current_post:  
+                    if not current_post:
                         create_video = MyList(user=user, video=current_video)
                         create_video.save()
-                          
 
             # Returnig a page back
             if request.GET['page_url']:
@@ -148,11 +137,11 @@ def action_buttons(request):
                 return redirect(page_url)
 
     else:
-        return redirect(reverse('account_login')) 
-
+        return redirect(reverse('account_login'))
 
 
 """ Heliping Functions """
+
 
 # Getting Videos from Likes and MyList module
 # for current user
@@ -177,19 +166,11 @@ def get_videos_by_category(request, categories_list, obj, without_get=False):
             categorased = request.GET[categories_list].split(',')
             # videos = videos.filter(category__name__in=categorased)
             videos_by_categories = obj.objects.filter(name__in=categorased)
-            
+
     # If query comes without GET request
     if without_get:
         categories_list = categories_list
         videos_by_categories = Videos.objects.filter(category__name__in=categories_list)
 
-
     return videos_by_categories
-    
 
-
-
-
-
-
-    

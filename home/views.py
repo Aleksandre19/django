@@ -8,7 +8,9 @@ from feedbacks.models import Feedbacks
 # Create your views here.
 
 # This function displayes content on the home page for
-# both logged in and not logged in users 
+# both logged in and not logged in users
+
+
 def index(request):
 
     if request.user.is_authenticated:
@@ -23,7 +25,6 @@ def index(request):
             videos_in_likes = None
             videos_in_mylist = None
             subscribed = None
-            
             # Requiring categories
             categories = Category.objects.all()
 
@@ -32,10 +33,8 @@ def index(request):
 
             # Requiring videos from MyList module by user
             mylist_videos = MyList.objects.filter(user=request.user)
-            
             # Requiring videos
             videos = Videos.objects.all()
-            
             # Requiring videos from Likes and MyList modules by user
             videos_in_likes = current_user_videos(Likes, request.user)
             videos_in_mylist = current_user_videos(MyList, request.user)
@@ -47,39 +46,35 @@ def index(request):
             categories_list = []
             for category in categories:
                 categories_list.append(category.name)
-
-
-            context = {
-                
-                'new_video' : new_video,
-                'categories' : categories,
-                'videos_by_categories' : get_videos_by_category(request, categories_list,
-                                                                Category, without_get=True) 
-                                                                if request.user.is_authenticated else None,
-                'mylist_videos' : mylist_videos,
-                'videos' : videos,
-                'videos_in_likes' : videos_in_likes,
-                'videos_in_mylist' : videos_in_mylist,
-                'subscribed' : subscribed,
-                'feedback' : feedback if request.user.is_authenticated else None,
-            }
+                context = {
+                    'new_video': new_video,
+                    'categories': categories,
+                    'videos_by_categories': get_videos_by_category(request, categories_list,
+                                                                   Category, without_get=True) if request.user.is_authenticated else None,
+                    'mylist_videos': mylist_videos,
+                    'videos': videos,
+                    'videos_in_likes': videos_in_likes,
+                    'videos_in_mylist': videos_in_mylist,
+                    'subscribed': subscribed,
+                    'feedback': feedback if request.user.is_authenticated else None,
+                }
         # If a user has not subscription so
-        # redirecting to the subscription plans page 
+        # redirecting to the subscription plans page
         else:
             return redirect(reverse('cards'))
-    
-    # Then a user is not autheticated so 
+    # Then a user is not autheticated so
     # displaying the folowing content on the home page
-    else:
 
+    else:
         # Requiring a weilcoming videos for home page
         welcoming_videos = Videos.objects.filter(welcoming=True)[:3]
 
         cards = Cards.objects.all()
 
         context = {
-            'welcoming_videos' : welcoming_videos,
-            'cards' : cards,
+            'welcoming_videos': welcoming_videos,
+            'cards': cards,
         }
 
     return render(request, 'home/index.html', context)
+

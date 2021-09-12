@@ -13,10 +13,10 @@ def users_profile(request):
         # If a user has a subscriptin so
         # displaying content
         if check_users_subscription(request.user):
-        
+
             user_videos = None
 
-            # Requiring videos 
+            # Requiring videos
             if request.GET:
                 # MyList videos by user
                 if request.GET['action'] == 'mylist':
@@ -33,10 +33,10 @@ def users_profile(request):
             videos_in_mylist = current_user_videos(MyList, request.user)
 
             context = {
-                'user_videos' : user_videos,
-                'videos' : videos,
-                'videos_in_likes' : videos_in_likes,
-                'videos_in_mylist' : videos_in_mylist,
+                'user_videos': user_videos,
+                'videos': videos,
+                'videos_in_likes': videos_in_likes,
+                'videos_in_mylist': videos_in_mylist,
             }
 
             return render(request, 'users_profile.html', context)

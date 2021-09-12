@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Feedbacks
 import datetime
 
+
 # Create your views here.
 def add(request):
     # If  the user is authenticated
@@ -13,10 +14,10 @@ def add(request):
             feedback_text = request.POST['feedback_text']
             # Defining feedbacks model
             feedbacks = Feedbacks(
-                user = request.user,
-                text = feedback_text,
-                date = datetime.datetime.now(),
-                avatar = '',
+                user=request.user,
+                text=feedback_text,
+                date=datetime.datetime.now(),
+                avatar='',
             )
             # Saving  feedbacks model
             feedbacks.save()
@@ -29,6 +30,3 @@ def add(request):
     else:
         return redirect(reverse('account_login'))
 
-
-
-    

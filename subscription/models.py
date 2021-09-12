@@ -15,7 +15,6 @@ class Subscription(models.Model):
     subscribed = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, default=0)
 
-
     def __str__(self):
         return self.email
 
@@ -32,7 +31,6 @@ class Cards(models.Model):
     tab_class = models.CharField(max_length=20, null=True, blank=True)
     tab_aria = models.CharField(max_length=30, null=True, blank=True)
 
-
     def __str__(self):
         return self.duration
-   
+
