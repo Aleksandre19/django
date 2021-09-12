@@ -52,6 +52,9 @@
     </script>
 
     <title> Diasfero {% block extratitle %}{% endblock %}</title>
+    {% block contact_js %}
+
+    {% endblock %}
   </head>
   <body>
     <main class="all-wrapper position-relative">
@@ -189,6 +192,14 @@
                             {% endif %}
 
                             <li class="nav-item 
+                                {% if request.path == '/contact/' %} 
+                                    active
+                                {% endif %}
+                            ">
+                                <a class="nav-link hvr-float" href="{% url 'contact' %}">Contact</a>
+                            </li>
+
+                            <li class="nav-item 
                                 {% if request.path == '/faq/' %} 
                                     active
                                 {% endif %}
@@ -268,7 +279,16 @@
                                         <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
                                     </li>
                                 {% endif %}
-                        
+
+                                <li class="nav-item 
+                                    {% if request.path == '/contact/' %} 
+                                        active
+                                    {% endif %}
+                                ">
+                                    <a class="nav-link hvr-float" href="{% url 'contact' %}">Contact</a>
+                                </li>
+
+
                                 <li class="nav-item
                                     {% if request.path == '/faq/' %} 
                                         mb-active

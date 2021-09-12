@@ -75,9 +75,8 @@
                             {% csrf_token %}
 
                             <fieldset>
-                                <legend>Leave your feedback</legend>
-                                <textarea name="feedback_text" rows="5" class="feedback-text mt-2">
-                                </textarea>
+                                <label for="validationTextarea">Leave your feedback</label>
+                                <textarea class="form-control" id="validationTextarea" name="feedback_text" required></textarea>
                             </fieldset>
 
                             <button type="submit" class="btn btn-success mt-3">
