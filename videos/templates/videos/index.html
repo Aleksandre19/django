@@ -38,7 +38,7 @@
 
                         <li class="nav-item mt-2">
                             <a href="{% url 'videos' %}?category={{ category.name }}" class="nav-link ml-3 pl-0 pb-3  side-menu-section-name">
-                                <img src="{{ category.src }}" width="45px" class="pr-2" alt="Video's Category's Icon">By {{ category.name }}
+                                <img src="{{ MEDIA_URL }}{{ category.src }}" width="45px" class="pr-2" alt="Video's Category's Icon">By {{ category.name }}
                             </a>
                         </li>
 
@@ -85,7 +85,7 @@
                             <div class="col-auto mt-3">
                                 <h3 class="desk-titles titles videos-title p-for-md pt-3 pl-3"> 
                                     {% if videos_by_subject.src %}
-                                        <img src="{{ videos_by_subject.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
+                                        <img src="{{ MEDIA_URL }}{{ videos_by_subject.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
                                     {% endif %}
                                     {{ videos_by_subject.friendly_name }}
                                 </h3>
@@ -196,7 +196,7 @@
                             <div class="col-auto mt-3">
                                 <h3 class="desk-titles titles videos-title p-for-md pt-3 pl-3"> 
                                     {% if videos_by_categorie.src %}
-                                        <img src="{{ videos_by_categorie.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
+                                        <img src="{{ MEDIA_URL }}{{ videos_by_categorie.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
                                     {% endif %}
                                     {{ videos_by_categorie.friendly_name }}
                                 </h3>
@@ -426,7 +426,7 @@
                             <!-- Title -->
                             <div class="col-auto">
                                 <h3 class="desk-titles titles videos-title p-for-md pt-3 pl-3"> 
-                                    <img src="{{ category.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
+                                    <img src="{{ MEDIA_URL }}{{ category.src }}" width="45px" class="pr-2 d-none d-md-inline category-title-icon" alt="Video's Category's Icon">
                                     {{ category.friendly_name }}
                                 </h3>
                             </div>
