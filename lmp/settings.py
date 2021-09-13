@@ -28,6 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'g2$1x#_+r2+zv^-2#yqb4(($(l8))5%-!y-z6
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
+# Setting debug to false
 DEBUG = False
 
 ALLOWED_HOSTS = ['fsmp.herokuapp.com', '127.0.0.1']
