@@ -382,7 +382,7 @@
                             <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Subscribe</a>
+                            <a class="nav-link" href="{% url 'cards' %}">Subscribe</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
@@ -393,16 +393,16 @@
                 <div class='col-4'>
                     <ul class="nav footer-categories flex-column float-left pl-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Category One</a>
+                            <a class="nav-link" href="{% url 'videos' %}?category=disieases">By Diseases</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Category Two</a>
+                            <a class="nav-link" href="{% url 'videos' %}?category=anatomy">By Anatomy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Category Three</a>
+                            <a class="nav-link" href="{% url 'videos' %}?category=projects">By Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Category Four</a>
+                            <a class="nav-link" href="{% url 'videos' %}?category=subject">By Subjects</a>
                         </li>
                     </ul>
                 </div>
