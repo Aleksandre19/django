@@ -1,483 +1,540 @@
-{% load static %}
-{% load top_menu_tags %}
+{% load static %} {% load top_menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta tags -->  
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap's CSS file -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
     <!-- Site's CSS file -->
-   
-    {% block pages_style %}
-    {% endblock %}
+
+    {% block pages_style %} {% endblock %}
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <!-- Hover CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <!-- Bootstrap's CDNs -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fontawasome CDN -->
-    <script src="https://kit.fontawesome.com/b7d2f8c47a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/b7d2f8c47a.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Jquery CDN Link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
-   
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Javascript link -->
     <script src="{% static 'js/scripts.js' %}"></script>
-    
+
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
 
     <!-- Fade Out loading button -->
     <script>
-        $(window).on('load', function() {
-            $(".loading").fadeOut("slow");
-        });
+      $(window).on("load", function () {
+        $(".loading").fadeOut("slow");
+      });
     </script>
 
     <script>
-        {% block extra_js %}
-        {% endblock %}
+      {% block extra_js %}
+      {% endblock %}
     </script>
 
-    <title> Diasfero {% block extratitle %}{% endblock %}</title>
-    {% block contact_js %}
-
-    {% endblock %}
+    <title>Diasfero {% block extratitle %}{% endblock %}</title>
+    {% block contact_js %} {% endblock %}
   </head>
+
   <body>
     <main class="all-wrapper position-relative">
 
-        <!-- Header for Desktop devices -->
-        
-        <header class="desk-header d-none d-lg-block">
-            
-            <div class="header-content-wrapper">
+      <!-- Header for Desktop devices -->
+      <header class="desk-header d-none d-lg-block">
+        <div class="header-content-wrapper">
 
-                <div class='row no-gutters mt-4'>
+          <div class="row no-gutters mt-4">
 
-                    <div class='col-12'>
+            <div class="col-12">
 
-                        <div class='row align-items-center'>
+              <div class="row align-items-center">
 
-                            <div class='col-3'>
-
-                                <div class='logo-lg'></div>
-
-                            </div>
-
-                            <div class='col-8'>
-
-                                <div class="search-wrapper">
-                                    <form method='GET' action="{% url 'videos' %}">
-                                        <input type="text" class="form-control video-search" name="search">
-                                    </form>  
-                                </div>  
-
-                            </div>
-
-                            <!-- 
-                                Calling a simple_tag and passing user's ID as a argument.
-                                This simple_tag helps also to display links below in the top menu section
-                            -->
-                            {% if request.user.is_authenticated %}
-                                {% check_subscription user.id as subscribed %}
-                            {% endif %}
-
-                            <div class='col-1'>
-
-                                <!-- If a user is authenticated so desplay a alinks for profile managment -->
-                                {% if request.user.is_authenticated %}
-                                    <div class="btn-group dropleft">
-                                        <a href="{% url 'users_profile' %}" class="dropdown-toggle" 
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-
-                                            <i class="far fa-user-circle user-acount-icon"></i>
-
-                                        </a>
-                                        <div class="dropdown-menu">
-                                        
-                                            <!-- If a user has subscription so displaying the following links -->
-                                            {% if subscribed %}
-                                                <a class="dropdown-item" href="{% url 'leave_feedbacks' %}">Leave Feedback </a>
-                                                <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">My List </a>
-                                                <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">Liked Videos </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="{% url 'profile_account' %}">Account</a>
-
-                                            {% else %}
-
-                                                <a class="dropdown-item" href="{% url 'cards' %}">Subscription</a>
-                                            
-                                            {% endif %}
-                                            
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="{% url 'account_logout' %}" >Log Out</a>
-                            
-                                        </div>
-                                    </div>
-                                {% else %}
-                                    <a href="{% url 'users_profile' %}">
-                                        <i class="far fa-user-circle user-acount-icon"></i>
-                                    </a>
-                                {% endif %}
-
-                            </div>       
-
-                        </div>
-
-                    </div>
-
-                    <div class='col-12 mt-5'>
-                        <ul class="navbar-nav navbar-expand top-main-menu desk-menu">
-                            <li class="nav-item
-                                {% if request.path == '/' %} 
-                                    active
-                                {% endif %}
-                            ">
-                                <a class="nav-link hvr-float" href="{% url 'home' %}">Home</a>
-                            </li>
-
-                            <!-- 
-                                Checking if a user has already subscribed or authenticated and
-                                displaying a links: Subscription or videos accordingly.
-                            -->
-
-                            <!-- If user is authenticated and has subscription -->
-                            {% if user.is_authenticated and subscribed %}
-
-                                 <li class="nav-item 
-                                        {% if request.path == '/posts/videos/' %} 
-                                        active
-                                    {% endif %}
-                                 ">
-                                    <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
-                                </li>
-                            
-                            <!-- If user is authenticated and has NOT subscription -->
-                            {% elif user.is_authenticated and not subscribed %}
-
-                                <li class="nav-item 
-                                    {% if request.path == '/subscription/cards/' %}
-                                        active
-                                    {% elif request.path == '/subscription/checkout' %} 
-                                        active
-                                    {% endif %}
-                                ">
-                                    <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
-                                </li>
-
-                            <!-- If user is NOT authenticated and has NOT subscription -->
-                            {% else %}
-                                <li class="nav-item 
-                                    {% if request.path == '/subscription/cards/' %}
-                                        active
-                                    {% elif request.path == '/subscription/checkout' %} 
-                                        active
-                                    {% endif %}
-                                ">
-                                    <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
-                                </li>
-                            {% endif %}
-
-                            <li class="nav-item 
-                                {% if request.path == '/contact/' %} 
-                                    active
-                                {% endif %}
-                            ">
-                                <a class="nav-link hvr-float" href="{% url 'contact' %}">Contact</a>
-                            </li>
-
-                            <li class="nav-item 
-                                {% if request.path == '/faq/' %} 
-                                    active
-                                {% endif %}
-                            ">
-                                <a class="nav-link hvr-float" href="{% url 'faq' %}">FAQ</a>
-                            </li>
-                        </ul>
-
-                    </div>
-
+                <div class="col-3">
+                  <a href="{% url 'home' %}" class="logo-lg"></a>
                 </div>
 
+                <div class="col-8">
+                  <div class="search-wrapper">
+                    <form method="GET" action="{% url 'videos' %}">
+                      <input type="text" class="video-search form-control" name="search" />
+                    </form>
+                  </div>
+                </div>
+
+                <!-- Calling a simple_tag and passing user's ID as a argument.
+                This simple_tag helps also to display links below in the top menu section -->
+                {% if request.user.is_authenticated %}
+                  {% check_subscription user.id as subscribed %}
+                {% endif %}
+
+                <div class="col-1 text-right">
+                  <!-- If a user is authenticated so desplay a links of the profile -->
+                  {% if request.user.is_authenticated %}
+                  <div class="btn-group dropleft">
+                    <a
+                      href="{% url 'users_profile' %}"
+                      class="dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <i class="far fa-user-circle user-acount-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                      <!-- If a user has subscription so displaying the following links -->
+                      {% if subscribed %}
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'leave_feedbacks' %}"
+                      >
+                        Leave Feedback
+                      </a>
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'users_profile' %}?action=mylist"
+                      >
+                        My List
+                      </a>
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'users_profile' %}?action=liked"
+                      >
+                        Liked Videos
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'profile_account' %}"
+                      >
+                        Account
+                      </a>
+                      {% else %}
+                      <a class="dropdown-item" href="{% url 'cards' %}">
+                        Subscription
+                      </a>
+                      {% endif %}
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{% url 'account_logout' %}"
+                        >Log Out</a
+                      >
+                    </div>
+                  </div>
+                  {% else %}
+                  <div class="btn-group dropleft">
+                    <a
+                      href=""
+                      class="dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <i class="far fa-user-circle user-acount-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                      <!-- If a user has subscription so displaying the following links -->
+
+                      <a class="dropdown-item" href="{% url 'account_login' %}">
+                        Sing In
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'account_signup' %}?action=mylist"
+                      >
+                        Sing Up
+                      </a>
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
-        </header>
+            <div class="col-12 mt-2">
+              <ul class="navbar-nav navbar-expand top-main-menu desk-menu">
+                <li
+                  class="nav-item {% if request.path == '/' %} active {% endif %}"
+                >
+                  <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
 
-        
+                <!-- Checking if a user has already subscribed or authenticated and
+                displaying a links: Subscription or videos accordingly. -->
 
-        <!-- Site Header for mobile and tablet devices -->
-        <header class="fixed-top top-header d-lg-none" id="top-header">
-            <div class="row menu-row align-items-center no-gutters">
-                <div class="col-2 burger-menu-col ">
-                    <!-- Top Main Menu -->
-                    <nav class="navbar navbar-expand-lg navbar-light top-nav">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon">
-                                
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
-                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 top-main-menu">
-                                <li class="nav-item 
-                                    {% if request.path == '/' %} 
-                                        mb-active
-                                    {% endif %}
-                                ">
-                                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                                </li>
-                                <!-- 
+                <!-- If user is authenticated and has subscription -->
+                {% if user.is_authenticated and subscribed %}
+                <li
+                  class="nav-item {% if request.path == '/posts/videos/' %} active {% endif %}"
+                >
+                  <a class="nav-link" href="{% url 'videos' %}">Videos</a>
+                </li>
+
+                <!-- If user is authenticated and has NOT subscription -->
+                {% elif user.is_authenticated and not subscribed %}
+
+                <li
+                  class="nav-item {% if request.path == '/subscription/cards/' %} active {% elif request.path == '/subscription/checkout' %} active {% endif %}"
+                >
+                  <a href="{% url 'cards' %}" class="nav-link">Subscribe</a>
+                </li>
+
+                <!-- If user is NOT authenticated and has NOT subscription -->
+                {% else %}
+                <li
+                  class="nav-item {% if request.path == '/subscription/cards/' %} active {% elif request.path == '/subscription/checkout' %} active {% endif %}"
+                >
+                  <a href="{% url 'cards' %}" class="nav-link">Subscribe</a>
+                </li>
+                {% endif %}
+
+                <li
+                  class="nav-item {% if request.path == '/contact/' %} active {% endif %}"
+                >
+                  <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+
+                <li
+                  class="nav-item {% if request.path == '/faq/' %} active {% endif %}"
+                >
+                  <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Site Header for mobile and tablet devices -->
+      <header class="fixed-top top-header d-lg-none" id="top-header">
+        <div class="row menu-row align-items-center no-gutters">
+          <div class="col-2 burger-menu-col">
+            <!-- Top Main Menu -->
+            <nav class="navbar navbar-expand-lg navbar-light top-nav">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"> </span>
+              </button>
+              <div class="collapse navbar-collapse top-nav-toggle"
+                id="navbarTogglerDemo01"
+              >
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 top-main-menu">
+                  <li
+                    class="nav-item {% if request.path == '/' %} mb-active {% endif %}"
+                  >
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <!-- 
                                 Checking if a user has already subscribed or authenticated and
                                 displaying a links: Subscription or videos accordingly.
                                 -->
 
-                                <!-- If user is authenticated and has subscription -->
-                                {% if user.is_authenticated and subscribed %}
+                  <!-- If user is authenticated and has subscription -->
+                  {% if user.is_authenticated and subscribed %}
 
-                                    <li class="nav-item 
-                                            {% if request.path == '/posts/videos/' %} 
-                                            active
-                                        {% endif %}
-                                    ">
-                                        <a class="nav-link hvr-float" href="{% url 'videos' %}">Videos</a>
-                                    </li>
-                                
-                                <!-- If user is authenticated and has NOT subscription -->
-                                {% elif user.is_authenticated and not subscribed %}
+                  <li
+                    class="nav-item {% if request.path == '/posts/videos/' %} active {% endif %}"
+                  >
+                    <a class="nav-link hvr-float" href="{% url 'videos' %}"
+                      >Videos</a
+                    >
+                  </li>
 
-                                    <li class="nav-item 
-                                        {% if request.path == '/subscription/cards/' %}
-                                            active
-                                        {% elif request.path == '/subscription/checkout' %} 
-                                            active
-                                        {% endif %}
-                                    ">
-                                        <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
-                                    </li>
+                  <!-- If user is authenticated and has NOT subscription -->
+                  {% elif user.is_authenticated and not subscribed %}
 
-                                <!-- If user is NOT authenticated and has NOT subscription -->
-                                {% else %}
-                                    <li class="nav-item 
-                                        {% if request.path == '/subscription/cards/' %}
-                                            active
-                                        {% elif request.path == '/subscription/checkout' %} 
-                                            active
-                                        {% endif %}
-                                    ">
-                                        <a href="{% url 'cards' %}" class="nav-link hvr-float">Subscribe</a>
-                                    </li>
-                                {% endif %}
+                  <li
+                    class="nav-item {% if request.path == '/subscription/cards/' %} active {% elif request.path == '/subscription/checkout' %} active {% endif %}"
+                  >
+                    <a href="{% url 'cards' %}" class="nav-link hvr-float"
+                      >Subscribe</a
+                    >
+                  </li>
 
-                                <li class="nav-item 
-                                    {% if request.path == '/contact/' %} 
-                                        active
-                                    {% endif %}
-                                ">
-                                    <a class="nav-link hvr-float" href="{% url 'contact' %}">Contact</a>
-                                </li>
+                  <!-- If user is NOT authenticated and has NOT subscription -->
+                  {% else %}
+                  <li
+                    class="nav-item {% if request.path == '/subscription/cards/' %} active {% elif request.path == '/subscription/checkout' %} active {% endif %}"
+                  >
+                    <a href="{% url 'cards' %}" class="nav-link hvr-float"
+                      >Subscribe</a
+                    >
+                  </li>
+                  {% endif %}
 
+                  <li
+                    class="nav-item {% if request.path == '/contact/' %} active {% endif %}"
+                  >
+                    <a class="nav-link hvr-float" href="{% url 'contact' %}"
+                      >Contact</a
+                    >
+                  </li>
 
-                                <li class="nav-item
-                                    {% if request.path == '/faq/' %} 
-                                        mb-active
-                                    {% endif %}
-                                ">
-                                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <!-- END a Top Main Menu -->
-                
-                </div>
-                <div class="col-8 search-input-col">
-                    <div class="search-wrapper">
-                        <form method='GET' action="{% url 'videos' %}" id="searchForm">
-                            <input type="text" class="form-control video-search" 
-                                   name="search">
+                  <li
+                    class="nav-item {% if request.path == '/faq/' %} mb-active {% endif %}"
+                  >
+                    <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <!-- END a Top Main Menu -->
+          </div>
+          <div class="col-8 search-input-col">
+            <div class="search-wrapper">
+              <form method="GET" action="{% url 'videos' %}" id="searchForm">
+                <input
+                  type="text"
+                  class="form-control video-search"
+                  name="search"
+                />
 
-                            <button class="btn btn-success search-btn" type="submit" id='search-submit'>GO!</button> 
-                        </form>  
-                    </div>  
-                </div>
-                <div class="col-2 user-icon-col">
-                    <!-- If a user is authenticated so desplay a alinks for profile managment -->
-                    {% if request.user.is_authenticated %}
-                        <div class="btn-group dropleft">
-                            <a href="{% url 'users_profile' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="far fa-user-circle user-acount-icon"></i></a>
-                            <div class="dropdown-menu">
-                                <!-- If a user has subscription so displaying the following links -->
-                                {% if subscribed %}
-                                    <a class="dropdown-item" href="{% url 'leave_feedbacks' %}">Leave Feedback </a>
-                                    <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">My List </a>
-                                    <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">Liked Videos </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{% url 'profile_account' %}">Account</a>
-
-                                {% else %}
-
-                                    <a class="dropdown-item" href="{% url 'cards' %}">Subscription</a>
-                                
-                                {% endif %}
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'account_logout' %}" >Log Out</a>
-                                
-                            </div>
-                        </div>
-                    {% else %}
-                        <a href="{% url 'users_profile' %}"> <i class="far fa-user-circle user-acount-icon"></i></a>
-                    {% endif %}    
-                </div> 
-            </div>    
-        </header>
-       
-
-             
-
-        
-        {% block content %}
-        
-        {% endblock %}
-
-        <!-- Using this div to make margin between footer manu and rest of content -->
-        <div class="margin-between-footer-menu-and-content">&nbsp;</div>
-        <footer class='d-lg-none' id="footer">    
-            <ul class="navbar-nav navbar-expand fixed-bottom nav-justified bg-light bottom-nav">
-                <li class="nav-item">
-                    <a href="{% url 'home' %}" class="nav-link"> <i class="fas fa-home"></i> </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'videos' %}" class="nav-link"> <i class="fas fa-video"></i> </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'users_profile' %}" class="nav-link"> <i class="fas fa-user-circle"></i> </a>
-                </li>
-            </ul>
-        </footer>
-
-        <!-- Footer menu for desctop devices -->
-        <footer class='d-none d-lg-block footer'>
-            &nbsp;
-            <div class='section-wrapper row'>
-
-                <div class='col-2'>
-                    <div class='logo-lg footer-log'></div>
-                </div>
-
-                <div class='col-4 footer-devider'>
-                    <ul class="nav footer-menu flex-column float-right pr-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'cards' %}">Subscribe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class='col-4'>
-                    <ul class="nav footer-categories flex-column float-left pl-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'videos' %}?category=disieases">By Diseases</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'videos' %}?category=anatomy">By Anatomy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'videos' %}?category=projects">By Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'videos' %}?category=subject">By Subjects</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class='col-2'>
-                    <ul class="nav footer-social justify-content-end">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-square"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-youtube-square"></i>
-                            </a>
-                        </li>
-    
-                    </ul>
-
-                </div>
+                <button
+                  class="btn btn-success search-btn"
+                  type="submit"
+                  id="search-submit"
+                >
+                  GO!
+                </button>
+              </form>
             </div>
-            &nbsp;
-        </footer>
-        <!-- END a desktop footer manu -->
-       
-    </main> 
-    {% block bottom_extra_js %}
-    {% endblock %}
+          </div>
+          <div class="col-2 user-icon-col">
+            <!-- If a user is authenticated so desplay a alinks for profile managment -->
+            {% if request.user.is_authenticated %}
+            <div class="btn-group dropleft">
+              <a
+                href="{% url 'users_profile' %}"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="far fa-user-circle user-acount-icon"></i
+              ></a>
+              <div class="dropdown-menu">
+                <!-- If a user has subscription so displaying the following links -->
+                {% if subscribed %}
+                <a class="dropdown-item" href="{% url 'leave_feedbacks' %}"
+                  >Leave Feedback
+                </a>
+                <a
+                  class="dropdown-item"
+                  href="{% url 'users_profile' %}?action=mylist"
+                  >My List
+                </a>
+                <a
+                  class="dropdown-item"
+                  href="{% url 'users_profile' %}?action=liked"
+                  >Liked Videos
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'profile_account' %}"
+                  >Account</a
+                >
+
+                {% else %}
+
+                <a class="dropdown-item" href="{% url 'cards' %}"
+                  >Subscription</a
+                >
+
+                {% endif %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'account_logout' %}"
+                  >Log Out</a
+                >
+              </div>
+            </div>
+            {% else %}
+            <a href="{% url 'users_profile' %}">
+              <i class="far fa-user-circle user-acount-icon"></i
+            ></a>
+            {% endif %}
+          </div>
+        </div>
+      </header>
+
+      {% block content %} {% endblock %}
+
+      <!-- Using this div to make margin between footer manu and rest of content -->
+      <div class="margin-between-footer-menu-and-content">&nbsp;</div>
+      <footer class="d-lg-none" id="footer">
+        <ul
+          class="navbar-nav navbar-expand fixed-bottom nav-justified bg-light bottom-nav"
+        >
+          <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link">
+              <i class="fas fa-home"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'videos' %}" class="nav-link">
+              <i class="fas fa-video"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'users_profile' %}" class="nav-link">
+              <i class="fas fa-user-circle"></i>
+            </a>
+          </li>
+        </ul>
+      </footer>
+
+      <!-- Footer menu for desctop devices -->
+      <footer class="d-none d-lg-block footer">
+        &nbsp;
+        <div class="section-wrapper row">
+          <div class="col-2">
+            <a href="{% url 'home' %}" class="logo-lg footer-log"></a>
+          </div>
+
+          <div class="col-4 footer-devider">
+            <ul class="nav footer-menu flex-column float-right pr-3">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cards' %}">Subscribe</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <ul class="nav footer-categories flex-column float-left pl-3">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'videos' %}?category=disieases"
+                  >By Diseases</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'videos' %}?category=anatomy"
+                  >By Anatomy</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'videos' %}?category=projects"
+                  >By Projects</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'videos' %}?category=subject"
+                  >By Subjects</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-2">
+            <ul class="nav footer-social justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fab fa-facebook-square"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fab fa-youtube-square"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        &nbsp;
+      </footer>
+      <!-- END a desktop footer manu -->
+    </main>
+    {% block bottom_extra_js %} {% endblock %}
     <script>
-
-       /* Toggling a top menu width and background during a collapsing of it. */
-       $(document).ready(function(){
-            $(".top-nav").click(function(){
-                $(".top-nav-toggle").toggleClass("toggleMenuBackground");
-            });
+      /* Toggling a top menu width and background during a collapsing of it. */
+      $(document).ready(function () {
+        $(".top-nav").click(function () {
+          $(".top-nav-toggle").toggleClass("toggleMenuBackground");
         });
+      });
 
-
-        /* 
+      /* 
             If a user is not logged in and a page is the home page then
             we change little bit the appearance of the top main menu 
         */
 
-        /* Checking to find if a user is authenticated */
-        let auth = '{{ user.is_authenticated }}'.toLowerCase();
+      /* Checking to find if a user is authenticated */
+      let auth = "{{ user.is_authenticated }}".toLowerCase();
 
-        if( page != '' ) {
-            if ( auth == 'false' && window.innerWidth >= 992 && page == 'home' ) {
+      if (page != "") {
+        if (auth == "false" && window.innerWidth >= 992 && page == "home") {
+          /* Grabbing a header menu wrapper */
+          let el = document.querySelector(".desk-header");
 
-                /* Grabbing a header menu wrapper */
-                let el = document.querySelector( '.desk-header' );
+          /* Grabbing a header menu */
+          let menu = document.querySelector(".desk-menu");
 
-                /* Grabbing a header menu */
-                let menu = document.querySelector( '.desk-menu' );
+          /* Centering a top main menu */
+          menu.classList.add("justify-content-center");
 
-                /* Centering a top main menu */
-                menu.classList.add( 'justify-content-center' );
+          /* Removing a background image */
+          el.style.backgroundImage = "none";
 
-                /* Removing a background image */
-                el.style.backgroundImage = 'none';
-                
-                /* Putting a menu on the top of the first section */
-                el.style.position = 'absolute';
-                
-            }
+          /* Putting a menu on the top of the first section */
+          el.style.position = "absolute";
         }
-        
+      }
     </script>
 
     <!-- Loading GIF -->
     <div class="loading">
-        <img src="{{ MEDIA_URL }}/img/general/loading.gif" id="loading_img" alt="loading">
+      <img
+        src="{{ MEDIA_URL }}/img/general/loading.gif"
+        id="loading_img"
+        alt="loading"
+      />
     </div>
 
-    {% block postloadjs %}
-    {% endblock %}  
+    {% block postloadjs %} {% endblock %}
   </body>
 </html>
