@@ -699,10 +699,10 @@
     {% else %}
     
         <!-- Hero section --> 
-        <section class="h-100 hero-section d-none d-lg-block">
+        <section class="h-100 hero-section">
             <div class="row h-100 hero-section-content no-gutters">
 
-                <div class="col-6 align-self-center">
+                <div class="col-md-12 col-lg-6 align-self-center">
                     <h1 class="hero-text-bold text-white"> 
                         Tips From Doctor Diana <br> About <span>Healthcare</span>
                     </h1>
@@ -711,272 +711,109 @@
                         More than one hundred videos about weight loss,
                         Tibetian medicine, diseases, physiology and more...
                     </p>
-                
+                    
                     <form action="{% url 'cards' %}" class="get-access-form">
-                        <div class="row  no-gutters align-items-center"  style="height: 65px;">
-                            <div class="col-7 col-md-8">
+                        <div class="row align-items-center no-gutters"  style="height: 65px;">
+                            <div class="col">
                                 <input type="text" class="get-access-input form-control" name="search">
                             </div>
-                            <div class="col-4 col-md-2">
-                                <button type="submit" class="get-access-btn btn btn-primary ml-2 wel-btn">Get Access</button>
+                            <div class="col-3">
+                                <button type="submit" class="get-access-btn btn btn-primary ml-2 wel-btn">
+                                    <span class="d-none d-md-inline-block">Get</span> Access
+                                </button>
                             </div>
                         </div>
                     </form>             
 
                 </div>
 
-                <div class="col-6 align-self-end">
-                    <img src="{{ MEDIA_URL }}/img/lg/diana-img.png" alt="Doctor Diana" class="diana-img float-right" />
+                <div class="col-lg-6 d-none d-lg-block align-self-end">
+                    <img src="{{ MEDIA_URL }}/img/lg/diana-img.png" 
+                        alt="Doctor Diana" class="diana-img float-right" />
                 </div>
 
             </div>
         </section>
 
         <!-- Video examples section -->
-        <section class="section-wrapper d-none d-lg-block no-gutters mt-5">
-            <!--Section title -->
-            <h3 class='titles pt-5'>
-                <i class="fas fa-solid fa-video titles-icon mr-2"></i>
-                Video Examples
-            </h3>
+        <section class="section-wrapper mt-5">
+            <div class="content-wrapper container-fluid">
+                <!--Section title -->
+                <h3 class='example-title titles'>
+                    <i class="fas fa-solid fa-video titles-icon mr-2"></i>
+                    Video Example<span class="plural d-none d-md-inline-block">s</span>
+                </h3>
 
-            <!-- Video examples -->
-            <div class="row no-gutters mt-4 justify-content-center" style="margin-right: -24px">
-                {% for welcoming_video in welcoming_videos %}       
-                    <div class="col-4 pr-4">
+                <!-- Video examples -->
+                <div class="row no-gutters example-video-wrapper mt-4 justify-content-center" >
+                    {% for welcoming_video in welcoming_videos %}  
+                        {% if forloop.counter == 1 %} 
+                            <div class="col-12 col-md-4">
+                        {% else %}
+                            <div class="col-4 d-none d-md-block">
+                        {% endif %}
+                            <!-- Video -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative ">                           
+                                <iframe class="embed-responsive-item" src="{{ welcoming_video.content }}" allowfullscreen></iframe>                          
+                            </div>
 
-                        <!-- Video -->
-                        <div class="embed-responsive embed-responsive-16by9 position-relative ">                           
-                            <iframe class="embed-responsive-item" src="{{ welcoming_video.content }}" allowfullscreen></iframe>                          
-                        </div>
+                            <!-- Video's Description -->
+                            <div class="card position-relative">
+                                <p class="container-fluid mt-3 position-relative">           
+                                    {{ welcoming_video.description }}   
+                                <p>
+                            </div>
 
-                        <!-- Video's Description -->
-                        <div class="card position-relative">
-                            <p class="container-fluid mt-3 position-relative">           
-                                {{ welcoming_video.description }}   
-                            <p>
-                        </div>
+                        </div>  
+                    {% endfor %}
 
-                    </div>  
-                {% endfor %}
-
+                </div>
             </div>
         </section>
         
         <!-- Subscription section -->
-        <section class="section-wrapper d-none d-lg-block no-gutters mt-5">
-            
-            <h3 class="titles pt-5"> 
-                <i class="fas fa-user-edit titles-icon mr-2"></i>
-                <span> subscription </span>
-            </h3>
+        <section class="section-wrapper mt-5 mb-5">
+            <div class="content-wrapper container-fluid">
+                <h3 class="sub-title titles"> 
+                    <i class="fas fa-user-edit titles-icon mr-2"></i>
+                    <span> subscription </span>
+                </h3>
 
 
-            <div class="subs-cards-wrapper mt-4 rounded-lg shadow-sm">
-               
-                <!-- Subscription text -->
-                <div class="subs-desc-bg rounded-top">
-                    <p class="p-5 subscription-description">
-                        During my active medical practice I collected and documented videos
-                        there you can get known for many aspect of the healthcare. 
-                        Such are  Weight loss,  Tibetan medicine, Food problems, Physiology,
-                        Anatomy, Meditation and more. By subscription you will get fully access
-                        to this video colection and to the future events or webinars.
-                    </p>
-                </div>
-
-                <!-- Subscription cards -->
-                <div class="row no-gutters mt-5 pb-5 justify-content-center">             
-                    {% for card in cards %}
-                        <div class="col-4">
-                        <!-- If a offering is checked in admin so scaling up the card in size -->
-                        {% if card.offering %}
-                            <div class="cards-content home-desk-card" id="active-card">
-                        {% else %}
-                            <div class="cards-content home-desk-card">
-                        {% endif %}
-
-                                <!-- Card's Duration  -->
-                                <p class=" cards-months-length text-uppercase text-center pt-4">
-                                    {{ card.duration }} 
-                                </p>
-
-                                <!-- Savinng -->
-                                <p class="cards-saving mt-2"> 
-                                    Save 
-                                    <span> {{ card.saving }} </span> 
-                                    Euros 
-                                </p>
-
-                                <!-- Price -->
-                                <div class="cards-price">
-                                    <strong> {{ card.price }} </strong>
-                                </div>
-
-                                <!-- Currency -->
-                                <div class="cards-currency">
-                                    <span>{{card.currency }}</span>
-                                </div>
-
-                                <!-- Card Description -->
-                                <p class="cards-desc fst-italic mt-3 ml-3 mr-3">{{ card.description }}</p>
-
-                                <!-- A form to submit a price and a stripe price id -->
-                                <form action="{% url 'checkout' %}" method="POST">
-                                    {% csrf_token %}
-                                    
-                                    <input type="hidden" name="price" value="{{ card.price }}">
-                                    <input type="hidden" name="stripe_plan_id" 
-                                        value="{{ card.stripe_plan_id }}">
-                                        
-                                    <!-- Submit button -->
-                                    <div class="cards-choose-btn-wrapper">
-                                        <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
-                                    </div>
-                                
-                                </form>    
-
-                            </div>
-                        </div>
-                    {% endfor %}                  
-                </div>   
-            </div>
-
-        </section>
-        
-        <!-- Tablet devices ( NOT LOGGED ) -->
-        <section class="row home-first-section-not-logged-in no-gutters d-lg-none">
-            <div class="col-12">
-                <!-- A Page title column -->
-                <h1 class='welcome-text text-white'>
-                    Tips from doctor Diana about <span>healthcare</span>
-                </h1>
-                <!-- END a Page Title Column -->
-            </div>
-            <div class="col-12 mt-2">
-                <!-- A page description column -->
-                <h2 class="sm-home-first-section-desc text-center text-white">
-                    More than one hundred videos about weight loss, Tibetian medicine, diseases, physiology and more...
-                </h2>
-                <!-- END a Page Description Column -->
-            </div>
-            <div class="col-12 xs-mt mt-5">
-                <!-- Get access column -->
-                <form class="get-access-form">
-                    <div class="row justify-content-center no-gutters">
-                        <div class="col-7 col-md-8">
-                            <input type="text" class="form-control get-access-input" name="search">
-                        </div>
-                        <div class="col-4 col-md-2">
-                            <button type="submit" class="btn get-access-btn btn-primary ml-2">Get Access</button>
-                        </div>
+                <div class="subs-cards-wrapper mt-4 rounded-lg shadow-sm">
+                
+                    <!-- Subscription text -->
+                    <div class="subs-desc-bg">
+                        <p class="subscription-description">
+                            During my active medical practice I collected and documented videos
+                            there you can get known for many aspect of the healthcare. 
+                            Such are  Weight loss,  Tibetan medicine, Food problems, Physiology,
+                            Anatomy, Meditation and more. By subscription you will get fully access
+                            to this video colection and to the future events or webinars.
+                        </p>
                     </div>
-                </form>
-            </div>
-            <!-- END a Get Access Column -->
-
-            <!-- Video -->
-            <div class="col-12 welcome-video mt-5">
-                <div class="embed-responsive embed-responsive-16by9">
-                    {% for welcoming_video in welcoming_videos %}
-                        {% if forloop.counter < 2 %}
-                            <iframe class="embed-responsive-item" src="{{ welcoming_video.content }}" allowfullscreen></iframe>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-            <!-- Video -->
-
-            <!-- Div for bottom margin -->
-            <div class="col-12">&nbsp;</div>
-
-        </section>
-    
-        <!-- Second Section For Tablets and lower devices ( NOT LOGGED IN USER ) -->
-        <section class="container-fluid home-second-section-not-logged-in d-lg-none">
-
-            <!-- Banner Row -->
-            <div class="row">
-                <div class="col subscriptions-banner mt-4 mr-3 ml-3 rounded-lg shadow-sm">
-                    <div class="container-fluid banner-wrapper">
-                        <!-- Subscription Text Row -->
-                        <div class="row sm-subscription-row rounded-top">
-                            <div class="col banners-text">    
-                                <h3 class="titles text-uppercase subsc-title mt-5"> 
-                                    <i class="fas fa-user-edit titles-icon mr-2"></i>
-                                     subscription
-                                </h3>
-                                <p class="mt-2 pb-2 subscription-description">
-                                    Videos about healthcare, Weight Loss, Tibetian Medicine
-                                    Food Problems, Physiology, Anatomy, Medititation and more.
-                                    Also you will get access to the all events.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END a Subscription Text Row -->
-
-                        <!-- Event Row -->
-                        <div class="row sm-home-page-event event mt-3 text-center">
-                            <div class="col">
-                                <h3 class="text-uppercase titles timer-title"> 
-                                    <i class="fas fa-calendar-day titles-icon mr-2"></i>
-                                     Summery of the year  2020
-                                </h3>
-                                <table class="table table-borderless">
-                                    <!-- Time -->
-                                    <thead class="timer event-table-head">
-                                        <tr>
-                                            <td class="ev-days" ></td>
-                                            <td class="ev-houres" ></td>
-                                            <td class="ev-minutes" ></td>
-                                            <td class="text-left ev-seconds" ></td>
-                                        </tr>
-                                    </thead>
-                                    <!-- Initialling a timer function --> 
-                                    
-                                    <!-- END a Time --> 
-                                    <!-- Time's Units -->
-                                    <tbody class="text-white font-italic text-left small event-table-body">
-                                        <tr>
-                                            <td class="pr-3 not-logged-timer">Days</td>
-                                            <td class="pr-4 not-logged-timer">Houres</td>
-                                            <td class="pr-4 not-logged-timer">Minutes</td>
-                                            <td class="text-left not-logged-timer">Seconds</td>
-                                        </tr>
-                                    </tbody>  
-                                    <!-- END a Time's Unites -->
-                                </table>
-                            
-                            </div>
-                        </div>
-                        <!-- END a Event Row -->
-                    </div>
-                </div>
-            </div>
-            <!-- END a Banner Row -->
-
-            <!-- Card's Row -->
-            <div class="row cards-row container-fluid mt-5">
-                <div class="col subsctipsins-cards">
-
-                   
-                    <h3 class='titles'>
-                        <i class="far fa-paper-plane titles-icon mr-2"></i>
-                        Choose a payment plan:
-                    </h3>
-
-                    <!-- Card's Tabs -->
-                    <nav class="cards-nav">
+                    
+                    <!-- Mobile subscription -->
+                    <nav class="cards-nav d-md-none mt-5"> <!-- Cards link -->
                         <div class="nav nav-tabs cards-menu justify-content-center" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
-                            <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">6 Months</a>
-                            <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">1 Year</a>
+                            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab"
+                                href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                                1 Month
+                            </a>
+
+                            <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab"
+                            href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                            6 Months
+                            </a>
+                            
+                            <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab"
+                            href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+                            1 Year
+                            </a>
                         </div>
                     </nav>
-                    <!-- END Card's Tabs -->
-
-                    <!-- Card Content -->
-                    <div class="tab-content bg-white rounded-lg shadow-sm" id="nav-tabContent">
+                    <!-- Mobile card's content -->
+                    <div class="tab-content d-md-none bg-white rounded-lg shadow-sm" id="nav-tabContent">
 
                         {% for card in cards %}
                             
@@ -987,20 +824,10 @@
                             {% endif %}
                             
                                 <div class="cards-content">
-                        
 
-                                    <!-- Card's Duration  -->
-                                    <p class="cards-months-length text-uppercase text-center pt-4">
-                                        {{ card.duration }} 
-                                    </p>
-
-                                    <!-- Card's scale icon -->
-                                    <div class="card-scale-img-wrapper">
-                                        <img src="{{ MEDIA_URL }}/img/sm/mb-home-card-scale.png" alt="Scale" >
-                                    </div>
 
                                     <!-- Saving -->
-                                    <p class="cards-saving mt-2"> 
+                                    <p class="cards-saving mt-3"> 
                                         Save 
                                         <span> {{ card.saving }} </span> 
                                         Euros 
@@ -1029,11 +856,7 @@
                                             
                                         <!-- Submit button -->
                                         <div class="cards-choose-btn-wrapper">
-                                            <button type="submit" class="cards-choose-btn
-                                                    btn border border-bottom-0 border-success
-                                                    text-white font-weight-bolder mb-4">
-                                                Choose
-                                            </button>
+                                            <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
                                         </div>
                                     
                                     </form>    
@@ -1045,92 +868,143 @@
                         
                     </div>
 
+                    <!-- Tablets and above subscription -->
+                    <div class="row no-gutters d-none d-md-flex mt-5 pb-5 justify-content-center">             
+                        {% for card in cards %}
+                            <div class="col-4">
+                            <!-- If a offering is checked in admin so scaling up the card in size -->
+                            {% if card.offering %}
+                                <div class="cards-content home-desk-card" id="active-card">
+                            {% else %}
+                                <div class="cards-content home-desk-card">
+                            {% endif %}
+
+                                    <!-- Card's Duration  -->
+                                    <p class=" cards-months-length text-uppercase text-center pt-4">
+                                        {{ card.duration }} 
+                                    </p>
+
+                                    <!-- Savinng -->
+                                    <p class="cards-saving mt-2"> 
+                                        Save 
+                                        <span> {{ card.saving }} </span> 
+                                        Euros 
+                                    </p>
+
+                                    <!-- Price -->
+                                    <div class="cards-price">
+                                        <strong> {{ card.price }} </strong>
+                                    </div>
+
+                                    <!-- Currency -->
+                                    <div class="cards-currency">
+                                        <span>{{card.currency }}</span>
+                                    </div>
+
+                                    <!-- Card Description -->
+                                    <p class="cards-desc fst-italic mt-3 ml-3 mr-3">{{ card.description }}</p>
+
+                                    <!-- A form to submit a price and a stripe price id -->
+                                    <form action="{% url 'checkout' %}" method="POST">
+                                        {% csrf_token %}
+                                        
+                                        <input type="hidden" name="price" value="{{ card.price }}">
+                                        <input type="hidden" name="stripe_plan_id" 
+                                            value="{{ card.stripe_plan_id }}">
+                                            
+                                        <!-- Submit button -->
+                                        <div class="cards-choose-btn-wrapper">
+                                            <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
+                                        </div>
+                                    
+                                    </form>    
+
+                                </div>
+                            </div>
+                        {% endfor %}                  
+                    </div>   
                 </div>
-            </div>
-            <!-- END a Card's Row -->
-
-        </section>
-
-        <!-- FAQ section for  both Desktop and Tablets devices -->
-        <!-- Div tag for top vertical background -->
-        <div class="top-and-bottom-block-bg gray-section-top-bg mt-3"></div>
-
-        <section class="row no-gutters gray-section">
-
-            <div class='section-wrapper'>
-
-                <div class="container-fluid">
-                    <!-- FAQ Title -->
-                    <h3 class="titles text-capitilize mt-3"> <i class="fas fa-th-list titles-icon mr-2"></i> Frequently Asked Questions</h3>
-                    <hr/>
-                    <!-- END a FAQ Title -->
-
-                    <!-- FAQ 1 -->
-                    <div class="faq-1 mb-3">
-                        <p class="faq-questions-p">
-                            <a class="btn faq-questions" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
-                                What is included in subscription?
-                            </a>
-                        </p>
-                        <div class="collapse mb-3" id="faq-1">
-                            <div class="card card-body">
-                                In subscription included a access to all videos, events and webinars. 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END a FAQ 1 -->
-
-                    <!-- FAQ 2 -->
-                    <div class="faq-2 mb-3">
-                        <p class="faq-questions-p">
-                            <a class="btn faq-questions" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-2">
-                                When can I cancel a subscription?
-                            </a>
-                        </p>
-                        <div class="collapse mb-3" id="faq-2">
-                            <div class="card card-body">
-                                A subscription you can cancell any time.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END a FAQ 2 -->
-
-                    <!-- FAQ 3 -->
-                    <div class="faq-3 mb-3">
-                        <p class="faq-questions-p">
-                            <a class="btn faq-questions" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-3">
-                                How can I pay?
-                            </a>
-                        </p>
-                        <div class="collapse mb-3" id="faq-3">
-                            <div class="card card-body">
-                                You can pay with a bank card. 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END a FAQ 3-->
-
-                    <!-- FAQ 4 -->
-                    <div class="faq-4 mb-3">
-                        <p class="faq-questions-p">
-                            <a class="btn faq-questions" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-4">
-                                May I have private consultation?
-                            </a>
-                        </p>
-                        <div class="collapse  mb-3" id="faq-4">
-                            <div class="card card-body">
-                                Yes you can have it. In order to have a private consultation you have to contact me at - doctordiana@diasfero.com
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END a FAQ 4 -->
-                </div>
-
             </div>
 
         </section>
 
+        <!-- FAQ section -->
         <!-- Div tag for top vertical background -->
+        <div class="top-and-bottom-block-bg gray-section-top-bg"></div> 
+        <section class="gray-section">
+            <div class="section-wrapper container-fluid">
+                <!-- FAQ Title -->
+                <h3 class="titles pt-2"> 
+                    <i class="fas fa-th-list titles-icon mr-2"></i>
+                        <span class="d-none d-md-inline-block">
+                        Frequently Asked Questions
+                    </span>
+                    <span class="d-md-none"> FAQ </span>
+                </h3>
+                <hr/>
+                
+                <!-- FAQ 1 -->
+                <div class="faq-1 mb-3">
+                    <p class="faq-questions-p">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
+                            What is included in subscription?
+                        </a>
+                    </p>
+                    <div class="collapse mb-3" id="faq-1">
+                        <div class="card card-body">
+                            In subscription included a access to all videos, events and webinars. 
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 1 -->
+
+                <!-- FAQ 2 -->
+                <div class="faq-2 mb-3">
+                    <p class="faq-questions-p">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-2">
+                            When can I cancel a subscription?
+                        </a>
+                    </p>
+                    <div class="collapse mb-3" id="faq-2">
+                        <div class="card card-body">
+                            A subscription you can cancell any time.
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 2 -->
+
+                <!-- FAQ 3 -->
+                <div class="faq-3 mb-3">
+                    <p class="faq-questions-p">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-3">
+                            How can I pay?
+                        </a>
+                    </p>
+                    <div class="collapse mb-3" id="faq-3">
+                        <div class="card card-body">
+                            You can pay with a bank card. 
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 3-->
+
+                <!-- FAQ 4 -->
+                <div class="faq-4">
+                    <p class="faq-questions-p">
+                        <a class="btn faq-questions" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-4">
+                            May I have private consultation?
+                        </a>
+                    </p>
+                    <div class="collapse  mb-3" id="faq-4">
+                        <div class="card card-body">
+                            Yes you can have it. In order to have a private consultation you have to contact me at - doctordiana@diasfero.com
+                        </div>
+                    </div>
+                </div>
+                <!-- END a FAQ 4 -->
+            </div>
+        </section>
+        <!-- Div tag for bottom vertical background -->
         <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
 
     {% endif %}
