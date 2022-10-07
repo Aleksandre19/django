@@ -181,12 +181,13 @@
             <div class="below-z col-12 mt-2">
               <nav class="top-nav navbar navbar-expand-md navbar-light">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
                   data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
                   aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"> </span>
+                  <div class="animated-icon1"><span></span><span></span><span></span></div>
+                  {% comment %} <span class="navbar-toggler-icon"> </span> {% endcomment %}
                 </button>
-                
+
                 <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
                   <ul class="navbar-nav top-main-menu">
 
@@ -329,12 +330,25 @@
     </main>
     {% block bottom_extra_js %} {% endblock %}
     <script>
-      /* Toggling a top menu width and background during a collapsing of it. */
+
+      /* Humburger menu button animation
+        source: https://mdbootstrap.com/docs/b4/jquery/navigation/hamburger-menu/ */
+     
       $(document).ready(function () {
-        $(".top-nav").click(function () {
-          $(".top-nav-toggle").toggleClass("toggleMenuBackground");
+
+        $('.first-button').on('click', function () {
+          $('.animated-icon1').toggleClass('open');
         });
-      });
+
+        $('.second-button').on('click', function () {
+          $('.animated-icon2').toggleClass('open');
+        });
+
+        $('.third-button').on('click', function () {
+          $('.animated-icon3').toggleClass('open');
+        });
+
+      })
     </script>
 
     <!-- Loading GIF -->
