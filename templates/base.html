@@ -76,8 +76,8 @@
   <body>
     <main class="all-wrapper position-relative">
 
-      <!-- Header for Desktop devices -->
-      <header class="desk-header fixed-top">
+      <!-- Header  -->
+      <header class="desk-header fixed-top" id="top-header">
         <div class="header-content-wrapper">
 
           <div class="row no-gutters">
@@ -178,14 +178,13 @@
             </div>
 
             <!-- Menu column -->
-            <div class="below-z col-12 mt-2">
+            <div class="below-z col-12">
               <nav class="top-nav navbar navbar-expand-md navbar-light">
 
                 <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
                   data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
                   aria-expanded="false" aria-label="Toggle navigation">
                   <div class="animated-icon1"><span></span><span></span><span></span></div>
-                  {% comment %} <span class="navbar-toggler-icon"> </span> {% endcomment %}
                 </button>
 
                 <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
@@ -240,9 +239,9 @@
       {% block content %} {% endblock %}
 
       <!-- Using this div to make margin between footer manu and rest of content -->
-      <div class="margin-between-footer-menu-and-content">&nbsp;</div>
-      <footer class="d-lg-none" id="footer">
-        <ul class="navbar-nav navbar-expand fixed-bottom
+      <div class="d-lg-none margin-between-footer-menu-and-content">&nbsp;</div>
+      <footer class="d-lg-none fixed-bottom" id="footer">
+        <ul class="navbar-nav navbar-expand 
          nav-justified bg-light bottom-nav">
           <li class="nav-item">
             <a href="{% url 'home' %}" class="mb-f-link nav-link">
@@ -329,8 +328,8 @@
 
     </main>
     {% block bottom_extra_js %} {% endblock %}
+    
     <script>
-
       /* Humburger menu button animation
         source: https://mdbootstrap.com/docs/b4/jquery/navigation/hamburger-menu/ */
      
@@ -349,6 +348,30 @@
         });
 
       })
+
+       /* 
+            Remove header background image when the device is
+            desktop or tablet, a user is not logged in and it's a home page.
+        */
+
+        /* Checking to find if a user is authenticated */
+        let auth = '{{ user.is_authenticated }}'.toLowerCase();
+         /* Grabbing a header menu wrapper */
+        let el = document.querySelector( '.desk-header' );
+
+        if( page != '' ) {
+            if ( auth == 'false' && window.innerWidth >= 768 && page == 'home' ) {
+                /* Removing a background image */
+                el.style.backgroundImage = 'none';     
+            }
+        } else {
+           if (window.innerWidth >= 576 ) {
+                el.classList.remove("fixed-top");
+                el.style.position = "static";
+           }
+        }
+
+       
     </script>
 
     <!-- Loading GIF -->

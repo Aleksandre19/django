@@ -16,17 +16,16 @@ body{
     color: #616161;
 }
 
-
 main.all-wrapper{
     height:100%;
 }
-
 
 /*** Header Styles ***/
 
 .desk-header {
     width: 100%;
     height: 95px;
+    padding-top: 3%;
     background-image: url('/media/img/lg/lg-header-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,11 +36,12 @@ main.all-wrapper{
     width: 85%;
     height: 95px;
     margin: auto;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     border: 1px solid transparent;
 }
 
 .h-f-half {
+    padding-top: .9%;
     height: 60px;
 }
 
@@ -345,6 +345,7 @@ nav.colapsing{
 .navbar-toggler {
     border-radius: 0;
     padding: 0;
+    padding-top: .8rem;
     border: none;
 }
 
@@ -368,7 +369,11 @@ nav.colapsing{
 .video-search:hover,
 .get-access-input:hover,
 .video-search:focus,
-.get-access-input:focus{
+.get-access-input:focus,
+.contact-form input:hover,
+.contact-form input:focus,
+.contact-form textarea:hover,
+.contact-form textarea:hover {
     font-size: 22px;
     letter-spacing: 1px;
     border: solid 3px #a180a3;
@@ -683,9 +688,10 @@ nav.colapsing{
 } */
 
 .timer,
-.sign-in-up-icon{
+.sing-in-up-icon{
     font-size: 45px;
-    color: #fc01fe;
+    color: #a01700;
+    transform: translateY(5px)
 }
 
 .timer-title{
@@ -696,12 +702,14 @@ nav.colapsing{
     color: black;
 }
 
-.subs-desc-bg{
+.subs-desc-bg,
+.subs-desc-bg-attantion{
     background-color: #663399;
     border-radius: 8px;
-    /* background-image: url('/media/img/sm/sm-subscription-block-bg.png');
-    background-repeat: no-repeat;
-    background-size: cover; */
+}
+
+.subs-desc-bg-attantion {
+    background-color: #a01700;
 }
 
 .subscription-description {
@@ -715,6 +723,20 @@ nav.colapsing{
 
 .subsc-title{
     color: white;
+}
+
+.subs-section,
+.contact-section {
+    min-height: calc(100% - 548px); /* 240px header height, 211px footer, 50px section top margin */
+    -webkit-min-height: calc(100% - 498px);
+    -moz-min-height: calc(100% - 498px);
+    margin-bottom: 3rem;
+}
+
+.subs-section,
+.faq-section,
+.contact-section {
+    margin-top: 38%;
 }
 
 .nav-tabs .nav-link {
@@ -834,7 +856,18 @@ nav.colapsing{
     font-weight: bold;
 }
 
-.sing-up-in a{
+.sing-in-up {
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    /* margin-top: 50px; */
+    /* transform: translateY(50px); */
+    border: 1px solid #d0cfcf;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.sing-in-up a{
     color: #82ca1e;
     font-weight: bold;
 }
@@ -911,6 +944,40 @@ nav.colapsing{
     width: 86%;
     margin: auto;
 } */
+
+.contact-form {
+    text-align: left;
+}
+
+/* .contact-secstion-wrapper {
+    transform: translateY(0);
+} */
+
+.contact-form label {
+    margin: 10px 0px 0px 0px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: inline-block;
+    transition: .3s ease-out;
+    -moz-transition: .1s ease-out;
+    -o-transition: .1s ease-out;
+    -ms-transition: .1s ease-out;
+}
+
+.contact-form div{
+    min-height: 55px;
+}
+
+.contact-form .textarea-wrapper{
+    min-height: 100px;
+}
+
+.contact-form button {
+    display: block;
+    margin: auto;
+}
 
 /* Styling a div to create a vertical bg effect for section blocks */
 .top-and-bottom-block-bg{
@@ -1589,13 +1656,12 @@ hr.feedback-devider {
         position: absolute;
         top: 0;
         left: 0;
+        padding-top: 0;
         height: 195px;
-        background-image: none;
-       
     }
 
     .header-content-wrapper {
-        margin-top: 1.5rem;
+        padding-top: 1.5rem;
         height: 240px;
     }
 
@@ -1643,8 +1709,23 @@ hr.feedback-devider {
         width: 100%;
     }
 
+    .subs-section {
+        margin-top: 0;
+    }
+
+    .faq-section,
+    .contact-section {
+        margin-top: 50px;
+    }
+
     .subs-desc-bg {
         border-radius: 8px 8px 0px 0px;
+    }
+
+    .sing-in-up {
+        width: 80%;
+        margin: auto;
+        margin-top: 50px;
     }
 
     .subscription-description{
@@ -1652,6 +1733,7 @@ hr.feedback-devider {
         line-height: 38px;
         padding: 2rem;
     }
+
 
     /* .subs-cards-wrapper {
         width: 93%;
@@ -1898,6 +1980,10 @@ hr.feedback-devider {
     .example-title,
     .sub-title {
         padding-top: 3rem;
+    }
+
+    .sing-in-up {
+        width: 100%;
     }
 
     /* .faq-content {
@@ -2153,7 +2239,8 @@ hr.feedback-devider {
     }
 
     /* Footer */
-    .footer {
+    .footer {    
+        height: 211px;
         background-color: #320035;
     }
 
@@ -2268,9 +2355,9 @@ hr.feedback-devider {
     } */
 
     /* A top margin of the cards */
-    .lg-cards {
+    /* .lg-cards {
         margin: 42px 0px 100px 0px;
-    }
+    } */
 
     /* Divider between cards and banner home page */
     .card-divider {

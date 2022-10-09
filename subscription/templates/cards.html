@@ -1,198 +1,166 @@
 {% extends 'base.html' %}
 {% block content %}
     <!-- Subscribe cards for DESKTOP -->
-    <section class='d-none d-lg-block lg-cards'>
-
-        <div class='section-wrapper'>
-            
+    <section class="subs-section">
+        <div class='section-wrapper'>          
             {% if request.user.is_authenticated %}
-                <h2 class='cards-page-title titles'>
-                    <i class="far fa-paper-plane titles-icon mr-2"></i>
-                    Choose a payment plan:
-                </h3>
+                <div class="content-wrapper container-fluid">
+                    <h2 class="mt-5 titles">
+                        <i class="far fa-paper-plane titles-icon mr-2"></i>
+                        <span class="d-none d-md-inline-block">Choose a</span>
+                        payment
+                        plan<span class="d-md-none">s</span>
+                    </h3>
+
+                    <div class="subs-cards-wrapper mt-4 rounded-lg shadow-sm">  
+                        <!-- Subscription text -->
+                        <div class="subs-desc-bg-attantion">
+                            <p class="subscription-description">
+                                You must choose a one of the following plan in order to be
+                                able to finish a subscription and to continue a using the content on this website.
+                            </p>
+                        </div>
+                        
+                        <!-- Mobile subscription -->
+                        <nav class="cards-nav d-md-none mt-5"> <!-- Cards link -->
+                            <div class="nav nav-tabs cards-menu justify-content-center" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab"
+                                    href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                                    1 Month
+                                </a>
+
+                                <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab"
+                                href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                6 Months
+                                </a>
+                                
+                                <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab"
+                                href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+                                1 Year
+                                </a>
+                            </div>
+                        </nav>
+                        <!-- Mobile card's content -->
+                        <div class="tab-content d-md-none bg-white rounded-lg shadow-sm" id="nav-tabContent">
+
+                            {% for card in cards %}
+                                
+                                {% if forloop.counter == 2 %}
+                                    <div class="tab-pane fade show active" id="{{ card.tab_class }}" role="tabpanel" aria-labelledby="{{ card.tab_aria }}">
+                                {% else %}
+                                    <div class="tab-pane fade" id="{{ card.tab_class }}" role="tabpanel" aria-labelledby="{{ card.tab_aria }}">
+                                {% endif %}
+                                
+                                    <div class="cards-content">
+
+
+                                        <!-- Saving -->
+                                        <p class="cards-saving mt-3"> 
+                                            Save 
+                                            <span> {{ card.saving }} </span> 
+                                            Euros 
+                                        </p>
+
+                                        <!-- Price -->
+                                        <div class="cards-price">
+                                            <strong> {{ card.price }} </strong>
+                                        </div>
+
+                                        <!-- Currency -->
+                                        <div class="cards-currency">
+                                            <span>{{ card.currency }}</span>
+                                        </div>
+
+                                        <!-- Card Description -->
+                                        <p class="cards-desc mt-3 ml-3 mr-3">{{ card.description }}</p>
+
+                                        <!-- A form to submit a price and a stripe price id -->
+                                        <form action="{% url 'checkout' %}" method="POST">
+                                            {% csrf_token %}
+                                            
+                                            <input type="hidden" name="price" value="{{ card.price }}">
+                                            <input type="hidden" name="stripe_plan_id" 
+                                                value="{{ card.stripe_plan_id }}">
+                                                
+                                            <!-- Submit button -->
+                                            <div class="cards-choose-btn-wrapper">
+                                                <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
+                                            </div>
+                                        
+                                        </form>    
+
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                            
+                        </div>
+
+                        <!-- Tablets/Desktop devices subscription -->
+                        <div class="row no-gutters d-none d-md-flex mt-5 pb-5 justify-content-center">             
+                            {% for card in cards %}
+                                <div class="col-4">
+                                <!-- If a offering is checked in admin so scaling up the card in size -->
+                                {% if card.offering %}
+                                    <div class="cards-content home-desk-card" id="active-card">
+                                {% else %}
+                                    <div class="cards-content home-desk-card">
+                                {% endif %}
+
+                                        <!-- Card's Duration  -->
+                                        <p class=" cards-months-length text-uppercase text-center pt-4">
+                                            {{ card.duration }} 
+                                        </p>
+
+                                        <!-- Savinng -->
+                                        <p class="cards-saving mt-2"> 
+                                            Save 
+                                            <span> {{ card.saving }} </span> 
+                                            Euros 
+                                        </p>
+
+                                        <!-- Price -->
+                                        <div class="cards-price">
+                                            <strong> {{ card.price }} </strong>
+                                        </div>
+
+                                        <!-- Currency -->
+                                        <div class="cards-currency">
+                                            <span>{{card.currency }}</span>
+                                        </div>
+
+                                        <!-- Card Description -->
+                                        <p class="cards-desc fst-italic mt-3 ml-3 mr-3">{{ card.description }}</p>
+
+                                        <!-- A form to submit a price and a stripe price id -->
+                                        <form action="{% url 'checkout' %}" method="POST">
+                                            {% csrf_token %}
+                                            
+                                            <input type="hidden" name="price" value="{{ card.price }}">
+                                            <input type="hidden" name="stripe_plan_id" 
+                                                value="{{ card.stripe_plan_id }}">
+                                                
+                                            <!-- Submit button -->
+                                            <div class="cards-choose-btn-wrapper">
+                                                <button type="submit" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
+                                            </div>
+                                        
+                                        </form>   
+
+                                    </div>
+                                </div>
+                            {% endfor %}                  
+                        </div>   
+                    </div>
+                </div>          
             {% else %}
-                <h2 class="sing-up-in">
-                    <i class="fas fa-exclamation-circle sign-in-up-icon mr-3"></i>
+                <h2 class="sing-in-up">
+                    <i class="fas fa-exclamation-circle sing-in-up-icon mr-1"></i>
                     In order to make subscription you have to
                     <a href="{% url 'account_login' %}"> sign in </a>
                     or <a href="{% url 'account_signup' %}"> sign up</a>.
                 </h2>
             {% endif %}
-            
-            <div class="row no-gutters justify-content-center">
-                {% if request.user.is_authenticated %}
-                    {% for card in cards %}
-                        <div class="col-4">
-                        <!-- If a offering is checked in admin so scaling up the card in size -->
-                        {% if card.offering %}
-                            <div class="cards-content home-desk-card" id="active-card">
-                        {% else %}
-                            <div class="cards-content home-desk-card">
-                        {% endif %}
-
-                                <!-- Card's Duration  -->
-                                <p class="cards-months-length text-uppercase text-center pt-4">
-                                    {{ card.duration }} 
-                                </p>
-
-                                <!-- Card's scale icon -->
-                                <div class="card-scale-img-wrapper">
-                                    <img src="{{ MEDIA_URL }}/img/sm/mb-home-card-scale.png" alt="Scale" >
-                                </div>
-
-                                <!-- Saving -->
-                                <p class="cards-saving mt-2"> 
-                                    Save 
-                                    <span> {{ card.saving }} </span> 
-                                    Euros 
-                                </p>
-
-                                <!-- Price -->
-                                <div class="cards-price">
-                                    <strong> {{ card.price }} </strong>
-                                </div>
-
-                                <!-- Currency -->
-                                <div class="cards-currency">
-                                    <span>{{ card.currency }}</span>
-                                </div>
-
-                                <!-- Card Description -->
-                                <p class="cards-desc mt-3 ml-3 mr-3">{{ card.description }}</p>
-
-                                <!-- A form to submit a price and a stripe price id -->
-                                <form action="{% url 'checkout' %}" method="POST">
-                                    {% csrf_token %}
-                                    
-                                    <input type="hidden" name="price" value="{{ card.price }}">
-                                    <input type="hidden" name="stripe_plan_id" 
-                                        value="{{ card.stripe_plan_id }}">
-                                        
-                                    <!-- Submit button -->
-                                    <div class="cards-choose-btn-wrapper">
-                                        <button type="submit" class="cards-choose-btn
-                                                btn border border-bottom-0 border-success
-                                                text-white font-weight-bolder mb-4">
-                                            Choose
-                                        </button>
-                                    </div>
-                                
-                                </form>    
-
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
         </div>
-
     </section>
-
-     <!-- Subscription cards Section For Tablets and lower devices -->
-    <section class="md-cards container-fluid home-second-section-not-logged-in d-lg-none">
-        <!-- Card's Row -->
-        <div class="row cards-row container-fluid mt-5">
-            <div class="col subsctipsins-cards">
-
-                {% if request.user.is_authenticated %}
-                    <h2 class='cards-page-title titles'>
-                        <i class="far fa-paper-plane titles-icon mr-2"></i>
-                        Choose a payment plan:
-                    </h3>
-
-                    <!-- Card's Tabs -->
-                    <nav class="cards-nav">
-                        <div class="nav nav-tabs cards-menu justify-content-center" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">1 Month</a>
-                            <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">6 Months</a>
-                            <a class="nav-item nav-link last-card-nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">1 Year</a>
-                        </div>
-                    </nav>
-                <!-- END Card's Tabs -->
-                {% else %}
-                    <h2 class="sing-up-in">
-                        <i class="fas fa-exclamation-circle sign-in-up-icon mr-3"></i>
-                        In order to make subscription you have to
-                        <a href="{% url 'account_login' %}"> sign in </a>
-                        or <a href="{% url 'account_signup' %}"> sign up</a>.
-                    </h2>
-                {% endif %}
-
-                <!-- Card Content -->
-                <div class="tab-content bg-white rounded-lg shadow-sm" id="nav-tabContent">
-                   
-                    {% if request.user.is_authenticated %}
-
-                        {% for card in cards %}
-                            
-                            {% if forloop.counter == 2 %}
-                                <div class="tab-pane fade show active" id="{{ card.tab_class }}" role="tabpanel" aria-labelledby="{{ card.tab_aria }}">
-                            {% else %}
-                                <div class="tab-pane fade" id="{{ card.tab_class }}" role="tabpanel" aria-labelledby="{{ card.tab_aria }}">
-                            {% endif %}
-                            
-                                <div class="cards-content">
-                           
-
-                                    <!-- Card's Duration  -->
-                                    <p class="cards-months-length text-uppercase text-center pt-4">
-                                        {{ card.duration }} 
-                                    </p>
-
-                                    <!-- Card's scale icon -->
-                                    <div class="card-scale-img-wrapper">
-                                        <img src="{{ MEDIA_URL }}/img/sm/mb-home-card-scale.png" alt="Scale" >
-                                    </div>
-
-                                    <!-- Saving -->
-                                    <p class="cards-saving mt-2"> 
-                                        Save 
-                                        <span> {{ card.saving }} </span> 
-                                        Euros 
-                                    </p>
-
-                                    <!-- Price -->
-                                    <div class="cards-price">
-                                        <strong> {{ card.price }} </strong>
-                                    </div>
-
-                                    <!-- Currency -->
-                                    <div class="cards-currency">
-                                        <span>{{ card.currency }}</span>
-                                    </div>
-
-                                    <!-- Card Description -->
-                                    <p class="cards-desc mt-3 ml-3 mr-3">{{ card.description }}</p>
-
-                                    <!-- A form to submit a price and a stripe price id -->
-                                    <form action="{% url 'checkout' %}" method="POST">
-                                        {% csrf_token %}
-                                        
-                                        <input type="hidden" name="price" value="{{ card.price }}">
-                                        <input type="hidden" name="stripe_plan_id" 
-                                            value="{{ card.stripe_plan_id }}">
-                                            
-                                        <!-- Submit button -->
-                                        <div class="cards-choose-btn-wrapper">
-                                            <button type="submit" class="cards-choose-btn
-                                                    btn border border-bottom-0 border-success
-                                                    text-white font-weight-bolder mb-4">
-                                                Choose
-                                            </button>
-                                        </div>
-                                    
-                                    </form>    
-
-                                </div>
-
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-
-            </div>
-        </div>
-        <!-- END a Card's Row -->
-    </section>
-
 {% endblock %}

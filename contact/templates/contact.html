@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block contact_js %}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        // Initialing email  JS
-        (function() {
-            emailjs.init("user_EnX9UsPYsH1PcFffE8Bx6");
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"> </script>
+    <script type="text/javascript">
+
+        (function(){
+            emailjs.init("HjAdVXQ7HTPaYLAfm");
         })();
 
         // Email sending function
@@ -30,102 +30,32 @@
 {% endblock %}
 
 {% block content %}
-    <div  class='section-wrapper'>
+    <section class="contact-section">
+        <div  class='section-wrapper sing-in-up'>
+            <form onsubmit="return sendEmail(this)" class="contact-form">
+                <label for="userName">Name</label>
+                <div class="row no-gutters align-items-center">
+                    <input type="text" class="align-middle form-control" 
+                    id="userName" name="userName" value="" required>
+                </div>   
 
-        <!-- Contact's Page Wrapper -->
-        <div class="container-fluid videos-page-wrapper">
-            <!-- Contactategory's Section -->
-            <section class="row">
-
-                <div class="col-12">
-                    <div class="row mb-3">
-
-                        <div class="col-12 pl-0">
-                            <!-- breadcrumb -->
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                                </ol>
-                            </nav>
-                            <!-- END a breadcrumb -->
-                        </div>
-                    </div>
-                </div>    
-
-
-                <!-- Contact  -->
-                <!-- Contact's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
-
-
-                <!-- Contact's Block -->
-                <div class="col-12 bg-white">
-                    <div class="sections-content-wrapper">
-                        <!-- Contact's Title Block -->
-                        <div class="row">
-                            <!-- Title -->
-                            <div class="col-auto">
-                                <h3 class="titles videos-title mr-2">Contact Me</h3>
-                            </div>
-
-                            <!-- Title's Right Line -->
-                            <div class="col align-self-center mt-2 category-names-right-line">
-                                &nbsp;
-                            </div>
-
-                            <!-- Div for right margin -->
-                            <div class="col-1">&nbsp;</div>
-
-                        </div>
-                        <!-- END a Contact's Title Block -->
-
-                        <div class="row mt-3 margin-0">
-                            <!-- Contact Col  -->
-                            <div class="col-12 padding-0 position-relative">
-
-                                <form onsubmit="return sendEmail(this)" class="profile-account-wrapper">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="userName">Name</label>
-                                            <input type="text" class="form-control" id="userName" name="userName" value="" required>
-                                        </div>
-                                    </div>  
-                                    <div class="row mt-2">
-                                        <div class="col">
-                                            <label for="userEmail">Email</label>
-                                            <input type="email" class="form-control" id="nameEmail" name="userEmail" value="" required>
-                                        </div>
-                                    </div>      
-                                    <div class="row mt-2">
-                                        <div class="col">
-                                            <label for="validationTextarea">Message</label>
-                                            <textarea class="form-control" id="validationTextarea" name="contactMessage" required></textarea>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-success btn-block mb-3 mt-4">Send A Message</button>
-                                </form>
-
-                            </div>
-                            <!-- END a Contact Col -->
-                        </div>
-                    </div>
+                <label for="userEmail">Email</label>
+                <div class="row no-gutters align-items-center">
+                    <input type="email" class="form-control" id="nameEmail" 
+                    name="userEmail" value="" required>
                 </div>
-                <!-- END Contact's Block -->
 
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+                <label for="validationTextarea">Message</label>
+                <div class="row no-gutters textarea-wrapper align-items-center">
+                    <textarea class="form-control" id="validationTextarea" 
+                    name="contactMessage" required></textarea>
+                </div>
 
-
-
-            </section>
-            <!-- END a Contact's Section -->
+                <button type="submit" class="btn btn-outline-success btn-lg">
+                    Send A Message
+                </button>          
+            </form>
         </div>
-        <!-- END a Contact's Page Wrapper -->
-        
-    </div>
-
-       
+    </section>
 {% endblock %}
 

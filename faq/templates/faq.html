@@ -1,142 +1,82 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class='section-wrapper'>
-    <!-- FAQ's Page Wrapper -->
-        <div class="container-fluid videos-page-wrapper">
-            <!-- FAQ's Section -->
-            <section class="row">
-
-                <div class="col-12">
-                    <div class="row mb-3">
-
-                        <div class="col-12 pl-0">
-                            <!-- breadcrumb -->
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
-                                </ol>
-                            </nav>
-                            <!-- END a breadcrumb -->
-                        </div>
-
-                    </div>
-                </div>    
-
-
-                <!-- FAQ  -->
-                <!-- Block's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
-
-
-                <!-- FAQ's Block -->
-                <div class="col-12 bg-white">
-                    <div class="sections-content-wrapper">
-                        <!-- FAQ's Title Block -->
-                        <div class="row">
-                            <!-- Title -->
-                            <div class="col-auto">
-                                <h3 class="titles videos-title mr-2">FAQ</h3>
-                            </div>
-
-                            <!-- Title's Right Line -->
-                            <div class="col align-self-center mt-2 category-names-right-line">
-                                &nbsp;
-                            </div>
-
-                            <!-- Div for right margin -->
-                            <div class="col-1">&nbsp;</div>
-
-                        </div>
-                        <!-- END a FAQ's Title Block -->
-
-                        <div class="row mt-4 margin-0">
-                            <!-- FAQ -->
-                            <div class="col-12 padding-0 position-relative">
-                                <!-- FAQ 1 -->
-                                <div class="event-1">
-                                    <p class="events-p mb-3">
-                                        <a class="btn events-title" data-toggle="collapse" href="#event-1" role="button" aria-expanded="false" aria-controls="event-1">
-                                            Anim pariatur cliche...
-                                        </a>
-                                    </p>
-                                    <div class="collapse" id="event-1">
-                                        <div class="card card-body">
-                                            <p>
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a FAQ 1 -->
-
-                                <!-- FAQ 2 -->
-                                <div class="event-2">
-                                    <p class="events-p mb-3">
-                                        <a class="btn events-title" data-toggle="collapse" href="#event-2" role="button" aria-expanded="false" aria-controls="event-2">
-                                            Anim pariatur cliche...
-                                        </a>
-                                    </p>
-                                    <div class="collapse" id="event-2">
-                                        <div class="card card-body">
-                                            <p>
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a FAQ 2 -->
-
-                                <!-- FAQ 3 -->
-                                <div class="event-3">
-                                    <p class="events-p mb-3">
-                                        <a class="btn events-title" data-toggle="collapse" href="#event-3" role="button" aria-expanded="false" aria-controls="event-3">
-                                            Anim pariatur cliche...
-                                        </a>
-                                    </p>
-                                    <div class="collapse" id="event-3">
-                                        <div class="card card-body">
-                                            <p>
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a FAQ 3 -->
-
-                                <!-- FAQ 4 -->
-                                <div class="event-4">
-                                    <p class="events-p mb-3">
-                                        <a class="btn events-title" data-toggle="collapse" href="#event-4" role="button" aria-expanded="false" aria-controls="event-4">
-                                            Anim pariatur cliche...
-                                        </a>
-                                    </p>
-                                    <div class="collapse" id="event-4">
-                                        <div class="card card-body">
-                                            <p>
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END a FAQ 4 -->
-
-                            </div>
-                            <!-- FAQ -->
-                        </div>
+    <!-- FAQ section -->
+    <!-- Div tag for top vertical background -->
+    <div class="faq-section top-and-bottom-block-bg gray-section-top-bg"></div> 
+    <section class="gray-section">
+        <div class="section-wrapper container-fluid">
+            <!-- FAQ Title -->
+            <h3 class="titles pt-2"> 
+                <i class="fas fa-th-list titles-icon mr-2"></i>
+                    <span class="d-none d-md-inline-block">
+                    Frequently Asked Questions
+                </span>
+                <span class="d-md-none"> FAQ </span>
+            </h3>
+            <hr/>
+            
+            <!-- FAQ 1 -->
+            <div class="faq-1 mb-3">
+                <p class="faq-questions-p">
+                    <a class="btn faq-questions" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
+                        What is included in subscription?
+                    </a>
+                </p>
+                <div class="collapse mb-3" id="faq-1">
+                    <div class="card card-body">
+                        In subscription included a access to all videos, events and webinars. 
                     </div>
                 </div>
-                <!-- END FAQ's Block -->
+            </div>
+            <!-- END a FAQ 1 -->
 
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
+            <!-- FAQ 2 -->
+            <div class="faq-2 mb-3">
+                <p class="faq-questions-p">
+                    <a class="btn faq-questions" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-2">
+                        When can I cancel a subscription?
+                    </a>
+                </p>
+                <div class="collapse mb-3" id="faq-2">
+                    <div class="card card-body">
+                        A subscription you can cancell any time.
+                    </div>
+                </div>
+            </div>
+            <!-- END a FAQ 2 -->
 
+            <!-- FAQ 3 -->
+            <div class="faq-3 mb-3">
+                <p class="faq-questions-p">
+                    <a class="btn faq-questions" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-3">
+                        How can I pay?
+                    </a>
+                </p>
+                <div class="collapse mb-3" id="faq-3">
+                    <div class="card card-body">
+                        You can pay with a bank card. 
+                    </div>
+                </div>
+            </div>
+            <!-- END a FAQ 3-->
 
-
-            </section>
-            <!-- END a FAQ's Section -->
+            <!-- FAQ 4 -->
+            <div class="faq-4">
+                <p class="faq-questions-p">
+                    <a class="btn faq-questions" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-4">
+                        May I have private consultation?
+                    </a>
+                </p>
+                <div class="collapse  mb-3" id="faq-4">
+                    <div class="card card-body">
+                        Yes you can have it. In order to have a private consultation you have to contact me at - doctordiana@diasfero.com
+                    </div>
+                </div>
+            </div>
+            <!-- END a FAQ 4 -->
         </div>
-    <!-- END a FAQ's Page Wrapper -->
-    </div>
+    </section>
+    <!-- Div tag for bottom vertical background -->
+    <div class="top-and-bottom-block-bg gray-section-bottom-bg mb-5"></div>
 {% endblock %}
 
