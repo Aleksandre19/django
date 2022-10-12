@@ -1,27 +1,148 @@
 {% extends "base.html" %}
-{% block contact_js %}
+{% block extra_js %}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"> </script>
     <script type="text/javascript">
 
         (function(){
             emailjs.init("HjAdVXQ7HTPaYLAfm");
         })();
+             
+        // Grabbing loading div
+        function getElement() {
+            let elm = document.querySelector(".email-loading-wrapper");
+            return elm;
+        }
+
+        // Show loading icon
+        function startLoading() {
+            let elm = getElement();
+            elm.style.display = "block";
+            elm.style.opacity = "1";
+        }
+
+
+        // Hide loading icon
+        function  finishLoading() {
+            let elm = getElement();
+            elm.style.opacity = "0";
+            elm.addEventListener("transitionend", () => {
+                elm.style.display = "none";
+            });
+        }
+
+        // Text for successfully senf email
+        function successText(elm) {
+            elm.innerHTML = "";
+            elm.innerHTML = "The message has been sent. I will replay shortly.";
+            elm.classList.remove("alert-info");
+            elm.classList.add("alert-success");
+        }
+
+        function failedSendText(elm) {
+            elm.innerHTML = "";
+            elm.innerHTML = "Failed to send email. Please try later.";
+            elm.classList.remove("alert-info");
+            elm.classList.add("alert-danger");
+        }
+
+        // Return back begining styles of message box
+        function returnBackFirstText(elm) {
+
+            // Check which class to remove
+            if (elm.classList.contains("alert-success")) {
+                elm.classList.remove("alert-success");
+            } else {
+                elm.classList.remove("alert-danger");
+            }
+            
+            elm.classList.add("alert-info");
+            elm.innerHTML = "";
+            elm.innerHTML = "Please feel free to ask any question on which you would like to have answer.";
+            
+            clearInputValue();
+        }
+
+
+        // Clear contact's fields
+        function clearInputValue() {
+            document.getElementById("userName").value = "";
+            document.getElementById("nameEmail").value = "";
+            document.getElementById("validationTextarea").value = "";
+
+        } 
+
+        // Get opacity value
+        function getElmOpacity(elm) {
+            elmOpacity = window.getComputedStyle(elm).getPropertyValue("opacity");
+            return elmOpacity;
+        }
+
+        // Hide a email message
+        function hideElm(elm, showElm, msgFunc) {
+            let hideElm = setInterval( () => {
+                elmOpacity = getElmOpacity(elm);
+                if ( elmOpacity > 0){
+                    elm.style.opacity -= 0.1;
+                } else {
+                    elm.style.opacity = "0";
+                    msgFunc(elm);
+                    clearInterval(hideElm);
+                    showElm(elm);
+                }
+            }, 10);
+        }
+
+        // Show a email message
+        function showElm(elm){
+           let showElm = setInterval( () => {
+                elmOpacity = getElmOpacity(elm);
+                if ( elmOpacity < 1){
+                    elm.style.opacity -= "-0.1";
+                } else {
+                    clearInterval(showElm);
+                }
+            }, 10);
+        }
+
+        
+        // Email status messages
+        function emailMessages(msg) {     
+            let elm = document.querySelector(".email-message");
+            hideElm(elm, showElm, msg);
+
+            let timeOut = setTimeout(() => {
+                hideElm(elm, showElm, returnBackFirstText);
+            }, 4000);
+        }
+
+        
 
         // Email sending function
        function sendEmail(contactForm) {
-           // Grabing values from contact form
+
+            // Show loading
+            startLoading();
+
+           // Grab values from contact form
             var templateParams = {
                 from_name: contactForm.userName.value,
                 message: contactForm.contactMessage.value,
                 from_email: contactForm.userEmail.value,
             };
             
-            // Sending email
+            // Send email
             emailjs.send('service_cbdglkc', 'template_5ghvlz6', templateParams)
                 .then(function(response) {
-                    alert('Your email has been sent!',response.status, response.text );
+                    // Display email status message
+                    emailMessages(successText);
+                    // Hide loading
+                    finishLoading();
+                    
                 }, function(error) {
-                    alert('Failed to send email. Please try later', response.status, response.text );
+                    // Display email status message
+                    emailMessages(failedSendText);
+                    // Hide loading
+                    finishLoading();
             });
 
             return false;
@@ -31,7 +152,10 @@
 
 {% block content %}
     <section class="contact-section">
-        <div  class='section-wrapper sing-in-up'>
+        <div  class='section-wrapper contact-form-wrapper sing-in-up'>
+            <div class="email-message alert alert-info" role="alert">
+                Please feel free to ask any question on which you would like to have answer.
+            </div>
             <form onsubmit="return sendEmail(this)" class="contact-form">
                 <label for="userName">Name</label>
                 <div class="row no-gutters align-items-center">
@@ -55,6 +179,10 @@
                     Send A Message
                 </button>          
             </form>
+            <div class="email-loading-wrapper">
+                <img src="{{ MEDIA_URL }}/img/general/email-loading.gif" 
+                    alt="Email Loading" class="email-loading-gif" />
+            </div>
         </div>
     </section>
 {% endblock %}

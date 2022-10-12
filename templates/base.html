@@ -64,13 +64,12 @@
       });
     </script>
 
-    <script>
-      {% block extra_js %}
-      {% endblock %}
-    </script>
+    {% block extra_js %}
+    {% endblock %}
+  
 
     <title>Diasfero {% block extratitle %}{% endblock %}</title>
-    {% block contact_js %} {% endblock %}
+    {% comment %} {% block contact_js %} {% endblock %} {% endcomment %}
   </head>
 
   <body>

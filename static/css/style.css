@@ -949,9 +949,43 @@ nav.colapsing{
     text-align: left;
 }
 
-/* .contact-secstion-wrapper {
-    transform: translateY(0);
-} */
+.contact-form-wrapper {
+    position: relative;
+}
+
+.email-loading-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(200 200 200 / 50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.email-loading-gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-94px, -108px);
+}
+
+.email-message-before {
+    color: #663399;
+    background-color: #efdeff;
+    border-color: #efdeff;
+}
+
+.email-message {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
 
 .contact-form label {
     margin: 10px 0px 0px 0px;
