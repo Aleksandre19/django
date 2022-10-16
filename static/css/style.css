@@ -373,10 +373,10 @@ nav.colapsing{
 .contact-form input:hover,
 .contact-form input:focus,
 .contact-form textarea:hover,
-.contact-form textarea:hover {
+.contact-form textarea:focus {
     font-size: 22px;
     letter-spacing: 1px;
-    border: solid 3px #a180a3;
+    border: solid 2px #a01700;
     background-color: rgba(243, 243, 243, 0.75);
 }
 
@@ -726,7 +726,8 @@ nav.colapsing{
 }
 
 .subs-section,
-.contact-section {
+.contact-section,
+.allauth-page {
     min-height: calc(100% - 548px); /* 240px header height, 211px footer, 50px section top margin */
     -webkit-min-height: calc(100% - 498px);
     -moz-min-height: calc(100% - 498px);
@@ -735,7 +736,8 @@ nav.colapsing{
 
 .subs-section,
 .faq-section,
-.contact-section {
+.contact-section,
+.allauth-page {
     margin-top: 38%;
 }
 
@@ -856,6 +858,71 @@ nav.colapsing{
     font-weight: bold;
 }
 
+.errorlist {
+    color: #a01700;
+}
+
+.allauth-form-wrapper {
+    padding-left: 3% !important;
+    padding-right: 3% !important;
+    width: 95%;
+    text-align: left !important;
+    border: none !important;
+}
+
+
+.allauth-title {
+    text-align: center;
+    font-size: 38px;
+}
+
+.allauth-desk {
+    text-align: center !important;
+    margin-top: 1rem;
+}
+
+.allauth-form-wrapper .form-tag-wrapper form p:last-of-type{
+    margin-bottom: 0;
+}
+
+
+.filled-button {
+    width: 100%;
+    background-color: #81c91e !important;
+    color: white !important;
+    border: 2px solid #71bb0c;
+    transition: background-color .3s ease-out;
+    -webkit-transition: background-color .3s ease-out;
+    -moz-transition: background-color .3s ease-out;
+    -ms-transition: background-color .3s ease-out;
+    -o-transition: background-color .3s ease-out;
+}
+
+.allauth-email-mng-btn {
+    width: 100% !important;
+}
+
+.email-managment-radio {
+    height: 12px !important;
+}
+
+.verified,
+.unverified,
+.primary {
+    font-size: 12px;
+    color: #a01700;
+    font-style: italic;
+}
+
+.attantion {
+    color: #a01700 !important;
+}
+
+.filled-button:hover {
+    background-color: #6baa16 !important;
+}
+
+
 .sing-in-up {
     width: 100%;
     text-align: center;
@@ -871,6 +938,8 @@ nav.colapsing{
     color: #82ca1e;
     font-weight: bold;
 }
+
+
 
 .cards-months-length,
 .cards-saving{
@@ -953,6 +1022,10 @@ nav.colapsing{
     position: relative;
 }
 
+.contact-button:hover {
+    color: white;
+}
+
 .email-loading-wrapper {
     display: none;
     width: 100%;
@@ -1008,9 +1081,12 @@ nav.colapsing{
     min-height: 100px;
 }
 
-.contact-form button {
+.contact-form button,
+.form-tag-wrapper  button {
     display: block;
+    width: 100%;
     margin: auto;
+    margin-top: 0.8rem;
 }
 
 /* Styling a div to create a vertical bg effect for section blocks */
@@ -1502,7 +1578,34 @@ hr.feedback-devider {
     height: 15px;
 }
 
-.primaryAction,
+.form-tag-wrapper {
+    margin-top: 1.5rem;
+}
+
+.form-tag-wrapper input{
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border .3s ease-out;
+}
+
+.form-tag-wrapper input:hover,
+.form-tag-wrapper input:focus,
+.form-tag-wrapper input:focus-visible,
+.form-tag-wrapper input:focus-within {
+    border: solid 2px #a01700;
+    background-color: rgba(243, 243, 243, 0.75);
+}
+
+/* .primaryAction,
 .form-tag-wrapper form button,
 .form-tag-wrapper form input[type=submit]{
     display:block;
@@ -1540,7 +1643,7 @@ hr.feedback-devider {
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
+} */
 
 .account-content-wrappe{
     max-width: 450px;
@@ -1748,7 +1851,8 @@ hr.feedback-devider {
     }
 
     .faq-section,
-    .contact-section {
+    .contact-section,
+    .allauth-page {
         margin-top: 50px;
     }
 
@@ -1766,6 +1870,11 @@ hr.feedback-devider {
         font-size: 24px;
         line-height: 38px;
         padding: 2rem;
+    }
+
+    .allauth-form-wrapper {
+        margin-top: 0;
+        width: 80% !important;
     }
 
 
@@ -2018,6 +2127,10 @@ hr.feedback-devider {
 
     .sing-in-up {
         width: 100%;
+    }
+
+    .allauth-form-wrapper {
+        width: 40% !important;
     }
 
     /* .faq-content {

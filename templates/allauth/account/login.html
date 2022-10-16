@@ -8,94 +8,42 @@
 
 {% block content %}
 
-<div class='section-wrapper'>
+<section class="mt-5 mb-5 allauth-page sing-in-up section-wrapper">
+    <div class="allauth-form-wrapper sing-in-up">
 
-    <!-- Login's Page Wrapper -->
-        <div class="container-fluid videos-page-wrapper">
-            <!-- Login's Section -->
-            <section class="row">
+        <h3 class="allauth-title titles">
+            {% trans "Sign In" %}
+        </h3>
 
-                <div class="col-12">
-                    <div class="row mb-3">
+        <p class="allauth-desk">
+            {% blocktrans %}
+                If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.
+            {% endblocktrans %}
+        </p>
 
-                        <div class="col-12 pl-0">
-                            <!-- breadcrumb -->
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Login</li>
-                                </ol>
-                            </nav>
-                            <!-- END a breadcrumb -->
-                        </div>
-                    </div>
-                </div>    
+        <div class="form-tag-wrapper">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
 
-                <!-- END a Login -->
+                {% csrf_token %}
+                {{ form.as_p }}
 
-                <!-- Login's Top Background -->
-                <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}"
+                    class="form-control" value="{{ redirect_field_value }}" />
+                {% endif %}
 
+                <a class="button secondaryAction"  href="{% url 'account_reset_password' %}">
+                    {% trans "Forgot Password?" %}
+                </a>
 
-                <!-- Login's Block -->
-                <div class="col-12 bg-white">
-                    <div class="account-content-wrappe">
-                        <div class="sections-content-wrapper">
-                            <!-- Login's Title Block -->
-                            <div class="row">
-                                <!-- Title -->
-                                <div class="col-auto">
-                                    <h3 class="titles videos-title mr-2">{% trans "Sign In" %}</h3>
-                                </div>
-
-                                <!-- Title's Right Line -->
-                                <div class="col align-self-center mt-2 category-names-right-line">
-                                    &nbsp;
-                                </div>
-
-                                <!-- Div for right margin -->
-                                <div class="col-1">&nbsp;</div>
-
-                            </div>
-                            <!-- END a Login's Title Block -->
-
-                            <div class="row mt-3 margin-0">
-                                <!-- Login Col  -->
-                                <div class="col-12 padding-0 position-relative">
-
-                                    <p>{% blocktrans %}If you have not created an account yet, then please
-                                    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-                                    <div class="form-tag-wrapper">
-                                    <form class="login" method="POST" action="{% url 'account_login' %}">
-                                        {% csrf_token %}
-                                        {{ form.as_p }}
-                                        {% if redirect_field_value %}
-                                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                        {% endif %}
-                                        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                                        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-                                    </form>
-                                    </div>
-
-                                </div>
-                                <!-- END a Login Col -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Login's Block -->
-
-                <!-- Block's Bottom Background -->
-                <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
-
-
-
-            </section>
-            <!-- END a Login's Section -->
+                <button class="filled-button mt-5 btn btn-outline-success btn-lg" type="submit">
+                    {% trans "Sign In" %}
+                </button>
+                
+            </form>
         </div>
-        <!-- END a Login's Page Wrapper -->
-
-</div>
-
+    </div>
+</section>
 
 {% endblock %}

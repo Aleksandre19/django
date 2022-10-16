@@ -6,81 +6,23 @@
 
 
 {% block content %}
-<div class='section-wrapper'>
-    <!-- Singup Closed's Page Wrapper -->
-    <div class="container-fluid videos-page-wrapper">
-        <!-- Singup Closed's Section -->
-        <section class="row">
+<section class="mt-5 mb-5 allauth-page sing-in-up section-wrapper">
+    <div class="allauth-form-wrapper sing-in-up">
 
-            <div class="col-12">
-                <div class="row mb-3">
+        <h3 class="allauth-title titles">
+            {% trans "Sign Up Closed" %}
+        </h3>
 
-                    <div class="col-12 pl-0">
-                        <!-- breadcrumb -->
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb shadow-sm breadcrumb-activ-link">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Singup Closed</li>
-                            </ol>
-                        </nav>
-                        <!-- END a breadcrumb -->
-                    </div>
-                </div>
-            </div>    
+        <p class="allauth-desk mt-4">
+            {% trans "We are sorry, but the sign up is currently closed." %}
+        </p>
 
-            <!-- END a Singup Closed -->
-
-            <!-- Singup Closed's Top Background -->
-            <div class="top-and-bottom-block-bg blocks-top-bg  playlists-top-bg"> &nbsp; </div>
-
-
-            <!-- Singup Closed's Block -->
-            <div class="col-12 bg-white">
-                <div class="account-content-wrappe">
-                    <div class="sections-content-wrapper">
-                        <!-- Singup Closed's Title Block -->
-                        <div class="row">
-                            <!-- Title -->
-                            <div class="col-auto">
-                                <h3 class="titles videos-title mr-2">{% trans "Sign Up Closed" %}</h3>
-                            </div>
-
-                            <!-- Title's Right Line -->
-                            <div class="col align-self-center mt-2 category-names-right-line">
-                                &nbsp;
-                            </div>
-
-                            <!-- Div for right margin -->
-                            <div class="col-1">&nbsp;</div>
-
-                        </div>
-                        <!-- END a Singup Closed's Title Block -->
-
-                        <div class="row mt-3 margin-0">
-                            <!-- Singup Closed Col  -->
-                            <div class="col-12 padding-0 position-relative">
-                                <div class="form-tag-wrapper">
-                                  <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
-                                </div>
-
-                            </div>
-                            <!-- END a Singup Closed Col -->
-                        </div>
-                    </div>
-                 </div> 
-            </div>
-            <!-- END Singup Closed's Block -->
-
-            <!-- Block's Bottom Background -->
-            <div class="top-and-bottom-block-bg blocks-bottom-bg videos-bottom-bg"> &nbsp; </div>
-
-
-
-        </section>
-        <!-- END a Singup Closed's Section -->
+        <a href="{% url 'home' %}"  class="filled-button mt-5 btn btn-outline-success btn-lg" 
+            type="submit" style="width: 100%">
+            Back To Home Page      
+        </a>
     </div>
-    <!-- END a Singup Closed's Page Wrapper -->
-</div>
+</section>
 {% endblock %}
 
 {% comment %} {% block content %}
