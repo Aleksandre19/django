@@ -62,6 +62,12 @@
       $(window).on("load", function () {
         $(".loading").fadeOut("slow");
       });
+
+      // Initialize tooltip
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
     </script>
 
     {% block extra_js %}
@@ -359,6 +365,13 @@
         let el = document.querySelector( '.desk-header' );
 
         if( page != '' ) {
+
+            // Remove fixed-top to menu when user is loggedin.
+            {% if request.user.is_authenticated %}
+                el.classList.remove("fixed-top");
+                el.style.position = "static";
+            {% endif %}
+
             if ( auth == 'false' && window.innerWidth >= 768 && page == 'home' ) {
                 /* Removing a background image */
                 el.style.backgroundImage = 'none';     
@@ -367,6 +380,7 @@
            if (window.innerWidth >= 576 ) {
                 el.classList.remove("fixed-top");
                 el.style.position = "static";
+  
            }
         }
 

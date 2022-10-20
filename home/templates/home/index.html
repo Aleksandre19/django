@@ -1,144 +1,117 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <!-- IF a user is logged in this section (till 'else') will apear -->
-    {% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated %} <!-- User is authenticated -->
+        
+        <!-- Videos of the day -->
+        <section class="section-wrapper mt-5">
+            <div class="content-wrapper container-fluid">
 
-        <!-- First Section -->
-        <section class="row sm-home-first-section-logged-in h-100 no-gutters">
-            <div class='section-wrapper'>
+                <!--Section title -->
+                <h3 class='example-title titles'>
+                    <i class="fas fa-solid fa-video titles-icon mr-2"></i>
+                    Video<span class="plural d-none d-md-inline-block">s</span> of the day
+                </h3>
 
-                <!-- Video's Block -->
-                {% for new_v in new_video %}
-                    <div class="padding-0 col-12 home-first-section-video-container position-relative">
-                        <!-- Video's Block Title -->
-                        <h3 class="container-fluid text-white mt-5 titles">
-                            <i class="fas fa-video titles-icon pr-2"></i>
-                            {{ new_v.title }}
-                        </h3>
-                        <!-- Video -->
-                        <div class="mt-3 embed-responsive embed-responsive-16by9 position-relatiive">
-
-                            <!-- Video Frame -->
-                            <iframe class="embed-responsive-item" src="{{ new_v.content }}" allowfullscreen></iframe>
-                            <!-- END a Video Frame -->
-
-                            <!-- Action Button's Div -->
-                            <div class="container-for-action-buttons position-absolute">
-                                <div class="row no-gutters">
-                                    <!-- Add To My Lists's Button -->
-                                    <div class="col-12 text-right mb-3">
-                                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ new_v.id }}&action=mylist" 
-                                                class="text-secondary">
-                                            {% if new_v in videos_in_mylist %}
-                                                <i class="added_in_list fas fa-plus-square"></i>
-                                            {% else %}
-                                                <i class="fas fa-plus-square"></i>
-                                            {% endif %}
-                                            
-                                        </a>
-                                    </div>
-                                    <!-- Like's Button -->
-                                    <div class="col-12 text-right mb-3">
-                                            <!-- Checking if a user has already liked current video -->
-                                        {% if new_v in videos_in_likes %}
-                                            <i class="added_in_list fas fa-check"></i>
-                                        {% else %}
-                                            <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ new_v.id }}&action=like" 
-                                                class="text-secondary">
-                                                <i class="far fa-thumbs-up"></i>
-                                            </a>
-                                        {% endif %}
-                                        
-                                    
-                                        <!-- Displaying a total likes -->
-                                        <small class="text-secondary action-buttons-value">   
-                                            {% if new_v.liked == None %}
-                                                ( 0 )
-                                            {% else %}
-                                            (+ {{ new_v.liked }} )
-                                            {% endif %}
-                                        </small>
-                                    </div>
-                                    <!-- Views Button -->
-                                    <div class="col-12 text-right">
-                                        <a href="#" class="text-secondary">
-                                            <i class="far fa-eye"></i>
-                                        </a><small class="text-secondary action-buttons-value">(247)</small>
-                                    </div>
-                                </div>
+                <!-- Video content -->
+                <div class="row no-gutters example-video-wrapper mt-4 justify-content-center" >
+                    {% for day_video in day_videos %}  
+                        {% if forloop.counter == 1 %} 
+                            <div class="col-12 col-md-4">
+                        {% else %}
+                            <div class="col-4 d-none d-md-block">
+                        {% endif %}
+                            <!-- Video -->
+                            <div class="embed-responsive embed-responsive-16by9 position-relative ">                           
+                                <iframe class="embed-responsive-item" src="{{ day_video.content }}" allowfullscreen></iframe>                          
                             </div>
-                            <!-- END a Action's Buttons Div -->
 
-                        </div>
-                        <!-- END a Video -->
-                    </div>
-                {% endfor %}
-                <!-- END a Video's Block -->
+                            <!-- Video's Description -->
+                            <div class="card-bg card position-relative">
+                                <p class="container-fluid mt-3 position-relative">           
+                                    {{ day_video.description }}   
+                                <p>
+                            </div>
 
-                <!-- Event's Block -->
-                <div class="padding-0 col-12 home-first-section-event-container">
-                    <h3 class="container-fluid mt-5 md-title titles text-white d-none d-lg-block"><i class="fas fa-redo-alt titles-icon pr-3"></i>Upcoming Event</h3>
-                    <div class="upcoming-wrapper">
-                        <div class="row no-gutters uppcoming-row">
-                            <div class="col-12 col-lg-6 md-event-desc">
-                                <!-- Event's Title -->
-                                <h3 class="container-fluid md-title upcoming-title titles text-white"><i class="fas fa-calendar-day titles-icon pr-3 d-lg-none"></i>Summery of the year 2020</h3>
-                                <!-- Event's Description -->
-                                <p class="container-fluid event-desc text-white">During this event I will summarize generally a healthcare situation in 2020.</p>
-                            </div>
-                            <!-- Timer's Block -->
-                            <div class="col-12 col-lg-6 align-self-center">
-                                <table class="table table-borderless">
-                                    <!-- Time -->
-                                    <thead class="timer event-table-head">
-                                        <tr>
-                                            <td id="days">23 :</td>
-                                            <td id="houres">24 :</td>
-                                            <td id="minutes">14 :</td>
-                                            <td id="seconds">06</td>
-                                        </tr>
-                                    </thead> 
-                                    <script>
-                            
-                                        diasferoTimer(new Date("Oct 28, 2021 15:37:25").getTime());
-                                
-                                    </script>
-                                    <!-- END a Time --> 
-                                    <!-- Time's Units -->
-                                    <tbody class="text-white font-italic text-left small event-table-body">
-                                        <tr>
-                                            <td class="pr-3">Days</td>
-                                            <td class="pr-4">Houres</td>
-                                            <td class="pr-4">Minutes</td>
-                                            <td>Seconds</td>
-                                        </tr>
-                                    </tbody>  
-                                    <!-- END a Time's Unites -->
-                                </table>
-                            </div>
-                            <!-- END a Timer's Block -->
-                        </div>
-                    </div>    
+                        </div>  
+                    {% endfor %}
+
                 </div>
-                <!-- END a Event's Block -->
             </div>
         </section>
-        <!-- END a First Section -->
+
+        <!-- Uppcoming event -->
+        <section class="section-wrapper mt-5">
+            <div class="content-wrapper container-fluid">
+                
+                <h3 class="example-title titles">
+                    <i class="fas fa-redo-alt titles-icon pr-3"></i>
+                    Upcoming Event
+                </h3>
+
+                <div class="row mt-4 no-gutters uppcoming-row">
+                    <div class="col-12 col-lg-6 md-event-desc">
+
+                        <!-- Event's Title -->
+                        <h3 class="ml-3 pt-3 event-title example-title titles">
+                            Summery of the year 2020
+                        </h3>
+
+                        <!-- Event's Description -->
+                        <p class="mt-3 ml-1 container-fluid">
+                            During this event I will summarize generally 
+                            a healthcare situation in 2020.
+                            Before a 24 hours of event's start you as a subscriber will 
+                            recive a link on your email to join the event.
+                        </p>
+
+                    </div>
+
+                    <!-- Timer's Block -->
+                    <div class="col-12 col-lg-6 align-self-center">
+                        <table class="table table-borderless">
+                            <!-- Time -->
+                            <thead class="timer event-table-head">
+                                <tr>
+                                    <td id="days">23 :</td>
+                                    <td id="houres">24 :</td>
+                                    <td id="minutes">14 :</td>
+                                    <td id="seconds">06</td>
+                                </tr>
+                            </thead> 
+                    
+                            <!-- Time's Units -->
+                            <tbody class="text-white font-italic text-left small event-table-body">
+                                <tr>
+                                    <td class="pr-3">Days</td>
+                                    <td class="pr-4">Houres</td>
+                                    <td class="pr-4">Minutes</td>
+                                    <td>Seconds</td>
+                                </tr>
+                            </tbody>  
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
+        <!-- Top slanted line bg -->
+        <div class="top-and-bottom-block-bg gray-section-top-bg mt-5"></div>
 
         <!-- My List Section -->
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg gray-section-top-bg mt-3"></div>
         <section class="row no-gutters gray-section">
+            <div class="col-12">
+                <div class='section-wrapper'>
 
-            <div class='section-wrapper'>
-                <div class="lg-col col-12 padding-0">
-                    <h3 class="container-fluid titles mt-4"><i class="fas fa-th-list titles-icon pr-2"></i> My List</h3>
+                    <h3 class="container-fluid titles mt-4">
+                        <i class="fas fa-th-list titles-icon pr-2"></i>
+                        My List
+                    </h3>
                     <hr class="video-title-devider">
-                    <div class='row no-gutters'>
 
+                    <div class='row no-gutters'>
                         <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
                             <a href='#' class='desk-video-switchwer' data-direction='left' id='left'>
                                 <i class="fas fa-chevron-left"></i>
@@ -148,77 +121,81 @@
                         <div class='col-12 col-lg-10'>
                             <div class="video-slider-owerflow-hidden" id="my-list">
                                 <div class="sliders-container">
+
                                     <!-- Looping a MyList videos by user -->
                                     {% for mylist_video in mylist_videos %}
                                         {% for video in videos %}
                                             {% if mylist_video.video == video %}
+
                                                 <div class="slide">
                                             
                                                     <!-- Title  -->
-                                                    <h3 class="pl-3 mt-2"> 
-                                                        <a href="{% url 'single_video' video.id %}" class="video-title "> {{ video.title }} </a>
+                                                    <h3 class="mt-2 bycat-title"> 
+                                                        <a href="{% url 'single_video' video.id %}" class="video-title ">
+                                                             {{ video.title }} 
+                                                        </a>
                                                     </h3>
-
-                                                    <!-- Video 1 -->
-                                                    <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
                                                         
-                                                        <!-- Video's Frame -->
+                                                    <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
+
+                                                        <!-- Vidoe frame -->
                                                         <iframe class="embed-responsive-item" src="{{ video.content }}" allowfullscreen></iframe>
                             
+                                                        <!-- Action Button -->
+                                                        <div class="action-buttons-container">
 
-                                                        <!-- Action Button's Div -->
-                                                        <div class="container-for-action-buttons position-absolute">
-                                                            <div class="row no-gutters">
-                                                                <!-- Add To My Lists's Button -->
-                                                                <div class="col-12 text-right mb-3">
-                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist" 
-                                                                            class="text-secondary">
-                                                                        {% if video == mylist_video.video %}
-                                                                            <i class="added_in_list fas fa-plus-square"></i>
-                                                                        {% else %}
-                                                                            <i class="fas fa-plus-square"></i>
-                                                                        {% endif %}
-                                                                        
-                                                                    </a>
-                                                                </div>
-                                                                <!-- Like's Button -->
-                                                                <div class="col-12 text-right mb-3">
-                                                                    <!-- Checking if a user has already liked current video -->
-                                                                    {% if video in videos_in_likes %}
-                                                                        <i class="added_in_list fas fa-check"></i>
+                                                            <!--  Add to my list -->
+                                                            <div class="action-button" data-bs-toggle="tooltip" 
+                                                                 data-bs-placement="top" title="My List">
+                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist">
+                                                                    
+                                                                    {% if video == mylist_video.video %}
+                                                                        <i class="added_in_list fas fa-plus-square"></i>
                                                                     {% else %}
-                                                                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
-                                                                            class="text-secondary">
-                                                                            <i class="far fa-thumbs-up"></i>
-                                                                        </a>
+                                                                        <i class="fas fa-plus-square"></i>
                                                                     {% endif %}
                                                                     
-                                                                
-                                                                    <!-- Displaying a total likes -->
-                                                                    <small class="text-secondary action-buttons-value">   
-                                                                        {% if video.liked == None %}
-                                                                            ( 0 )
-                                                                        {% else %}
-                                                                        (+ {{ video.liked }} )
-                                                                        {% endif %}
-                                                                    </small>
-                                                                </div>
-                                                                <!-- Views Button -->
-                                                                <div class="col-12 text-right">
-                                                                    <a href="#" class="text-secondary">
-                                                                        <i class="far fa-eye"></i>
-                                                                    </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                                </div>
+                                                                </a>
                                                             </div>
+                                                            
+                                                            <!-- Like -->
+                                                            <div class="action-button" data-bs-toggle="tooltip" 
+                                                                 data-bs-placement="top" title="Like">
+                                                                <!-- Checking if a user has already liked current video -->
+                                                                {% if video in videos_in_likes %}
+                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                {% else %}
+                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
+                                                                        class="">
+                                                                        <i class="far fa-thumbs-up"></i>
+                                                                    </a>
+                                                                {% endif %}
+                                                                <!-- Total likes -->
+                                                                <small class=" action-buttons-value">   
+                                                                    {% if video.liked == None %}
+                                                                        ( 0 )
+                                                                    {% else %}
+                                                                        (+ {{ video.liked }} )
+                                                                    {% endif %}
+                                                                </small>
+                                                            </div>
+
+                                                            <!-- Watched -->
+                                                            <div class="watched-value action-button" data-bs-toggle="tooltip" 
+                                                                 data-bs-placement="top" title="Watched">
+                                                                <a href="#">
+                                                                    <i class="far fa-eye"></i>
+                                                                </a><small class="action-buttons-value">(247)</small>
+                                                            </div>
+
                                                         </div>
-                                                        <!-- END a Action's Buttons Div -->  
+                                                       
                                                     </div>
 
                                                     <!-- Video's Description -->
                                                     <p class="container-fluid mt-3 position-relative">
                                                         {{ video.description }}
                                                     <p>
-                                                    <!-- END a Video's Description -->
             
                                                 </div>
                                             {% endif %}
@@ -233,109 +210,78 @@
                                 <i class="fas fa-chevron-right"></i>
                             </a>
                         </div>
+                    </div>
+
                 </div>
             </div>
-
         </section>
-        <!-- Div tag for top  background -->
+
+        <!-- Bottom slanted line bg -->
         <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
-        <!-- END a My List Section -->
+         
+        <!-- Sections by categories -->
+        {% for category in categories %}
 
-
-
-        <!-- Calendar Section -->
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg calendar-blocks-top-bg mt-3"></div>
-        <section class="row no-gutters bg-white">
-
-            <div class='section-wrapper'>
+            <!-- Top slanted line bg -->
+            {% if forloop.counter0|divisibleby:2 %}
+                <div class="top-and-bottom-block-bg white-section-top-bg"></div>
+                <section class="row no-gutters bg-white">
+            {% else %}
+                <div class="top-and-bottom-block-bg gray-section-top-bg"></div>
+                <section class="row no-gutters gray-section">
+            {% endif %}
                 <div class="col-12">
-                    <h3 class="container-fluid titles mt-4"><i class="titles-icon far fa-clock pr-2"></i> Upcoming Events </h3>
-                    <hr class="video-title-devider">
-                    <div class="container-fluid table-responsive text-left">
-                            <!-- Calendar Title -->  
-                            <div class="row container-fluid no-gutters">
-                                <!-- Calendar Switcher -->
-                                <div class="col-12 mt-2 mb-2">
-                                    <i class="fas fa-angle-left switch-to-prev-month mr-4"></i>
-                                    <span class="showen-month">February</span>
-                                    <i class="fas fa-angle-right switch-to-next-month ml-4"></i>
-                                </div>
-                                <!-- END a Calendar Switcher -->
-
-                            </div>
-                            <!-- END a Calendar Title -->  
-                            <div class="calendar">
-                                <div class="weekdays">
-                                    <div>Sun</div>
-                                    <div>Mon</div>
-                                    <div>Tue</div>
-                                    <div>Wed</div>
-                                    <div>Thu</div>
-                                    <div>Fri</div>
-                                    <div>Sat</div>
-                                </div>
-                                <div class="days">
-                                    <!-- Here come days from javascript -->
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-            </div>
-
-        </section>
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div>
-        <!-- END a Calendar Section -->
-
-
-        <!-- Videos By Anatomy Section -->
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg white-section-top-bg mt-3"></div>
-        <section class="row no-gutters bg-white">
-
-            <div class='section-wrapper'>
-                <div class="lg-col col-12 padding-0">
-                    <h3 class="container-fluid titles mt-4">
-                        <img src="{{ MEDIA_URL }}/icons/anatomy-icon.png" width="45px" class="pr-2" alt="Anatomy's Icon">
-                        Videos By <span class="highlight-blocks-subject">Anatomy</span>
-                    </h3>
-                    <hr class="video-title-devider">
-                    <div class='row no-gutters'>
-
-                        <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer cont-watching' data-direction='left' id='left'>
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-
-                        <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="anatomy">
-                                <div class="sliders-container">
-                                    {% for video_by_category in videos_by_categories %}
-                                        {% if video_by_category.category.name == 'anatomy' %}
-                                            <div class="slide">
-                                            
-                                                <!-- Title  -->
-                                                <h3 class="pl-3 mt-2"> 
-                                                    <a href="{% url 'single_video' video_by_category.id %}" class="video-title "> {{ video_by_category.title }} </a>
-                                                </h3>
-
-                                                <!-- Video 1 -->
-                                                <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                                    
-                                                    <!-- Video's Frame -->
-                                                    <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" allowfullscreen></iframe>
+                    <div class='section-wrapper'>
                         
+                        <!-- Category title -->
+                        <h3 class="container-fluid titles mt-4">
+                            <img src="{{ MEDIA_URL }}/icons/{{category.name}}-icon.png" 
+                            width="45px" class="pr-2" alt="Anatomy's Icon">
+                            {{ category.name }}
+                        </h3>
+                        <hr class="video-title-devider">
 
-                                                    <!-- Action Button's Div -->
-                                                    <div class="container-for-action-buttons position-absolute">
-                                                        <div class="row no-gutters">
-                                                            <!-- Add To My Lists's Button -->
-                                                            <div class="col-12 text-right mb-3">
-                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist" 
-                                                                        class="text-secondary">
+                        <div class='row no-gutters'>
+
+                            <!-- Slider left arrow -->
+                            <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
+                                <a href='#' class='desk-video-switchwer' data-direction='left' id='left'>
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                            </div>
+
+                            <!-- Sliders area -->
+                            <div class='col-12 col-lg-10'>
+                                <div class="video-slider-owerflow-hidden" id="{{ category.name.lower }}">
+                                    <div class="sliders-container">
+                                        {% for video_by_category in videos_by_categories %}
+                                            {% if video_by_category.category.name == category.name %}
+
+                                                <!-- Slide -->
+                                                <div class="slide">
+                                                    
+                                                    <!-- Single video title -->
+                                                    <h3 class="mt-2 bycat-title"> 
+                                                        <a href="{% url 'single_video' video_by_category.id %}" 
+                                                            class="video-title "> {{ video_by_category.title }} 
+                                                        </a>
+                                                    </h3>
+                                                        
+                                                    <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">             <!-- Video's Frame -->
+                                                        
+                                                        <!-- Video frame -->
+                                                        <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" 
+                                                                allowfullscreen>
+                                                        </iframe>
+                            
+                                                        <!-- Action Buttons -->
+                                                        <div class="action-buttons-container">
+
+                                                            <!--  Add to my list -->
+                                                            <div class="action-button" data-bs-toggle="tooltip" 
+                                                                data-bs-placement="top" title="My List">
+                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist">
+                                                                    
                                                                     {% if video_by_category in videos_in_mylist %}
                                                                         <i class="added_in_list fas fa-plus-square"></i>
                                                                     {% else %}
@@ -344,360 +290,86 @@
                                                                     
                                                                 </a>
                                                             </div>
-                                                            <!-- Like's Button -->
-                                                            <div class="col-12 text-right mb-3">
+                                                            
+                                                            <!-- Like -->
+                                                            <div class="action-button" data-bs-toggle="tooltip" 
+                                                                data-bs-placement="top" title="Like">
+
                                                                 <!-- Checking if a user has already liked current video -->
                                                                 {% if video_by_category in videos_in_likes %}
                                                                     <i class="added_in_list fas fa-check"></i>
                                                                 {% else %}
                                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
-                                                                        class="text-secondary">
+                                                                        class="">
                                                                         <i class="far fa-thumbs-up"></i>
                                                                     </a>
                                                                 {% endif %}
                                                                 
                                                             
-                                                                <!-- Displaying a total likes -->
-                                                                <small class="text-secondary action-buttons-value">   
+                                                                <!-- Total like -->
+                                                                <small class=" action-buttons-value">   
                                                                     {% if video_by_category.liked == None %}
                                                                         ( 0 )
                                                                     {% else %}
-                                                                    (+ {{ video_by_category.liked }} )
+                                                                        (+ {{ video_by_category.liked }} )
                                                                     {% endif %}
                                                                 </small>
                                                             </div>
-                                                            <!-- Views Button -->
-                                                            <div class="col-12 text-right">
-                                                                <a href="#" class="text-secondary">
+
+                                                            <!-- Watched -->
+                                                            <div class="watched-value action-button" data-bs-toggle="tooltip" 
+                                                                data-bs-placement="top" title="Watched">
+                                                                <a href="#">
                                                                     <i class="far fa-eye"></i>
-                                                                </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                            </div>
+                                                                </a><small class="action-buttons-value">(247)</small>
+                                                            </div>   
                                                         </div>
                                                     </div>
-                                                    <!-- END a Action's Buttons Div -->  
+
+                                                    <!-- Video's Description -->
+                                                    <p class="container-fluid mt-3 position-relative">
+                                                        {{ video_by_category.description }}
+                                                    <p>
+            
                                                 </div>
-
-                                                <!-- Video's Description -->
-                                                <p class="container-fluid mt-3 position-relative">
-                                                    {{ video_by_category.description }}
-                                                <p>
-                                                <!-- END a Video's Description -->
-        
-                                            </div>
-                                        {% endif %}
-                                    {%  endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer float-right' data-direction='right' id='right'>
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg white-section-bottom-bg"></div>
-        <!-- END a Videos By Anatomy Section -->
-        
-
-        <!-- Feedback's Section -->
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg green-section-top-bg mt-3"></div>
-        <section class="row no-gutters green-section">
-
-            <div class='section-wrapper'>
-                <div class="col-12 ">
-                    <h3 class="container-fluid titles text-white mt-4">
-                        <i class="far fa-comments text-white titles-icon pr-2"></i> <span class='text-white'>Last Feedback</span>
-                    </h3>
-                    <hr class="feedback-devider">
-                    <div class="feedbacks-content-wrapper">
-                            <div class="row container-fluid no-gutters feedbacks-row">
-                                <!-- User's Avatar -->
-                                <div class="col-3 feedback-avatar-col">
-                                    <img src="{{ MEDIA_URL }}/img/general/avatar/feedback-avatar.jpg" class="rounded-circle mt-3 feedbacks-avatar" alt="Feedback's Avatar">
-                                </div>
-                                <!-- END a User's Avatar-->
-                                <div class="col-9 feedback-text-col">
-                                    <!-- Feedback's text -->
-                                        <blockquote class="blockquote text-black font-weight-bold feedbacks-text mt-2 align-middle">
-                                            <p class="pl-2">
-                                                {{ feedback.text }}
-                                            </p>
-                                        </blockquote>
-                                    <!-- END a feedback's text -->
-                                </div>
-                                <div class="col-12 text-white mt-2">
-                                    <div class="row">
-                                        <!-- User's name -->
-                                        <div class="col-6">
-                                            <p class="small font-weight-lighter font-italic">{{ feedback.user.username }}</p>
-                                        </div>
-                                        <!-- Feedback's Date -->
-                                        <div class="col-6">
-                                            <p class="small font-weight-lighter font-italic text-right">{{ feedback.date }}</p>
-                                        </div> 
+                                            {% endif %}
+                                        {% endfor %}
                                     </div>
-                                    </div> 
+                                </div>
                             </div>
+                            
+                            <!-- Slider right arrow-->
+                            <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
+                                <a href='#' class='desk-video-switchwer float-right' data-direction='right' id='right'>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-        </section>
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg green-section-bottom-bg"></div>
-        <!-- END a Feedback's Section -->
-
-
-
-        <!-- Vidoe's by Diseases Section -->
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg calendar-blocks-top-bg mt-3"></div>
-        <section class="row no-gutters bg-white">
-            
-            <div class='section-wrapper'>
-                <div class="lg-col col-12 padding-0">
-                    <h3 class="container-fluid titles mt-4">
-                        <img src="{{ MEDIA_URL }}/icons/diseases-icon.png" width="45px" class="pr-1" alt="Diseases's Icon"> Videos By 
-                        <span class="highlight-blocks-subject">Diseases</span>
-                    </h3>
-                    <hr class="video-title-devider">
-                    <div class='row no-gutters'>
-
-                        <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer cont-watching' data-direction='left' id='left'>
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-
-                        <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="disieases">
-                                <div class="sliders-container">
-                                    {% for video_by_category in videos_by_categories %}
-                                        {% if video_by_category.category.name == 'disieases' %}
-                                            <div class="slide">
-                                            
-                                                <!-- Title  -->
-                                                <h3 class="pl-3 mt-2"> 
-                                                    <a href="{% url 'single_video' video_by_category.id %}" class="video-title "> {{ video_by_category.title }} </a>
-                                                </h3>
-
-                                                <!-- Video 1 -->
-                                                <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                                    
-                                                    <!-- Video's Frame -->
-                                                    <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" allowfullscreen></iframe>
-                        
-
-                                                    <!-- Action Button's Div -->
-                                                    <div class="container-for-action-buttons position-absolute">
-                                                        <div class="row no-gutters">
-                                                            <!-- Add To My Lists's Button -->
-                                                            <div class="col-12 text-right mb-3">
-                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist" 
-                                                                        class="text-secondary">
-                                                                    {% if video_by_category in videos_in_mylist %}
-                                                                        <i class="added_in_list fas fa-plus-square"></i>
-                                                                    {% else %}
-                                                                        <i class="fas fa-plus-square"></i>
-                                                                    {% endif %}
-                                                                    
-                                                                </a>
-                                                            </div>
-                                                            <!-- Like's Button -->
-                                                            <div class="col-12 text-right mb-3">
-                                                                <!-- Checking if a user has already liked current video -->
-                                                                {% if video_by_category in videos_in_likes %}
-                                                                    <i class="added_in_list fas fa-check"></i>
-                                                                {% else %}
-                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
-                                                                        class="text-secondary">
-                                                                        <i class="far fa-thumbs-up"></i>
-                                                                    </a>
-                                                                {% endif %}
-                                                                
-                                                            
-                                                                <!-- Displaying a total likes -->
-                                                                <small class="text-secondary action-buttons-value">   
-                                                                    {% if video_by_category.liked == None %}
-                                                                        ( 0 )
-                                                                    {% else %}
-                                                                    (+ {{ video_by_category.liked }} )
-                                                                    {% endif %}
-                                                                </small>
-                                                            </div>
-                                                            <!-- Views Button -->
-                                                            <div class="col-12 text-right">
-                                                                <a href="#" class="text-secondary">
-                                                                    <i class="far fa-eye"></i>
-                                                                </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END a Action's Buttons Div -->  
-                                                </div>
-
-                                                <!-- Video's Description -->
-                                                <p class="container-fluid mt-3 position-relative">
-                                                    {{ video_by_category.description }}
-                                                <p>
-                                                <!-- END a Video's Description -->
+            <!-- Bottom slanted line bg -->
+            {% if forloop.counter0|divisibleby:2 %}
+                <div class="top-and-bottom-block-bg white-section-bottom-bg"></div>
+            {% else %}
+                 <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
+            {% endif %}
+        {% endfor %}
         
-                                            </div>
-                                        {% endif %}
-                                    {%  endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer float-right' data-direction='right' id='right'>
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                </div>
-            </div>
-
-        </section>
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg calendar-blocks-bottom-bg"></div>
-        <!-- END a Videos by Diseases Section -->
-
-
-
-        <!-- Vidoe's by Subject Section -->
-        <!-- Div tag for top background -->
-        <div class="top-and-bottom-block-bg gray-section-top-bg-2 mt-3"></div>
-        <section class="row no-gutters gray-section">
-
-            <div class='section-wrapper'>
-                <div class="lg-col col-12 padding-0">
-                    <h3 class="container-fluid titles mt-4">
-                        <img src="{{ MEDIA_URL }}/icons/subjects-icon.png" width="45px" class="pr-2" alt="Subjects's Icon"> Videos By 
-                        <span class="highlight-blocks-subject">Subjects</span>
-                    </h3>
-                    <hr class="video-title-devider">
-                    <div class='row no-gutters'>
-
-                        <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer cont-watching' data-direction='left' id='left'>
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-
-                        <div class='col-12 col-lg-10 padding-0'>
-                            <div class="video-slider-owerflow-hidden" id="subject">
-                                <div class="sliders-container">
-                                    {% for video_by_category in videos_by_categories %}
-                                        {% if video_by_category.category.name == 'subject' %}
-                                            <div class="slide">
-                                            
-                                                <!-- Title  -->
-                                                <h3 class="pl-3 mt-2"> 
-                                                    <a href="{% url 'single_video' video_by_category.id %}" class="video-title "> {{ video_by_category.title }} </a>
-                                                </h3>
-
-                                                <!-- Video 1 -->
-                                                <div class="embed-responsive embed-responsive-16by9 position-relative mt-4">
-                                                    
-                                                    <!-- Video's Frame -->
-                                                    <iframe class="embed-responsive-item" src="{{ video_by_category.content }}" allowfullscreen></iframe>
-                        
-
-                                                    <!-- Action Button's Div -->
-                                                    <div class="container-for-action-buttons position-absolute">
-                                                        <div class="row no-gutters">
-                                                            <!-- Add To My Lists's Button -->
-                                                            <div class="col-12 text-right mb-3">
-                                                                <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist" 
-                                                                        class="text-secondary">
-                                                                    {% if video_by_category in videos_in_mylist %}
-                                                                        <i class="added_in_list fas fa-plus-square"></i>
-                                                                    {% else %}
-                                                                        <i class="fas fa-plus-square"></i>
-                                                                    {% endif %}
-                                                                    
-                                                                </a>
-                                                            </div>
-                                                            <!-- Like's Button -->
-                                                            <div class="col-12 text-right mb-3">
-                                                                <!-- Checking if a user has already liked current video -->
-                                                                {% if video_by_category in videos_in_likes %}
-                                                                    <i class="added_in_list fas fa-check"></i>
-                                                                {% else %}
-                                                                    <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
-                                                                        class="text-secondary">
-                                                                        <i class="far fa-thumbs-up"></i>
-                                                                    </a>
-                                                                {% endif %}
-                                                                
-                                                            
-                                                                <!-- Displaying a total likes -->
-                                                                <small class="text-secondary action-buttons-value">   
-                                                                    {% if video_by_category.liked == None %}
-                                                                        ( 0 )
-                                                                    {% else %}
-                                                                    (+ {{ video_by_category.liked }} )
-                                                                    {% endif %}
-                                                                </small>
-                                                            </div>
-                                                            <!-- Views Button -->
-                                                            <div class="col-12 text-right">
-                                                                <a href="#" class="text-secondary">
-                                                                    <i class="far fa-eye"></i>
-                                                                </a><small class="text-secondary action-buttons-value">(247)</small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END a Action's Buttons Div -->  
-                                                </div>
-
-                                                <!-- Video's Description -->
-                                                <p class="container-fluid mt-3 position-relative">
-                                                    {{ video_by_category.description }}
-                                                <p>
-                                                <!-- END a Video's Description -->
-        
-                                            </div>
-                                        {% endif %}
-                                    {%  endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer float-right' data-direction='right' id='right'>
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                </div>
-            </div>
-
-        </section>
-        <!-- Div tag for top  background -->
-        <div class="top-and-bottom-block-bg gray-section-bottom-bg-2"></div>
-        <!-- END a Videos by Subject Section -->
-        
-        <div class="div-for-bottom-margin"> &nbsp; </div>
+        <div class="div-for-bottom-margin"> &nbsp; </div> 
 
         <!-- Scripts related to this sections -->
         <script src="{% static 'js/slider.js' %}"></script>
-        <script src="{% static 'js/calendar.js' %}"></script>
+        {% comment %} <script src="{% static 'js/calendar.js' %}"></script> {% endcomment %}
         <script>
             // Initialing a calendar's function
-            diasferoTimer(new Date("May 5, 2022 15:37:25").getTime());
-            calendarInit(eventday, eventLink);
+            diasferoTimer(new Date("Dec 15, 2022 15:37:25").getTime());
         </script>
 
-    {% else %}
-    
+    {% else %} <!-- User in not authenticated -->
+        
         <!-- Hero section --> 
         <section class="h-100 hero-section">
             <div class="row h-100 hero-section-content no-gutters">
@@ -758,7 +430,7 @@
                             </div>
 
                             <!-- Video's Description -->
-                            <div class="card position-relative">
+                            <div class="card-bg card position-relative">
                                 <p class="container-fluid mt-3 position-relative">           
                                     {{ welcoming_video.description }}   
                                 <p>
@@ -925,12 +597,13 @@
                     </div>   
                 </div>
             </div>
-
         </section>
 
-        <!-- FAQ section -->
-        <!-- Div tag for top vertical background -->
+        
+        <!-- Top slanted line bg -->
         <div class="top-and-bottom-block-bg gray-section-top-bg"></div> 
+
+        <!-- FAQ section -->
         <section class="gray-section">
             <div class="section-wrapper container-fluid">
                 <!-- FAQ Title -->
@@ -1004,7 +677,8 @@
                 <!-- END a FAQ 4 -->
             </div>
         </section>
-        <!-- Div tag for bottom vertical background -->
+
+        <!-- Bottom slanted line bg -->
         <div class="top-and-bottom-block-bg gray-section-bottom-bg mb-5"></div>
 
     {% endif %}

@@ -42,8 +42,21 @@
             <div class='col-9 bg-white p-5'>
             
                 <ul class="list-group">
-                    <li class="list-group-item"><a href="{% url 'account_email' %}" >Manage Email</a></li>
-                    <li class="list-group-item"><a href="{% url 'account_reset_password' %}" >Reset Password</a></li>
+                    <li class="list-group-item">
+                        <a href="{% url 'account_email' %}" >
+                            Manage Email
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'account_change_password' %}" >
+                            Change Password
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'account_reset_password' %}" >
+                            Reset Password
+                        </a>
+                    </li>
                 </ul>
 
 

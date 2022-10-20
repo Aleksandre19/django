@@ -29,7 +29,7 @@ def index(request):
             categories = Category.objects.all()
 
             # Requiring a new video for home page ( Logged In User )
-            new_video = Videos.objects.filter(new_video=True)[:1]
+            day_videos = Videos.objects.filter(new_video=True)[:3]
 
             # Requiring videos from MyList module by user
             mylist_videos = MyList.objects.filter(user=request.user)
@@ -47,7 +47,7 @@ def index(request):
             for category in categories:
                 categories_list.append(category.name)
                 context = {
-                    'new_video': new_video,
+                    'day_videos': day_videos,
                     'categories': categories,
                     'videos_by_categories': get_videos_by_category(request, categories_list,
                                                                    Category, without_get=True) if request.user.is_authenticated else None,
