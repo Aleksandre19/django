@@ -1746,7 +1746,7 @@ hr.feedback-devider {
     transform: scale(0.9);
 }
 
-.swipe-icon{
+/* .swipe-icon{
     top: -27px;
     left: 50%;
     margin-left: -65px;
@@ -1761,6 +1761,16 @@ hr.feedback-devider {
 .show-swiping{
     opacity: 0.3;
     transition: opacity 0.6s ease-in-out;
+} */
+
+.swipe-container {
+    text-align: right;
+}
+
+.mb-swipe-icon {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
 }
 
 .uppcoming-row {
@@ -1923,6 +1933,10 @@ hr.feedback-devider {
 
     .bycat-title {
         padding-left: 0;
+    }
+
+    .swipe-container {
+        padding-right: 30px !important;
     }
 
 
@@ -2335,6 +2349,11 @@ hr.feedback-devider {
 
     .slide{
         width: calc((100vw / 3) - 50px);
+    }
+
+    .swipe-container {
+        padding-right: 0 !important;
+        opacity: .5;
     }
 
     /** Video Slider **/

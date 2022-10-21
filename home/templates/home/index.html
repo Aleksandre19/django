@@ -104,11 +104,21 @@
         <section class="row no-gutters gray-section">
             <div class="col-12">
                 <div class='section-wrapper'>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-9">
+                            <h3 class="container-fluid titles mt-4">
+                                <i class="fas fa-th-list titles-icon pr-2"></i>
+                                My List
+                            </h3>
+                        </div>
 
-                    <h3 class="container-fluid titles mt-4">
-                        <i class="fas fa-th-list titles-icon pr-2"></i>
-                        My List
-                    </h3>
+                        <div class="col col-md-3 swipe-container">
+                            <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
+                                    width="30px" class="pr-1 d-none d-md-inline-block" >
+                            <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
+                            <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
+                        </div>
+                    </div>
                     <hr class="video-title-devider">
 
                     <div class='row no-gutters'>
@@ -217,7 +227,10 @@
         </section>
 
         <!-- Bottom slanted line bg -->
-        <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
+        <div class="top-and-bottom-block-bg gray-section-bottom-bg position-relative">
+            <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
+                 width="30px" class="d-md-none mb-swipe-icon">
+        </div>
          
         <!-- Sections by categories -->
         {% for category in categories %}
@@ -234,11 +247,37 @@
                     <div class='section-wrapper'>
                         
                         <!-- Category title -->
-                        <h3 class="container-fluid titles mt-4">
-                            <img src="{{ MEDIA_URL }}/icons/{{category.name}}-icon.png" 
-                            width="45px" class="pr-2" alt="Anatomy's Icon">
-                            {{ category.name }}
-                        </h3>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-9">
+                                <h3 class="container-fluid titles mt-4">
+                                    <img src="{{ MEDIA_URL }}/icons/{{category.name}}-icon.png" 
+                                         width="45px" class="pr-2" alt="{{category.name}}'s Icon">
+                                    {{ category.name }}
+                                </h3>
+                            </div>
+
+                            <div class="col col-md-3 swipe-container">
+                                <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
+                                        width="30px" class="pr-1 d-none d-md-inline-block" >
+                                <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
+                                <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
+                            </div>
+                        </div>
+                        {% comment %} <div class="row no-gutters align-items-center">
+                            <div class="col-9">
+                                <h3 class="container-fluid titles mt-4">
+                                    <img src="{{ MEDIA_URL }}/icons/{{category.name}}-icon.png" 
+                                    width="45px" class="pr-2" alt="Anatomy's Icon">
+                                    {{ category.name }}
+                                </h3>
+                            </div>
+
+                            <div class="col-3 self-align-right">
+                                <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" width="25px" >
+                                 Swipe for next
+                               
+                            </div>
+                        </div> {% endcomment %}
                         <hr class="video-title-devider">
 
                         <div class='row no-gutters'>
@@ -340,7 +379,8 @@
                             
                             <!-- Slider right arrow-->
                             <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                                <a href='#' class='desk-video-switchwer float-right' data-direction='right' id='right'>
+                                <a href='#' class='desk-video-switchwer float-right' 
+                                            data-direction='right' id='right'>
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -352,12 +392,18 @@
 
             <!-- Bottom slanted line bg -->
             {% if forloop.counter0|divisibleby:2 %}
-                <div class="top-and-bottom-block-bg white-section-bottom-bg"></div>
+                <div class="top-and-bottom-block-bg white-section-bottom-bg position-relative">
+                    <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
+                    width="30px" class="d-md-none mb-swipe-icon">
+                </div>
             {% else %}
-                 <div class="top-and-bottom-block-bg gray-section-bottom-bg"></div>
+                 <div class="top-and-bottom-block-bg gray-section-bottom-bg position-relative">
+                    <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
+                    width="30px" class="d-md-none mb-swipe-icon">
+                 </div>
             {% endif %}
         {% endfor %}
-        
+         
         <div class="div-for-bottom-margin"> &nbsp; </div> 
 
         <!-- Scripts related to this sections -->

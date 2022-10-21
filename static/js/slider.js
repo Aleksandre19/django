@@ -101,7 +101,7 @@ let settings = {
         'leftSide' : false, 
         'rightSide' : false,
     },
-    'disieases' : {
+    'diseases' : {
         'startx' : 0,
         'cordinates' : 0,
         'left' : 0,
@@ -251,7 +251,7 @@ allSlider.forEach( ( slider ) => {
     // Mouse Events
     slider.addEventListener("mousedown", touchStart);
     slider.addEventListener("mouseup", touchEnd);
-    slider.addEventListener("mouseleave", touchEnd);
+    //slider.addEventListener("mouseleave", touchEnd);
     slider.addEventListener("mousemove", touchMove);
 
 });
@@ -264,11 +264,11 @@ allSlider.forEach( ( slider ) => {
 function deskAddGrabbing() {
 
     if ( this.id == 'left' ) {
-        document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
+        elm = document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
         .sliders-container`).classList.add( 'grabbing' );
     } 
 
-    if ( this.id == 'right' ) {
+    if (this.id == 'right') {
         document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
         .sliders-container`).classList.add( 'grabbing' );
     }
@@ -281,15 +281,24 @@ function deskAddGrabbing() {
  *  By pressing on the switcher arrows removing a grabbing class
  */
 function deskRemoveGrabbing() {
+    let elm;
 
     if ( this.id == 'left' ) {
-        document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
-        .sliders-container`).classList.remove( 'grabbing' );
+        elm = document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
+        .sliders-container`);
+
+        elm.addEventListener('transitionend', () => {
+             elm.classList.remove('grabbing');
+        });
     } 
 
     if ( this.id == 'right' ) {
-        document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
-        .sliders-container`).classList.remove( 'grabbing' );
+        elm = document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
+        .sliders-container`);
+
+        elm.addEventListener('transitionend', () => {
+            elm.classList.remove('grabbing');
+        })
     }
 
 }
@@ -358,8 +367,8 @@ function switcher ( e ) {
 
 
 // Function to call when a user touch a finger/mouse
-function touchStart( e ) {
-
+function touchStart(e) {
+    
     obj = this; // Storing current slide object
 
     innerSlider = obj.querySelector(`.sliders-container`); // Geting current slider's inside div
@@ -425,8 +434,10 @@ function touchEnd( e ) {
 
     click = false;
 
-    innerSlider.classList.remove('grabbing'); // removing a grabbing class
-
+    if (innerSlider.classList.contains('grabbing')) {
+        innerSlider.classList.remove('grabbing'); // removing a grabbing class
+    }
+    
     // Calculating previous translate and swipe values
     checkSwipeMaxRange();
 
