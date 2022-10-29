@@ -80,7 +80,7 @@
 
   <body>
     <main class="all-wrapper position-relative">
-
+      
       <!-- Header  -->
       <header class="desk-header fixed-top" id="top-header">
         <div class="header-content-wrapper">
@@ -111,7 +111,7 @@
                 {% endif %}
 
                 <!-- User profile links -->
-                <div class="col-2 col-md-1 text-right">
+                <div class="col-2 col-md-1 text-right" style="z-index:999999">
 
                   <!-- If a user is authenticated so desplay a links of the profile -->
                   {% if request.user.is_authenticated %}
@@ -184,7 +184,7 @@
 
             <!-- Menu column -->
             <div class="below-z col-12">
-              <nav class="top-nav navbar navbar-expand-md navbar-light">
+              <nav class="top-nav navbar navbar-expand-md navbar-light" style="z-index:0">
 
                 <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
                   data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
@@ -240,6 +240,23 @@
           </div>
         </div>
       </header>
+      
+      <!-- Add margen between menu and content except
+           when user is not authenticated and page is home. -->
+      {% current_page request.get_full_path as current_page %}
+      {% if not request.user.is_authenticated %}
+        {% if current_page == "" %}
+          <div class="d-none mb-header-margin"></div>
+        {% else %}
+          <div class="d-md-none mb-header-margin"></div>
+        {% endif %}
+      {% else %}
+        <div class="d-md-none mb-header-margin"></div>
+      {% endif %}
+
+       
+     
+      
 
       {% block content %} {% endblock %}
 
@@ -364,23 +381,27 @@
          /* Grabbing a header menu wrapper */
         let el = document.querySelector( '.desk-header' );
 
-        if( page != '' ) {
+        if( page != '' ) { // If home page
 
-            // Remove fixed-top to menu when user is loggedin.
+            // Remove fixed-top to menu when user is logged in.
             {% if request.user.is_authenticated %}
-                el.classList.remove("fixed-top");
-                el.style.position = "static";
+              if(window.innerWidth >= 768){
+                  el.classList.remove("fixed-top");
+                  el.style.position = "static";
+              } 
             {% endif %}
 
+            // Removing a background image if page is home when 
+            // a user is authenticated for md and lg.
             if ( auth == 'false' && window.innerWidth >= 768 && page == 'home' ) {
-                /* Removing a background image */
                 el.style.backgroundImage = 'none';     
             }
-        } else {
+        } else { // Other pages
+
+          // Changing menu position property above mobile.
            if (window.innerWidth >= 576 ) {
                 el.classList.remove("fixed-top");
                 el.style.position = "static";
-  
            }
         }
 

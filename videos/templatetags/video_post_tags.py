@@ -20,3 +20,12 @@ def current_subj_name(url=''):
         subject_url = url.split('=')[1]
         return subject_url
 
+
+@register.simple_tag
+def categorized(val=None):
+    return val
+
+@register.simple_tag
+def video_type(type=None):
+    return type
+

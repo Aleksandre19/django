@@ -16,6 +16,12 @@ body{
     color: #616161;
 }
 
+.default-btn {
+    background-color: transparent;
+    color: #a15aa5 !important;
+    border: 1px solid #d67fcf;
+}
+
 main.all-wrapper{
     height:100%;
 }
@@ -225,6 +231,7 @@ main.all-wrapper{
     letter-spacing: 1.2px;
     line-height: 32px;
     color: #6e6e6e;
+    padding-left: 0;
 }
 
 .menu-row{
@@ -236,6 +243,10 @@ main.all-wrapper{
     background-image: url('/media/img/sm/sm-top-menu-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.mb-header-margin{
+    height: 95px;
 }
 
 nav.show,
@@ -739,12 +750,12 @@ nav.colapsing{
     margin-bottom: 3rem;
 }
 
-.subs-section,
+/* .subs-section,
 .faq-section,
 .contact-section,
 .allauth-page {
     margin-top: 38%;
-}
+} */
 
 .nav-tabs .nav-link {
     color: #6f6f6f;
@@ -1476,8 +1487,7 @@ nav.colapsing{
 }
 
 /* Making a line background for category's title and for side menu's title */
-.category-names-right-line,
-.side-menu-section-name{
+.category-names-right-line{
     background-image: url('/media/img/general/category-names-right-line.jpg');
     background-position-x: center;
     background-repeat: repeat-x;
@@ -1536,20 +1546,76 @@ hr.feedback-devider {
 /* A side menu styles BEFORE scrolling a page */
 
 /* General styles for a side menu */
+.videos-section {
+    background-color: #fcfcfc;
+}
+
+.m-for-mb {
+    margin-top: 100px;
+}
+
 .desk-side-menu,
 .a-side-menu {
-    background-image: url('/media/img/general/side-menu-left-borders-bg.jpg');
-    background-position: top right;
-    background-repeat: repeat-y;
-    background-color: white;
+    background-color: #fcfcfc;
+    border-right: 1px solid #e7e6e6;
     overflow: scroll;
-    width: 300px;
+    width: 310px;
+    height: 100%;
     position: absolute;
     top: 0px;
-    left: -300px;
+    transform: translateX(-310px);
+    transition: transform .3s ease-out;
+    -webkit-transition: transform .3s ease-out;
+    -moz-transition: transform .3s ease-out;
+    -ms-transition: transform .3s ease-out;
+    -o-transition: transform .3s ease-out;
     z-index: 99999999999;
     max-width: none;
+}
 
+.side-menu-open {
+    transform: translateX(0px);
+    transition: transform .3s ease-out;
+    -webkit-transition: transform .3s ease-out;
+    -moz-transition: transform .3s ease-out;
+    -ms-transition: transform .3s ease-out;
+    -o-transition: transform .3s ease-out;
+}
+
+.md-side-menu-btn {
+    text-align: right;
+    margin: 1rem;
+}
+
+#close-side-menu {
+    display: none;
+    transform: scale(0);
+}
+
+.side-menu-close-btn,
+.side-menu-close-btn:active,
+.side-menu-close-btn:hover {
+    border-radius: 50%;
+}
+
+.side-menu-scale0{
+    transform: scale(0);
+    transition: transform .2s ease-out;
+}
+
+.side-menu-scale1 {
+    transform: scale(1);
+    transition: transform .2s ease-out;
+}
+
+.badge-light {
+    order: 1px solid #e9e9e9;
+    color: #949494;
+    background-color: #ebedee;
+}
+
+.side-menu-bm {
+    height: 100px;
 }
 
 
@@ -1571,12 +1637,26 @@ hr.feedback-devider {
 /* Styling a side menu's section name */
 .side-menu-section-name{
     display: inline-block;
-    background-position: bottom;
-    color: #81c91e !important;
+    width: 88%;
+    border-bottom: 1px solid #e7e6e6;
 }
 
 .side-menu-ul li a{
     color: #6e6e6e;
+}
+
+.side-menu-links {
+    background-color: #fcfcfc;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+}
+
+.side-menu-links:hover{
+    background-color: #f3f3f3;
+    padding-left: 30px;
 }
 
 #a-side-menu-close{
@@ -1976,15 +2056,20 @@ hr.feedback-devider {
     }
 
     /* A side menu */
-    .a-side-menu {
-        width: 350px !important;
-        left: -350px;
-        padding-top: 16px;
-    }
+    /* .a-side-menu {
+        width: 310px !important;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+    } */
 
     /* Increasing a width for freezed manue when scrolling */
     .freez-a-side-menu {
         width: 350px;
+    }
+
+    .m-for-mb {
+        margin-top: 0;
     }
 
     /* Checkout Card */
@@ -2032,6 +2117,15 @@ hr.feedback-devider {
 
     .titles{
         margin-left: 0;
+    }
+
+    .titles,
+    .side-menu-section-name {
+        height: 69px;
+    }
+
+    .video-titles {
+        height: 36px;
     }
 
     .example-video-wrapper {
@@ -2202,14 +2296,8 @@ hr.feedback-devider {
 
     /* Styling a selected subject's tiltle in the left side menu */
     .selected_subject {
-        color: #f89ff9 !important;
-        padding-left: 45px;
-        padding-top: 15px;
-        text-decoration: underline;
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -o-transform: scale(1.1);
+        background-color: #f3f3f3;
+        padding-left: 30px;
     }
 
     /* Section devider */
@@ -2225,6 +2313,7 @@ hr.feedback-devider {
     .a-side-menu {
         position: static;
         overflow: initial;
+        transform: translateX(0);
     }
 
     /* Breadcrumb Top Margiin */

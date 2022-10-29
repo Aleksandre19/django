@@ -21,3 +21,10 @@ def check_subscription(user_id):
     for sub in subscription:
         subscribed = sub.subscribed
     return subscribed
+
+
+@register.simple_tag
+def current_page(url=""): 
+    if "/" in url:
+        current_page = url.strip("/").split("/")[-1]
+        return current_page

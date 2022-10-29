@@ -31,7 +31,7 @@ def videos(request):
 
                     # If there is not search criteria displaying message
                     if not query:
-                        messages.error(request, "You didn't enter any search criteri! ")
+                        messages.error(request, "You didn't enter any search criteria! ")
                         return redirect(reverse('videos'))
 
                     queries = Q(title__icontains=query) | Q(description__icontains=query)
@@ -162,8 +162,10 @@ def get_videos_by_category(request, categories_list, obj, without_get=False):
 
     # Getting a videos by a category
     if request.GET:
+
+        
         if categories_list in request.GET:
-            categorased = request.GET[categories_list].split(',')
+            categorased = request.GET[categories_list].split(',') 
             # videos = videos.filter(category__name__in=categorased)
             videos_by_categories = obj.objects.filter(name__in=categorased)
 
