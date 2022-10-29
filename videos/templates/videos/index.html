@@ -427,73 +427,49 @@
 {% endblock %}
 
 {% block bottom_extra_js %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'js/slider.js' %} "></script>
 <script>
-    /* If a device is a tablet and lower asigning a screen height */
-    if ( window.innerWidth <= 768 ) {
-        let screenHight = window.screen.height;
-        let topMenuHeight = document.getElementById("top-header").offsetHeight;
-        document.getElementById("a-side-menu").style.height = Number(screenHight - topMenuHeight - 40) + "px";
-    }
-    
-    /* Opening and closing a video's side menu by Jquery */
-    $(document).ready(function(){
+    // Open a side menu for tablet and lower devices
+    document.getElementById("open-side-menu").addEventListener("click", ()=> {
+        event.preventDefault()
+        // Open menu
+        let sideMenu=document.querySelector(".a-side-menu")
+        sideMenu.classList.toggle("side-menu-open")
 
-        $("option").hide(); // Hiding  a option in the select tag
+        // Toggle content of button
+        let btn=document.getElementById("open-side-menu")
+        let btnContent=btn.innerHTML.trim()
 
-        /* Opening */ 
-        $("#open-a-side-menu").click(function(){  
-           $("#a-side-menu").animate({
-               left: "0px"
-           },function(){
-               $("#open-a-side-menu").hide(function(){
-                   $("#a-side-menu-close").css({"display" : "block"});
-               });
-           });   
-           return false;  
-        });
+        if(btnContent == "Categories") {
+            btn.classList.remove("side-menu-scale1")
+            btn.classList.add("side-menu-scale0")
 
+            btn.addEventListener("transitionend", () => {
+                btn.innerHTML="X"
+                btn.classList.add("side-menu-close-btn")
+                btn.classList.remove("side-menu-scale0")
+                btn.classList.add("side-menu-scale1")
+            })
+        } else {
+            btn.classList.remove("side-menu-scale1")
+            btn.classList.add("side-menu-scale0")
 
-        /* Closing  */ 
-        $("#a-side-menu-close").click(function(){
+            btn.addEventListener("transitionend", () => {
+                btn.innerHTML="Categories"
+                btn.classList.remove("side-menu-close-btn")
+                btn.classList.remove("side-menu-scale0")
+                btn.classList.add("side-menu-scale1")
+            })
+        }
+    })
 
-            let an;
-
-            if ( window.innerWidth < 768 ) {
-                an = '-300px';
-            } else {
-                an =  "-350px"
-            }
-
-           $("#a-side-menu").animate({
-
-               left: an
-               
-           },function(){
-               $("#a-side-menu-close").hide(function(){
-                   $("#open-a-side-menu").css({"display" : "block"});
-               });
-           });   
-           return false;  
-        });
-
-
-        // Freezing a opened side menu wile scrolling a page
-        $(window).scroll(function(){
-            
-            if($("#a-side-menu").css("left") == "0px"){
-                if($(window).scrollTop() > 0){
-                    $("#a-side-menu").removeClass("a-side-menu"); 
-                    $("#a-side-menu").addClass("freez-a-side-menu");  
-                }else{
-                    $("#a-side-menu").addClass("a-side-menu"); 
-                    $("#a-side-menu").removeClass("freez-a-side-menu"); 
-                }
-            }
-
-        });
-    });
+    // Stick a top position on scrolling
+    document.addEventListener("scroll", ()=> {
+        let position=document.body.getBoundingClientRect()
+        let height=document.body.offsetHeight
+        document.querySelector(
+            ".a-side-menu").style.top=Math.abs(position.top) + "px"
+    })
 </script>
 
 {% endblock %}
