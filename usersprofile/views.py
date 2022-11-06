@@ -26,7 +26,7 @@ def users_profile(request, page='home'):
             videos_in_mylist = current_user_videos(MyList, request.user)
 
             # content for mylist and liked videos
-            categories_video = {
+            actions = {
                 'liked': videos_in_likes,
                 'mylist': videos_in_mylist,
             }
@@ -34,7 +34,7 @@ def users_profile(request, page='home'):
             context = {
                 'categories': categories,
                 'subcategories': subcategories,
-                'categories_video': categories_video,
+                'actions': actions,
                 'page': page,
                 "account": account,
                 "subscription": subscription,

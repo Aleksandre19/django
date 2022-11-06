@@ -31,27 +31,31 @@
                             </a>
                         </li>
                         
-                        {% for subscategory in subcategories %}
-                            {% if subscategory.category == category %}
+                        {% for subcategory in subcategories %}
+                            {% if subcategory.category == category %}
                           
                                 {% counted_videos page request.user as counted_videos %}
                                 <!-- Subcategories -->
                                 <li class="nav-item">
-                                    <a href="{% url 'users_profile' subscategory.page %}"
-                                        {% if page == subscategory.page %}
+                                    <a href="{% url 'users_profile' subcategory.page %}"
+                                        {% if page == subcategory.page %}
                                             class="selected_subject nav-link"
                                         {% else %}
                                             class="side-menu-links nav-link" 
                                         {% endif %}>
 
                                         <!-- Title -->
-                                        {{ subscategory.name }}
+                                        {{ subcategory.name }}
 
                                         <!-- Amount of the videos by subcategories -->
                                         {% if category.name == 'Categories' %}
-                                            <span class="badge ml-2 badge-light"> 
-                                                {{ counted_videos|length }}
-                                            </span>
+                                            {% for action,value in actions.items %}
+                                                {% if action == subcategory.page %}
+                                                    <span class="badge ml-2 badge-light"> 
+                                                        {{ value|length }}
+                                                    </span>
+                                                {% endif %}
+                                            {% endfor %}
                                         {% endif %}
                                     </a>
                                 </li>
@@ -93,7 +97,7 @@
                             <!-- Title under line-->
                             <hr class="video-title-devider mt-4">
 
-                            {% for key, videos in categories_video.items %}
+                            {% for key, videos in actions.items %}
                                 {% if key == subcategory.page %} 
                                     <!-- Content -->
                                     <div class="row no-gutters"> 
@@ -127,7 +131,7 @@
                                                                         data-bs-placement="top" title="My List">
                                                                         <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist">
                                                                             
-                                                                            {% if video in categories_video.mylist %}
+                                                                            {% if video in actions.mylist %}
                                                                                 <i class="added_in_list fas fa-plus-square"></i>
                                                                             {% else %}
                                                                                 <i class="fas fa-plus-square"></i>
@@ -141,7 +145,7 @@
                                                                         data-bs-placement="top" title="Like">
 
                                                                         <!-- Checking if a user has already liked current video -->
-                                                                        {% if video in categories_video.liked %}
+                                                                        {% if video in actions.liked %}
                                                                             <i class="added_in_list fas fa-check"></i>
                                                                         {% else %}
                                                                             <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
@@ -218,7 +222,7 @@
                                 
                                 <!-- Mylis and liked videos content -->
                                 {% if not account and not subscription %}
-                                    {% for key, videos in categories_video.items %}
+                                    {% for key, videos in actions.items %}
                                         {% if key == page %}
                                             {% for video in videos %}
 
@@ -246,7 +250,7 @@
                                                                 data-bs-placement="top" title="My List">
                                                                 <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist">
                                                                     
-                                                                    {% if video in categories_video.mylist %}
+                                                                    {% if video in actions.mylist %}
                                                                         <i class="added_in_list fas fa-plus-square"></i>
                                                                     {% else %}
                                                                         <i class="fas fa-plus-square"></i>
@@ -260,7 +264,7 @@
                                                                 data-bs-placement="top" title="Like">
 
                                                                 <!-- Checking if a user has already liked current video -->
-                                                                {% if video in categories_video.liked %}
+                                                                {% if video in actions.liked %}
                                                                     <i class="added_in_list fas fa-check"></i>
                                                                 {% else %}
                                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
