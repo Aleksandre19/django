@@ -49,8 +49,8 @@ def index(request):
                 context = {
                     'day_videos': day_videos,
                     'categories': categories,
-                    'videos_by_categories': get_videos_by_category(request, categories_list,
-                                                                   Category, without_get=True) if request.user.is_authenticated else None,
+                    'videos_by_categories': get_videos_by_category(Category, categories_list, all_categories=True
+                                                                  ) if request.user.is_authenticated else None,
                     'mylist_videos': mylist_videos,
                     'videos': videos,
                     'videos_in_likes': videos_in_likes,

@@ -7,7 +7,7 @@ from subscription.views import check_users_subscription
 # Create your views here.
 
 
-def users_profile(request):
+def users_profile(request, page='home'):
 
     if request.user.is_authenticated:
 
@@ -35,6 +35,7 @@ def users_profile(request):
                 'categories': categories,
                 'subcategories': subcategories,
                 'categories_video': categories_video,
+                'page': page,
                 "account": account,
                 "subscription": subscription,
             }

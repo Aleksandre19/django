@@ -19,9 +19,6 @@
         <section class="row videos-section section-wrapper no-gutters">
             <!-- Side menu -->
             <div class="a-side-menu col-3" id="a-side-menu">
-                
-                <!-- Get page url -->
-                {% current_page request.get_full_path as current_page %}
 
                 <ul class="nav flex-column side-menu-ul">
                     {% for category in categories %}
@@ -37,11 +34,11 @@
                         {% for subscategory in subcategories %}
                             {% if subscategory.category == category %}
                           
-                                {% counted_videos subscategory.page request.user as counted_videos %}
+                                {% counted_videos page request.user as counted_videos %}
                                 <!-- Subcategories -->
                                 <li class="nav-item">
-                                    <a href="{% url 'users_profile' %}?action={{subscategory.page}}"
-                                        {% if current_page == subscategory.page %}
+                                    <a href="{% url 'users_profile' subscategory.page %}"
+                                        {% if page == subscategory.page %}
                                             class="selected_subject nav-link"
                                         {% else %}
                                             class="side-menu-links nav-link" 
@@ -70,7 +67,7 @@
             <!-- Page content -->
             <div class="col-12 col-lg-9">
                 <!-- Profile home page -->
-                {% if not current_page %}
+                {% if page == 'home' %}
                     {% for subcategory in subcategories %}
                         {% if subcategory.show_home_page %}
                             <!-- Title section -->
@@ -205,7 +202,7 @@
                 {% else %}<!-- Content by subcategories -->
                     <div class="last-view-content-row row">
                         {% for subcategory in subcategories %}
-                            {% if subcategory.page == current_page %}
+                            {% if subcategory.page == page %}
 
                                 <!-- Title -->
                                 <h3 class="container-fluid video-titles titles mt-4 pl-3">
@@ -222,7 +219,7 @@
                                 <!-- Mylis and liked videos content -->
                                 {% if not account and not subscription %}
                                     {% for key, videos in categories_video.items %}
-                                        {% if key == current_page %}
+                                        {% if key == page %}
                                             {% for video in videos %}
 
                                                 <!-- Content Section -->
@@ -304,7 +301,7 @@
                                 {% endif %}
                                 
                                 <!-- Account page content -->
-                                {% if current_page == 'account' %}
+                                {% if page == 'account' %}
                                     <ul class="list-group">
                                         <li class="list-group-item side-menu-links">
                                             <a href="{% url 'account_email' %}" >
@@ -325,7 +322,7 @@
                                 {% endif %}
                                 
                                 <!-- Subscription page content -->
-                                {% if current_page == 'subscription' %}
+                                {% if page == 'subscription' %}
                                     <ul class="list-group mb-4">
                                         <form method="" action="" class="profile-account-wrapper">
                                             <div class="inputs-wrapper">

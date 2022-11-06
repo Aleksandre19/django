@@ -7,7 +7,7 @@ from django.contrib import messages
 # Create your views here.
 
 
-def videos(request):
+def videos(request, page=''):
 
     ''' Checking to see if user is already athenticcated '''
     if request.user.is_authenticated:
@@ -39,10 +39,11 @@ def videos(request):
 
             context = {
                 'videos': videos,
+                'page': page,
                 'categories': categories,
                 'subjects': subjects,
-                'videos_by_categories': get_videos_by_category(request, 'category', Category),
-                'videos_by_subjects': get_videos_by_category(request, 'subject', Subjects),
+                'videos_by_categories': get_videos_by_category(Category, [page] ),
+                'videos_by_subjects': get_videos_by_category(Subjects, [page]),
                 'videos_in_likes': current_user_videos(Likes, request.user),
                 'videos_in_mylist': current_user_videos(MyList, request.user),
                 'search_results': search_results,
@@ -155,24 +156,16 @@ def current_user_videos(obj, user):
 
 
 # Grabbing videos by category and subjects
-def get_videos_by_category(request, categories_list, obj, without_get=False):
+def get_videos_by_category(obj, page=[''], all_categories=False):
 
-    categorased = None
     videos_by_categories = None
-
-    # Getting a videos by a category
-    if request.GET:
-
-        
-        if categories_list in request.GET:
-            categorased = request.GET[categories_list].split(',') 
-            # videos = videos.filter(category__name__in=categorased)
-            videos_by_categories = obj.objects.filter(name__in=categorased)
-
-    # If query comes without GET request
-    if without_get:
-        categories_list = categories_list
-        videos_by_categories = Videos.objects.filter(category__name__in=categories_list)
+    
+    # Vidoes from category and subject table
+    videos_by_categories = obj.objects.filter(name__in=page)
+   
+    # All videos from video table by categories
+    if all_categories:
+        videos_by_categories = Videos.objects.filter(category__name__in=page)
 
     return videos_by_categories
 

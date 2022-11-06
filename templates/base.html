@@ -132,18 +132,22 @@
 
                           <div class="dropdown-divider"></div>
                           
-                          <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">
+                          <a class="dropdown-item" href="{% url 'users_profile' 'mylist' %}">
                             My List
                           </a>
 
-                          <a class="dropdown-item" href="{% url 'users_profile' %}?action=liked">
+                          <a class="dropdown-item" href="{% url 'users_profile' 'liked' %}">
                             Liked Videos
                           </a>
 
                           <div class="dropdown-divider"></div>
 
-                          <a class="dropdown-item" href="{% url 'profile_account' %}">
+                          <a class="dropdown-item" href="{% url 'users_profile' 'account' %}">
                             Account
+                          </a>
+
+                          <a class="dropdown-item" href="{% url 'users_profile' 'subscription' %}">
+                            Subscription
                           </a>
                         {% else %}
                           <a class="dropdown-item" href="{% url 'cards' %}">
@@ -244,7 +248,7 @@
       </header>
       
       <!-- Add margen between menu and content except
-           when user is not authenticated and page is home. -->
+           when user is not authenticated and page is a home. -->
       {% current_page request.get_full_path as current_page %}
       {% if not request.user.is_authenticated %}
         {% if current_page == "" %}
@@ -287,7 +291,7 @@
         </ul>
       </footer>
 
-      <!-- Footer menu for desctop devices -->
+      <!-- Footer menu for desktop devices -->
       <footer class="d-none d-lg-block footer">
         &nbsp;
         <div class="section-wrapper row">
@@ -311,22 +315,22 @@
           <div class="col-4">
             <ul class="nav footer-categories flex-column float-left pl-3">
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'videos' %}?category=disieases"
+                <a class="nav-link" href="{% url 'videos' 'diseases' %}"
                   >By Diseases</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'videos' %}?category=anatomy"
+                <a class="nav-link" href="{% url 'videos' 'anatomy' %}"
                   >By Anatomy</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'videos' %}?category=projects"
+                <a class="nav-link" href="{% url 'videos' 'projects' %}"
                   >By Projects</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'videos' %}?category=subject"
+                <a class="nav-link" href="{% url 'videos' 'subject' %}"
                   >By Subjects</a
                 >
               </li>

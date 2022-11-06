@@ -23,7 +23,7 @@
             <div class="pt-3 a-side-menu col-3" id="a-side-menu">
 
                 <!-- Parsing a url and geting a current subject's name -->
-                {% current_subj_name request.get_full_path as current_subj_name %}
+                {% comment %} {% current_subj_name request.get_full_path as current_subj_name %} {% endcomment %}
             
                 <ul class="nav flex-column side-menu-ul">
                     <!-- Categories's list -->
@@ -36,7 +36,7 @@
                             <li class="nav-item mt-4">
                         {% endif %}
                                 <!-- Title -->
-                                <a href="{% url 'videos' %}?category={{ category.name }}" 
+                                <a href="{% url 'videos' category.name %}" 
                                     class="side-menu-section-name nav-link ml-3">
 
                                     <!-- Icon -->
@@ -46,35 +46,34 @@
                                 </a>
                             </li>
 
-                        <!-- Subjects names -->
-                        {% for subject in subjects %}
-                            {% if subject.category ==  category %}
-                                <li class="nav-item">
-                                    <a href="{% url 'videos' %}?subject={{ subject.name }}" 
-                                            {% if subject.name == current_subj_name %} 
-                                                class="selected_subject nav-link"
-                                            {% else %}
-                                                class="side-menu-links nav-link" 
-                                            {% endif %}>
+                            <!-- Subjects names -->
+                            {% for subject in subjects %}
+                                {% if subject.category ==  category %}
+                                    <li class="nav-item">
+                                        <a href="{% url 'videos' subject.name %}" 
+                                                {% if subject.name == page %} 
+                                                    class="selected_subject nav-link"
+                                                {% else %}
+                                                    class="side-menu-links nav-link" 
+                                                {% endif %}>
 
-                                        {{ subject.friendly_name }}
-                                        <span class="badge ml-2 badge-light"> 
-                                            {{ subject.posts_count }}
-                                        </span>
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
+                                            {{ subject.friendly_name }}
+                                            <span class="badge ml-2 badge-light"> 
+                                                {{ subject.posts_count }}
+                                            </span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
                     
                     {% endfor %}
                     <div class="side-menu-bm"></div>
                 </ul>
 
             </div>
-
+           
             <!-- Videos by categories or by subjects -->
             {% if videos_by_categories or videos_by_subjects %}
-
                 <!-- Check if it is rather by category or by subject -->
                 {% if videos_by_categories %}
                     {% categorized videos_by_categories as categorized %}
@@ -408,7 +407,7 @@
                             
                             <!-- View all button-->
                             <div class='col-12 d-none d-lg-block'>
-                                <a href='{% url 'videos' %}?category={{ category.name }}' 
+                                <a href="{% url 'videos' category.name %}"
                                 class='btn btn-outline-success btn-lg btn-view-all'>
                                     View All
                                 </a>
