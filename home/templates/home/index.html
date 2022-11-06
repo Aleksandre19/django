@@ -23,7 +23,60 @@
                         {% endif %}
                             <!-- Video -->
                             <div class="embed-responsive embed-responsive-16by9 position-relative ">                           
-                                <iframe class="embed-responsive-item" src="{{ day_video.content }}" allowfullscreen></iframe>                          
+                                <iframe class="embed-responsive-item" src="{{ day_video.content }}" allowfullscreen>
+                
+                                </iframe>
+                                
+                                <!-- Action Buttons -->
+                                <div class="action-buttons-container">
+
+                                    <!--  Add to my list -->
+                                    <div class="action-button" data-bs-toggle="tooltip" 
+                                        data-bs-placement="top" title="My List">
+                                        <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ day_video.id }}&action=mylist">
+                                            
+                                            {% if day_video in videos_in_mylist %}
+                                                <i class="added_in_list fas fa-plus-square"></i>
+                                            {% else %}
+                                                <i class="fas fa-plus-square"></i>
+                                            {% endif %}
+                                            
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Like -->
+                                    <div class="action-button" data-bs-toggle="tooltip" 
+                                        data-bs-placement="top" title="Like">
+
+                                        <!-- Checking if a user has already liked current video -->
+                                        {% if day_video in videos_in_likes %}
+                                            <i class="added_in_list fas fa-check"></i>
+                                        {% else %}
+                                            <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ day_video.id }}&action=like" 
+                                                class="">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </a>
+                                        {% endif %}
+                                        
+                                    
+                                        <!-- Total like -->
+                                        <small class=" action-buttons-value">   
+                                            {% if day_video.liked == None %}
+                                                ( 0 )
+                                            {% else %}
+                                                (+ {{ day_video.liked }} )
+                                            {% endif %}
+                                        </small>
+                                    </div>
+
+                                    <!-- Watched -->
+                                    <div class="watched-value action-button" data-bs-toggle="tooltip" 
+                                        data-bs-placement="top" title="Watched">
+                                        <a href="#">
+                                            <i class="far fa-eye"></i>
+                                        </a><small class="action-buttons-value">(247)</small>
+                                    </div>   
+                                </div>
                             </div>
 
                             <!-- Video's Description -->
@@ -114,7 +167,9 @@
 
                         <div class="col col-md-3 swipe-container">
                             <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                                    width="30px" class="pr-1 d-none d-md-inline-block" >
+                                    width="30px" class="pr-1 d-none " >
+                             <img src="{{ MEDIA_URL }}/icons/showdown-finger-icon.png" 
+                                        width="23px" class="pr-1 d-none d-md-inline-block" >
                             <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                             <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                         </div>
@@ -258,7 +313,9 @@
 
                             <div class="col col-md-3 swipe-container">
                                 <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                                        width="30px" class="pr-1 d-none d-md-inline-block" >
+                                        width="30px" class="pr-1 d-none d-lg-inline-block" >
+                                <img src="{{ MEDIA_URL }}/icons/showdown-finger-icon.png" 
+                                        width="23px" class="pr-1 d-none d-md-inline-block" >
                                 <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                                 <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                             </div>

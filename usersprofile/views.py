@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
-from videos.models import MyList, Videos, Likes
+from videos.models import MyList, Likes
+from .models import ProfileCategories, ProfileLinks
 from videos.views import current_user_videos
 from subscription.views import check_users_subscription
 
@@ -14,40 +15,39 @@ def users_profile(request):
         # displaying content
         if check_users_subscription(request.user):
 
-            user_videos = None
+            account = False
+            subscription = False
 
-            # Requiring videos
-            if request.GET:
-                # MyList videos by user
-                if request.GET['action'] == 'mylist':
-                    user_videos = MyList.objects.filter(user=request.user)
-                # Likes videos by user
-                if request.GET['action'] == 'liked':
-                    user_videos = Likes.objects.filter(user=request.user)
+            categories = ProfileCategories.objects.all()
+            subcategories = ProfileLinks.objects.all()
 
-            # Requiring videos
-            videos = Videos.objects.all()
-
-            # Requiring videos from Likes and MyList modules by user
+            # Grab content by likes and mylist
             videos_in_likes = current_user_videos(Likes, request.user)
             videos_in_mylist = current_user_videos(MyList, request.user)
 
-            context = {
-                'user_videos': user_videos,
-                'videos': videos,
-                'videos_in_likes': videos_in_likes,
-                'videos_in_mylist': videos_in_mylist,
+            # content for mylist and liked videos
+            categories_video = {
+                'liked': videos_in_likes,
+                'mylist': videos_in_mylist,
             }
 
-            return render(request, 'users_profile.html', context)
+            context = {
+                'categories': categories,
+                'subcategories': subcategories,
+                'categories_video': categories_video,
+                "account": account,
+                "subscription": subscription,
+            }
+
+            return render(request, "users_profile.html", context)
 
         # If a user has not subscription so
         # redirecting to the subscrription plans page
         else:
-            return redirect(reverse('cards'))
+            return redirect(reverse("cards"))
 
     else:
-        return redirect(reverse('account_login'))
+        return redirect(reverse("account_login"))
 
 
 # Leave a feedbacks view

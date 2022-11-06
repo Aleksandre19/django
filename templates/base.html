@@ -126,10 +126,12 @@
                       <div class="dropdown-menu">
                         <!-- If a user has subscription so displaying the following links -->
                         {% if subscribed %}
-                          <a class="dropdown-item" href="{% url 'leave_feedbacks' %}">
-                            Leave Feedback
+                          <a class="dropdown-item" href="{% url 'users_profile' %}">
+                            User Profile
                           </a>
 
+                          <div class="dropdown-divider"></div>
+                          
                           <a class="dropdown-item" href="{% url 'users_profile' %}?action=mylist">
                             My List
                           </a>

@@ -17,7 +17,6 @@
             </div>
         </div>
 
-        <!-- This is a HTML fot DESKTOP devices -->
         <section class="row videos-section section-wrapper no-gutters">
         
             <!-- Side menu -->
@@ -183,7 +182,7 @@
 
                                         <!-- Video's Description -->
                                         <p class="container-fluid mt-3 position-relative">
-                                            {{ video_by_category.description }}
+                                            {{ video_by_category.description|truncatechars:70 }}
                                         <p>
                                     </div>
 
@@ -202,7 +201,7 @@
                     <!-- Category title -->
                     <h3 class="container-fluid video-titles titles mt-4 pl-3"> 
                         <img src="{{ MEDIA_URL }}/icons/icon.png" 
-                        width="45px" class="pr-2 d-md-inline category-title-icon" 
+                        width="45px" class="pr-2 d-md-inline" 
                         alt="Video's Category's Icon"> 
                         Search result
                     </h3>
@@ -281,7 +280,7 @@
 
                                 <!-- Video's Description -->
                                 <p class="container-fluid mt-3 position-relative">
-                                    {{ video_by_category.description }}
+                                    {{ video_by_category.description|truncatechars:70 }}
                                 <p>
                             </div>
                         {% endfor %} 
@@ -296,18 +295,18 @@
 
                         <!-- Category title -->
                         <div class="row no-gutters align-items-center">
-                            <div class="col-7">
+                            <div class="col-12 col-md-7">
                                 <h3 class="container-fluid video-titles titles mt-4">
                                     <img src="{{ MEDIA_URL }}/{{category.src}}" 
-                                        width="45px" class="pr-2 ml-2" alt="{{category.name}}'s Icon">
+                                        width="45px" class="pr-2" alt="{{category.name}}'s Icon">
                                     {{category.name}}
                                 </h3>
                             </div>
 
                             <!-- Swipe icon -->
                             <div class="col col-md-5 mt-3 swipe-container">
-                                <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                                        width="30px" class="pr-1 d-none d-md-inline-block" >
+                                <img src="{{ MEDIA_URL }}/icons/this_down_icon.png" 
+                                        width="25px" class="pr-1 d-none d-md-inline-block" >
                                 <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                                 <span class="d-none d-lg-inline-block mr-3">Grab and swipe for next</span>
                             </div>
@@ -316,7 +315,7 @@
                         <hr class="video-title-devider">
 
                         <!-- Content -->
-                        <div class='row no-gutters'>
+                        <div class="row no-gutters">
 
                             <!-- Sliders area -->
                             <div class="col-12">
@@ -395,7 +394,9 @@
 
                                                     <!-- Video's Description -->
                                                     <p class="container-fluid mt-3 position-relative">
-                                                        {{ video_by_category.description }}
+                                                        {{ video_by_category.description|truncatechars:70 }}
+                                                        <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
+                                                            width="30px" class="d-md-none mb-swipe-icon">
                                                     <p>
             
                                                 </div>
@@ -432,35 +433,46 @@
     // Open a side menu for tablet and lower devices
     document.getElementById("open-side-menu").addEventListener("click", ()=> {
         event.preventDefault()
-        // Open menu
-        let sideMenu=document.querySelector(".a-side-menu")
-        sideMenu.classList.toggle("side-menu-open")
+        
+        // Control animation start and finish to
+        // avoit mixing of icons appereanse by 
+        // clicking fast on it.
+        let start = true
 
-        // Toggle content of button
-        let btn=document.getElementById("open-side-menu")
-        let btnContent=btn.innerHTML.trim()
+        if(start){
+            start = false
+            // Open menu
+            let sideMenu=document.querySelector(".a-side-menu")
+            sideMenu.classList.toggle("side-menu-open")
 
-        if(btnContent == "Categories") {
-            btn.classList.remove("side-menu-scale1")
-            btn.classList.add("side-menu-scale0")
+            // Toggle content of button
+            let btn=document.getElementById("open-side-menu")
+            let btnContent=btn.innerHTML.trim()
 
-            btn.addEventListener("transitionend", () => {
-                btn.innerHTML="X"
-                btn.classList.add("side-menu-close-btn")
-                btn.classList.remove("side-menu-scale0")
-                btn.classList.add("side-menu-scale1")
-            })
-        } else {
-            btn.classList.remove("side-menu-scale1")
-            btn.classList.add("side-menu-scale0")
+            if(btnContent == "Categories") {
+                btn.classList.remove("side-menu-scale1")
+                btn.classList.add("side-menu-scale0")
 
-            btn.addEventListener("transitionend", () => {
-                btn.innerHTML="Categories"
-                btn.classList.remove("side-menu-close-btn")
-                btn.classList.remove("side-menu-scale0")
-                btn.classList.add("side-menu-scale1")
-            })
-        }
+                btn.addEventListener("transitionend", () => {
+                    btn.innerHTML="X"
+                    btn.classList.add("side-menu-close-btn")
+                    btn.classList.remove("side-menu-scale0")
+                    btn.classList.add("side-menu-scale1")
+                    start = true
+                })
+            } else {
+                btn.classList.remove("side-menu-scale1")
+                btn.classList.add("side-menu-scale0")
+
+                btn.addEventListener("transitionend", () => {
+                    btn.innerHTML="Categories"
+                    btn.classList.remove("side-menu-close-btn")
+                    btn.classList.remove("side-menu-scale0")
+                    btn.classList.add("side-menu-scale1")
+                    start = true
+                })
+            }
+        }    
     })
 
     // Stick a top position on scrolling
