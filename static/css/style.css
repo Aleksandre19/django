@@ -5,6 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
 
+@font-face {
+    font-family: 'Icons';
+    src: url('/media/fonts/icons.ttf');
+}
+
 html,
 body{
     height: 100%;
@@ -333,10 +338,371 @@ nav.colapsing{
     text-transform: lowercase;
 }
 
+/************** Icons *****************/
+/* .icons {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+} 
+
+.icons,
+.user-icon,
+.green-icons {
+    font-family: 'Icons';
+    font-style: normal;
+    font-size: 47px;
+}
+
+.green-icons {
+    color: #81c91e;
+} */
+
+/* Font based icon. for example
+facebook and youtube in the footer.*/
+.font-icons {
+    font-family: 'Icons';
+    font-style: normal;
+    font-size: 47px;
+}
+
+.xs-fi {
+    font-size: 27px !important;
+}
+
+
+.icons {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: -8px;
+    margin-right: 6px;
+    background-size: 40px auto;
+    -webkit-background-size: 40px auto;
+    -moz-background-size: 40px auto;
+    -ms-background-size: 40px auto;
+    -o-background-size: 40px auto;
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.xs-icons {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background-size: 17px auto;
+    -webkit-background-size: 17px auto;
+    -moz-background-size: 17px auto;
+    -ms-background-size: 17px auto;
+    -o-background-size: 17px auto;
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.sz-icons {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background-size: 17px auto;
+    /* -webkit-background-size: 17px auto;
+    -moz-background-size: 17px auto;
+    -ms-background-size: 17px auto;
+    -o-background-size: 17px auto; */
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+
+/* Swipe icons container for mobile */
+.swipe-icon-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+/* Green icons */
+.gr-i {
+    color: #81c91e;
+}
+
+/* Gray icons */
+.gry-i {
+    color: #fbfbfb;
+}
+
+
+/* Medium size icons */
+.mz-i {
+    width: 35px;
+    height: 35px;
+    background-size: 35px auto;
+}
+
+/* Small size icons */
+.sz-i {
+    width: 20px;
+    height: 28px;
+    background-size: 20px;
+    margin-bottom: -11px;
+}
+
+/* Missed icon's icon */
+.ms-i {
+    background-image: url('/media/icons/no-icon.png');
+}
+
+/* Video icon */
+.vi {
+    background-image: url('/media/icons/video-icon.png');
+}
+
+/* Subscription icon */
+.si {
+    width: 45px;
+    height: 45px;
+    background-size: 45px;
+    margin-bottom: -16px;
+    background-image: url('/media/icons/subsc-icon.png');
+}
+
+/* Swipe icon */
+.swp-i {
+    width: 30px;
+    height: 33px;
+    background-size: 30px auto;
+    background-image: url('/media/icons/swipe-icon.png')
+}
+
+/* FAQ icon */
+.fi {
+    background-image: url('/media/icons/faq-icon.png');
+}
+
+/* Footer icons additional styles */
+.fh-i,
+.fv-i,
+.fu-i {
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+    margin-top: 6%;
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+}
+
+/* Footer home icon */
+.fh-i {
+    background-image: url('/media/icons/footer-home-icon.png');
+}
+
+/* Footer video icon */
+.fv-i {
+    background-image: url('/media/icons/footer-video-icon.png');
+}
+
+/* Footer user icon */
+.fu-i {
+    background-image: url('/media/icons/footer-user-icon.png');
+}
+
+
+
+/* Upcaming event icon */
+.ei {
+    background-image: url('/media/icons/upcaming-event-icon.png');
+}
+
+/* Exclamation icon */
+.ex-i {
+    background-image: url('/media/icons/excla-icon.png');
+}
+
+/* My list icon */
+.li {
+    background-image: url('/media/icons/mylist-icon.png');
+}
+
+/* Like gray icon */
+.lgr-i {
+    background-image: url('/media/icons/like-gray.png');
+    transition: background-image .3s ease-out;
+    -webkit-transition: background-image .3s ease-out;
+    -moz-transition: background-image .3s ease-out;
+    -ms-transition: background-image .3s ease-out;
+    -o-transition: background-image .3s ease-out;
+}
+
+/* . User profile liked icon */
+.lkd-i {
+    background-image: url('/media/icons/check-icon.png')
+}
+
+/* Hover on like icon */
+.lgr-i:hover {
+    background-image: url('/media/icons/like-hover-green.png');
+}
+
+/* Like green icon */
+.lg-i {
+    height: 13px !important;
+    background-image: url('/media/icons/like-green.png');
+}
+
+/* Single page green icon */
+.slg-i {
+    background-image: url('/media/icons/like-green.png');
+}
+
+/* Subjects icon */
+.sbj-i {
+    background-image: url('/media/icons/subject-icon.png');
+}
+
+/* Anatomy icon */
+.ai {
+    background-image: url('/media/icons/anatomy-icon.png');
+}
+
+/* User Profile account icon */
+.ac-i {
+    background-image: url('/media/icons/account-icon.png');
+}
+
+/* Add my list gray icon */
+.agr-i {
+    background-image: url('/media/icons/add-gray.png');
+    transition: background-image .3s ease-out;
+    -webkit-transition: background-image .3s ease-out;
+    -moz-transition: background-image .3s ease-out;
+    -ms-transition: background-image .3s ease-out;
+    -o-transition: background-image .3s ease-out;
+}
+
+/* Hover on my list icon */
+.agr-i:hover {
+    background-image: url('/media/icons/add-green.png');
+}
+
+/* Add my list green icon */
+.ag-i {
+    background-image: url('/media/icons/add-green.png');
+}
+
+/* User profile category icon */
+.ci {
+    background-image: url('/media/icons/cat-side.png');
+}
+
+
+/* Project icon */
+.pi {
+    background-image: url('/media/icons/projects-icon.png');
+}
+
+/* Disease icon */
+.di {
+    background-image: url('/media/icons/diseases-icon.png');
+}
+
+/* Down finger icon */
+.df-i {
+    background-image: url('/media/icons/down-finger.png');
+}
+
+/* Search icon */
+.sr-i {
+    background-image: url('/media/icons/search-icon.png');
+}
+
+/* User profile setting icon */
+.st-i {
+    background-image: url('/media/icons/settings-icon.png');
+}
+
+/* Same category icon */
+.sc-i {
+    background-image: url('/media/icons/same-cat-icon.png');
+    margin-bottom: -12px;
+}
+
+/* Slider left arrow */
+.sll-a {  
+    background-image: url('/media/icons/slider-left-arrow.png');
+}
+
+/* Sliders arrows */ 
+.sll-a,
+.slr-a {
+    height: 31px;
+    height: 31px;
+    transition: background-image 0.3s ease-out;
+    -webkit-transition: background-image 0.3s ease-out;
+    -moz-transition: background-image 0.3s ease-out;
+    -ms-transition: background-image 0.3s ease-out;
+    -o-transition: background-image 0.3s ease-out;
+}
+
+/* Slider left arrow hover */
+.sll-a:hover {
+    background-image: url('/media/icons/slider-left-arrow-hover.png');
+}
+
+/* Slider left arrow */
+.slr-a {
+    background-image: url('/media/icons/slider-right-arrow.png');  
+}
+
+/* Slider left arrow hover */
+.slr-a:hover {
+    background-image: url('/media/icons/slider-right-arrow-hover.png');
+}
+
+/* Liked icon */
+/* .lkd-i {
+    background-image: url('/media/icons/check-icon.png');
+} */
+
+/* Watched icon */
+.wi {
+    height: 12px !important;
+    background-image: url('/media/icons/watched-icon.png');
+}
+
+/* Single page icon */
+.sw-i {
+    height: 29px !important;
+    background-image: url('/media/icons/watched-icon.png');
+}
+
+
+
+/* Profile icon */
+.ui {
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+    background-image: url('/media/icons/user-icon.png');
+    opacity: 0.6;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+    -ms-transition: opacity .2s ease-out;
+}
+
+
+
+.user-icon {
+    color: #7a618f;
+    opacity: 0.6;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+    -ms-transition: opacity .2s ease-out;
+}
+
 .footer-social .nav-link,
 .user-acount-icon{
     color: #7a618f;
     font-size: 32px;
+    border: none;
     opacity: 0.6;
     transition: opacity .2s ease-out;
     -moz-transition: opacity .2s ease-out;
@@ -346,10 +712,12 @@ nav.colapsing{
 }
 
 .footer-social .nav-link:hover,
-.user-acount-icon:hover{
+.user-acount-icon:hover,
+.ui:hover{
     opacity: 1;
     color: #7a618f;
 }
+
 
 .mb-f-link {
     color: #54198b;
@@ -776,21 +1144,13 @@ nav.colapsing{
     color: white;
 }
 
-.subs-section,
-.contact-section,
-.allauth-page {
-    min-height: calc(100% - 548px); /* 240px header height, 211px footer, 50px section top margin */
-    -webkit-min-height: calc(100% - 498px);
-    -moz-min-height: calc(100% - 498px);
-    margin-bottom: 3rem;
-}
 
-/* .subs-section,
+.subs-section,
 .faq-section,
 .contact-section,
 .allauth-page {
-    margin-top: 38%;
-} */
+    margin-top: 15%;
+}
 
 .nav-tabs .nav-link {
     color: #6f6f6f;
@@ -1421,7 +1781,12 @@ nav.colapsing{
     padding-left: 15px;
 }
 
+.action-buttons-container div:first-child {
+    height: 27%;
+}
+
 .action-button {
+    height: 33%;
     text-align: center;
     color: white;
     padding: 25% 0;
@@ -1429,16 +1794,12 @@ nav.colapsing{
 
 .action-button a{
     color: white;
-    transition: color .3s ease-out;
-    -webkit-transition: color .3s ease-out;
-    -moz-transition: color .3s ease-out;
-    -ms-transition: color .3s ease-out;
-    -o-transition: color .3s ease-out;
 }
-
+/* 
 .action-button a:hover {
+    text-decoration: none;
     color: #c0ff80;
-}
+} */
 
 .watched-value a:hover{
     color: white !important;
@@ -1447,9 +1808,9 @@ nav.colapsing{
 
 
 /* A video likes check */
-.added_in_list {
+/* .added_in_list {
     color: #c0ff80 !important;
-}
+} */
  
 .action-buttons-value{
     font-size: 10px;
@@ -1897,6 +2258,7 @@ hr.feedback-devider {
 }
 
 .mb-swipe-icon {
+    opacity: .4;
     position: absolute;
     bottom: 0;
     right: 10px;
@@ -2069,6 +2431,20 @@ hr.feedback-devider {
         padding-right: 30px !important;
     }
 
+    .contact-form button {
+        width: 60%;
+    }
+
+    /* Footer icons additional styles */
+    .fh-i,
+    .fv-i,
+    .fu-i {
+        width: 15%;
+        width: 40px;
+        height: 40px;
+        background-size: 40px;
+    }
+
 
     /* .subs-cards-wrapper {
         width: 93%;
@@ -2104,12 +2480,12 @@ hr.feedback-devider {
     /* 
         Centering a Categories videos content
     */
-    .last-view-content-row {
-        /* width: 100%;
-        margin: auto; */
-        /* padding-left:32px; */
-        /* padding-right: 32px; */
-    }
+    /* .last-view-content-row {
+        width: 100%;
+        margin: auto;
+        padding-left:32px;
+        padding-right: 32px;
+    } */
 
     /* Removing a each video content's left and right margins */
     .last-view-content-row div.col-12 {
@@ -2435,6 +2811,20 @@ hr.feedback-devider {
     /* Checkout message */
     .checkout-titles {
         text-align: left;
+    }
+
+    .contact-form button {
+        width: 40%;
+    }
+
+    /* 240px header height, 211px footer, 50px section top margin */
+    .subs-section,
+    .contact-section,
+    .allauth-page {
+        min-height: calc(100% - 548px);
+        -webkit-min-height: calc(100% - 498px);
+        -moz-min-height: calc(100% - 498px);
+        margin-bottom: 3rem;
     }
 
     .home-first-section-video-container {

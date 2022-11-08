@@ -21,10 +21,7 @@
         
             <!-- Side menu -->
             <div class="pt-3 a-side-menu col-3" id="a-side-menu">
-
-                <!-- Parsing a url and geting a current subject's name -->
-                {% comment %} {% current_subj_name request.get_full_path as current_subj_name %} {% endcomment %}
-            
+    
                 <ul class="nav flex-column side-menu-ul">
                     <!-- Categories's list -->
                     {% for category in categories %}
@@ -38,10 +35,9 @@
                                 <!-- Title -->
                                 <a href="{% url 'videos' category.name %}" 
                                     class="side-menu-section-name nav-link ml-3">
-
                                     <!-- Icon -->
-                                    <img src="{{ MEDIA_URL }}/{{ category.src }}" 
-                                        width="45px" class="pr-2" alt="Video's Category's Icon">
+                                    <i class='icons mz-i gr-i {{category.src}}'></i>
+                                    <!-- Title -->
                                     {{ category.name }}
                                 </a>
                             </li>
@@ -88,8 +84,7 @@
                         <!-- Category title -->
                         <h3 class="container-fluid video-titles titles mt-4 pl-3">
                             <!-- Icon -->
-                            <img src="{{ MEDIA_URL }}/{{ category.src }}" 
-                                        width="45px" class="pr-2" alt="Video's Category's Icon">
+                            <i class='icons gr-i {{category.src}}'></i>
                             <!-- Title -->
                             {{ category.friendly_name }}
                         </h3>
@@ -136,9 +131,9 @@
                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist">
                                                         
                                                         {% if video_by_category in videos_in_mylist %}
-                                                            <i class="added_in_list fas fa-plus-square"></i>
+                                                            <i class="xs-icons ag-i"></i>
                                                         {% else %}
-                                                            <i class="fas fa-plus-square"></i>
+                                                            <i class="xs-icons agr-i"></i>
                                                         {% endif %}
                                                         
                                                     </a>
@@ -150,11 +145,11 @@
 
                                                     <!-- Checking if a user has already liked current video -->
                                                     {% if video_by_category in videos_in_likes %}
-                                                        <i class="added_in_list fas fa-check"></i>
+                                                        <i class="xs-icons lg-i"></i>
                                                     {% else %}
                                                         <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
                                                             class="">
-                                                            <i class="far fa-thumbs-up"></i>
+                                                            <i class="xs-icons lgr-i"></i>
                                                         </a>
                                                     {% endif %}
                                                     
@@ -172,9 +167,9 @@
                                                 <!-- Watched -->
                                                 <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                                     data-bs-placement="top" title="Watched">
-                                                    <a href="#">
-                                                        <i class="far fa-eye"></i>
-                                                    </a><small class="action-buttons-value">(247)</small>
+
+                                                    <i class='xs-icons wi'></i>
+                                                    <small class="action-buttons-value">(247)</small>
                                                 </div>   
                                             </div>
                                         </div>
@@ -199,9 +194,7 @@
 
                     <!-- Category title -->
                     <h3 class="container-fluid video-titles titles mt-4 pl-3"> 
-                        <img src="{{ MEDIA_URL }}/icons/icon.png" 
-                        width="45px" class="pr-2 d-md-inline" 
-                        alt="Video's Category's Icon"> 
+                        <i class='icons mz-i gr-i sr-i'></i>
                         Search result
                     </h3>
                     <!-- Title under line-->
@@ -234,9 +227,9 @@
                                             <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist">
                                                 
                                                 {% if video_by_category in videos_in_mylist %}
-                                                    <i class="added_in_list fas fa-plus-square"></i>
+                                                    <i class="xs-icons ag-i"></i>
                                                 {% else %}
-                                                    <i class="fas fa-plus-square"></i>
+                                                    <i class="xs-icons agr-i"></i>
                                                 {% endif %}
                                                 
                                             </a>
@@ -248,11 +241,11 @@
 
                                             <!-- Checking if a user has already liked current video -->
                                             {% if video_by_category in videos_in_likes %}
-                                                <i class="added_in_list fas fa-check"></i>
+                                                <i class="xs-icons lg-i"></i>
                                             {% else %}
                                                 <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
                                                     class="">
-                                                    <i class="far fa-thumbs-up"></i>
+                                                    <i class="xs-icons lgr-i"></i>
                                                 </a>
                                             {% endif %}
                                             
@@ -270,9 +263,9 @@
                                         <!-- Watched -->
                                         <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                             data-bs-placement="top" title="Watched">
-                                            <a href="#">
-                                                <i class="far fa-eye"></i>
-                                            </a><small class="action-buttons-value">(247)</small>
+
+                                            <i class='xs-icons wi'></i>
+                                            <small class="action-buttons-value">(247)</small>
                                         </div>   
                                     </div>
                                 </div>
@@ -287,7 +280,7 @@
                 </div>
             {% endif %}
             
-            <!--List of videos by categories -->
+            <!-- List of videos by categories -->
             {% if not videos_by_categories and not videos_by_subjects and not search_results %} 
                 <div class="col-12 col-lg-9">
                     {% for category in categories %}
@@ -296,16 +289,19 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col-12 col-md-7">
                                 <h3 class="container-fluid video-titles titles mt-4">
-                                    <img src="{{ MEDIA_URL }}/{{category.src}}" 
-                                        width="45px" class="pr-2" alt="{{category.name}}'s Icon">
+                                    <!-- Icon -->
+                                    <i class='icons gr-i {{category.src}}'></i>
+                                    <!-- Title -->
                                     {{category.name}}
                                 </h3>
                             </div>
 
                             <!-- Swipe icon -->
                             <div class="col col-md-5 mt-3 swipe-container">
-                                <img src="{{ MEDIA_URL }}/icons/this_down_icon.png" 
-                                        width="25px" class="pr-1 d-none d-md-inline-block" >
+                                <!-- Icon  -->
+                                <i class='icons sz-i gr-i df-i d-none d-md-inline-block'></i>
+
+                                <!-- text -->
                                 <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                                 <span class="d-none d-lg-inline-block mr-3">Grab and swipe for next</span>
                             </div>
@@ -348,9 +344,9 @@
                                                                 <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist">
                                                                     
                                                                     {% if video_by_category in videos_in_mylist %}
-                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                        <i class="xs-icons ag-i"></i>
                                                                     {% else %}
-                                                                        <i class="fas fa-plus-square"></i>
+                                                                        <i class="xs-icons agr-i"></i>
                                                                     {% endif %}
                                                                     
                                                                 </a>
@@ -362,11 +358,11 @@
 
                                                                 <!-- Checking if a user has already liked current video -->
                                                                 {% if video_by_category in videos_in_likes %}
-                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                     <i class="xs-icons lg-i"></i>
                                                                 {% else %}
                                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
                                                                         class="">
-                                                                        <i class="far fa-thumbs-up"></i>
+                                                                        <i class="xs-icons lgr-i"></i>
                                                                     </a>
                                                                 {% endif %}
                                                                 
@@ -384,18 +380,17 @@
                                                             <!-- Watched -->
                                                             <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                                                 data-bs-placement="top" title="Watched">
-                                                                <a href="#">
-                                                                    <i class="far fa-eye"></i>
-                                                                </a><small class="action-buttons-value">(247)</small>
+
+                                                                <i class='xs-icons wi'></i>
+                                                                <small class="action-buttons-value">(247)</small>
                                                             </div>   
                                                         </div>
                                                     </div>
 
                                                     <!-- Video's Description -->
                                                     <p class="container-fluid mt-3 position-relative">
+                                                        <!-- Video description -->
                                                         {{ video_by_category.description|truncatechars:70 }}
-                                                        <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                                                            width="30px" class="d-md-none mb-swipe-icon">
                                                     <p>
             
                                                 </div>
@@ -414,9 +409,15 @@
                             </div>
 
                         </div>
+
+                        <!-- Swipe icon for mobile -->               
+                        <div class='swipe-icon-wrapper d-md-none'>
+                            <i class='mb-swipe-icon sz-icons swp-i d-md-none'></i>
+                        </div>
                     {% endfor %}
 
                 </div>
+                
             {% endif %} 
             
         </section>

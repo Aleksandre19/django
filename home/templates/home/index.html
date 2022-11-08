@@ -9,7 +9,9 @@
 
                 <!--Section title -->
                 <h3 class='example-title titles'>
-                    <i class="fas fa-solid fa-video titles-icon mr-2"></i>
+                    <!-- Icon -->
+                    <i class='icons gr-i vi'></i>
+                    <!-- Title -->
                     Video<span class="plural d-none d-md-inline-block">s</span> of the day
                 </h3>
 
@@ -36,9 +38,9 @@
                                         <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ day_video.id }}&action=mylist">
                                             
                                             {% if day_video in videos_in_mylist %}
-                                                <i class="added_in_list fas fa-plus-square"></i>
+                                                <i class="xs-icons ag-i"></i>
                                             {% else %}
-                                                <i class="fas fa-plus-square"></i>
+                                                <i class="xs-icons agr-i"></i>
                                             {% endif %}
                                             
                                         </a>
@@ -50,11 +52,11 @@
 
                                         <!-- Checking if a user has already liked current video -->
                                         {% if day_video in videos_in_likes %}
-                                            <i class="added_in_list fas fa-check"></i>
+                                            <i class="xs-icons lg-i"></i>
                                         {% else %}
                                             <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ day_video.id }}&action=like" 
                                                 class="">
-                                                <i class="far fa-thumbs-up"></i>
+                                                <i class="xs-icons lgr-i"></i>
                                             </a>
                                         {% endif %}
                                         
@@ -72,9 +74,9 @@
                                     <!-- Watched -->
                                     <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                         data-bs-placement="top" title="Watched">
-                                        <a href="#">
-                                            <i class="far fa-eye"></i>
-                                        </a><small class="action-buttons-value">(247)</small>
+
+                                        <i class='xs-icons wi'></i>
+                                        <small class="action-buttons-value">(247)</small>
                                     </div>   
                                 </div>
                             </div>
@@ -98,7 +100,8 @@
             <div class="content-wrapper container-fluid">
                 
                 <h3 class="example-title titles">
-                    <i class="fas fa-redo-alt titles-icon pr-3"></i>
+                    <!-- Icon -->
+                    <i class='icons gr-i ei'></i>
                     Upcoming Event
                 </h3>
 
@@ -160,14 +163,17 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-9">
                             <h3 class="container-fluid titles mt-4">
-                                <i class="fas fa-th-list titles-icon pr-2"></i>
+                                <!-- Icon -->
+                                <i class='icons gr-i li'></i>
                                 My List
                             </h3>
                         </div>
 
                         <div class="col col-md-3 swipe-container">
-                             <img src="{{ MEDIA_URL }}/icons/showdown-finger-icon.png" 
-                                        width="23px" class="pr-1 d-none d-md-inline-block" >
+                            <!-- Icon  -->
+                            <i class='icons sz-i gr-i df-i d-none d-md-inline-block'></i>
+
+                            <!-- text -->
                             <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                             <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                         </div>
@@ -177,7 +183,7 @@
                     <div class='row no-gutters'>
                         <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
                             <a href='#' class='desk-video-switchwer' data-direction='left' id='left'>
-                                <i class="fas fa-chevron-left"></i>
+                                <i class='xs-icons sll-a'></i>
                             </a>
                         </div>
 
@@ -213,9 +219,9 @@
                                                                 <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist">
                                                                     
                                                                     {% if video == mylist_video.video %}
-                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                        <i class="xs-icons ag-i"></i>
                                                                     {% else %}
-                                                                        <i class="fas fa-plus-square"></i>
+                                                                       <i class="xs-icons agr-i"></i>
                                                                     {% endif %}
                                                                     
                                                                 </a>
@@ -226,11 +232,11 @@
                                                                  data-bs-placement="top" title="Like">
                                                                 <!-- Checking if a user has already liked current video -->
                                                                 {% if video in videos_in_likes %}
-                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                    <i class="xs-icons lg-i"></i>
                                                                 {% else %}
                                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
                                                                         class="">
-                                                                        <i class="far fa-thumbs-up"></i>
+                                                                        <i class="xs-icons lgr-i"></i>
                                                                     </a>
                                                                 {% endif %}
                                                                 <!-- Total likes -->
@@ -246,9 +252,9 @@
                                                             <!-- Watched -->
                                                             <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                                                  data-bs-placement="top" title="Watched">
-                                                                <a href="#">
-                                                                    <i class="far fa-eye"></i>
-                                                                </a><small class="action-buttons-value">(247)</small>
+
+                                                                <i class='xs-icons wi'></i>
+                                                                <small class="action-buttons-value">(247)</small>
                                                             </div>
 
                                                         </div>
@@ -270,7 +276,7 @@
                         
                         <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
                             <a href='#' class='desk-video-switchwer float-right' data-direction='right' id='right'>
-                                <i class="fas fa-chevron-right"></i>
+                                <i class='xs-icons slr-a'></i>
                             </a>
                         </div>
                     </div>
@@ -281,8 +287,8 @@
 
         <!-- Bottom slanted line bg -->
         <div class="top-and-bottom-block-bg gray-section-bottom-bg position-relative">
-            <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                 width="30px" class="d-md-none mb-swipe-icon">
+            <!-- Swipe icon for mobile -->
+            <i class='mb-swipe-icon sz-icons swp-i d-md-none'></i>
         </div>
          
         <!-- Sections by categories -->
@@ -303,15 +309,18 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col-9">
                                 <h3 class="container-fluid titles mt-4">
-                                    <img src="{{ MEDIA_URL }}/icons/{{category.name}}-icon.png" 
-                                         width="45px" class="pr-2" alt="{{category.name}}'s Icon">
+                                    <!-- Icon -->
+                                    <i class='icons gr-i {{ category.src }}'></i>
+                                    <!-- Title -->
                                     {{ category.name }}
                                 </h3>
                             </div>
 
                             <div class="col col-md-3 swipe-container">
-                                <img src="{{ MEDIA_URL }}/icons/showdown-finger-icon.png" 
-                                        width="23px" class="pr-1 d-none d-md-inline-block" >
+                                <!-- Icon  -->
+                                <i class='icons sz-i gr-i df-i d-none d-md-inline-block'></i>
+
+                                <!-- text -->
                                 <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                                 <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                             </div>
@@ -323,7 +332,7 @@
                             <!-- Slider left arrow -->
                             <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
                                 <a href='#' class='desk-video-switchwer' data-direction='left' id='left'>
-                                    <i class="fas fa-chevron-left"></i>
+                                    <i class='xs-icons sll-a'></i>
                                 </a>
                             </div>
 
@@ -360,9 +369,9 @@
                                                                 <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=mylist">
                                                                     
                                                                     {% if video_by_category in videos_in_mylist %}
-                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                        <i class="xs-icons ag-i"></i>
                                                                     {% else %}
-                                                                        <i class="fas fa-plus-square"></i>
+                                                                        <i class="xs-icons agr-i"></i>
                                                                     {% endif %}
                                                                     
                                                                 </a>
@@ -374,11 +383,11 @@
 
                                                                 <!-- Checking if a user has already liked current video -->
                                                                 {% if video_by_category in videos_in_likes %}
-                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                    <i class="xs-icons lg-i"></i>
                                                                 {% else %}
                                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video_by_category.id }}&action=like" 
                                                                         class="">
-                                                                        <i class="far fa-thumbs-up"></i>
+                                                                        <i class="xs-icons lgr-i"></i>
                                                                     </a>
                                                                 {% endif %}
                                                                 
@@ -396,9 +405,9 @@
                                                             <!-- Watched -->
                                                             <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                                                 data-bs-placement="top" title="Watched">
-                                                                <a href="#">
-                                                                    <i class="far fa-eye"></i>
-                                                                </a><small class="action-buttons-value">(247)</small>
+
+                                                                <i class='xs-icons wi'></i>
+                                                                <small class="action-buttons-value">(247)</small>
                                                             </div>   
                                                         </div>
                                                     </div>
@@ -419,7 +428,7 @@
                             <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
                                 <a href='#' class='desk-video-switchwer float-right' 
                                             data-direction='right' id='right'>
-                                    <i class="fas fa-chevron-right"></i>
+                                    <i class='xs-icons slr-a'></i>
                                 </a>
                             </div>
 
@@ -431,13 +440,13 @@
             <!-- Bottom slanted line bg -->
             {% if forloop.counter0|divisibleby:2 %}
                 <div class="top-and-bottom-block-bg white-section-bottom-bg position-relative">
-                    <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                    width="30px" class="d-md-none mb-swipe-icon">
+                    <!-- Swipe icon for mobile -->
+                    <i class='mb-swipe-icon sz-icons swp-i d-md-none'></i>
                 </div>
             {% else %}
                  <div class="top-and-bottom-block-bg gray-section-bottom-bg position-relative">
-                    <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                    width="30px" class="d-md-none mb-swipe-icon">
+                    <!-- Swipe icon for mobile -->
+                    <i class='mb-swipe-icon sz-icons swp-i d-md-none'></i>  
                  </div>
             {% endif %}
         {% endfor %}
@@ -496,7 +505,9 @@
             <div class="content-wrapper container-fluid">
                 <!--Section title -->
                 <h3 class='example-title titles'>
-                    <i class="fas fa-solid fa-video titles-icon mr-2"></i>
+                    <!-- Icon -->
+                    <i class='icons gr-i vi'></i>
+                    <!-- Title -->
                     Video Example<span class="plural d-none d-md-inline-block">s</span>
                 </h3>
 
@@ -531,7 +542,9 @@
         <section class="section-wrapper mt-5 mb-5">
             <div class="content-wrapper container-fluid">
                 <h3 class="sub-title titles"> 
-                    <i class="fas fa-user-edit titles-icon mr-2"></i>
+                    <!-- Icons -->
+                    <i class='icons gr-i si'></i>
+                    <!-- Title -->
                     <span> subscription </span>
                 </h3>
 
@@ -692,8 +705,10 @@
             <div class="section-wrapper container-fluid">
                 <!-- FAQ Title -->
                 <h3 class="titles pt-2"> 
-                    <i class="fas fa-th-list titles-icon mr-2"></i>
-                        <span class="d-none d-md-inline-block">
+                    <!-- Icon -->
+                    <i class='icons gr-i fi'></i>
+                    <!-- Title -->
+                    <span class="d-none d-md-inline-block">
                         Frequently Asked Questions
                     </span>
                     <span class="d-md-none"> FAQ </span>

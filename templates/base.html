@@ -38,12 +38,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Fontawasome CDN -->
-    <script
-      src="https://kit.fontawesome.com/b7d2f8c47a.js"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- Jquery CDN Link -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -73,9 +67,7 @@
     {% block extra_js %}
     {% endblock %}
   
-
     <title>Diasfero {% block extratitle %}{% endblock %}</title>
-    {% comment %} {% block contact_js %} {% endblock %} {% endcomment %}
   </head>
 
   <body>
@@ -120,7 +112,8 @@
 
                       <a href="{% url 'users_profile' %}" class="dropdown-toggle"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="far fa-user-circle user-acount-icon"></i>
+                        <!-- User profile icon -->
+                        <i class='icons ui'></i>
                       </a>
 
                       <div class="dropdown-menu">
@@ -166,10 +159,10 @@
                   {% else %} 
                     <!-- Not logged in user -->
                     <div class="above-z btn-group dropleft">
-
                       <a href="" class="dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="far fa-user-circle user-acount-icon"></i>
+                        <!-- User icon -->
+                        <i class='icons ui'></i>
                       </a>
                       
                       <div class="dropdown-menu">
@@ -273,19 +266,19 @@
          nav-justified bg-light bottom-nav">
           <li class="nav-item">
             <a href="{% url 'home' %}" class="mb-f-link nav-link">
-              <i class="fas fa-home"></i>
+              <i class='icons fh-i'></i>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{% url 'videos' %}" class="mb-f-link nav-link">
-              <i class="fas fa-video"></i>
+              <i class='icons fv-i'></i>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{% url 'users_profile' %}" class="mb-f-link nav-link">
-              <i class="fas fa-user-circle"></i>
+              <i class='icons fu-i'></i>
             </a>
           </li>
         </ul>
@@ -340,12 +333,12 @@
             <ul class="nav footer-social justify-content-end">
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <i class="fab fa-facebook-square"></i>
+                  <i class='font-icons'>f</i>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <i class="fab fa-youtube-square"></i>
+                   <i class='font-icons'>y</i>
                 </a>
               </li>
             </ul>

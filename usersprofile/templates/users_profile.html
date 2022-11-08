@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load profile_tags %}
 {% block content %}
     {% if request.user.is_authenticated %}
 
@@ -25,16 +24,16 @@
                         <!-- Section name -->
                         <li class="nav-item mt-4">
                             <a class="side-menu-section-name nav-link ml-3" href="{% url 'users_profile' %}">
-                                <img src="{{ MEDIA_URL }}{{ category.icon }}" 
-                                    width="40px" class="pr-2" alt="Video's Category's Icon"> 
+                               <!-- Icon -->
+                                <i class='icons mz-i gr-i {{category.icon}}'></i>
+                                <!-- Title --> 
                                 {{ category.name }}
                             </a>
                         </li>
                         
                         {% for subcategory in subcategories %}
                             {% if subcategory.category == category %}
-                          
-                                {% counted_videos page request.user as counted_videos %}
+
                                 <!-- Subcategories -->
                                 <li class="nav-item">
                                     <a href="{% url 'users_profile' subcategory.page %}"
@@ -79,16 +78,19 @@
                                 <!-- Title and icon -->
                                 <div class="col-12 col-md-7">
                                     <h3 class="container-fluid video-titles titles mt-4">
-                                        <img src="{{ MEDIA_URL }}{{ subcategory.icon }}" 
-                                            width="45px" class="pr-2" alt="{{subcategory.name}}'s Icon">
+                                        <!-- Icon -->
+                                        <i class='icons mz-i gr-i {{subcategory.icon}}'></i>
+                                        <!-- Title -->
                                         {{subcategory.name}}
                                     </h3>
                                 </div>
 
                                 <!-- Swipe icon -->
                                 <div class="col col-md-5 mt-3 swipe-container">
-                                    <img src="{{ MEDIA_URL }}/icons/this_down_icon.png" 
-                                            width="25px" class="pr-1 d-none d-md-inline-block" >
+                                    <!-- Icon  -->
+                                    <i class='icons sz-i gr-i df-i d-none d-md-inline-block'></i>
+
+                                    <!-- text -->
                                     <span class="d-none d-md-inline-block d-lg-none">Swipe for next</span>
                                     <span class="d-none d-lg-inline-block mr-3">Grab and swipe for next</span>
                                 </div>
@@ -132,9 +134,9 @@
                                                                         <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist">
                                                                             
                                                                             {% if video in actions.mylist %}
-                                                                                <i class="added_in_list fas fa-plus-square"></i>
+                                                                                <i class='xs-icons ag-i'></i>
                                                                             {% else %}
-                                                                                <i class="fas fa-plus-square"></i>
+                                                                                 <i class='xs-icons agr-i'></i>
                                                                             {% endif %}
                                                                             
                                                                         </a>
@@ -146,11 +148,11 @@
 
                                                                         <!-- Checking if a user has already liked current video -->
                                                                         {% if video in actions.liked %}
-                                                                            <i class="added_in_list fas fa-check"></i>
+                                                                             <i class='xs-icons lg-i'></i>
                                                                         {% else %}
                                                                             <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
                                                                                 class="">
-                                                                                <i class="far fa-thumbs-up"></i>
+                                                                                 <i class='xs-icons lgr-i'></i>
                                                                             </a>
                                                                         {% endif %}
                                                                         
@@ -168,18 +170,17 @@
                                                                     <!-- Watched -->
                                                                     <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                                                         data-bs-placement="top" title="Watched">
-                                                                        <a href="#">
-                                                                            <i class="far fa-eye"></i>
-                                                                        </a><small class="action-buttons-value">(247)</small>
+
+                                                                        <i class='xs-icons wi'></i>
+                                                                        <small class="action-buttons-value">(247)</small>
                                                                     </div>   
                                                                 </div>
                                                             </div>
 
                                                             <!-- Description -->
                                                             <p class="container-fluid mt-3 position-relative">
+                                                                <!-- Video description -->
                                                                 {{ video.description|truncatechars:70 }}
-                                                                <img src="{{ MEDIA_URL }}/icons/swipe-icon.png" 
-                                                                    width="30px" class="d-md-none mb-swipe-icon">
                                                             <p>
 
                                                         </div>
@@ -197,6 +198,11 @@
                                         </div>
 
                                     </div>
+
+                                    <!-- Swipe icon for mobile -->               
+                                    <div class='swipe-icon-wrapper d-md-none'>
+                                        <i class='mb-swipe-icon sz-icons swp-i d-md-none'></i>
+                                    </div>
                                 {% endif %}
                             {% endfor %}
                             
@@ -211,8 +217,7 @@
                                 <!-- Title -->
                                 <h3 class="container-fluid video-titles titles mt-4 pl-3">
                                     <!-- Icon -->
-                                    <img src="{{ MEDIA_URL }}{{subcategory.icon}}" 
-                                        width="45px" class="pr-2" alt="Video's Category's Icon">
+                                    <i class='icons mz-i gr-i {{subcategory.icon}}'></i>
                                     <!-- Title -->
                                     {{ subcategory.name }}
                                 </h3>
@@ -251,9 +256,9 @@
                                                                 <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=mylist">
                                                                     
                                                                     {% if video in actions.mylist %}
-                                                                        <i class="added_in_list fas fa-plus-square"></i>
+                                                                         <i class='xs-icons ag-i'></i>
                                                                     {% else %}
-                                                                        <i class="fas fa-plus-square"></i>
+                                                                         <i class='xs-icons agr-i'></i>
                                                                     {% endif %}
                                                                     
                                                                 </a>
@@ -265,11 +270,11 @@
 
                                                                 <!-- Checking if a user has already liked current video -->
                                                                 {% if video in actions.liked %}
-                                                                    <i class="added_in_list fas fa-check"></i>
+                                                                     <i class='xs-icons lg-i'></i>
                                                                 {% else %}
                                                                     <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ video.id }}&action=like" 
                                                                         class="">
-                                                                        <i class="far fa-thumbs-up"></i>
+                                                                         <i class='xs-icons lgr-i'></i>
                                                                     </a>
                                                                 {% endif %}
                                                                 
@@ -287,9 +292,9 @@
                                                             <!-- Watched -->
                                                             <div class="watched-value action-button" data-bs-toggle="tooltip" 
                                                                 data-bs-placement="top" title="Watched">
-                                                                <a href="#">
-                                                                    <i class="far fa-eye"></i>
-                                                                </a><small class="action-buttons-value">(247)</small>
+
+                                                                 <i class='xs-icons wi'></i>
+                                                                 <small class="action-buttons-value">(247)</small>
                                                             </div>   
                                                         </div>
                                                     </div>
