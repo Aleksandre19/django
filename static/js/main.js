@@ -1,3 +1,36 @@
+
+// Get opacity value
+function getElmOpacity(elm) {
+    elmOpacity = window.getComputedStyle(elm).getPropertyValue("opacity");
+    return elmOpacity;
+}
+
+// Fade out loading
+window.addEventListener("load", () => {
+// Grab element
+let loadElm = document.querySelector('.loading');
+let fadeOut = setInterval(() => {
+        // Elements opacity
+        opacity = getElmOpacity(loadElm);  
+        // Decrease opacity
+        if(opacity > 0){
+            loadElm.style.opacity -= 0.03;
+        } else { // Stop interval
+            clearInterval(fadeOut);
+            loadElm.style.opacity -= '0';
+            loadElm.style.display = 'none';
+        }
+    }, 10)
+});
+
+
+// Initialize Bootstrap tooltip
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+
+
 /*
     This script is copyed from
     https://www.w3schools.com/howto/howto_js_countdown.asp
