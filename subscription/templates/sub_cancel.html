@@ -1,1 +1,14 @@
-<h1> Subscription Cancel </h1>
+{% extends "base.html"%}
+{% block content %}
+<section class="contact-section">
+    <div  class='section-wrapper contact-form-wrapper sing-in-up'>
+        <div class="success-message alert alert-info" role="alert">
+           Subscription has been cancelled.
+        </div>
+        <a href="{% url 'home' %}" class="succed-btn filled-button btn btn-success btn-lg"
+                    role="button" aria-pressed="true">
+            Home page
+        </a> 
+    </div>
+</section>
+{% endblock content %}

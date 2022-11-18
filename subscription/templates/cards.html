@@ -52,8 +52,6 @@
                                 {% endif %}
                                 
                                     <div class="cards-content">
-
-
                                         <!-- Saving -->
                                         <p class="cards-saving mt-3"> 
                                             Save 
@@ -77,16 +75,14 @@
                                         <!-- A form to submit a price and a stripe price id -->
                                         <form action="{% url 'checkout' %}" method="POST">
                                             {% csrf_token %}
-                                            
                                             <input type="hidden" name="price" value="{{ card.price }}">
                                             <input type="hidden" name="stripe_plan_id" 
                                                 value="{{ card.stripe_plan_id }}">
                                                 
                                             <!-- Submit button -->
                                             <div class="cards-choose-btn-wrapper">
-                                                <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
+                                                <button type="submit" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
                                             </div>
-                                        
                                         </form>    
 
                                     </div>

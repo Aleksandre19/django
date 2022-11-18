@@ -1,12 +1,14 @@
 {% extends "base.html"%}
-{% load static %}
 {% block content %}
-    <div class="container mt-4">
-        <h2> Your subscription succeeded . </h2>
-        <h4> Now you can access to all videos. </h3>
-        <a href="{% url 'videos' %}" class="btn btn-success btn-lg active mt-4"
+<section class="contact-section">
+    <div  class='section-wrapper contact-form-wrapper sing-in-up'>
+        <div class="success-message alert alert-info" role="alert">
+           Your subscription succeeded and now you can access to all videos.
+        </div>
+        <a href="{% url 'videos' %}" class="succed-btn filled-button btn btn-success btn-lg"
                     role="button" aria-pressed="true">
             Videos
-        </a>   
+        </a> 
     </div>
+</section>
 {% endblock content %}

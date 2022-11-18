@@ -674,7 +674,7 @@
                                     <p class="cards-desc fst-italic mt-3 ml-3 mr-3">{{ card.description }}</p>
 
                                     <!-- A form to submit a price and a stripe price id -->
-                                    <form action="{% url 'checkout' %}" method="POST">
+                                    <form action="{% url 'cards' %}" method="POST">
                                         {% csrf_token %}
                                         
                                         <input type="hidden" name="price" value="{{ card.price }}">
@@ -683,7 +683,7 @@
                                             
                                         <!-- Submit button -->
                                         <div class="cards-choose-btn-wrapper">
-                                            <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
+                                            <button type="submit" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
                                         </div>
                                     
                                     </form>    

@@ -770,7 +770,7 @@ facebook and youtube in the footer.*/
 .contact-form input:focus,
 .contact-form textarea:hover,
 .contact-form textarea:focus {
-    border: solid 2px #a01700;
+    border: solid 2px #81c91e;
 }
 .get-access-input:hover,
 .get-access-input:focus,
@@ -1177,7 +1177,10 @@ facebook and youtube in the footer.*/
 .checkout-section {
     width: 90%;
     margin: auto;
-    margin-top: 130px !important;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e6e5e5;
 }
 
 /*  Subscription cards section's top margin  */
@@ -1194,7 +1197,7 @@ facebook and youtube in the footer.*/
 
 /* Checkout form's filedset */
 #checkout-form legend {
-    color: #f206f6;
+    color: #a01700;
 }
 
 /* Checkout titles */
@@ -1203,6 +1206,15 @@ facebook and youtube in the footer.*/
     margin: 0px 0px 30px 0px;
     text-align: center;
     line-height: 37px;
+}
+
+
+.success-message{
+    font-size: 22px;
+}
+
+.succed-btn{
+    width: 15% !important;
 }
 
 /* Subscription card on the checkout page */
@@ -1235,13 +1247,21 @@ facebook and youtube in the footer.*/
 /* Choosed plan syles on checkout page */
 .mobile-choosed-message {
     font-style: italic;
+    text-align: center;
 }
 
 /* Period style in checkout message */
 .mobile-choosed-message span {
+    font-size: 22px;
     color: #28a744;
     font-weight: bolder;
     text-decoration: underline;
+}
+
+/* Checkout go back button
+for mobile. */
+.mb-go-back-btn {
+    text-align: center;
 }
 
 /* Subscription card's background */
@@ -1252,6 +1272,7 @@ facebook and youtube in the footer.*/
 
 /* Stripe card div */
 #card-element {
+    height: 20px !important;
     padding: 11px;
     background-color: white;
     border: 1px solid #ced4d9;
@@ -1472,6 +1493,10 @@ facebook and youtube in the footer.*/
     transition: opacity 1s ease-out;
 }
 
+/* Subscription page form */
+.form-group {
+    margin-bottom: 0 !important;
+}
 
 .contact-form label {
     margin: 10px 0px 0px 0px;
@@ -1481,9 +1506,9 @@ facebook and youtube in the footer.*/
 .contact-form textarea {
     display: inline-block;
     transition: .3s ease-out;
-    -moz-transition: .1s ease-out;
-    -o-transition: .1s ease-out;
-    -ms-transition: .1s ease-out;
+    -moz-transition: .3s ease-out;
+    -o-transition: .3s ease-out;
+    -ms-transition: .3s ease-out;
 }
 
 .contact-form div{
