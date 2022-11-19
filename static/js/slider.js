@@ -70,6 +70,7 @@ if (allSlider.length > 0 ){
     let preventClickSlide = 0; // Storing swipe range value to check id a slider has been moved or clicked
     let obj = null; // Storing a current object
     let innerSlider; // Storing a inner slider
+    let acted = false;
 
     //  Storing a values for a video blocks seperatly
     let settings = {
@@ -254,7 +255,7 @@ if (allSlider.length > 0 ){
         // Mouse Events
         slider.addEventListener("mousedown", touchStart);
         slider.addEventListener("mouseup", touchEnd);
-        //slider.addEventListener("mouseleave", touchEnd);
+        slider.addEventListener("mouseleave", touchEnd);
         slider.addEventListener("mousemove", touchMove);
 
     });
@@ -372,6 +373,8 @@ if (allSlider.length > 0 ){
     // Function to call when a user touch a finger/mouse
     function touchStart(e) {
         
+        acted = true;
+
         obj = this; // Storing current slide object
 
         innerSlider = obj.querySelector(`.sliders-container`); // Geting current slider's inside div
@@ -431,21 +434,24 @@ if (allSlider.length > 0 ){
     /**
      *  Function to call when a user mooves out a finger/mouse
      */
-    function touchEnd( e ) {
-
-        pressed = false; // User has removed a finger/mouse
-
-        click = false;
-
-        if (innerSlider.classList.contains('grabbing')) {
-            innerSlider.classList.remove('grabbing'); // removing a grabbing class
-        }
+    function touchEnd(e) {
         
-        // Calculating previous translate and swipe values
-        checkSwipeMaxRange();
+        if(acted){
 
-        // Check to see if a slider goes outside of swipable area
-        checkBoundary();
+            pressed = false; // User has removed a finger/mouse
+
+            click = false;
+
+            if (innerSlider.classList.contains('grabbing')) {
+                innerSlider.classList.remove('grabbing'); // removing a grabbing class
+            }
+            
+            // Calculating previous translate and swipe values
+            checkSwipeMaxRange();
+
+            // Check to see if a slider goes outside of swipable area
+                checkBoundary();
+        }
 
     }
 

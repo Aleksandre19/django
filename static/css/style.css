@@ -2247,6 +2247,7 @@ hr.feedback-devider {
 
 .slide{
     width: 100vw;
+    user-select: none;
     transition: transform 0.3s ease-in-out;
     -webkit-transition: transform 0.3s ease-in-out;
     -moz-transition: transform 0.3s ease-in-out;
