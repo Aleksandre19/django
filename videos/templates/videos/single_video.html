@@ -33,9 +33,9 @@
                         <a href="{% url "action_buttons" %}?page_url={{request.get_full_path}}&video_id={{ single_video.id }}&action=mylist">
                             
                             {% if single_video in videos_in_mylist %}
-                                <i class="icons ag-i"></i>
+                                <i class="s-icons icons ag-i"></i>
                             {% else %}
-                               <i class="icons agr-i"></i>
+                               <i class="s-icons icons agr-i"></i>
                             {% endif %}
                             
                         </a>
@@ -47,11 +47,11 @@
 
                         <!-- Checking if a user has already liked current video -->
                         {% if single_video in videos_in_likes %}
-                            <i class="icons slg-i"></i>
+                            <i class="s-icons icons slg-i"></i>
                         {% else %}
                             <a href="{% url 'action_buttons' %}?page_url={{request.get_full_path}}&video_id={{ single_video.id }}&action=like" 
                                 class="">
-                                <i class="icons lgr-i"></i>
+                                <i class="s-icons icons lgr-i"></i>
                             </a>
                         {% endif %}
                         
@@ -69,7 +69,7 @@
                     <!-- Watched -->
                     <div class="watched-value action-button" data-bs-toggle="tooltip" 
                         data-bs-placement="top" title="Watched">
-                        <i class='icons sw-i'></i>
+                        <i class='s-icons icons sw-i'></i>
                         <small class="action-buttons-value">(247)</small>
                     </div>   
                 </div>
@@ -111,7 +111,7 @@
                             <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                         </div>
                     </div>
-                    <hr class="video-title-devider">
+                    <hr class="title-devider">
 
                     <div class="row no-gutters">
 
@@ -124,15 +124,15 @@
 
                         <!-- Sliders area -->
                         <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="same-videos">
-                                <div class="sliders-container">
+                            <div class="slider-owerflow-hidden" id="same-videos">
+                                <div class="slides-container">
                                     {% for same_video in same_videos %}
 
                                         <!-- Slide -->
                                         <div class="slide">
                                             
                                             <!-- Single video title -->
-                                            <h3 class="mt-2 bycat-title"> 
+                                            <h3 class="mt-2"> 
                                                 <a href="{% url 'single_video' same_video.id %}" 
                                                     class="video-title "> {{ same_video.title }} 
                                                 </a>

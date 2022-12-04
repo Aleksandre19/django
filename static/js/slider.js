@@ -7,14 +7,14 @@
  */
 
 // All sliders wrapper
-let allSlider = Array.from(document.querySelectorAll('.video-slider-owerflow-hidden'));
+let allSlider = Array.from(document.querySelectorAll('.slider-owerflow-hidden'));
 
 
 // If there are slides.
 if (allSlider.length > 0 ){
 
     // Setting a left position to the inner sliders
-    let containers = Array.from(document.querySelectorAll('.sliders-container'));
+    let containers = Array.from(document.querySelectorAll('.slides-container'));
 
     containers.forEach( ( container ) => {
 
@@ -235,7 +235,7 @@ if (allSlider.length > 0 ){
      */
     function desktopSlideWidth() {
 
-        let wrapper = document.querySelector( '.video-slider-owerflow-hidden' ).getBoundingClientRect();
+        let wrapper = document.querySelector( '.slider-owerflow-hidden' ).getBoundingClientRect();
         let deskWidth = wrapper.width / 3 - 30;
         return deskWidth;
 
@@ -269,12 +269,12 @@ if (allSlider.length > 0 ){
 
         if ( this.id == 'left' ) {
             elm = document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
-            .sliders-container`).classList.add( 'grabbing' );
+            .slides-container`).classList.add( 'grabbing' );
         } 
 
         if (this.id == 'right') {
             document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
-            .sliders-container`).classList.add( 'grabbing' );
+            .slides-container`).classList.add( 'grabbing' );
         }
 
     }
@@ -289,7 +289,7 @@ if (allSlider.length > 0 ){
 
         if ( this.id == 'left' ) {
             elm = document.querySelector(`#${this.parentElement.nextElementSibling.children[0].id} 
-            .sliders-container`);
+            .slides-container`);
 
             elm.addEventListener('transitionend', () => {
                 elm.classList.remove('grabbing');
@@ -298,7 +298,7 @@ if (allSlider.length > 0 ){
 
         if ( this.id == 'right' ) {
             elm = document.querySelector(`#${this.parentElement.previousElementSibling.children[0].id} 
-            .sliders-container`);
+            .slides-container`);
 
             elm.addEventListener('transitionend', () => {
                 elm.classList.remove('grabbing');
@@ -321,11 +321,11 @@ if (allSlider.length > 0 ){
 
         // Depending on the arrow's direction selecting a slider's container
         if ( this.dataset.direction == 'left' ) {
-            selector = `#${this.parentElement.nextElementSibling.children[0].id} .sliders-container`;
+            selector = `#${this.parentElement.nextElementSibling.children[0].id} .slides-container`;
         } 
 
         if ( this.dataset.direction == 'right' ) {
-            selector = `#${this.parentElement.previousElementSibling.children[0].id} .sliders-container`;
+            selector = `#${this.parentElement.previousElementSibling.children[0].id} .slides-container`;
         }
         
         // Get a Section Wrapper div for current arrow
@@ -377,7 +377,7 @@ if (allSlider.length > 0 ){
 
         obj = this; // Storing current slide object
 
-        innerSlider = obj.querySelector(`.sliders-container`); // Geting current slider's inside div
+        innerSlider = obj.querySelector(`.slides-container`); // Geting current slider's inside div
 
         pressed = true; // User has pressed
 

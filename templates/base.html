@@ -54,17 +54,24 @@
     <main class="all-wrapper position-relative">
       
       <!-- Header  -->
-      <header class="desk-header fixed-top" id="top-header">
+      <header class="header fixed-top">
         <div class="header-content-wrapper">
 
           <div class="row no-gutters">
 
             <div class="col-12">
-
-              <div class="h-f-half row align-items-center">
+              <div class="row align-items-center header-content-row">
 
                 <!-- Logo -->
                 <div class="col-2 col-md-2 col-lg-3">
+
+                  <!-- Burger menu button -->
+                  <button class="navbar-toggler btn-animation d-md-none" type="button" data-toggle="collapse"
+                    data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="animated-icon1"><span></span><span></span><span></span></div>
+                  </button>
+
                   <a href="{% url 'home' %}" class="logo-lg d-none d-md-block"></a>
                 </div>
 
@@ -165,12 +172,6 @@
             <div class="below-z col-12">
               <nav class="top-nav navbar navbar-expand-md navbar-light" style="z-index:0">
 
-                <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
-                  data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-                  aria-expanded="false" aria-label="Toggle navigation">
-                  <div class="animated-icon1"><span></span><span></span><span></span></div>
-                </button>
-
                 <div class="collapse navbar-collapse top-nav-toggle" id="navbarTogglerDemo01">
                   <ul class="navbar-nav top-main-menu">
 
@@ -245,20 +246,20 @@
         <ul class="navbar-nav navbar-expand 
          nav-justified bg-light bottom-nav">
           <li class="nav-item">
-            <a href="{% url 'home' %}" class="mb-f-link nav-link">
-              <i class='icons fh-i'></i>
+            <a href="{% url 'home' %}" class="footer-links nav-link">
+              <i class='mz-i icons fh-i'></i>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'videos' %}" class="mb-f-link nav-link">
-              <i class='icons fv-i'></i>
+            <a href="{% url 'videos' %}" class="footer-links nav-link">
+              <i class='mz-i icons fv-i'></i>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'users_profile' %}" class="mb-f-link nav-link">
-              <i class='icons fu-i'></i>
+            <a href="{% url 'users_profile' %}" class="footer-links nav-link">
+              <i class='mz-i icons fu-i'></i>
             </a>
           </li>
         </ul>
@@ -335,19 +336,9 @@
         source: https://mdbootstrap.com/docs/b4/jquery/navigation/hamburger-menu/ */
      
       $(document).ready(function () {
-
-        $('.first-button').on('click', function () {
+        $('.btn-animation').on('click', function () {
           $('.animated-icon1').toggleClass('open');
         });
-
-        $('.second-button').on('click', function () {
-          $('.animated-icon2').toggleClass('open');
-        });
-
-        $('.third-button').on('click', function () {
-          $('.animated-icon3').toggleClass('open');
-        });
-
       })
 
        /* 
@@ -358,7 +349,7 @@
         /* Checking to find if a user is authenticated */
         let auth = '{{ user.is_authenticated }}'.toLowerCase();
          /* Grabbing a header menu wrapper */
-        let el = document.querySelector( '.desk-header' );
+        let el = document.querySelector( '.header' );
 
         if( page != '' ) { // If home page
 

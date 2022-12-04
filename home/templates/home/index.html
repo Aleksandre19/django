@@ -5,7 +5,7 @@
         
         <!-- Videos of the day -->
         <section class="section-wrapper mt-5">
-            <div class="content-wrapper container-fluid">
+            <div class="container-fluid">
 
                 <!--Section title -->
                 <h3 class='example-title titles'>
@@ -97,7 +97,7 @@
 
         <!-- Uppcoming event -->
         <section class="section-wrapper mt-5">
-            <div class="content-wrapper container-fluid">
+            <div class="container-fluid">
                 
                 <h3 class="example-title titles">
                     <!-- Icon -->
@@ -106,7 +106,7 @@
                 </h3>
 
                 <div class="row mt-4 no-gutters uppcoming-row">
-                    <div class="col-12 col-lg-6 md-event-desc">
+                    <div class="col-12 col-lg-6">
 
                         <!-- Event's Title -->
                         <h3 class="ml-3 pt-3 event-title example-title titles">
@@ -178,7 +178,7 @@
                             <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                         </div>
                     </div>
-                    <hr class="video-title-devider">
+                    <hr class="title-devider">
 
                     <div class='row no-gutters'>
                         <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
@@ -188,8 +188,8 @@
                         </div>
 
                         <div class='col-12 col-lg-10'>
-                            <div class="video-slider-owerflow-hidden" id="my-list">
-                                <div class="sliders-container">
+                            <div class="slider-owerflow-hidden" id="my-list">
+                                <div class="slides-container">
 
                                     <!-- Looping a MyList videos by user -->
                                     {% for mylist_video in mylist_videos %}
@@ -199,7 +199,7 @@
                                                 <div class="slide">
                                             
                                                     <!-- Title  -->
-                                                    <h3 class="mt-2 bycat-title"> 
+                                                    <h3 class="mt-2"> 
                                                         <a href="{% url 'single_video' video.id %}" class="video-title ">
                                                              {{ video.title }} 
                                                         </a>
@@ -325,7 +325,7 @@
                                 <span class="d-none d-lg-inline-block">You can also swipe by mouse</span>
                             </div>
                         </div>
-                        <hr class="video-title-devider">
+                        <hr class="title-devider">
 
                         <div class='row no-gutters'>
 
@@ -338,8 +338,8 @@
 
                             <!-- Sliders area -->
                             <div class='col-12 col-lg-10'>
-                                <div class="video-slider-owerflow-hidden" id="{{ category.name.lower }}">
-                                    <div class="sliders-container">
+                                <div class="slider-owerflow-hidden" id="{{ category.name.lower }}">
+                                    <div class="slides-container">
                                         {% for video_by_category in videos_by_categories %}
                                             {% if video_by_category.category.name == category.name %}
 
@@ -347,7 +347,7 @@
                                                 <div class="slide">
                                                     
                                                     <!-- Single video title -->
-                                                    <h3 class="mt-2 bycat-title"> 
+                                                    <h3 class="mt-2"> 
                                                         <a href="{% url 'single_video' video_by_category.id %}" 
                                                             class="video-title "> {{ video_by_category.title }} 
                                                         </a>
@@ -483,7 +483,7 @@
                                 <input type="text" class="get-access-input form-control" name="search">
                             </div>
                             <div class="col-3">
-                                <button type="submit" class="get-access-btn btn btn-primary ml-2 wel-btn">
+                                <button type="submit" class="get-access-btn btn btn-primary ml-2">
                                     <span class="d-none d-md-inline-block">Get</span> Access
                                 </button>
                             </div>
@@ -502,7 +502,7 @@
 
         <!-- Video examples section -->
         <section class="section-wrapper mt-5">
-            <div class="content-wrapper container-fluid">
+            <div class="container-fluid">
                 <!--Section title -->
                 <h3 class='example-title titles'>
                     <!-- Icon -->
@@ -540,7 +540,7 @@
         
         <!-- Subscription section -->
         <section class="section-wrapper mt-5 mb-5">
-            <div class="content-wrapper container-fluid">
+            <div class="container-fluid">
                 <h3 class="sub-title titles"> 
                     <!-- Icons -->
                     <i class='icons gr-i si'></i>
@@ -625,7 +625,7 @@
                                             
                                         <!-- Submit button -->
                                         <div class="cards-choose-btn-wrapper">
-                                            <button type="button" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
+                                            <button type="submit" class="btn btn-outline-success btn-lg mb-4">Choose a plan</button>
                                         </div>
                                     
                                     </form>    
@@ -717,7 +717,7 @@
                 
                 <!-- FAQ 1 -->
                 <div class="faq-1 mb-3">
-                    <p class="faq-questions-p">
+                    <p class="faq-p">
                         <a class="btn faq-questions" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
                             What is included in subscription?
                         </a>
@@ -732,7 +732,7 @@
 
                 <!-- FAQ 2 -->
                 <div class="faq-2 mb-3">
-                    <p class="faq-questions-p">
+                    <p class="faq-p">
                         <a class="btn faq-questions" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-2">
                             When can I cancel a subscription?
                         </a>
@@ -747,7 +747,7 @@
 
                 <!-- FAQ 3 -->
                 <div class="faq-3 mb-3">
-                    <p class="faq-questions-p">
+                    <p class="faq-p">
                         <a class="btn faq-questions" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-3">
                             How can I pay?
                         </a>
@@ -762,7 +762,7 @@
 
                 <!-- FAQ 4 -->
                 <div class="faq-4">
-                    <p class="faq-questions-p">
+                    <p class="faq-p">
                         <a class="btn faq-questions" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-4">
                             May I have private consultation?
                         </a>

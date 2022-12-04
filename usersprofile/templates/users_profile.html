@@ -6,7 +6,7 @@
         <!-- Side menu open button for tablets and mobile devices -->
         <div class="row d-lg-none no-gutters section-wrapper">
             <div class="col col-lg-0">&nbsp;</div>
-            <div class="col-4 md-side-menu-btn">
+            <div class="col-4 side-menu-btn-wrapper">
                 <button class="default-btn btn" 
                         id="open-side-menu">
                     Categories
@@ -23,7 +23,7 @@
                     {% for category in categories %}
                         <!-- Section name -->
                         <li class="nav-item mt-4">
-                            <a class="side-menu-section-name nav-link ml-3" href="{% url 'users_profile' %}">
+                            <a class="side-menu-section-name nav-link ml-3 pb-4" href="{% url 'users_profile' %}">
                                <!-- Icon -->
                                 <i class='icons mz-i gr-i {{category.icon}}'></i>
                                 <!-- Title --> 
@@ -97,7 +97,7 @@
                             </div>
                             
                             <!-- Title under line-->
-                            <hr class="video-title-devider mt-4">
+                            <hr class="title-devider mt-4">
 
                             {% for key, videos in actions.items %}
                                 {% if key == subcategory.page %} 
@@ -105,14 +105,14 @@
                                     <div class="row no-gutters"> 
                                         <!-- Sliders area -->
                                         <div class="col-12">
-                                            <div class="video-slider-owerflow-hidden" id="{{ subcategory.slider_id }}">
-                                                <div class="sliders-container">
+                                            <div class="slider-owerflow-hidden" id="{{ subcategory.slider_id }}">
+                                                <div class="slides-container">
                                                     <!-- Diplay videos -->
                                                     {% for video in videos %}
                                                         <!-- Slide -->
                                                         <div class="slide">   
                                                             <!-- Single video title -->
-                                                            <h3 class="mt-2 bycat-title"> 
+                                                            <h3 class="mt-2"> 
                                                                 <a href="{% url 'single_video' video.id %}" 
                                                                     class="video-title "> {{ video.title }} 
                                                                 </a>
@@ -223,7 +223,7 @@
                                 </h3>
 
                                 <!-- Title underline -->
-                                <hr class="video-title-devider mt-4">
+                                <hr class="title-devider mt-4">
                                 
                                 <!-- Mylis and liked videos content -->
                                 {% if not account and not subscription %}
@@ -234,7 +234,7 @@
                                                 <!-- Content Section -->
                                                 <div class="col-12 col-md-4">
                                                     <!-- Single video title -->
-                                                    <h3 class="mt-2 bycat-title"> 
+                                                    <h3 class="mt-2"> 
                                                         <a href="{% url 'single_video' video.id %}" 
                                                             class="video-title "> {{ video.title }} 
                                                         </a>
@@ -333,7 +333,7 @@
                                 <!-- Subscription page content -->
                                 {% if page == 'subscription' %}
                                     <ul class="list-group mb-4">
-                                        <form method="" action="" class="profile-account-wrapper">
+                                        <form method="" action="">
                                             <div class="inputs-wrapper">
                                                 <div class="input-group flex-nowrap">
                                                     <div class="input-group-prepend">

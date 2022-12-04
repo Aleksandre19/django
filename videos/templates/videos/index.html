@@ -6,10 +6,10 @@
 
     {% if request.user.is_authenticated %}
 
-        <!-- Side menu opene button for tablets and mobile devices -->
+        <!-- Side menu open button for tablets and mobile devices -->
         <div class="row d-lg-none no-gutters section-wrapper">
             <div class="col col-lg-0">&nbsp;</div>
-            <div class="col-4 md-side-menu-btn">
+            <div class="col-4 side-menu-btn-wrapper">
                 <button class="default-btn btn" 
                         id="open-side-menu">
                     Categories
@@ -23,6 +23,7 @@
             <div class="pt-3 a-side-menu col-3" id="a-side-menu">
     
                 <ul class="nav flex-column side-menu-ul">
+                    
                     <!-- Categories's list -->
                     {% for category in categories %}
 
@@ -34,7 +35,7 @@
                         {% endif %}
                                 <!-- Title -->
                                 <a href="{% url 'videos' category.name %}" 
-                                    class="side-menu-section-name nav-link ml-3">
+                                    class="side-menu-section-name nav-link ml-3 pb-4">
                                     <!-- Icon -->
                                     <i class='icons mz-i gr-i {{category.src}}'></i>
                                     <!-- Title -->
@@ -89,7 +90,7 @@
                             {{ category.friendly_name }}
                         </h3>
                         <!-- Title under line-->
-                        <hr class="video-title-devider mt-4">
+                        <hr class="title-devider mt-4">
                         
                         <!-- Content Section -->
                         <div class='last-view-content-row row bg-white'>
@@ -109,7 +110,7 @@
                                     <div class='col-12 col-md-4'>
                                         
                                         <!-- Single video title -->
-                                        <h3 class="mt-2 bycat-title"> 
+                                        <h3 class="mt-2"> 
                                             <a href="{% url 'single_video' video_by_category.id %}" 
                                                 class="video-title "> {{ video_by_category.title }} 
                                             </a>
@@ -198,7 +199,7 @@
                         Search result
                     </h3>
                     <!-- Title under line-->
-                    <hr class="video-title-devider mt-4">
+                    <hr class="title-devider mt-4">
                     
                     <!-- Content Section -->
                     <div class='last-view-content-row row bg-white'>
@@ -206,7 +207,7 @@
                             <div class='col-12 col-md-4'>
                                 
                                 <!-- Single video title -->
-                                <h3 class="mt-2 bycat-title"> 
+                                <h3 class="mt-2"> 
                                     <a href="{% url 'single_video' video_by_category.id %}" 
                                         class="video-title "> {{ video_by_category.title }} 
                                     </a>
@@ -307,22 +308,22 @@
                             </div>
                         </div>
                         <!-- Title devider -->
-                        <hr class="video-title-devider">
+                        <hr class="title-devider">
 
                         <!-- Content -->
                         <div class="row no-gutters">
 
                             <!-- Sliders area -->
                             <div class="col-12">
-                                <div class="video-slider-owerflow-hidden" id="{{ category.name.lower }}">
-                                    <div class="sliders-container">
+                                <div class="slider-owerflow-hidden" id="{{ category.name.lower }}">
+                                    <div class="slides-container">
                                         {% for video_by_category in videos %}
                                             {% if video_by_category.category == category %}
                                                 <!-- Slide -->
                                                 <div class="slide">
                                                     
                                                     <!-- Single video title -->
-                                                    <h3 class="mt-2 bycat-title"> 
+                                                    <h3 class="mt-2"> 
                                                         <a href="{% url 'single_video' video_by_category.id %}" 
                                                             class="video-title "> {{ video_by_category.title }} 
                                                         </a>
