@@ -361,15 +361,15 @@
                     </div>
                 {% endif %}
             </div>
-
         </section>
     {% else %}
 
     {% endif %}
 {% endblock %}
-
 {% block bottom_extra_js %}
-<script src="{% static 'js/slider.js' %} "></script>
+{% if current_page == 'home' %}
+    <script src="{% static 'js/slider.js' %}"></script>
+{% endif %}
 <script src="{% static 'js/sidemenu.js' %} "></script>
 <script>
     

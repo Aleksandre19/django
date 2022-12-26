@@ -420,16 +420,18 @@
                 </div>
                 
             {% endif %} 
-            
         </section>
     
     {% else %}
 
     {% endif %}
 {% endblock %}
-
 {% block bottom_extra_js %}
-<script src="{% static 'js/slider.js' %} "></script>
+
+<!-- Load slider if the page is videos. -->
+{% if current_page == 'videos' %}
+    <script src="{% static 'js/slider.js' %} "></script>
+{% endif %}
 <script src="{% static 'js/sidemenu.js' %} "></script>
 
 {% endblock %}

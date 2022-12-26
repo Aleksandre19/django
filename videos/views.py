@@ -65,7 +65,7 @@ def single_video(request, video_id):
     if request.user.is_authenticated:
         videos = Videos.objects.all()
         single_video = get_object_or_404(Videos, pk=video_id)
-        same_videos = videos.filter(subjects=single_video.subjects)
+        same_videos = videos.filter(category=single_video.category)
 
         context = {
             'single_video': single_video,

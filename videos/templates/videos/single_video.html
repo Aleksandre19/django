@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block pages_style %}
-<link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
-{% endblock %}
 {% block content %}
     {% if request.user.is_authenticated %}
 
@@ -117,8 +114,8 @@
 
                         <!-- Slider left arrow -->
                         <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer' data-direction='left' id='left'>
-                                <i class="fas fa-chevron-left"></i>
+                            <a href='#' class='slider-arrows' data-direction='left' id='left'>
+                                <i class='xs-icons sll-a'></i>
                             </a>
                         </div>
 
@@ -210,9 +207,9 @@
                         
                         <!-- Slider right arrow-->
                         <div class='col-0 col-lg-1 d-none d-lg-block align-self-center'>
-                            <a href='#' class='desk-video-switchwer float-right' 
+                            <a href='#' class='slider-arrows float-right' 
                                         data-direction='right' id='right'>
-                                <i class="fas fa-chevron-right"></i>
+                                <i class='xs-icons slr-a'></i>
                             </a>
                         </div>
 

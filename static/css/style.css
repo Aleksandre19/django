@@ -1157,9 +1157,8 @@ for mobile. */
 }
 
 .slides-container {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    position: relative;
+    left: 0;
     display: inline-flex;
     overflow: hidden;
     transform: translateX(0);
@@ -1728,11 +1727,6 @@ for mobile. */
         margin: auto;
     }
 
-    .slide {
-        width: calc((100vw / 2) - 50px);
-        margin: 0 15px;
-    }
-
     /* Removing a each video content's left and right margins */
     .last-view-content-row div.col-12 {
         padding-left: 15px;
@@ -1938,7 +1932,7 @@ for mobile. */
         width: 100%;
     }
 
-    .desk-video-switchwer {
+    .slider-arrows {
         font-size: 60px;
         color: #8c8c8c;
         -webkit-transition: color 0.3s ease-in-out;
@@ -1947,7 +1941,7 @@ for mobile. */
         transition: color 0.3s ease-in-out;
     }
 
-    .desk-video-switchwer:hover {
+    .slider-arrows:hover {
         color: #538212;
     }
 
@@ -1957,8 +1951,8 @@ for mobile. */
         margin-right: 0;
     }
 
-    .slide {
-        width: calc((100vw / 3) - 50px);
+    div.slide:last-child {
+        margin-right: 0;
     }
 
     .a-side-menu {
