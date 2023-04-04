@@ -3,6 +3,12 @@
 
 This is a Full Stack Web Development milestone project. The site is device friendly and it implements a CRUD functionality along with stripe payment system and with a JavaScript video slider/swiper.
 - The working website can be found [here.](https://fsmp.herokuapp.com/)
+##### Test user.
+```
+In order to test the site functionality without registering a new user there is a built in user to use it for.
+Username: testme
+Password: verifyme
+```
 <h2 align="center"><img src="media/img/general/mockup.gif" alt='Diasfero Mockup GIF'></h2>
 
 ##### User stories:
@@ -48,12 +54,6 @@ Files of sketches and designs can be found end of this page.
 - [Amazon S3](https://aws.amazon.com/s3/) - Storing images and static files.
 - [Stripe](https://stripe.com/en-gb-se) - Subscription system.
 
-##### Test user.
-```
-In order to test the site functionality without registering a new user there is a built in user to use it for.
-Username: testme
-Password: verifyme
-```
 ##### Stripe test credit card details:
 ```
 In order to make subscription on this site for testing please use the following credit card details:
