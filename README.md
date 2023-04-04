@@ -3,7 +3,7 @@
 
 This is a Full Stack Web Development milestone project. The site is device friendly and it implements a CRUD functionality along with stripe payment system and with a JavaScript video slider/swiper.
 - The working website can be found [here.](https://fsmp.herokuapp.com/)
-##### Test user.
+##### Test user:
 ```
 In order to test the site functionality without registering a new user there is a built in user to use it for.
 Username: testme
